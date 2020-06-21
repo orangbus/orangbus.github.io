@@ -1,7 +1,8 @@
 const nav = require("./nav");
-const sidebar = require("./sidebar");
+// const sidebar = require("./sidebar");
 
 module.exports = {
+    // theme: 'reco',
     themeConfig: {
         title: "OrangBus",
         description: "分享生活高效技能",
@@ -30,7 +31,7 @@ module.exports = {
         // 默认为 "Edit this page"
         editLinkText: '帮助我们改善此页面！',
         nav,
-        sidebar
+        // sidebar
     },
     //插件
     plugins: [
@@ -72,9 +73,11 @@ module.exports = {
         ['vuepress-plugin-baidu-autopush'], //添加百度推送
         [
             'sitemap', {
-            hostname: 'https://doc.orangbus.cn'
+                hostname: 'https://doc.orangbus.cn'
         },
         ], //生成站点的Sitemap，有助于SEO。
+        ['@vuepress/medium-zoom'], //图片放大
+        ["vuepress-plugin-auto-sidebar",{}]
     ],
     head: [
         ["meta",{name: "keywords", content: "html,css,jquery,thinkphp,laravel,docker,linux,manjaro"}],
@@ -90,7 +93,8 @@ module.exports = {
                 s.parentNode.insertBefore(hm, s);
             })();
         `]
-    ]
+    ],
+
 };
 
 

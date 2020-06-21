@@ -5,7 +5,7 @@ sidebar: auto
 
 ## layui 笔记
 
-> 
+> 只是个人笔记，有需要的小伙伴可以看一下哦！
 
 ## layui-table
 
@@ -119,12 +119,8 @@ form.verify({
 ## 跳转新tab
 
 ```js
-top.layui.index.openTabsPage("{:url('StudentYear/index')}?type=5", "年份管理");
+top.layui.index.openTabsPage("{:url('StudentYear/index')}?type=5", "新tab名字");
 ```
-
-
-
-
 
 ## 按钮事件触发
 
@@ -151,7 +147,7 @@ $('.layui-btn').on('click', function(){
 ## 打开新标签
 
 ```javascript
-top.layui.index.openTabsPage("/admin/article/articleDetail.html?id="+id,title)
+top.layui.index.openTabsPage('{:url(add)}?id='+id,title)
 ```
 
 ## 弹窗表单
@@ -215,7 +211,7 @@ Users::where("id",$uid)->inc("money2",(int)$amount)->update();
 
 ## layui点击事件取值
 
-```html
+```js
 date-type="add" data-id="value"
 
 var id = $(this).data('id');
@@ -362,5 +358,22 @@ form.on('select(level1)',function (data) {
                 }
             });
         });
+```
+
+## Layui 默认时间戳
+
+首先把戳转化为日期格式在进行赋值就可以
+
+```php
+ $data["kk_time"] = date('Y-m-d H:i:s', (int)$data['kk_time']); // 2020-06-19 11:28:40
+```
+
+```javascript
+laydate.render({
+    elem: '#kk-time'
+    ,type: 'datetime'
+    ,trigger:'click'
+    ,value: new Date('{:isset($data.kk_time)?$data.kk_time:""}')
+});
 ```
 

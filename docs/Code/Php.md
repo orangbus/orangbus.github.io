@@ -1,4 +1,5 @@
 ---
+title: php常用函数
 sidebar: auto
 ---
 

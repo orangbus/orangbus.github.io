@@ -2,7 +2,7 @@
 home: true
 title: OrangBus
 heroImage: /orangbus.png
-heroText: OrangBus NetBook
+heroText: OrangBus Netes
 tagline: 保持勇敢，坚持有趣，生命不息，折腾不止！
 actionText: Start →
 actionLink: /Guide/
@@ -10,7 +10,7 @@ features:
 - title: Window
   details: 工先善其事，必先利其器，分享个人生活中高效工具,提高工作效率。
 - title: Linux
-  details: 作为一个Coder爱好者，Linux逐渐成为一种乐趣，也是万恶的开始，但是痛并快乐着。
+  details: 作为一个Code爱好者，熟练使用Linux是每一个电脑爱好者的必备技能。
 - title: About
   details: 所有能穿越时间的东西，就该坚守；所有会被时间过滤的，改翻篇就翻篇。
 - title: Grow

@@ -20,7 +20,7 @@ id uid
 ## natapp
 
 ```bash
-nohup ./natapp -authtoken=2005b202e45ce346 -log=stdout -loglevel=ERROR &
+nohup ./natapp -authtoken=2005b202e45ce346xxxx -log=stdout -loglevel=ERROR &
 ```
 
 
@@ -28,7 +28,7 @@ nohup ./natapp -authtoken=2005b202e45ce346 -log=stdout -loglevel=ERROR &
 ## ngrok
 
 ```
-./ngrok authtoken 4ShUPREAAeEAfXAk3yjyb_2H5VYL8FFG3j2wfbu171q
+./ngrok authtoken 4ShUPREAAeEAfXAk3yjyxxxxb_2H5VxYL8FFG3j2wfbu171q
 
 ./ngrok http 80
 ```

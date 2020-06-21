@@ -220,6 +220,19 @@ if (!pid){
   
   ```
 
+## 时间选择
+
+```js
+laydate.render({
+    elem: '#pmtime'
+    ,type: 'time'
+    ,range: true
+    ,trigger:'click',
+});
+```
+
+
+
 ## 单选
 
 ```html

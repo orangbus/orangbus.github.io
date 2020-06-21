@@ -19,6 +19,8 @@ phpoffice/phpspreadsheet //excel表单处理
 
 ## 查询技巧
 
+### join
+
 ```php
 $data = Score::alias('s')
     ->join("gift g",'s.sid=g.id')
@@ -28,13 +30,7 @@ $data = Score::alias('s')
     ->select()->toArray();
 ```
 
-## 插入并返回插入id
-
-```php
-$resId = Mode::insertGetId();
-```
-
-## 别名查询
+### 别名查询
 
 ```php
 $data = Articles::where("del",0)
@@ -60,6 +56,21 @@ $data = Articles::where("del",0)
 http://localhost:8082/ArticleDetail?eid=26&puid=100
 ```
 
+### 关联查询
+
+```php
+ ->with(['user','parent']) //模型关联方法，不是模型的名字
+ ->visible(['user'=>['realname'],'parent'=>['realname']])
+```
+
+
+
+## 插入并返回插入id
+
+```php
+$resId = Mode::insertGetId();
+```
+
 ## 去重查询并统计人数
 
 ```php
@@ -70,7 +81,12 @@ Gw::where("gwssd",$defaultGwssd)
     ->select()->toArray();
 ```
 
+## 时间转化
 
+```php
+ $data['bmstime'] = strtotime($data['bmstime']);
+ date('Y-m-d H:i:s',$data['bmstime']);
+```
 
 ## 多字段统计
 
@@ -88,59 +104,6 @@ array_multisort(array_column($Account,'px'),SORT_ASC,$Account);
 ```
 
 
-
-## JWT-AUTH使用方发
-
-> https://gitee.com/thans/jwt-auth
-
-中间件形式:
-
-```php
-// app/config/middleware
-
-'alias'    => [
-        "Auth" => thans\jwt\middleware\JWTAuth::class,
-    ],
-```
-
-```
-// controller
-protected $middleware = ['Auth'];
-```
-
-```
-$user = [
-	"name" => "orangbus"
-];
-```
-
-```
-// thans/tp-jwt-auth/src/claim/Expiration 15行修改
-return ["code" => 1,"msg" => "token已失效!"];
-```
-
-- 获取toke
-
-  ```
-  $token = JWTAuth::builder($user);
-  echo $token['name']; // orangbus
-  ```
-
-- 验证token
-
-  ```
-  //登录验证
-  JWTAuth::auth();
-  
-  // token验证
-  JWTAuth::validate()
-  ```
-
-- 刷新token
-
-  ```php
-  JWTAuth::refresh(); //返回 token信息,之前的数据依旧存在
-  ```
 
 ### ip地址
 
@@ -178,74 +141,6 @@ if (data.code == 1){
 }
 
 
-
-```
-
-### 时间处理
-
-> http://momentjs.cn/
-
-```js
-npm install moment --save
-
-//时间戳转时间
-import moment from "moment";
-filters: {
-    //时间戳转时间
-    formatDate(time) {
-    return moment(parseInt(time * 1000)).format('YYYY-MM-DD hh:mm:ss');
-    }
-},
-```
-
-## vue处理时间戳转如期方法
-
-```javascript
-yarn add moment --save
-# use
-{{item.change_time | formatDate}}
-
-import moment from "moment";
-
-filters:{
-    //时间戳转时间
-    formatDate(time) {
-        return moment(parseInt(time*1000)).format('YYYY-MM-DD HH:mm:ss');
-    },
-},
-```
-
-## 如何获取 v-for 的某个值
-
-```js
-@click="show(index)"
-
-show:function(){
-	this.lists[index].val
-}
-```
-
-## 别名查询
-
-```php
-$data = Articles::where("del",0)
-        ->alias('a')
-        ->join('wy_comment c','a.id=c.aid')
-        ->field("a.id,a.title,,COUNT(c.aid) as comCount")
-        ->limit(($page * $limit) - $limit, (int)$limit)
-        ->order("id","desc")->select()->toArray();
-            
-$data = Articles::where("del",0)
-        ->field("id,title,keyword,pic,createtime,click")
-        ->limit(($page * $limit) - $limit, (int)$limit)
-        ->withCount('ArcToCom')
-        ->order("id","desc")->select()->toArray();
-            
-//关联查询
- ->with(['user','parent'])
- ->visible(['user'=>['realname'],'parent'=>['realname']])
- 
-//关联统计
 
 ```
 
@@ -336,6 +231,62 @@ $data = VoteBm::where($where)
         ]);
 ```
 
+## Php处理Excel
+
+> https://phpspreadsheet.readthedocs.io/en/latest/#getting-started
+
+```php
+public function importDo(Request $request)
+    {
+        $excelFile = $request->file("file");
+        $check = new ValidateCheck();
+        $checkRes = $check->checkNull(["uploadExcel"=>$excelFile],'excel');
+        if ($checkRes !== true) return json($checkRes);
+        $year = $request->param("year");
+
+        $objRead = IOFactory::createReader('Xlsx');
+        if (!$objRead->canRead($excelFile)) {
+            $objRead = IOFactory::createReader('Xls');
+            if (!$objRead->canRead($excelFile)) {
+                return resMsg(0, '只支持导入Excel文件！', 'reserve' );
+            }
+        }
+        $objPHPExcel = $objRead->load($excelFile);  //$file可以是上传的表格，或者是指定的表格
+        $sheet = $objPHPExcel->getSheet(0);   //excel中的第一张sheet
+        $highestRow = $sheet->getHighestRow();       // 取得总行数
+        $i = 0; //无效数据
+        $k=0; //有效数据
+        $rem='';
+        for ($j = 2; $j <= $highestRow; $j++) { //从第几行开始导入
+            $data[$k] = [
+                'id' => $objPHPExcel->getActiveSheet()->getCell("A" . $j)->getValue(),
+                'name' => $objPHPExcel->getActiveSheet()->getCell("B" . $j)->getValue(),
+                'content' => $objPHPExcel->getActiveSheet()->getCell("C" . $j)->getFormattedValue(),
+                'year' => $year,
+                'create_time' => time(),
+            ];
+            $k++;
+        }
+        //排除空值
+        foreach ($data as $j => $v){
+            if ($v['code'] == null){
+                unset($data[$j]);
+                $i +=1;
+            }
+        }
+        try {
+            Bm::insertAll($data);
+        }catch (\ErrorException $e){
+            return resMsg(2, $e->getMessage(),'index' );
+        }
+        if($i !== 0){
+            return resMsg(1, '导入成功！总计导入'.$k.'条数据！,本次Excel存在无效数据'.$i.'条，岗位代码为空！','index' );
+        }else {
+            return resMsg(1, '导入成功！本次导入数据总计'.$k.'条','index' );
+        }
+    }
+```
+
 ## 一次性插入大量数据处理
 
 ```php
@@ -347,3 +298,57 @@ $count = ceil(count($data)/500);
     }
 ```
 
+## JWT-AUTH使用方发
+
+> https://gitee.com/thans/jwt-auth
+
+中间件形式:
+
+```php
+// app/config/middleware
+
+'alias'    => [
+        "Auth" => thans\jwt\middleware\JWTAuth::class,
+    ],
+```
+
+```
+// controller
+protected $middleware = ['Auth'];
+```
+
+```
+$user = [
+	"name" => "orangbus"
+];
+```
+
+```
+// thans/tp-jwt-auth/src/claim/Expiration 15行修改
+return ["code" => 1,"msg" => "token已失效!"];
+```
+
+- 获取toke
+
+  ```
+  $token = JWTAuth::builder($user);
+  echo $token['name']; // orangbus
+  ```
+
+- 验证token
+
+  ```
+  //登录验证
+  JWTAuth::auth();
+  
+  // token验证
+  JWTAuth::validate()
+  ```
+
+- 刷新token
+
+  ```php
+  JWTAuth::refresh(); //返回 token信息,之前的数据依旧存在
+  ```
+
+### 
