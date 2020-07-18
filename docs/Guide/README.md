@@ -2,7 +2,7 @@
 title: 毕业时说的再见，却是再也未见
 categories: 
 - Live
-form: 
+sidebar: false
 ---
 **毕业时说的再见，却是再也未见 **
 

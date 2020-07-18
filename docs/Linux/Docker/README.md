@@ -84,6 +84,7 @@ docker-compose up -d nginx mysql phpmyadmin
 ```
 # master
 docker swarm init --advertise-addr 192.168.99.100
+rclone mount DriveName:Folder LocalFolder --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000
 ```
 
 # minikube
@@ -113,3 +114,50 @@ minikube start --vm-driver=virtualbox /
 --disk-size='20000m'
 
 preloaded-images-k8s-v1-v1.17.3-docker-overlay2.tar.lz4: https://storage.googleapis.com/minikube-preloaded-volume-tarballs/preloaded-images-k8s-v1-v1.17.3-docker-overlay2.tar.lz4
+
+## laradock app
+
+> 相应文件夹可以到github或者群里获取。
+
+目录
+
+```.env
+## httpbin 
+HTTPBIN_PORT=8085
+
+## wordPress
+WORDPRESS_PORT=8086
+WORDPRESS_HTML=./wordpress
+
+```
+
+```yaml
+### httpin ##########################################################
+    httpbin:
+      container_name: httpbin
+      image: kennethreitz/httpbin
+      ports:
+      - 8085:80
+      
+## wordPress 生产环境请自行修改数据库账号密码
+    wordpress:
+      container_name: wordpress
+      image: wordpress
+      environment:
+        WORDPRESS_DB_HOST: mysql
+        WORDPRESS_DB_USER: root
+        WORDPRESS_DB_PASSWORD: root
+        WORDPRESS_DB_NAME: wordpress
+      volumes:
+        - ${WORDPRESS_HTML}:/var/www/html
+      ports:
+      - "${WORDPRESS_PORT}:80"
+      depends_on:
+        - mysql
+        - nginx
+        - php-fpm
+      networks:
+        - frontend
+        - backend
+```
+

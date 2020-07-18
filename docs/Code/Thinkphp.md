@@ -298,6 +298,99 @@ $count = ceil(count($data)/500);
     }
 ```
 
+简单粗暴方法
+
+```php
+// $list 是一个1W 条二维数组数据，每次插入 1000条
+Model::limit(1000)->insertAll($list);
+```
+
+## 闭包查询
+
+```
+
+```
+
+## 动态查询
+
+```php
+// 根据邮箱（email）查询用户信息
+User::whereEmail('thinkphp@qq.com')
+    ->find();
+
+// 根据昵称（nick_name）查询用户
+User::whereNickName('like', '%流年%')
+    ->select();
+    
+// 根据邮箱查询用户信息
+User::getByEmail('thinkphp@qq.com');
+    
+// 根据昵称（nick_name）查询用户信息
+User::getByNickName('流年');
+    
+// 根据邮箱查询用户的昵称
+User::getFieldByEmail('thinkphp@qq.com', 'nick_name');
+    
+// 根据昵称（nick_name）查询用户邮箱
+User::getFieldByNickName('流年', 'email');
+```
+
+## 字段比较
+
+可以直接比较两个字段的大小进行查询
+
+```php
+User::whereColumn('update_time', '>', 'create_time')
+    ->select();
+User::whereColumn('score1', '>', 'score2')
+    ->select();
+```
+
+如果需要比较两个字段相同，可以使用
+
+```php
+User::whereColumn('score1', 'score2')
+    ->select();
+```
+
+## 时间表达式查询
+
+对于一些非具体的时间查询，比较适合使用时间表达式进行查询，例如：
+
+```php
+// 获取今天的博客
+Blog::whereTime('create_time', 'today')
+    ->select();
+    
+// 获取昨天的博客
+Blog::whereTime('create_time', 'yesterday')
+    ->select();
+    
+// 获取本周的博客
+Blog::whereTime('create_time', 'week')
+    ->select();   
+    
+// 获取上周的博客
+Blog::whereTime('create_time', 'last week')
+    ->select();    
+    
+// 获取本月的博客
+Blog::whereTime('create_time', 'month')
+    ->select();   
+    
+// 获取上月的博客
+Blog::whereTime('create_time', 'last month')
+    ->select();      
+    
+// 获取今年的博客
+Blog::whereTime('create_time', 'year')
+    ->select();    
+    
+// 获取去年的博客
+Blog::whereTime('create_time', 'last year')
+    ->select();     
+```
+
 ## JWT-AUTH使用方发
 
 > https://gitee.com/thans/jwt-auth

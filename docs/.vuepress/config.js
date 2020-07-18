@@ -9,7 +9,7 @@ module.exports = {
         logo: "/orangbus.png", //导航页Logo
         // displayAllHeaders: true, //显示所有页面的标题链接
         activeHeaderLinks: true, // 活动的标题链接
-        // sidebar: 'auto', //自动生成侧边栏
+        sidebar: 'auto', //自动生成侧边栏
         smoothScroll: true,
         search: true, //开启搜索
         searchMaxSuggestions: 10, //搜索显示结果条数

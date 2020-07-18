@@ -7,6 +7,12 @@ sidebar: auto
 
 > 只是个人笔记，有需要的小伙伴可以看一下哦！
 
+## 前段扩展包
+
+【xm-select】layui下拉多选: [xm-select](https://maplemei.gitee.io/xm-select/#/)
+
+
+
 ## layui-table
 
 ```html
