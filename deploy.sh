@@ -4,11 +4,11 @@
 set -e
 
 # 备份项目到仓库中
-# git add .
-# git commit -m " update:`date` "
-# git push https://gitee.com/orangbus/vuePress.git master
-#
-# echo "备份成功！"
+ git add .
+ git commit -m " update:`date` "
+ git push https://gitee.com/orangbus/vuePress.git master
+
+ echo "备份成功！"
 
 # 生成静态文件
 npm run docs:build

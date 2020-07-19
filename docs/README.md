@@ -25,7 +25,7 @@ footer: MIT Licensed | Copyright © 2020-present OrangBus
 # <span style="color:#3EAF7C;text-align:center;">如何开始？</span>
 
 ```$bash
-git clone https://github.com/orangbus/vuepress-blog.git VueBlog
+git clone https://gitee.com/orangbus/vuePress.git VueBlog --depth 1
 npm i
 npm run docs:dev
 # 部署到 Github
