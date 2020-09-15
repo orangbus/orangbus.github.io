@@ -9,11 +9,44 @@ sidebar: auto
 
 ## 前段扩展包
 
-【xm-select】layui下拉多选: [xm-select](https://maplemei.gitee.io/xm-select/#/)
+【xm-select】layui下拉多选: [xm-select](https://maplemei.gitee.io/xm-select/#/) 
+
+## Layui单页面多个时间选择异常
+
+```html
+<input type="text" name="addr" value="" class="layui-input" placeholder="输入上课地点" autocomplete="off" lay-verify="required" lay-reqText="时间不能为空" id="sk_time">
+```
+
+```javascript
+ laydate.render({
+     elem: '#sk_time' //指定元素
+     ,type: 'datetime'
+     ,range: true
+     ,trigger:'click'
+ });
+```
 
 
 
 ## layui-table
+
+### 第二页删除
+
+```js
+done: function(res, curr, count) {
+    if (res.data.length == 0) {
+        if(curr!=1) {
+            table.reload('Bargain_list', {
+                page: {
+                    curr: curr - 1 //重新从第 1 页开始
+                }
+            });
+        }
+    }
+}
+```
+
+
 
 ```html
 <table 
@@ -200,6 +233,24 @@ top.layui.index.openTabsPage('{:url(add)}?id='+id,title)
          // console.log(layero,"123456")
      }
  });
+// =================
+layer.open({
+    type: 2,
+    title: '编辑-' + data.name,
+    area: ['600px', '700px'],
+    content: ['{:url("edit")}?id=' + data.id, data.name],
+    skin: 'layui-layer-molv',
+    btn: ['确认', '取消'],
+    btnAlign: 'c',
+    yes: function (index, layero) {
+        var submit = layero.find('iframe').contents().find("#submit");// #subBtn为页面层提交按钮ID
+        submit.click();// 触发提交监听
+        return false;
+    },
+    btn2: function (index, layero) {
+        layer.close(index);
+    }
+});
 ```
 
 ## 关闭当前标签
@@ -381,5 +432,74 @@ laydate.render({
     ,trigger:'click'
     ,value: new Date('{:isset($data.kk_time)?$data.kk_time:""}')
 });
+```
+
+## 快捷修改
+
+```php
+/**
+ * 名单快捷修改
+ */
+public function setField(Request $request)
+{
+    // 获取用户提交的数据
+    $data = $request->param();
+    // 取出数据
+    $id = $data['id'];
+    $fieldname = $data['dataname'];
+    $fieldvalue = $data['datavalue'];
+    try {
+        Cate::where('id', $id)
+            ->data([$fieldname=>$fieldvalue])
+            ->update();
+    } catch (\Exception $e) {
+        return error($e->getMessage());
+    }
+    return success('修改成功');
+}
+```
+
+```javascript
+table.on('edit(dataTable)', function (obj) { //注：edit是固定事件名，dataTable是table原始容器的属性 lay-filter="对应的值"
+    setField(obj.data.id, obj.field, obj.value);
+});
+
+
+function setField(id, dataname, datavalue) {
+        // 加载层
+        var loading = layer.msg('处理中，请稍后...', {
+            icon: 16,
+            shade: 0.2
+        });
+        var $ = layui.jquery;
+
+        $.ajax({
+            url: "{:url('setField')}",
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                id : id,
+                dataname : dataname,
+                datavalue : datavalue
+            },
+            success: function (res) {
+                layer.close(loading);
+                let {code,msg} = res;
+                if (code == 1) {
+                    layer.msg(msg, {
+                        time: 1500
+                    },function(){
+                        // window.location.reload();
+                    });
+                } else {
+                    layer.alert(msg, {
+                        icon: 2
+                    },function(){
+                        window.location.reload();
+                    });
+                }
+            }
+        });
+    }
 ```
 

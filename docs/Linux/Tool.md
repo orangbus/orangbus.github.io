@@ -8,6 +8,14 @@ sidebar: auto
 
 > <span style="color:red;">更多Linux配置请参考：</span><https://github.com/orangbus/Tool
 
+## 在线工具
+
+php在线调试：<http://php.jsrun.net>
+
+## Linux快捷键
+
+- `Ctrl + r` 搜索匹配历史执行过的命令。
+
 ## Linux 如何开放端口和关闭端口
 
 打开端口号
@@ -163,6 +171,26 @@ Terminus（推荐）：<https://github.com/Eugeny/terminus>
 Git (必备)：<https://git-scm.com/>
 
 babun：<http://babun.github.io/>
+
+## linux开启ssh连接
+
+- debian
+
+  ```
+  sudo vim /etc/ssh/sshd_config
+  
+  # debian9:修改一下文件
+  将#PasswordAuthentication no的注释去掉，并且将no修改为yes
+  将#PermitRootLogin prohibit-password的注释去掉，将prohibit-password改为yes
+  重启ssh： sudo systemctl restartt sshd
+  #================================================
+  #debain10
+  PermitRootLogin yes
+  PasswordAuthention yes
+  重启ssh： sudo systemctl restartt sshd
+  ```
+
+  
 
 ## 压力测试
 

@@ -1,0 +1,59 @@
+---
+title: php-call_user_func使用
+---
+
+**call_user_func()**是利用回调函数**处理字符串**，**call_user_func_array**是利用回调函数**处理数组**。
+
+```php
+// 1、 调用自定义函数
+function test($a, $b)
+{
+    echo $a + $b;
+}
+// 字符串传参
+call_user_func('test', 1, 2); // 3
+// 数组式传参
+call_user_func_array('test', [1, 2]); // 3
+
+// 2、 调用匿名函数
+call_user_func(function($a, $b){ echo $a + $b ;}, 1, 2); // 3
+call_user_func_array(function($a, $b){ echo $a + $b ;}, [1, 2]); // 3
+
+// 3、 调用系统函数
+echo call_user_func('strtoupper', 'abc'); // ABC
+echo call_user_func_array('strtoupper', ['abc']); // ABC
+
+// 4、 调用类中的函数
+class Test
+{
+    static public function demo($a, $b)
+    {
+        echo $a + $b;
+    }
+    public function show($a, $b)
+    {
+        echo $a + $b;
+    }
+}
+// 调用类中的静态方法
+   // 类名方法名以数据形式
+call_user_func(['Test', 'demo'], 1, 2); // 3
+call_user_func_array(['Test', 'demo'], [1, 2]); // 3
+   // 类名方法名以字符串形式
+call_user_func('Test::demo', 1, 2); // 3
+call_user_func_array('Test::demo', [1, 2]); // 3
+
+// 调用类中的动态方法，对象和方法必须通过数组形式传递
+call_user_func([new Test, 'show'], 1, 2); // 3
+call_user_func_array([new Test, 'show'], [1, 2]); // 3
+```
+
+总结： call_user_func 和 call_user_func_array不同在于传参方式，前者是字符串形式，后者是数组形式。
+
+二者皆可调用自定义函数、匿名函数、系统函数以及类中的静态动态方法。如在TP5.1中运用Facade门面类作为静态代理类，
+
+使用静态方式调用动态类中的动态方法，即让类无需实例化而直接进行静态方式的调用，带来了更好的可测试性和扩展性。
+
+在 think\Facade类的最后有具体体现：
+
+![](https://img2018.cnblogs.com/blog/1442837/201904/1442837-20190405105717300-398021176.png)

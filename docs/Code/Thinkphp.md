@@ -63,6 +63,51 @@ http://localhost:8082/ArticleDetail?eid=26&puid=100
  ->visible(['user'=>['realname'],'parent'=>['realname']])
 ```
 
+## 远程一对一查询
+
+```php
+/**
+     * 座位表通过班级表去查教室
+     * 座位关联班级，班级关联教室： 通过【座位】关联【班级】去查【教室】
+     * 参数：教室模型，班级模型，座位表id,班级表id，座位表关联班级的关联id，班级表关联教室的id
+     */
+public function room()
+{
+    return $this->hasOneThrough(Room::class,RoomBj::class,"id","id","bj_id","room_id");
+}
+```
+
+
+
+## 多字段统计
+
+```php
+//model
+public function status2()
+{
+	return $this->hasMany(Student::class,"cate_id","id");
+}
+public function status4()
+{
+	return $this->hasMany(Student::class,"cate_id","id");
+}
+    
+// controller
+ public function info()
+ {
+     $data = SchoolCate::field("id,cate")
+         ->withCount([
+             "status2" => function($query){
+                 $query->where('status',2);
+             },
+             "status4" => function($query){
+                 $query->where('status',4);
+             }
+         ])->select()->toArray();
+     return view("",["data"=>$data]);
+ }
+```
+
 
 
 ## 插入并返回插入id
@@ -203,8 +248,8 @@ if (empty($name)) return json(["code"=>2,'msg'=>"请输入投票人名字或者�
 ## 搜索
 
 ```PHP
-$page = empty($request->param('page')) ? 1 : $request->param('page');
-$limit = empty($request->param('limit')) ? 15 : $request->param('limit');
+$page = $request->param("page",1);
+$limit = $request->param("limit",15);
 $search = $request->param('search_word');
  $where = [];
  $where[]=["vid","=",$vid];
@@ -390,6 +435,40 @@ Blog::whereTime('create_time', 'year')
 Blog::whereTime('create_time', 'last year')
     ->select();     
 ```
+
+## 关联删除
+
+```php
+/**
+     * 删除
+     */
+    public function delete(Request $request)
+    {
+        $id = $request->param("id/d");
+        $delData = Dks::with(["dkUser","theme","bm","prize","prize"])->find($id);
+        try {
+            $delData->together(["dkUser","theme","bm","prize"])->delete();
+        }catch (\ErrorException $e){
+            return error($e->getMessage());
+        }
+        return success("删除成功！");
+    }
+
+    public function batchDel(Request $request)
+    {
+        $ids = $request->param("ids"); //[1,2,3]
+        try {
+            foreach ($ids as $item){
+                Dks::with(["dkUser","theme","bm","prize","prize"])->find($item)->together(["dkUser","theme","bm","prize","prize"])->delete();
+            }
+        }catch (\ErrorException $e){
+            return error($e->getMessage());
+        }
+        return success("删除成功！");
+    }
+```
+
+
 
 ## JWT-AUTH使用方发
 

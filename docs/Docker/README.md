@@ -1,9 +1,14 @@
 ---
 title: Laradock入门
-sidebar: auto
 ---
 
 # Docker-LNMP
+
+校对时间:
+
+```bash
+cp  /usr/share/zoneinfo/Asia/ShangHai  /etc/localtime
+```
 
 - 安装Docker
 
@@ -35,14 +40,20 @@ sudo usermod -aG docker $USER
 
 开机启动docker：
 
-```$xslt
+```bash
 sudo systemctl enable docker 
 sudo systemctl start docker
+
+// 重启docker
+systemctl daemon-reload
+systemctl restart docker
 ```
 
 有时候pull image 的时候很慢可以添加国内源
 
 ```$json
+// sudo vim /etc/docker/daemon.json
+
 {
     "registry-mirrors": [
     "https://kfwkfulq.mirror.aliyuncs.com",
@@ -124,6 +135,7 @@ WORDPRESS_PORT=8086
 WORDPRESS_HTML=./wordpress
 
 ## emby 
+# bash: mkdir -p emby/config emby/Data emby/Pan
 EMBY_IMAGE=emby/embyserver
 EMBY_HTTP_PORT=8085
 EMBY_HTTPS_PORT=8086
@@ -132,6 +144,7 @@ EMBY_SHAREDIR_PATH=./emby/data
 EMBY_CLOUD_PATH=/home/orangbus/Pan
 
 # nextCloud ############################
+# bash: mkdir nextcloud && cd nextcloud && mkdir -p NextCloud Apps Config Data Theme
 NEXTCLOUD_PORT=8083
 NEXTCLOUD=./nextcloud/NextCloud
 NEXTCLOUD_APPS=./nextcloud/Apps
@@ -144,6 +157,7 @@ BAIDU_PORT=8088
 BAIDU_PATH=./baidu/data
 
 # aria2
+# bash: mkdir aria2 && mkdir -p Download config
 ARIA2_HTTP_PORT=8089
 ARIA2_POER1=6800
 ARIA2_POER2=16881
@@ -257,3 +271,51 @@ docker-compose
         - "${ARIA2_POER2}:16881"
 
 ```
+
+# 错误汇总
+
+> Service 'mysql' failed to build: error pulling image configuration: Get "https://registry-1.docker.io/v2/library/mysql/blobs/sha256:718a6da099d82183c064a964523c0deca80619cb033aadd15854771fe592a480": dial tcp: lookup registry-1.docker.io: no such host
+
+```
+sudo echo "servername 8.8.8.8" >> /etc/resolv.conf
+```
+
+
+
+> ERROR: Service 'phpmyadmin' failed to build: Get "https://registry-1.docker.io/v2/": dial tcp: lookup registry-1.docker.io: no such host
+
+```bash
+//第一步：创建daemon.json文件
+sudo vim /etc/docker/daemon.json
+
+//第二步：重启docker
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+//第三步：执行docker-compose的时候需要在文件所在目录执行
+```
+
+
+
+
+
+```
+//css
+components/sign/Verific.vue   
+components/sign/StePassword
+components/sign/Register.vue
+components/teacher/TeacherList.vue -> @import "../../assets/css/teacher/TeacherList.css";
+components/index/Index.vue    @import "../../assets/css/index/Index.css";
+components/my/setting/BindingVer.vue 
+components/my/setting/Binding.vue
+```
+
+```
+// for
+components/article/Index
+components/my/studyCenter/Exam.vue
+components/course/Index.vue
+components/course/Index2.vue
+components/course/Detail.vue
+```
+
