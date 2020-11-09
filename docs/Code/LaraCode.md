@@ -68,3 +68,44 @@ config/app.php 修改
 ```
 faker_locale = 'zh-CN'
 ```
+
+## laravel使用factory填充数据
+
+### 设置中文数据
+
+```php
+public function definition()
+    {
+        $faker = \Faker\Factory::create("zh_CN");
+        return [
+            "title" => $faker->title
+        ];
+    }
+
+//通过配置文件配置
+// config\app.php
+faker_locale => 'zh_CN'
+```
+
+### 创建迁移文件
+
+```bash
+php artisan make:model Demo -m
+```
+
+### 创建工厂数据
+
+```bash
+php artisan make:factory DemoFactory
+```
+
+### 填充数据
+
+```bash
+php artisan tinker
+namespace App\Models;
+
+Demo::factory()->make(); //测试，不会真的往数据库插入
+Demo::factory()->create(); // 直接写入数据库
+```
+

@@ -17,6 +17,22 @@ composer require overtrue/wechat
 phpoffice/phpspreadsheet //excel表单处理
 ```
 
+> 官方文档：https://www.kancloud.cn/manual/thinkphp6_0/1037479
+
+## Http 常用返回状态码
+
+200 ： （OK） 服务器已成功处理了请求。 通常，这表示服务器提供了请求的网页。 
+201 ： （Created） 请求成功并且服务器创建了新的资源。
+301 ： （Moved Permanently） 请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。 
+300 ： （多种选择） 针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。
+303 ： （查看其他位置） 请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。 
+304 ： （Not Modified） 自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。 
+400 ： （Bad Request） 服务器不理解请求的语法。
+401 ： （Unauthorized） 请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。
+403 ： （Forbidden） 服务器拒绝请求。 
+404 ： （Not Found ） 服务器找不到请求的网页。
+500 ： （Internal Server Error） 服务器遇到错误，无法完成请求。
+
 ## 查询技巧
 
 ### join
@@ -63,21 +79,72 @@ http://localhost:8082/ArticleDetail?eid=26&puid=100
  ->visible(['user'=>['realname'],'parent'=>['realname']])
 ```
 
+### 分页查询
+
+```php
+// contoller
+public function list(){
+    $limit = $request->param("limit", 15);
+    $data = User::order("id","desc")->paginate($limit);
+    //获取查询数据
+    $list = $data->items();
+    // 获取总条数
+    $count = $data->total();
+    // json 返回
+    return json(["code"=>201,"data"=>$list,"count"=>$count]);
+}
+```
+
+## **获取器**
+
+获取器的作用是在获取数据的字段值后自动进行处理，例如，我们需要对状态值进行转换，1 代表：正常
+
+在model下定义: 语法：get + 字段名+Attr
+
+```php
+class User extends Model
+{
+      public function getStatusAttr($value)
+      {
+	    $status = [-1=>'删除',0=>'禁用',1=>'正常',2=>'待审核'];
+            return $status[$value];
+      }
+}
+// 查询输出
+$user = User::find()->status; //例如输出“正常”
+```
+
+```php
+
+class User extends Model 
+{
+    public function getStatusAttr($value)
+    {
+       $status = [-1=>'删除',0=>'禁用',1=>'正常',2=>'待审核'];
+       return ['val'=>$value,'text'=>$status[$value]];
+  }
+}
+
+$user = User::find()->status; //例如输出“正常”
+$user = User::find()->status.text; //例如输出“1”
+
+$user = User::find();
+$user->getData("status"); //例如输出“1”
+```
+
 ## 远程一对一查询
 
 ```php
 /**
-     * 座位表通过班级表去查教室
+     * 【座位表】通过【班级表】去查【教室】
      * 座位关联班级，班级关联教室： 通过【座位】关联【班级】去查【教室】
-     * 参数：教室模型，班级模型，座位表id,班级表id，座位表关联班级的关联id，班级表关联教室的id
+     * 参数：教室模型（目标表），班级模型（中间表），座位表id（目标表）,班级表id（中间表），座位表关联班级的关联id（起始表），班级表关联教室的id（中间表）
      */
 public function room()
 {
     return $this->hasOneThrough(Room::class,RoomBj::class,"id","id","bj_id","room_id");
 }
 ```
-
-
 
 ## 多字段统计
 
@@ -107,8 +174,6 @@ public function status4()
      return view("",["data"=>$data]);
  }
 ```
-
-
 
 ## 插入并返回插入id
 
@@ -148,48 +213,13 @@ array_multisort($dataKey,SORT_DESC,$data);
 array_multisort(array_column($Account,'px'),SORT_ASC,$Account);
 ```
 
-
-
-### ip地址
+## ip地址
 
 ```
 $request->server("REMOTE_ADDR")
-$request->server("REMOTE_ADDR")
 ```
 
-### 跳转
-
-```javascript
-this.$router.push({
-    path:'/ArticleUser',
-    query:{
-        eid:this.eid,
-        pid: this.pid
-    }
-})
-```
-
-### 请求返回
-
-```javascript
-// ld
-let data = {
-    vid: ID
-}
-// resd
-let data = res.data;
-if (data.code == 1){
-    console.log(data.data)
-    this.info = data.dta;
-}else{
-	layer.msg(data.msg);
-}
-
-
-
-```
-
-## 多字段统计
+## fieldRaw多字段统计
 
 ```php
 ->fieldRaw('Sum(prize_value) as totle,SUM(unum) as unum')
@@ -202,12 +232,6 @@ $dataKey = array_column($data,"team_count");
 array_multisort($dataKey,SORT_DESC,$data);
 
 array_multisort(array_column($Account,'px'),SORT_ASC,$Account);
-```
-
-## 字段非空
-
-```
-if (empty($name)) return json(["code"=>2,'msg'=>"请输入投票人名字或者编号！"]);
 ```
 
 ## 验证器使用
@@ -233,47 +257,25 @@ if (empty($name)) return json(["code"=>2,'msg'=>"请输入投票人名字或者�
         }catch (ValidateException $e){
             $msg = $e->getMessage();
         }
-        if ($code == 1){
-            return true;
-        }else{
-            return [
-                "code"=>$code,
-                'msg'=>$msg
-            ];
-        }
+        if ($code == 1) return true;
+        return ["code"=>$code,"msg"=>$msg];
     }
-
 ```
 
 ## 搜索
 
 ```PHP
-$page = $request->param("page",1);
 $limit = $request->param("limit",15);
 $search = $request->param('search_word');
  $where = [];
- $where[]=["vid","=",$vid];
- if (!empty($search)){
- 	$where[]=['fullname','like',"%$search%"];
- }
-$data = VoteBm::where($where)
-            ->limit(($page * $limit) - $limit, (int)$limit)
-            ->order("id","desc")->select()->toArray();
-        if (!empty($data)){
-            $list = [];
-            foreach ($data as $v){
-                $v['bmtime'] = date("Y-m-d H:i:s",$v['bmtime']);
-                $list[] = $v;
-            }
-        }
-        $count = VoteBm::where($where)->count();
-        return json([
-            "code" => 0,
-            "msg" => "数据加载成功！",
-            "data" => $list,
-            "count" => $count,
-            "vid" => $vid
-        ]);
+ $where['vid']=$request->param("vid");
+ if (!empty($search)) $where['fullname']=['like',"%$search%"];
+$data = VoteBm::where($where)->order("id","desc")->paginate();
+return json(["code"=>201,"data"=>$data->items(),"count"=>$data->$data->total()]);
+```
+
+```php
+User::whereLike("nickname", $keywords.'%')->column("id")
 ```
 
 ## Php处理Excel
@@ -348,12 +350,6 @@ $count = ceil(count($data)/500);
 ```php
 // $list 是一个1W 条二维数组数据，每次插入 1000条
 Model::limit(1000)->insertAll($list);
-```
-
-## 闭包查询
-
-```
-
 ```
 
 ## 动态查询
@@ -468,6 +464,44 @@ Blog::whereTime('create_time', 'last year')
     }
 ```
 
+## 排名统计
+
+> 假设一个用户去玩一款游戏，每次结束后会产生一个分数，那么一个用户就有多条记录分值的记录，如何在同一张表中统计 每个玩家最高分在总玩家的排名
+
+条件：一张用户表（user），一个记录玩家成绩的记录表（score）（一个玩家有多条记录，我们要取最高分进行排名）
+
+1、去重查询所有用户的id （score）
+
+```php
+$allUserIds = Score::distinct(true)->field("uid")->column("uid");
+```
+
+2、通过关联统计的方式查询所有用户的最高分
+
+```php
+$data = User::whereIn("id",$allUserIds)->field("id")->withMax("boy","score")->field("id")->select()->toArray(); // boy为关联方法,score为score表的分数字段
+```
+
+```php
+// user模型关联方法
+public function boy()
+{
+    return $this->hasMany(Score::class,"uid","id");//用 用户表的id，关联积分表的uid
+}
+```
+
+3、使用一个`foreach` 循环
+
+```php
+$myTop = 0;
+foreach ($data as $item){
+    if ($item['boy_max'] > $score){
+        $myTop +=1;
+    }
+}
+echo $myTop = $myTop+1;
+```
+
 
 
 ## JWT-AUTH使用方发
@@ -522,5 +556,3 @@ return ["code" => 1,"msg" => "token已失效!"];
   ```php
   JWTAuth::refresh(); //返回 token信息,之前的数据依旧存在
   ```
-
-### 

@@ -37,6 +37,7 @@ module.exports = [
 				text: "Html",
 				items: [
 					{text: 'Layui笔记', link: '/Code/Layui'},
+					{text: 'Javascript手册', link: '/Code/Javascript'},
 					{text: '在线手册', link: '/Code/Menu'},
 				]
 			},

@@ -245,6 +245,43 @@ for( $i=0; $i<6; $i++ ) {
   echo floor(1.6); 	// 1
   ```
 
+## fiel_get_contents 请求
+
+```php
+// 淘宝ip地址
+    protected function HttpIp($ip)
+    {
+        $query_info = ['ip' => $ip, 'accessKey'=>'alibaba-inc'];
+        $context = stream_context_create([
+            'http' => array(
+                'method' => 'POST',
+                'header' => 'Content-type:application/x-www-form-urlencoded',
+                'content' => http_build_query($query_info),
+                'timeout' => 30
+            ),
+        ]);
+        $httpRes = file_get_contents('http://ip.taobao.com/outGetIpInfo', false, $context);
+        return json_decode($httpRes,true);
+    }
+```
+
+## 生成唯一SN
+
+```php
+/**
+ * 生成sn 
+*/
+private function createSn()
+{
+    $str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $number = substr(microtime(),-4);
+    return date('Ymd').substr(str_shuffle($str),10,15).$number;
+}
+```
+
+
+
+
 
 # php设计模式
 

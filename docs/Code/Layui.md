@@ -138,6 +138,16 @@ table.reload('#bm-table-list'); //表单数据刷新
 
 - 选择器是 table节点的 id
 
+## 关闭弹窗表格重载
+
+```js
+parent.layui.table.reload('dataTable',{page:{curr:1}});
+var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+parent.layer.close(index);
+```
+
+
+
 ## 自定义表单验证
 
 ```js
