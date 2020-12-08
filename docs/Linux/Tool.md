@@ -200,6 +200,12 @@ babun：<http://babun.github.io/>
 webbench -c 100 -t 10 http://www.baidu.com/
 ```
 
+## 测速脚本
+
+```bash
+bash <(curl -Lso- https://git.io/superspeed)
+```
+
 ## ubuntu install brew
 
 > https://docs.brew.sh/Homebrew-on-Linux
@@ -242,5 +248,62 @@ Centos：<https://www.centos.org/>
 备注：不推荐使用 Debian 8 系统，因为 Caddy 申请证书可能会出现一些莫名其妙的问题
 ```bash
 bash <(curl -s -L https://git.io/v2ray.sh)
+```
+
+## Shell笔记
+
+### 颜色
+
+```bash
+#!/usr/bin/env bash
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
+
+# 设置字体颜色函数
+function blue(){
+    echo -e "\033[34m\033[01m $1 \033[0m"
+}
+function green(){
+    echo -e "\033[32m\033[01m $1 \033[0m"
+}
+function greenbg(){
+    echo -e "\033[43;42m\033[01m $1 \033[0m"
+}
+function red(){
+    echo -e "\033[31m\033[01m $1 \033[0m"
+}
+function redbg(){
+    echo -e "\033[37;41m\033[01m $1 \033[0m"
+}
+function yellow(){
+    echo -e "\033[33m\033[01m $1 \033[0m"
+}
+function white(){
+    echo -e "\033[37m\033[01m $1 \033[0m"
+}
+```
+
+### 初始化工具安装
+
+```bash
+#工具安装
+install_pack() {
+    pack_name="基础工具"
+    echo "===> Start to install curl"    
+    if [ -x "$(command -v yum)" ]; then
+        command -v curl > /dev/null || yum install -y curl
+    elif [ -x "$(command -v apt)" ]; then
+        command -v curl > /dev/null || apt install -y curl
+    else
+        echo "Package manager is not support this OS. Only support to use yum/apt."
+        exit -1
+    fi    
+}
+```
+
+### root权限检测
+
+```bash
+[ $(id -u) != "0" ] && { echo "${CFAILURE}Error: You must be root to run this script${CEND}"; exit 1; }
 ```
 

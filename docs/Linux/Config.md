@@ -12,6 +12,17 @@ sidebar: auto
 
 华为云： <https://mirrors.huaweicloud.com>
 
+## SSH-keygen
+
+### 创建一个 SSH key 
+
+```bash
+ssh-keygen -t rsa -C "your_email@example.com"
+
+# 存放在位置:~/.ssh
+ls ~/.ssh
+```
+
 ## 个人常用别名 
 
 ```bash
@@ -26,8 +37,8 @@ alias ll='ls -alh'
 alias gi="git init"
 alias ga="git add ."
 alias gc="git commit -m "
-alias gpush="git push"
-alias gpull="git pull"
+alias gp="git push"
+alias gl="git pull"
 # ============== docker ==========================
 alias dc='docker-compose'
 alias dca='dc up -d nginx phpmyadmin'
@@ -36,13 +47,13 @@ alias dcres='docker-compose restart && dcps'
 alias dcn='docker-compose restart nginx && dcps'
 alias dcd='dc down'
 # ============ Docker Code Dir ===================
-alias ld="cd $HOME/Code/laradock"
+alias ld="cd /home/Code/laradock"
 alias ldca="ld && dca && dcps && cd -"
 alias ldps="ld && dcps  && cd -"
 alias ldn="ld && dcn && cd -"
 alias ldd="ld && dcd && cd -"
 alias ldres="ld && dcres && cd -"
-alias web="cd $HOME/Code/web"
+alias web="cd /home/Code/web"
 # ============= zsh-autosuggestions ==============
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```

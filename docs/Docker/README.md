@@ -355,7 +355,7 @@ docker-compose up -d workspace
 
 列出所有进项，
 
-![](/images/image-20201207103646644.png)
+![](./images/image-20201207103646644.png)
 
 ```bash
 ➜  laradock git:(master) ✗ docker images    
@@ -374,8 +374,10 @@ docker save -o laradock_nginx.tar laradock_nginx
 ## 导入laradock镜像
 
 ```bash
-docker load -q laradock_nginx.tar
+docker load -i laradock_nginx.tar
 ```
+
+到此就可以直接启用了。
 
 # 错误汇总
 

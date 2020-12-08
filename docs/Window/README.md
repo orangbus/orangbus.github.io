@@ -117,6 +117,35 @@ PPTOK : <http://www.pptok.com>
 
 图虫网：<https://tuchong.com>
 
+## Windows Terminal默认打开路径
+
+```json
+{
+    // Make changes here to the powershell.exe profile.
+    "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "name": "Windows PowerShell",
+    "commandline": "powershell.exe",
+    "hidden": false,
+    "startingDirectory" : "d:/laragon/www/", //这里配置默认启动的位置
+},
+```
+
+Windows Terminal中WSL默认打开路径(startingDirectory)
+
+```
+"startingDirectory": "//wsl$/Ubuntu-20.04/home/baiguo",
+```
+
+## Cmd 打开当前文件夹
+
+```bash
+start .
+
+explorer .
+```
+
+Ps: 仔细看后面是有一个点的
+
 ## Window10官方下载
 
 window10： <https://www.microsoft.com/zh-cn/software-download/windows10ISO>
