@@ -3,7 +3,7 @@ title: Thinkphp学习笔记
 sidebar: auto
 ---
 
-### Thinkphp学习笔记
+# Thinkphp学习笔记
 
 扩展包推荐
 
@@ -32,6 +32,49 @@ phpoffice/phpspreadsheet //excel表单处理
 403 ： （Forbidden） 服务器拒绝请求。 
 404 ： （Not Found ） 服务器找不到请求的网页。
 500 ： （Internal Server Error） 服务器遇到错误，无法完成请求。
+
+## 数据返回
+
+laravel, 在thinkphp中吧`json` 改为 `data`
+
+```php
+/**
+ * 成功返回消息
+ * @param string $msg
+ * @param array $data
+ * @param int $code
+ * @return \Illuminate\Http\JsonResponse
+ */
+public function success($msg="ok",$data=[],$code=0){
+    if (!empty($data)) return response()->json(["code"=>$code,"data"=>$data,"msg"=>$msg]);
+    return response()->json(["code"=>$code,"msg"=>$msg]);
+}
+
+/**
+ * 失败返回消息
+ * @param string $msg
+ * @param int $code
+ * @return \Illuminate\Http\JsonResponse
+ */
+public function error($msg="请求错误",$code=202){
+    return response()->json(["code"=>$code,"msg"=>$msg]);
+}
+
+/**
+ * 数据返回
+ * @param array $data
+ * @param string $count
+ * @param string $msg
+ * @param int $code
+ * @return \Illuminate\Http\JsonResponse
+ */
+public function resData($data=[],$count = '',$msg="ok",$code=0){
+    if (empty($count)) return response()->json(["code"=>$code,"msg"=>$msg,"data"=>$data]);
+    return response()->json(["code"=>$code,"data"=>$data,"count"=>$count,"msg"=>$msg]);
+}
+```
+
+
 
 ## 查询技巧
 
@@ -92,6 +135,22 @@ public function list(){
     $count = $data->total();
     // json 返回
     return json(["code"=>201,"data"=>$list,"count"=>$count]);
+}
+```
+
+### 时间段查询
+
+```php
+/**
+ * 时间段查询：2020-10-01 - 2020-11-30
+ * @param string $datebt
+ * @return array
+ */
+protected function getBetweenTime(string $datebt){
+    $datearr=explode(" - ",$datebt);
+    $datebegin=strtotime($datearr['0']);
+    $dateend=strtotime($datearr['1']);
+    return ['create_time','between',[$datebegin,$dateend]];
 }
 ```
 

@@ -4,6 +4,23 @@
 
 ## vue前端笔记
 
+## Vue数组操作
+
+```js
+let data = [
+    {id:1,name: 'orangbus1'},
+    {id:2,name: 'orangbus2'},
+    {id:3,name: 'orangbus'},
+];
+// 新增
+data.push({id:4,name:'orangbus4'});
+// 删除
+data.splice(index,1); //index 数组的索引
+
+```
+
+
+
 ## 父组件给子组件传值
 
 父页面
@@ -21,5 +38,54 @@ props: [
 ],
 // 使用
 {{ content }}
+```
+
+## 父组件删除子组件数据
+
+```vue
+<template>
+    <div>
+        <h1>子组件内容</h1>
+        <h1 v-for="(item,index) in list" :key="index">
+            {{item.name}}
+            <button @click="delRemove(index)">删除</button>
+        </h1>
+    </div>
+</template>
+<script>
+export default {
+    name: "Demo",
+    data(){
+        return {
+            list:[
+                {id: 1,name:"orangbus1"},
+                {id: 2,name:"orangbus2"},
+                {id: 3,name:"orangbus3"},
+                {id: 4,name:"orangbus4"},
+                {id: 5,name:"orangbus5"},
+            ],
+        }
+    },
+    methods:{
+        delRemove(id){
+            let That = this;
+            let data = {
+              data: That.list,
+              key: id
+            };
+            That.$parent.getChiren(data);
+        }
+    }
+}
+</script>
+```
+
+```js
+getChiren(arr){
+    let {key,data} = arr;
+    data.splice(key,1);
+    this.list = [];
+    this.list.push(...data);
+}
 ```
 

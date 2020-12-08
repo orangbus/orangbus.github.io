@@ -4,6 +4,10 @@ title: Laradock入门
 
 # Docker-LNMP
 
+> 
+>
+> systemOS: debian 8+
+
 校对时间:
 
 ```bash
@@ -143,6 +147,14 @@ EMBY_CONFIG_PATH=./emby/config
 EMBY_SHAREDIR_PATH=./emby/data
 EMBY_CLOUD_PATH=/home/orangbus/Pan
 
+## jellyfin
+# bash：mkdir -p /home/video && mkdir -p ./jellyfin/config cache
+JELLYFIN_IMAGE=jellyfin/jellyfin:latest
+JELLYFIN_HTTP_PORT=8096
+JELLYFIN_CONFIG=./jellyfin/config
+JELLYFIN_CACHE=./jellyfin/cache
+JELLYFIN_VIDEO_PATH=/home/video
+
 # nextCloud ############################
 # bash: mkdir nextcloud && cd nextcloud && mkdir -p NextCloud Apps Config Data Theme
 NEXTCLOUD_PORT=8083
@@ -217,6 +229,18 @@ docker-compose
       - ${EMBY_SHAREDIR_PATH}:/mnt/shareDir
       - ${EMBY_CLOUD_PATH}:/mnt/CloudDrive
 
+# jellyfin
+	jellyfin:
+      container_name: jellyfin
+      image: jellyfin/jellyfin:${JELLYFIN_IMAGE}
+      restart: always
+      ports:
+      	- "${JELLYFIN_HTTP_PORT}:8096"
+      volumes:
+      - ${JELLYFIN_CONFIG}:/config
+      - ${JELLYFIN_CACHE}:/cache
+      - ${JELLYFIN_VIDEO_PATH}:/video
+
 ### nextCloud $$$$$$$$$$$$$$$$$$
 
     nextcloud:
@@ -272,6 +296,87 @@ docker-compose
 
 ```
 
+## 无法从github下载nvm解决办法
+
+容器里面无法下载，那么我们就先下载好放在`workspace` 目录下
+
+```bash
+wget http://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh pathTo/laradck/workspace
+```
+
+编辑`workspace` 文件夹下面的`dockerfile` 文件
+
+搜索：`COPY ./aliases.sh /home/laradock/aliases.sh` 在下面添加一行
+
+```bash
+COPY ./nvm.sh /home/laradock/nvm.sh
+```
+
+在`chown laradock:laradock /home/laradock/aliases.sh && \` 下面添加一行
+
+```bash
+chown laradock:laradock /home/laradock/nvm.sh && \
+```
+
+替换下载地址 `mkdir -p $NVM_DIR && \` 下面替换（大概在677行左右）
+
+```bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash \
+# 替换为
+cat /home/laradock/nvm.sh | bash \
+```
+
+重新启动一下`workspace` 就可以啦
+
+```bash
+docker-compose up -d workspace
+```
+
+如果还是不行，那就过几分钟重新再执行上面的命令，多试几次就好了，根据我安装这么多次经验，一般这样就可以安装好了，如果家里网络不是很好的话，建议蹭一下邻居的wifi，不然这玩意真的太难下载了，只要安装好了后面就好升级啥的了。（其实这玩意难安装是因为`workspace` 这个玩意，但是我一般用的是google云或者国外的服务器很快就安装好了）
+
+# Laradock离线安装
+
+有时候家里的网络慢或者各种原因，我们在启动laradock的时候总是会安装失败，其中95%的原因是下载docker镜像导致的，那么今天教大家如果离线安装（不太推荐，但是万不得已可是尝试一下）
+
+> 本机安装了docker , docker-compsoe
+>
+> 需要一个云主机，最好是国外的，国内的也可以，（我没有怎么办，腾讯云有免费体验15天活动，可以尝试一下，或者加群找群主帮你处理）
+
+流程：
+
+1. 现在云主机上下载并启动laradock
+2. 打包已经下载的镜像
+3. 下载打包镜像到本地
+4. 从本地导入下载的镜像
+
+马上操练起来（假设你已经会基本使用laradock）
+
+## 导出laradock镜像
+
+列出所有进项，
+
+![](/images/image-20201207103646644.png)
+
+```bash
+➜  laradock git:(master) ✗ docker images    
+laradock_nginx        latest         b7ba928e59d2        3 days ago           27.2MB
+
+```
+
+挨个导出，然后下载到本地
+
+```bash
+docker save -o laradock_nginx.tar laradock_nginx
+```
+
+此时会在当前目录下生成一个`laradock_nginx.tar` 的文件，
+
+## 导入laradock镜像
+
+```bash
+docker load -q laradock_nginx.tar
+```
+
 # 错误汇总
 
 > Service 'mysql' failed to build: error pulling image configuration: Get "https://registry-1.docker.io/v2/library/mysql/blobs/sha256:718a6da099d82183c064a964523c0deca80619cb033aadd15854771fe592a480": dial tcp: lookup registry-1.docker.io: no such host
@@ -279,8 +384,6 @@ docker-compose
 ```
 sudo echo "servername 8.8.8.8" >> /etc/resolv.conf
 ```
-
-
 
 > ERROR: Service 'phpmyadmin' failed to build: Get "https://registry-1.docker.io/v2/": dial tcp: lookup registry-1.docker.io: no such host
 
@@ -295,27 +398,10 @@ sudo systemctl restart docker
 //第三步：执行docker-compose的时候需要在文件所在目录执行
 ```
 
-
-
-
+> docker起不来报错：Failed to start Docker Application Container Engine
 
 ```
-//css
-components/sign/Verific.vue   
-components/sign/StePassword
-components/sign/Register.vue
-components/teacher/TeacherList.vue -> @import "../../assets/css/teacher/TeacherList.css";
-components/index/Index.vue    @import "../../assets/css/index/Index.css";
-components/my/setting/BindingVer.vue 
-components/my/setting/Binding.vue
-```
-
-```
-// for
-components/article/Index
-components/my/studyCenter/Exam.vue
-components/course/Index.vue
-components/course/Index2.vue
-components/course/Detail.vue
+/etc/docker/daemon.json
+这个文件的格式不对，或者因为防火墙原因
 ```
 

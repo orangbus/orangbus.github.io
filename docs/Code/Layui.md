@@ -26,9 +26,15 @@ sidebar: auto
  });
 ```
 
+## layui加载扩展方式
+
+```js
+layui.extend({'fileManager': 'pathTo/fileManager'});
+```
+
+## layui-table操作
 
 
-## layui-table
 
 ### 第二页删除
 
@@ -46,7 +52,7 @@ done: function(res, curr, count) {
 }
 ```
 
-
+### 点击事件
 
 ```html
 <table 
@@ -62,7 +68,7 @@ done: function(res, curr, count) {
 - lay-filter : 过滤字段
 - lay-event : 触发事件
 
-### 加载数据
+### 加载数据+搜索
 
 ```js
 table.render({
@@ -79,13 +85,47 @@ table.render({
     ,text: {
        none:'数据为空消息提示！'
     }
+    ,id: 'dataTable' //重载表单的id属性
+    ,var $ = layui.$, active = {
+    reload: function(){
+    var keywords = $('#keywords')
+    ,datebt=$('#datebt')
+    //执行重载
+    table.reload('dataTable', {
+        page: {
+            curr: 1 //重新从第 1 页开始
+        }
+        ,where: {
+            keywords: keywords.val(),
+            datebt:datebt.val(),
+        }
+    }, 'data');
+
+    //重载后再次加载add事件del事件
+    $('#keywords').val(keywords.val());
+    $('#datebt').val(datebt.val());
+    //日期范围
+    laydate.render({
+        elem: '#datebt'
+        ,range: true
+    });
+
+}
+};
+$('.search-btn').on('click', function(){
+    var type = $(this).data('type');
+    active[type] ? active[type].call(this) : '';
+});
 });
 ```
 
 ### 表格内容监听事件
 
 ```js
-table.on('tool(filter)'),function(obj){
+// <table class="layui-hide" id="dataTable" lay-filter="dataTable"></table>
+// filter: 监听表格的lay-filter
+
+table.on('tool(filter)'),function(obj){ 
     //当前表单行的所有数据
     var data = obj.data;
     switch(.obj.event){
@@ -130,7 +170,7 @@ table.on('tool(filter)'),function(obj){
 };
 ```
 
-## 刷新当前表格
+### 刷新当前表格
 
 ```js
 table.reload('#bm-table-list'); //表单数据刷新
@@ -138,7 +178,51 @@ table.reload('#bm-table-list'); //表单数据刷新
 
 - 选择器是 table节点的 id
 
-## 关闭弹窗表格重载
+### 打开弹窗
+
+```js
+layer.open({
+    type: 2,
+    title: '关联表单字段',
+    area: ['600px', '570px'],
+    content: ['{{url("admin/form/ckbm/add")}}?form_type=1', 'yes'],
+    skin: 'layui-layer-molv',
+    btn: ['添加', '取消'],
+    btnAlign: 'c',
+    yes: function(index, layero){
+        var submit = layero.find('iframe').contents().find("#submit");// #subBtn为页面层提交按钮ID
+        submit.click();// 触发提交监听
+        return false;
+    },
+    btn2:function (index) {
+        layer.close(index);
+    }
+});
+```
+
+### 图片弹窗
+
+```js
+$("#form-ewm").click(function (){
+    layer.open({
+        type: 1,
+        title: false,
+        closeBtn: 0,
+        area: ['auto'],
+        skin: 'layui-layer-nobg', //没有背景色
+        shadeClose: true,
+        content: `<img src="orangbus.png"></img>`
+    });
+});
+```
+
+### 重载表单数据
+
+```js
+table.reload("dataTable"); //dataTable 是由表单渲染里面的id属性设置的
+```
+
+### 关闭弹窗表格重载
 
 ```js
 parent.layui.table.reload('dataTable',{page:{curr:1}});
@@ -146,7 +230,110 @@ var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
 parent.layer.close(index);
 ```
 
+### 跳转新tab
 
+```js
+top.layui.index.openTabsPage("{:url('StudentYear/index')}?type=5", "新tab名字");
+```
+
+### 表格快捷编辑
+
+```js
+table.on('edit(dataTable)', function(obj){ //注：edit是固定事件名，dataTable是table原始容器的属性 lay-filter="对应的值"
+    setField(obj.data.id, obj.field, obj.value);
+});
+
+// 该方法放在layui初始化之外
+function setField(id, dataname, datavalue) {
+    // 加载层
+    var loading = layer.msg('处理中，请稍后...', {
+        icon: 16,
+        shade: 0.2
+    });
+    var $ = layui.jquery;
+
+    $.ajax({
+        url: "{{ route('setField') }}",
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            id : id,
+            dataname : dataname,
+            datavalue : datavalue,
+            _token: '{{ @csrf_token() }}'
+        },
+        success: function (data) {
+            layer.close(loading);
+            if (data.code == 1) {
+                layer.msg(data.msg, {
+                    time: 1500
+                },function(){
+                    window.location.reload();
+                });
+            } else {
+                layer.alert(data.msg, {
+                    icon: 2
+                },function(){
+                    window.location.reload();
+                });
+            }
+        }
+    });
+}
+```
+
+### 表格状态快捷修改
+
+```js
+<script type="text/html" id="userStatus">
+    <input type="checkbox" lay-filter="ckState" value="@{{d.id}}" lay-skin="switch"
+lay-text="启用|禁止" @{{d.status==0?'checked':''}}/>
+</script>
+
+// 监听状态开关切换事件
+form.on('switch(ckState)', function (data) {
+    var checked = data.elem.checked ? 0 : 1;
+    var id = data.value;
+    setStatus(id, checked);
+});
+
+// 该方法放在layui初始化之外
+// 设置显示状态
+function setStatus(id, status) {
+    // 加载层
+    var loading = layer.msg('处理中，请稍后...', {
+        icon: 16,
+        shade: 0.2
+    });
+    var $ = layui.jquery;
+    $.ajax({
+        url: "{:url('admin/form/data/setStatus')}",
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            id : id,
+            status : status,
+            _token: '{{ @csrf_token() }}'
+        },
+        success: function (data) {
+            layer.close(loading);
+            if (data.code == 1) {
+                layer.msg(data.msg, {
+                    time: 1500
+                },function(){
+                    window.location.reload();
+                });
+            } else {
+                layer.alert(data.msg, {
+                    icon: 2
+                },function(){
+                    window.location.reload();
+                });
+            }
+        }
+    });
+}
+```
 
 ## 自定义表单验证
 
@@ -163,12 +350,6 @@ form.verify({
         layedit.sync(editIndex);
     }
 });
-```
-
-## 跳转新tab
-
-```js
-top.layui.index.openTabsPage("{:url('StudentYear/index')}?type=5", "新tab名字");
 ```
 
 ## 按钮事件触发

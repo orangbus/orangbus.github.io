@@ -47,7 +47,7 @@ module.exports = {
                     // https://github.com/JoeyBling/hexo-theme-yilia-plus/wiki/live2d%E6%A8%A1%E5%9E%8B%E5%8C%85%E5%B1%95%E7%A4%BA
                     model: 'shizuku',//hibiki
                     display: {
-                        position: "right", // 显示位置：left/right(default: 'right')
+                        // position: "right", // 显示位置：left/right(default: 'right')
                         width: 135, // 模型的长度(default: 135)
                         height: 300, // 模型的高度(default: 300)
                         hOffset: 65, //  水平偏移(default: 65)
@@ -81,6 +81,7 @@ module.exports = {
         ["vuepress-plugin-auto-sidebar",{}]
     ],
     head: [
+        ['link', { rel: 'shortcut icon', href: "/orangbus.ico", type: 'image/jpg' }],
         ["meta",{name: "keywords", content: "html,css,jquery,thinkphp,laravel,docker,linux,manjaro"}],
         ["meta",{name: "description", content: "保持勇敢，坚持有趣，生命不息，折腾不止！"}],
         ["meta",{name: "auther", content: "OrangBus"}],
@@ -93,7 +94,10 @@ module.exports = {
                 var s = document.getElementsByTagName("script")[0];
                 s.parentNode.insertBefore(hm, s);
             })();
-        `]
+        `],
+        // 以下文件非必须
+        // ["script",{src:'/js/jquery-3.5.min.js'}],
+        // ["script",{src:'/js/cursor.min.js'}],
     ],
 
 };

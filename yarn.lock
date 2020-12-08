@@ -7712,8 +7712,8 @@ vuepress-plugin-container@^2.0.2:
 
 vuepress-plugin-helper-live2d@^1.0.2:
   version "1.0.2"
-  resolved "https://registry.npm.taobao.org/vuepress-plugin-helper-live2d/download/vuepress-plugin-helper-live2d-1.0.2.tgz#6ba1c2f0a440c9263078ae5083de26fbbfac0759"
-  integrity sha1-a6HC8KRAySYweK5Qg94m+7+sB1k=
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-helper-live2d/-/vuepress-plugin-helper-live2d-1.0.2.tgz#6ba1c2f0a440c9263078ae5083de26fbbfac0759"
+  integrity sha512-OQFynzDJeuEpxv25oNE15otpfCV8Yf0Nxsqq2Y/RHRIdzMpgcp7B0HZRDKUjUqRUa+Sd0NxXbCdzPSxP/9TwWw==
   dependencies:
     chalk "^2.4.2"
     lodash "^4.17.15"

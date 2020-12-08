@@ -1,4 +1,9 @@
 #!/usr/bin/env sh
+# 设置字体颜色函数
+function blue(){
+    echo -e "\033[34m\033[01m $1 \033[0m"
+}
+
 
 # 确保脚本抛出遇到的错误
 set -e
@@ -8,7 +13,9 @@ set -e
  git commit -m " update:`date` "
  git push https://gitee.com/orangbus/vuePress.git master
 
- echo "备份成功！"
+blue "========================================="
+blue "==============  备份成功！  ==============="
+blue "========================================="
 
 # 生成静态文件
 npm run docs:build
@@ -32,3 +39,8 @@ git push -f https://github.com/orangbus/orangbus.github.io.git master
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
 
 cd -
+
+blue "========================================="
+blue "==============  发布成功！  ==============="
+blue "========= http://doc.orangbus.cn ========"
+blue "============= By Orangbus ==============="
