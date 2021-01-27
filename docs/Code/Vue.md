@@ -2,7 +2,60 @@
 
 ```
 
-## vue前端笔记
+## vue脚手架3.x
+
+官网：https://cli.vuejs.org/guide/installation.html
+
+```bash
+npm install -g @vue/cli
+# OR
+yarn global add @vue/cli
+```
+
+创建一个新项目
+
+```bash
+vue create app
+```
+
+运行项目
+
+```bash
+cd app
+vue ui
+npm run dev
+
+```
+
+## package推荐
+
+### vue三剑客
+
+```bash
+npm i axios vue-router vuex
+```
+
+### mdui
+
+```bash
+npm - mdui --save
+```
+
+### bootstrap5
+
+```bash
+
+```
+
+### bulma
+
+https://bulma.io/documentation/overview/start/
+
+```bash
+npm install bulma
+```
+
+
 
 ## Vue数组操作
 

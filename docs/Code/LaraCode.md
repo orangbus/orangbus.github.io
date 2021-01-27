@@ -3,20 +3,42 @@ title: laravel学习笔记
 sidebar: auto
 ---
 
-## laravel学习笔记
+## 安装前端脚手架
 
-## 安装
+```
+omposer create-project --prefer-dist laravel/laravel
 
-```bash
-composer create-project --prefer-dist laravel/laravel OrangVideo
+laravel new app
 ```
 
-## composer package
+有时候在window下安装会提示一些插件错误可以跳过插件检查
+
+```bash
+composer install --ignore-platform-reqs
+```
+
+安装基础脚手架
 
 ```bash
 composer require laravel/ui --dev
-php artisan ui vue --auth
 
+// 生成 登陆/注册 脚手架...
+php artisan ui bootstrap --auth
+php artisan ui vue --auth
+php artisan ui react --auth
+
+npm install --save laravel-echo pusher-js
+
+npm i && npm run watch
+
+// 热加载 webpack.mix.js
+mix.browserSync('websocket.test');
+```
+
+一键命令
+
+```bash
+php artisan ui vue --auth
 ```
 
 
@@ -27,9 +49,52 @@ php artisan ui vue --auth
 npm i mdui vuex vue-router Axios vue-m-message --save
 ```
 
+## Laravel IDE Helper
 
+> https://github.com/barryvdh/laravel-ide-helper
 
+```bash
+composer require --dev barryvdh/laravel-ide-helper
+```
 
+- add the package to the `extra.laravel.dont-discover` key in `composer.json`
+
+  ```
+  "extra": {
+    "laravel": {
+      "dont-discover": [
+        "barryvdh/laravel-ide-helper"
+      ]
+    }
+  }
+  ```
+
+- Add the following class to the `providers` array in `config/app.php` 
+
+  ```
+  Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+  ```
+
+  If you want to manually load it only in non-production environments, instead you can add this to your `AppServiceProvider ` with the `register()` method:
+
+  ```php
+  public function register()
+  {
+      if ($this->app->isLocal()) {
+          $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+      }
+      // ...
+  }
+  ```
+
+- run
+
+  ```bash
+  php artisan ide-helper:generate
+  ```
+
+  checked`, `email`, `is_admin`, `password`, `phone`, `usernam
+  e
 
 ## [laravel 引入中文语言包](https://www.cnblogs.com/clubs/p/12562790.html)
 
@@ -69,9 +134,30 @@ config/app.php 修改
 faker_locale = 'zh-CN'
 ```
 
+## 配置中国时间
+
+1、`config/app.php`
+
+```php
+'timezone' => 'Asia/Shanghai',
+'locale' => 'zh-CN',
+'faker_locale' => 'zh-CN',
+```
+
+2、Model中添加
+
+```php
+protected $dateFormat = 'U';
+// 时间配置
+protected function serializeDate(\DateTimeInterface $date)
+{
+	return $date->format('Y-m-d H:i:s');
+}
+```
+
 ## laravel周期
 
-控制器构造方法>父类构造方法>中间件构造方法
+控制器构造方法 -> 父类构造方法 -> 中间件构造方法
 
 ## laravel使用factory填充数据
 
@@ -163,24 +249,196 @@ public function index(){
 
 看不懂就参考：https://blog.csdn.net/qq175023117/article/details/101032253
 
-## laravel8+websocket
+## Laravel中使用redis
+
+安装predis
+
+```bash
+composer require predis/predis
+```
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\Redis;
+
+class Index extends Controller
+{
+    public function index()
+    {
+        Redis::set("name","orangbus");
+        $name = Redis::get("name");
+        return view("welcome",compact("name"));
+    }
+}
+```
+
+## laravel8广播+pusher
+
+> 使用广播之前自行安装好前端脚手架
+
+第一先注册一个`pusher` 账号：https://pusher.com/
+
+创建应用，获取api信息，填入`.env`文件中，并修改驱动为`pusher` 
+
+```env
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_CLUSTER=mt1
+
+BROADCAST_DRIVER=pusher
+```
+
+### 安装`pusher驱动`
+
+```bash
+composer require pusher/pusher-php-server "~4.0"
+```
+
+在 resources/js/bootstrap.js 文件中实例化 Echo 对象时 pusher
+
+```js
+import Echo from 'laravel-echo';
+
+window.Pusher = require('pusher-js');
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: process.env.MIX_PUSHER_APP_KEY, //这里修改为 pusher 的key
+    cluster: process.env.MIX_PUSHER_APP_CLUSTER, //pusher的地区
+    forceTLS: false
+});
+```
+
+创建Free事件，检验pusher是否配置ok
+
+```php
+php artisan make:event Free
+```
+
+编辑Free事件
+
+```php
+<?php
+
+namespace App\Events;
+
+use Illuminate\Broadcasting\Channel;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
+
+class Free implements ShouldBroadcast //实现广播接口
+{
+    use Dispatchable, InteractsWithSockets, SerializesModels;
+    
+    public $msg;
+
+    /**
+     * Create a new event instance.
+     *
+     * @return void
+     */
+    public function __construct($msg)
+    {
+        $this->msg = $msg;
+    }
+
+    /**
+     * Get the channels the event should broadcast on.
+     *
+     * @return \Illuminate\Broadcasting\Channel|array
+     */
+    public function broadcastOn()
+    {
+//        return new PrivateChannel('channel-name');
+        return new Channel('cctv1'); //公有频道名称
+    }
+}
+
+```
+
+路由出发Free事件
+
+```php
+Route::get('/free', function () {
+    event(new \App\Events\Free("Hello OrangBus"));
+    dd("ok");
+});
+```
+
+接听消息
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="{{ mix("css/app.css") }}">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <h1>pusher</h1>
+</div>
+
+<script src="{{ mix("js/app.js") }}"></script>
+<script>
+    window.Echo.channel('cctv1')
+        .listen('Free', e => {
+            console.log(e);
+        });
+</script>
+</body>
+</html>
+```
+
+如果按照上面的步骤跑完了没有监听到数据：
+
+1、pusher推动延迟了，等一会或者多刷新几次
+
+2、pusher配置哪里出错了
+
+## laravel8广播+websocket
 
 ### 安装laravel 和前端脚手架
 
 ```bash
 laravel new websocket
 
+// laravel8新出的（不会用）
 composer require laravel/jetstream
 
 php artisan jetstream:install livewire // blade模板
-
 php artisan jetstream:install inertia //vue模板
 
+// 可以使用脚手架
 composer require laravel/ui --dev
 
+// 生成基本脚手架...
+php artisan ui bootstrap
+php artisan ui vue
+php artisan ui react
+
+// 生成 登陆/注册 脚手架...
+php artisan ui bootstrap --auth
 php artisan ui vue --auth
+php artisan ui react --auth
 
 npm i && npm run dev
+
+// 热加载 webpack.mix.js
+mix.browserSync('redis.test');
 ```
 
 配置数据库并迁移数据库文件
@@ -233,7 +491,7 @@ composer require pusher/pusher-php-server "~3.0"
 BROADCAST_DRIVER=pusher
 ```
 
-修改 `config/broadcasting.php`
+修改 `config/broadcasting.php` （记得要配置这里，不然接受不到消息）
 
 ```php
 'pusher' => [
@@ -241,7 +499,7 @@ BROADCAST_DRIVER=pusher
     'key' => env('PUSHER_APP_KEY'),
     'secret' => env('PUSHER_APP_SECRET'),
     'app_id' => env('PUSHER_APP_ID'),
-    'options' => [
+    'options' => [ 
         'cluster' => env('PUSHER_APP_CLUSTER'),
         'encrypted' => true,
         'host' => '127.0.0.1',
@@ -296,7 +554,6 @@ public function boot()
 ```bash
 npm install --save laravel-echo pusher-js
 npm install --save socket.io-client
-
 ```
 
 ### 创建事件
@@ -375,8 +632,8 @@ window.Pusher = require('pusher-js');
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: process.env.MIX_PUSHER_APP_KEY,
-    cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+    key: process.env.MIX_PUSHER_APP_KEY, //把 .env文件的信息复制过来
+    cluster: process.env.MIX_PUSHER_APP_CLUSTER, //把 .env文件的信息复制过来
     forceTLS: false,
     wsHost: '127.0.0.1',
     wsPort: 6001,
@@ -398,4 +655,295 @@ window.Echo = new Echo({
   }
 }
 ```
+
+## laravel8广播-redis
+
+### 安装redis广播库
+
+```bash
+composer require predis/predis
+```
+
+### 安装前端依赖
+
+```bash
+npm install --save socket.io-client
+npm install --save laravel-echo pusher-js
+npm install -g laravel-echo-server
+
+npm i && npm run watch
+
+laravel-echo-server init
+laravel-echo-server start
+```
+
+在入口文件中添加这个 `socket.io` 
+
+```javascript
+ <script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script>
+```
+
+修改`.env`
+
+```env
+BROADCAST_DRIVER=redis
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+```
+
+### 开启广播
+
+config/app.php 的 providers取消注释
+
+```php
+App\Providers\BroadcastServiceProvider::class,
+```
+
+### 创建一个公有广播事件
+
+```bash
+php artisan make:event Free
+```
+
+```php
+<?php
+
+namespace App\Events;
+
+use Illuminate\Broadcasting\Channel;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
+
+class Free implements ShouldBroadcast //实现广播接口
+{
+    use Dispatchable, InteractsWithSockets, SerializesModels;
+    
+    public $msg;
+
+    /**
+     * Create a new event instance.
+     *
+     * @return void
+     */
+    public function __construct($msg) //触发时间传递过来的参数
+    {
+        $this->msg = $msg;
+    }
+
+    /**
+     * Get the channels the event should broadcast on.
+     *
+     * @return \Illuminate\Broadcasting\Channel|array
+     */
+    public function broadcastOn()
+    {
+        return new Channel('cctv'); //频道的名称
+    }
+}
+
+```
+
+#### 添加一条路由触发事件
+
+```php
+Route::any('/free', function () {
+    $msg = request()->input("msg");
+    event(new \App\Events\Free($msg));
+    return $msg;
+});
+```
+
+#### 监听事件
+
+记得在入口文件处添加header头
+
+```html
+<meta name="csrf-token" content="{{ csrf_token() }}">
+```
+
+```js
+//resources/js/bootstrap.js
+import Echo from "laravel-echo";
+
+// window.io = require('socket.io-client'); //按照官网的意思需要加上，可是我加上了却监听不到消息，搞了好多天无意间注释了反而接收到消息了，有没有大佬告知一下为什么？？
+
+window.Echo = new Echo({
+    broadcaster: 'socket.io',
+    host: window.location.hostname + ':6001' //如果需要单独写其他域名不用加http，
+    // host: "redis.test:6001"
+    //可选
+    auth: {
+    headers: {
+      Authorization: "Bearer " + Cookies.get('access_token')
+    }
+  }
+});
+
+window.Echo.channel('cctv') //频道的名称
+    .listen('Free', (e) => { // 监听的事件
+        console.log("这里是接受到的消息")
+        console.log(e);
+    });
+```
+
+### 私有广播事件
+
+先登录一个账号，私有广播需要权限认证
+
+#### 创建一个广播事件
+
+```bash
+php artisan make:event LetChat
+```
+
+```php
+<?php
+
+namespace App\Events;
+
+use Illuminate\Broadcasting\Channel;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
+
+class LetChat implements ShouldBroadcast //事件广播接口
+{
+    use Dispatchable, InteractsWithSockets, SerializesModels;
+ 
+    public $msg; //前端传递过来的数据
+    public $user_id; //假如传递一个用户ID
+
+    /**
+     * Create a new event instance.
+     *
+     * @return void
+     */
+    public function __construct($msg,$user_id)
+    {
+        $this->msg = $msg;
+        $this->user_id = $user_id;
+    }
+
+    /**
+     * Get the channels the event should broadcast on.
+     *
+     * @return \Illuminate\Broadcasting\Channel|array
+     */
+    public function broadcastOn()
+    {
+        return new PrivateChannel('cctv.'.$this->user_id); // 这里是一个私有的广播，频道的名称大概是这样的： cctv.1
+    }
+}
+
+```
+
+#### 添加一个触发路由
+
+```php
+Route::any('/free', function () {
+    $msg = request()->input("msg");
+    $userId = Auth::id();
+    event(new \App\Events\Free($msg,$userId));
+    return $msg;
+})->middleware("auth"); // 用户需要登录
+```
+
+#### 权限认证
+
+这个文件跟 `routes/web` 路由是类似的，只有返回 `true` 的时候才会进行广播事件，所以我们可以在这里进行一些逻辑上的判断
+
+```php
+// routes/channels
+Broadcast::channel('cctv.{id}', function ($id) {
+    // 写一些判断逻辑，最终返回true即可
+    $list = [1,2,3,4,5,6];
+    if(in_array($id,$list)) return true; //当传过来的用户id在 $list 这个才会进行广播
+});
+```
+
+####  前端监听事件
+
+```js
+
+```
+
+### 广播使用redis
+
+```env
+BROADCAST_DRIVER=redis
+CACHE_DRIVER=redis
+QUEUE_CONNECTION=redis
+```
+
+需要运行队列监听
+
+```bash
+php artisan queue:listen
+```
+
+
+
+
+
+## laravel广播+redis+laradock
+
+启动`laravel-echo-serve` 
+
+```bash
+cd pathTo/laradock
+docker-composer up -d redis laravel-echo-serve
+```
+
+默认就开始了 6001端口，这样我们就可以连接了
+
+
+
+## Laradock+Laravel+redis广播
+
+```bash
+laravel new webscoket
+
+composer require predis/predis
+
+composer require laravel/ui --dev
+php artisan ui vue --auth
+
+npm install --save socket.io-client |  echo 'websocket 客户端'
+npm install --save laravel-echo     |  echo 'websocket 客户端封装'
+npm install -g laravel-echo-server  |  echo 'websocket 服务端'
+npm install                         |  echo '安装所有其他依赖'
+npm run watch                        |  echo '监控文件变化编译前端资源'
+laravel-echo-server init             |  echo '初始化 websocket 服务端'
+laravel-echo-server start            |  echo '启动 websocket 服务端'
+
+// 热加载 webpack.mix.js
+mix.browserSync('redis.test');
+cnpm install browser-sync browser-sync-webpack-plugin@2.0.1 --save-dev --production=false
+
+```
+
+.env 文件配置
+
+```env
+BROADCAST_DRIVER=redis
+CACHE_DRIVER=redis
+QUEUE_CONNECTION=redis
+```
+
+
+
+### 注意事项
+
+1、使用 `php-worker` 的时候，需要开启redis扩展。
+
+2、最好把 `workspace` 的PHP 的 redis 扩展也安装了。
+
+
 

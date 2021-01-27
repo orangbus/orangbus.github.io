@@ -154,6 +154,41 @@ protected function getBetweenTime(string $datebt){
 }
 ```
 
+## A表关联B表统计B表信息
+
+关联模型
+
+```php
+//cate->school
+
+/**
+     * 分类关联资源
+     */
+public function school()
+{
+    return $this->hasMany(School::class,'cate_id','id');
+}
+```
+
+分类关联资源统计资源的状态为1和2的总数
+
+```php
+$data = SchoolCate::withCount([
+    "school"=>function($query,&$alias){ //这里有一个&符号
+        $query->where("status",2)->where("check_user_id",session("admin_id"));
+        $alias='valid';
+    }
+],false)
+    ->withCount([
+        "school"=>function($query,&$alias){
+            $query->where("status",4)->where("check_user_id",session("admin_id"));
+            $alias='unvalid';
+        }
+    ],false)->where("id","in",$school->getMySchoolIds())->select();
+```
+
+
+
 ## **获取器**
 
 获取器的作用是在获取数据的字段值后自动进行处理，例如，我们需要对状态值进行转换，1 代表：正常
@@ -615,3 +650,32 @@ return ["code" => 1,"msg" => "token已失效!"];
   ```php
   JWTAuth::refresh(); //返回 token信息,之前的数据依旧存在
   ```
+
+## 神兽保护
+
+```php
+/**
+ * _ooOoo_
+ * o8888888o
+ * 88" . "88
+ * (| -_- |)
+ *  O\ = /O
+ * ___/`---'\____
+ * .   ' \\| |// `.
+ * / \\||| : |||// \
+ * / _||||| -:- |||||- \
+ * | | \\\ - /// | |
+ * | \_| ''\---/'' | |
+ * \ .-\__ `-` ___/-. /
+ * ___`. .' /--.--\ `. . __
+ * ."" '< `.___\_<|>_/___.' >'"".
+ * | | : `- \`.;`\ _ /`;.`/ - ` : | |
+ * \ \ `-. \_ __\ /__ _/ .-` / /
+ * ======`-.____`-.___\_____/___.-`____.-'======
+ * `=---='
+ *			.............................................
+ *			佛曰：bug泛滥，我已瘫痪！
+ */
+
+```
+

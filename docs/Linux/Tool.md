@@ -190,8 +190,6 @@ babun：<http://babun.github.io/>
   重启ssh： sudo systemctl restartt sshd
   ```
 
-  
-
 ## 压力测试
 
 > webbench -c 并发数 -t 运行测试时间 URL 【http://www.baidu.com/】
@@ -205,6 +203,59 @@ webbench -c 100 -t 10 http://www.baidu.com/
 ```bash
 bash <(curl -Lso- https://git.io/superspeed)
 ```
+
+## 如何快速访问Github
+
+### IP解析
+
+作为一个小白，经常需要访问 `github` 来学习，但是呢经常打不开这个网站，或者clone的时候网速很慢，这个时候==怎么解决呢？==
+
+1、打开这个网站：https://www.ipaddress.com ，输入我们**需要访问**的域名，进行搜索，你会得到一个**ip地址**。
+
+2、修改本地`hosts` 文件直接访问，这样就可以了，
+
+**案例：** 访问 `github.com` 和`raw.githubusercontent.com`  
+
+打开 `https://www.ipaddress.com` 搜索 `github.com` 和`raw.githubusercontent.com`  你会看到一个如下IP地址
+
+![image-20201215110741455](../images/image-20201215110741455.png)
+
+打开本机电脑的 `hosts` 文件，我的电脑是linux，所以我的 `hosts`文件在 (window用户自行百度)
+
+```bash
+sudo vim /etc/hosts
+```
+
+添加如下配置
+
+```host
+140.82.114.4 github.com
+199.232.96.133 raw.githubusercontent.com
+```
+
+现在打开 `https://github.com` 就可以访问了。
+
+其它国外的网站是不是也可以类似的操作？比如 google? youtube? .........
+
+### Github镜像站
+
+假如以上方法还是很慢，或者不可行，你可以尝试采用下面的方法
+
+> Github: https://github.com/fhefh2015/Fast-GitHub
+>
+> Google App: https://chrome.google.com/webstore/detail/github%E5%8A%A0%E9%80%9F/mfnkflidjnladnkldfonnaicljppahpg （需要体力爬梯子）
+
+安装完之后你的界面是这样的
+
+![image-20201215111505365](../images/image-20201215111505365.png)
+
+先睹为快：https://github.com.cnpmjs.org/orangbus/tool
+
+### SwitchHosts
+
+> https://github.com/oldj/SwitchHosts/releases
+
+具体怎么使用就查看官网文档吧。
 
 ## ubuntu install brew
 
@@ -306,4 +357,3 @@ install_pack() {
 ```bash
 [ $(id -u) != "0" ] && { echo "${CFAILURE}Error: You must be root to run this script${CEND}"; exit 1; }
 ```
-

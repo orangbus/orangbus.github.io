@@ -35,6 +35,8 @@ sudo apt-get install php-dev
 
 **安装php扩展**
 
+http://pecl.php.net/package/redis
+
 ```bash
 pecl install redis
 ```
@@ -245,6 +247,20 @@ for( $i=0; $i<6; $i++ ) {
   echo floor(1.6); 	// 1
   ```
 
+## 生成唯一SN
+
+```php
+/**
+ * 生成sn 
+*/
+private function createSn()
+{
+    $str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $number = substr(microtime(),-4);
+    return date('Ymd').substr(str_shuffle($str),10,15).$number;
+}
+```
+
 ## fiel_get_contents 请求
 
 ```php
@@ -265,25 +281,293 @@ for( $i=0; $i<6; $i++ ) {
     }
 ```
 
-## 生成唯一SN
+## php请求封装
 
 ```php
+<?php
 /**
- * 生成sn 
-*/
-private function createSn()
+ * HttpCurl Curl模拟Http工具类
+ * @author OrangBus
+ * @blog https://doc.orangbus.cn
+ */
+namespace app\admin\extend;
+
+class HttpCurl {
+    private $ch = null; // curl handle
+    private $headers = array();// request header
+    private $proxy = null; // http proxy
+    private $timeout = 5;    // connnect timeout
+    private $httpParams = null;
+
+    public function __construct()
+    {
+        $this->ch = curl_init();
+    }
+
+    /**
+     * 设置http header
+     * @param $header
+     * @return $this
+     */
+    public function setHeader($header) {
+        if(is_array($header)) {
+            curl_setopt($this->ch, CURLOPT_HTTPHEADER, $header);
+        }
+        return $this;
+    }
+
+    /**
+     * 设置http 超时
+     * @param int $time
+     * @return $this
+     */
+    public function setTimeout($time) {
+        // 不能小于等于0
+        if($time <= 0) $time = 5;
+        //只需要设置一个秒的数量就可以
+        curl_setopt($this->ch, CURLOPT_TIMEOUT, $time);
+        return $this;
+    }
+
+
+    /**
+     * 设置http 代理
+     * @param string $proxy
+     * @return $this
+     */
+    public function setProxy($proxy) {
+        if($proxy) curl_setopt ($this->ch, CURLOPT_PROXY, $proxy);
+        return $this;
+    }
+
+    /**
+     * 设置http 代理端口
+     * @param int $port
+     * @return $this
+     */
+    public function setProxyPort($port) {
+        if(is_int($port)) curl_setopt($this->ch, CURLOPT_PROXYPORT, $port);
+        return $this;
+    }
+
+    /**
+     * 设置来源页面
+     * @param string $referer
+     * @return $this
+     */
+    public function setReferer($referer = ""){
+        if (!empty($referer)) curl_setopt($this->ch, CURLOPT_REFERER , $referer);
+        return $this;
+    }
+
+    /**
+     * 设置用户代理
+     * @param string $agent
+     * @return $this
+     */
+    public function setUserAgent($agent = "") {
+        if ($agent) {
+            // 模拟用户使用的浏览器
+            curl_setopt($this->ch, CURLOPT_USERAGENT, $agent);
+        }
+        return $this;
+    }
+
+    /**
+     * http响应中是否显示header，1表示显示
+     * @param $show
+     * @return $this
+     */
+    public function showResponseHeader($show) {
+        curl_setopt($this->ch, CURLOPT_HEADER, $show);
+        return $this;
+    }
+
+
+    /**
+     * 设置http请求的参数,get或post
+     * @param array $params
+     * @return $this
+     */
+    public function setParams($params) {
+        $this->httpParams = $params;
+        return $this;
+    }
+
+    /**
+     * 设置证书路径
+     * @param $file
+     */
+    public function setCainfo($file) {
+        curl_setopt($this->ch, CURLOPT_CAINFO, $file);
+    }
+
+    /**
+     * 模拟GET请求
+     * @param string $url
+     * @param string $dataType
+     * @return bool|mixed
+     */
+    public function get($url, $dataType = 'text') {
+        if(stripos($url, 'https://') !== FALSE) {
+            curl_setopt($this->ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+            curl_setopt($this->ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+            curl_setopt($this->ch, CURLOPT_SSLVERSION, 1);
+        }
+        // 设置get参数
+        if(!empty($this->httpParams) && is_array($this->httpParams)) {
+            if(strpos($url, '?') !== false) {
+                $url .= http_build_query($this->httpParams);
+            } else {
+                $url .= '?' . http_build_query($this->httpParams);
+            }
+        }
+        // end 设置get参数
+        curl_setopt($this->ch, CURLOPT_URL, $url);
+        curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, 1 );
+        $content = curl_exec($this->ch);
+        $status = curl_getinfo($this->ch);
+        curl_close($this->ch);
+        if (isset($status['http_code']) && $status['http_code'] == 200) {
+            if ($dataType == 'json') {
+                $content = json_decode($content, true);
+            }
+            return $content;
+        } else {
+            return FALSE;
+        }
+    }
+
+    /**
+     * 模拟POST请求
+     *
+     * @param string $url
+     * @param array $fields
+     * @param string $dataType
+     * @return mixed
+     *
+     * HttpCurl::post('http://api.example.com/?a=123', array('abc'=>'123', 'efg'=>'567'), 'json');
+     * HttpCurl::post('http://api.example.com/', '这是post原始内容', 'json');
+     * 文件post上传
+     * HttpCurl::post('http://api.example.com/', array('abc'=>'123', 'file1'=>'@/data/1.jpg'), 'json');
+     */
+    public function post($url, $dataType='json') {
+        if(stripos($url, 'https://') !== FALSE) {
+            curl_setopt($this->ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+            curl_setopt($this->ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+            curl_setopt($this->ch, CURLOPT_SSLVERSION, 1);
+        }
+        curl_setopt($this->ch, CURLOPT_URL, $url);
+        // 设置post body
+        if(!empty($this->httpParams)) {
+            if(is_array($this->httpParams)) {
+                curl_setopt($this->ch, CURLOPT_POSTFIELDS, http_build_query($this->httpParams));
+            } else if(is_string($this->httpParams)) {
+                curl_setopt($this->ch, CURLOPT_POSTFIELDS, $this->httpParams);
+            }
+        }
+        // end 设置post body
+        curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, 1 );
+        curl_setopt($this->ch, CURLOPT_POST, true);
+        $content = curl_exec($this->ch);
+        $status = curl_getinfo($this->ch);
+        curl_close($this->ch);
+        if (isset($status['http_code']) && $status['http_code'] == 200) {
+            if ($dataType == 'json') return json_decode($content, true);
+        } else {
+            return FALSE;
+        }
+    }
+}
+```
+
+### 案例
+
+```php
+<?php
+
+use app\admin\extend\HttpCurl;
+
+class Test
 {
-    $str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $number = substr(microtime(),-4);
-    return date('Ymd').substr(str_shuffle($str),10,15).$number;
+	public function(){
+		$http = new HttpCurl();
+        $header = array("Content-type:application/json;charset=utf-8","Accept:application/json");
+        $requestData = ["user" => "orangbus.cn"];
+        $response = $http->setHeader($header)->setParams(json_encode($requestData))->post("https://httpbin.org/post");
+        return $response;
+	}
 }
 ```
 
 
 
+# 函数工具
+
+## Check
+
+```php
+<?php
+    
+ trait Check{
+    /**
+     * 检查手机号格式
+     * @param string $phone
+     * @return bool|string[]
+     */
+    public function phone(string $phone){
+        $check = '/^(1(([35789][0-9])|(47)))\d{8}$/';
+        if (preg_match($check, $phone)) return true;
+        return ["msg" => "手机号码格式不对！"];
+    }
+}
+```
+
+## 【PHP】代码规范检查工具PHPCS
+
+- PHP代码规范有[PSRs](http://www.php-fig.org/psr/)，为了能做到代码规范的自动化检查和修复，就需要用到PHPCS了。
+
+- 项目官网：https://github.com/squizlabs/PHP_CodeSniffer
+
+- PHPCS安装
+
+- ```bash
+  curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+  php phpcs.phar -h
+  curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
+  php phpcbf.phar -h
+  // 也许需要 sudo
+  sudo mv phpcs.phar /usr/bin/phpcs
+  sudo mv phpcbf.phar /usr/bin/phpcbf
+  sudo chmod +x /usr/bin/phpcs
+  sudo chmod +x /usr/bin/phpcbf
+  ```
+
+- 
+
+- 常用命令
+
+- - 检查单个文件：phpcs /path/to/code
+  - 检查目录下的文件：phpcs /path/to/code/
+  - 查看已经安装的标准：phpcs -i
+  - 设置默认检查标准：phpcs --config-set default_standard /path/to/standard_file
+  - 查看配置：phpcs --config-show
+  - 指定报告格式：phpcs --report=summary /path/to/code ；可用的报告格式有full, xml, checkstyle, csv, json, emacs, source, summary, diff, svnblame, gitblame, hgblame, notifysend，默认为full
+  - 查看帮助：phpcs -h
+  - 自动修复：phpcbf /path/to/code
+  - 详细的使用说明见[官方wiki](https://github.com/squizlabs/PHP_CodeSniffer/wiki) 
+
 
 
 # php设计模式
 
+> https://learnku.com/docs/php-design-patterns/2018
+
 ## 单例模式
+
+
+
+## 观察者模式
+
+
 

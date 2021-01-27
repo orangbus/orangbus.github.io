@@ -296,6 +296,20 @@ docker-compose
 
 ```
 
+## Laradock无法安装解决方法汇总
+
+### 镜像导入
+
+
+
+### 修改hosts
+
+
+
+### 替换无法下载链接
+
+
+
 ## 无法从github下载nvm解决办法
 
 容器里面无法下载，那么我们就先下载好放在`workspace` 目录下
@@ -355,7 +369,7 @@ docker-compose up -d workspace
 
 列出所有进项，
 
-![](/images/image-20201207103646644.png)
+![](./images/image-20201207103646644.png)
 
 ```bash
 ➜  laradock git:(master) ✗ docker images    
@@ -378,6 +392,57 @@ docker load -i laradock_nginx.tar
 ```
 
 到此就可以直接启用了。
+
+# window10使用Laradock
+
+起因：公司没人用linux，但是我又懒得去折腾window了，有什么办法可以在window环境下使用linux的开发环境，答案有。
+
+大概思路：
+
+1、window开启虚拟换支持，配置wsl
+
+2、安装window下的linux子系统。
+
+3、在linux系统下安装docker，并配置成功启动laradock。
+
+4、远程同步开发。
+
+是不是迫不及待了，马上操练起来。
+
+
+
+## 遇到问题
+
+> 成功安装了docker，但是无法使用
+
+1、如果你参考我的步骤来，理论没问题，我在多台电脑成功配置ok。
+
+2、重启一下终端，或者电脑。
+
+3、请查看dock`docker` 和 `docker-compose` 的版本是否是最新的，以及权限问题。
+
+> 如何使用账号密码远程连接linux
+
+安装 `ssh`
+
+```bash
+sudo apt-get install ssh
+```
+
+修改 ==sudo vim /etc/ssh/sshd_config== 文件，是 `sshd_config`  不是 `ssh_config` 
+
+```text
+将 #PasswordAuthentication no 的注释去掉，并且将 no 修改为 yes
+将 #PermitRootLogin prohibit-password 的注释去掉，将 prohibit-password 改为 yes
+```
+
+重启ssh：
+
+```bash
+sudo systemctl restart sshd
+// or
+sudo service ssh restart
+```
 
 # 错误汇总
 

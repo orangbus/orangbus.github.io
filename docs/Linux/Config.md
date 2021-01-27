@@ -1,18 +1,18 @@
 ---
 title: Linux-Config文件
-desc: 下载 ，资源 ， 电脑辅助工具 ， 动态桌面 ， 录屏
+desc: 下载 ，资源 ， 电脑辅助工具 ， 动态桌面 ， 录屏，linux配置
 keyword: linux基本命令,docker,
 date: 2019-06-04 14:56:23
 sidebar: auto
 ---
 
-## 个人linux常规配置
+个人linux常规配置
 
-## 镜像网站：
+镜像网站：
 
 华为云： <https://mirrors.huaweicloud.com>
 
-## SSH-keygen
+## SSH-keygen免密登录
 
 ### 创建一个 SSH key 
 
@@ -23,7 +23,35 @@ ssh-keygen -t rsa -C "your_email@example.com"
 ls ~/.ssh
 ```
 
-## 个人常用别名 
+目录下会包含两个文件： 私钥：`id_rsa` 公钥：`id_rsa.pub` 
+
+### 将公钥复制到远程主机中
+
+**第一种方式：** 使用ssh-copy-id命令将公钥复制到远程主机。ssh-copy-id会将公钥写到远程主机的 ~/ .ssh/authorized_keys 文件中
+
+```bash
+ssh-copy-id root@192.168.0.1  // 回车后输入密码
+```
+
+**第二种方式：** 
+
+现在==服务器== 的==~/ .ssh/==目录下创建 `authorized_keys` 文件，然后将本地的公钥（`id_rsa.pub`）添加到这个文件即可
+
+```bash
+cat ~/.ssh/id_rsa.pub // 复制本机公钥信息
+```
+
+登录服务器，创建 `authorized_keys`  文件，并把刚刚复制的公钥粘贴进去就ok了。
+
+```
+vim ~/.ssh/authorized_keys
+```
+
+如果你想多个**个人电脑** 免密登录**同一台服务器** ，只要按照上面的步骤操作，当我们把 2+1台个人电脑的公钥添加到`authorized_keys`  这个文件时，记得是**追加**，**不是替换**。
+
+
+
+## 个人常用别名
 
 ```bash
 # bash: vim ~/.zshrc
@@ -92,7 +120,7 @@ lsof -i 需要 root 用户的权限来执行，如下图：
 
 更多 lsof 的命令如下：
 
-```
+```bash
 lsof -i:8080：查看8080端口占用
 lsof abc.txt：显示开启文件abc.txt的进程
 lsof -c abc：显示abc进程现在打开的文件
@@ -112,7 +140,7 @@ lsof -i -U：显示所有打开的端口和UNIX domain文件
 
 netstat 查看端口占用语法格式：
 
-```
+```bash
 netstat -tunlp | grep 端口号
 ```
 
@@ -131,7 +159,7 @@ tcp        0      0 0.0.0.0:8000            0.0.0.0:*               LISTEN      
 
 更多命令：
 
-```
+```bash
 netstat -ntlp   //查看当前所有tcp端口
 netstat -ntulp | grep 80   //查看所有80端口使用情况
 netstat -ntulp | grep 3306   //查看所有3306端口使用情况

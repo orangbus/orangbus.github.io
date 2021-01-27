@@ -465,45 +465,72 @@ date-type="add" data-id="value"
 var id = $(this).data('id');
 ```
 
-## Layui图片上传编辑删除
+## Layui图片上传
 
-```js
-upload.render({
-    elem: '#upload-images' //绑定元素
-    ,url: 'uploadImage' //上传接口
-    ,multiple: true
-    ,before(obj) {
-        obj.preview(function (index,file,result) {
-            $('#isshow').removeClass("layui-hide");
-            $('#preImages').append("<img src=" + result + " style=\"width: 200px;height: 100px;\" title=\"点击图片可删除\">");
-        });
-    }
-    ,done: function(res){
-        console.log(res)
-        //上传完毕回调
-        $('#preImages').append("<input type=\"hidden\" name=\"{$list.name_field}[]\" value='"+res.imageUrl+"'>");
-    }
-    ,error: function(res){
-        //请求异常回调
-        layer.alery("图片上传失败！");
-    }
+```html
+<div class="layui-form-item">
+                    <label class="layui-form-label">专题图片：</label>
+                    <div class="layui-input-block">
+                        <button type="button" class="layui-btn layui-btn-sm" id="pic-upload"><i class="layui-icon">&#xe681;</i>上传图片</button>
+                        <a class="layui-btn  layui-btn-sm layui-btn-danger layui-icon layui-hide" id="pic-clear">&#x1006;清除</a>
+                        <div class="layui-upload-list">
+                            <img class="layui-upload layui-hide" id="uploadView" src="" style="width: 200px;height: 200px;">
+                            <input type="hidden" name="pic" id="pic" value="">
+                            <button class="layui-btn layui-btn-sm layui-btn-danger layui-hide" id="pic-reload-upload">重新上传</button>
+                        </div>
+                    </div>
+                </div>
 
-});
+<div class="layui-form-item">
+                    <label class="layui-form-label">成功图片：</label>
+                    <div class="layui-input-block">
+                        <button type="button" class="layui-btn layui-btn-sm" id="pic-upload-success"><i class="layui-icon">&#xe681;</i>上传图片</button>
+                        <a class="layui-btn  layui-btn-sm layui-btn-danger layui-icon layui-hide" id="pic-clear-success">&#x1006;清除</a>
+                        <div class="layui-upload-list">
+                            <img class="layui-upload layui-hide" id="uploadView-success" src="" style="width: 200px;height: 200px;">
+                            <input type="hidden" name="success_pic" id="pic-success" value="">
+                            <button class="layui-btn layui-btn-sm layui-btn-danger layui-hide" id="pic-reload-upload-success">重新上传</button>
+                        </div>
+                    </div>
+                </div>
 ```
 
 ```js
-function del(url) {
-        var imgurl = url.src.split("upload")['1'];
-        var list = $('#preImage').children('input');
-        for ($i=0;$i<list.length;$i++){
-            var inputURL= list[$i].value.split("upload")['1'];
-            if (imgurl == inputURL){
-                //图片地址相同就删除
-                list[$i].remove();
-                url.remove();
+var uploadInst = upload.render({
+            elem: '#pic-upload'
+            ,url: '{{ route("upload") }}' //改成您自己的上传接口
+            ,headers: {}
+            ,accept: 'images' //images（图片）、file（所有文件）、video（视频）、audio（音频）
+            ,size: 0 //设置文件最大可允许上传的大小，单位 KB。不支持ie8/9
+            ,done: function(res){
+                if (res.code !== 200) return layer.msg(res.msg ? res.msg : '上传失败');
+                layer.msg(res.msg ? res.msg : '上传成功');
+                //添加图片地址
+                let pic = $("#pic");//图片地址
+                let picView= $("#uploadView"); //显示图片
+                let picClear = $("#pic-clear"); //显示清除按钮
+                pic.attr("value",res.imageUrl);
+                picView.removeClass('layui-hide').attr('src', res.imageUrl);
+                //显示清除按钮
+                picClear.removeClass("layui-hide");
+                picView.css("display",'block')
             }
-        }
-    }
+            ,error: function(){
+                $(".pic-reload-upload").show();
+            }
+        });
+        //重新上传
+        $(".pic-reload-upload").click(function (){
+            uploadInst.upload();
+            $(".pic-reload-upload").hide();
+            return false;
+        });
+		// 清除已上传图片
+        $("#pic-clear").click(function () {
+            $(this).hide();
+            $("#uploadView").attr("src","").hide();
+            $("#pic").attr("value","");
+        });
 ```
 
 ## layui放大图片
@@ -692,5 +719,260 @@ function setField(id, dataname, datavalue) {
             }
         });
     }
+```
+
+### layui获取select下面的option自定义值
+
+```html
+<select name="cate_id" id="cate_id" lay-filter="cate_id">
+    <option value="">请选择文章分类</option>
+    <option value="" article-type="1">111</option>
+    <option value="" article-type="2">222</option>
+</select>
+```
+
+```javascript
+// 获取：article-type的值
+form.on('select(cate_id)', function (obj) {
+    let type = $(obj.elem).find("option:selected").attr("article-type");
+	console.log(type);
+})
+```
+
+
+
+## layui表格模板
+
+```html
+{extend name="Layout/Base"}
+{block name="content"}
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <!--表格-->
+                    <table class="layui-hide" id="dataTable" lay-filter="dataTable"></table>
+                    <!--表头-->
+                    <script type="text/html" id="tableHeader" lay-filter="tableHeader">
+                        <div class="layui-row layui-col-space10">
+                            <div class="layui-col-lg2 layui-col-md2">
+                                <div class="layui-block">
+                                    <input class="layui-input" name="keywords" id="keywords" value="" autocomplete="on" placeholder="请输入关键字">
+                                </div>
+                            </div>
+                            <div class="layui-col-lg2 layui-col-md2">
+                                <div class="layui-block">
+                                    <select name="cate" lay-search>
+                                        <option value="">分类不限</option>
+                                        <option value="0">普通</option>
+                                        <option value="1">vip</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-col-lg2 layui-col-md2">
+                                <lable class="layui-lable">表格标签:</lable>
+                                <div class="layui-inline">
+                                    <input type="text" name="other" id="other" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-col-lg2 layui-col-md2">
+                                <div class="layui-block">
+                                    <input type="text" class="layui-input" id="datebt" placeholder="请选择一个时间范围">
+                                </div>
+                            </div>
+                            <div class="layui-col-lg4 layui-col-md4">
+                                <div class="layui-btn-container">
+                                    <button class="layui-btn search-btn" id="search-btn" data-type="reload"><i class="layui-icon">&#xe615;</i></button>
+                                    <button class="layui-btn layui-btn-normal" lay-event="add">添加</button>
+                                    <button class="layui-btn layui-btn-danger" lay-event="batchDel">删除</button>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <!--行内元素操作-->
+                    <script type="text/html" id="toolBar" lay-filter="toolBar">
+                        <button class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit">编辑</button>
+                        <button class="layui-btn layui-btn-xs" lay-event="detail">详情</button>
+                        <button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</button>
+                    </script>
+                    <!--行内事件-->
+                    <script type="text/html" id="status" lay-filter="status">
+                        <input type="checkbox" lay-filter="ckState" value="@{{d.status}}" lay-skin="switch"
+                               lay-text="启用|禁止" @{{d.sex==0 ? 'checked':''}}/>
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="js"}
+<script>
+    layui.use(['form','table','laydate',"jquery"], function () {
+        var form = layui.form
+            ,$ = layui.jquery
+            ,laydate = layui.laydate
+            , table = layui.table;
+
+        //表格渲染
+        table.render({
+            elem: '#dataTable'
+            , url: '/index/index/list'
+            , toolbar: '#tableHeader' //指定表头
+            , title: '用户数据表'
+            , limit: 15 // 美业显示条数
+            , page: true
+            , text: {  // 指定无数据或数据异常时的提示文本
+                none: '暂无相关数据' //默认：无数据。
+            }
+            , id: 'dataTable' //重载表格的时候需要用到
+            , cols: [[
+                {type: 'checkbox', fixed: 'left'}
+                , {field: 'id', title: 'ID', width: 80, fixed: 'left', sort: true,}
+                , {field: 'username', title: '用户名', edit: 'text'}
+                , {field: 'experience', title: '积分', sort: true}
+                , {field: 'status', title: '状态', toolbar: '#status'}
+                , {field: 'logins', title: '登入次数',}
+                , {field: '#',align:'center', title: '操作',width: 160,toolbar: '#toolBar'}
+            ]],done() {
+                var $ = layui.$, active = {
+                    reload: function () {
+                        var keywords = $('#keywords')
+                            , datebt = $('#datebt')
+                        //执行重载
+                        table.reload('dataTable', {
+                            page: {
+                                curr: 1 //重新从第 1 页开始
+                            }
+                            , where: {
+                                keywords: keywords.val(),
+                                datebt: datebt.val(),
+                            }
+                        }, 'data');
+
+                        //重载后再次加载add事件del事件
+                        $('#keywords').val(keywords.val());
+                        $('#datebt').val(datebt.val());
+                    }
+                };
+                $('.search-btn').on('click', function () {
+                    var type = $(this).data('type');
+                    active[type] ? active[type].call(this) : '';
+                });
+            }
+        });
+
+        //头工具栏事件
+        table.on('toolbar(dataTable)', function (obj) {
+            let data = obj.data;
+            switch (obj.event) {
+                case "add":
+                    console.log(obj)
+                    break;
+                case 'batchDel':
+                    let  checkData = table.checkStatus(obj.config.id).data;
+                    if (checkData.length === 0) return layer.msg('请先选择数据');
+                    let ids = [];
+                    checkData.map(item =>{ ids.push(item.id)}) //循环得到id数组
+                    $.ajax({
+                        url: "{:url('batchDel')}",
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {ids},
+                        success: function (res) {
+                            layer.close(loading);
+                            if (res.code == 200) {
+                                layer.msg(res.msg, {time: 1500});
+                            } else {
+                                layer.alert(res.msg, {icon: 2});
+                            }
+                            window.location.reload();
+                        }
+                    });
+                    break;
+            };
+        });
+        // 行内事件监听
+        table.on('tool(dataTable)', function (obj) {
+            let data = obj.data;
+            switch (obj.event) {
+                case "edit":
+                    console.log(obj)
+                    layer.open({
+                        type: 2,
+                        title: '分享配置',
+                        area: ['700px', '600px'],
+                        content: ['{:url("setting")}', 'yes'],
+                        skin: 'layui-layer-molv',
+                        btn: ['确定', '取消'],
+                        btnAlign: 'c',
+                        yes: function (index, layero) {
+                            var submit = layero.find('iframe').contents().find("#submit");// #subBtn为页面层提交按钮ID
+                            submit.click();// 触发提交监听
+                            return false;
+                        },
+                        btn2: function (index, layero) {
+                            layer.close(index);
+                        }
+                    });
+                    break;
+                case "detail":
+                    top.layui.index.openTabsPage("http://doc.orange.cn", "OrangBus");
+                    break;
+                case 'del':
+                    // obj.del();
+                    let id = data.id;
+                    alert(id);
+                    break;
+            };
+        });
+
+        //时间选择
+        laydate.render({
+            elem: '#datebt'
+            ,range: true
+            ,type: "date"
+            ,target: true
+        });
+        //快捷编辑
+        table.on('edit(dataTable)', function(obj){ //注：edit是固定事件名，dataTable是table原始容器的属性 lay-filter="对应的值"
+            console.log(obj.data.id, obj.field, obj.value,obj);
+            // setField(obj.data.id, obj.field, obj.value);
+        });
+        // 监听状态开关切换事件
+        form.on('switch(ckState)', function (data) {
+            let checked = data.elem.checked ? 0 : 1;
+            let id = data.value;
+            setStatus(id, checked);
+        });
+        function setStatus(id,status) {
+            // 加载层
+            let loading = layer.msg('处理中，请稍后...', {icon: 16, shade: 0.2});
+            $.ajax({
+                url: "{:url('admin/form/data/setStatus')}",
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    id : id,
+                    status : status,
+                    _token: '{{ @csrf_token() }}'
+                },
+                success: function (data) {
+                    layer.close(loading);
+                    if (data.code == 200) {
+                        layer.msg(data.msg, {time: 1500});
+                    } else {
+                        layer.alert(data.msg, {icon: 2},function(){
+                            window.location.reload();
+                        });
+                    }
+                }
+            });
+        }
+    });
+</script>
+{/block}
 ```
 
