@@ -10,7 +10,7 @@ set -e
 
 # 备份项目到仓库中
  git add .
- git commit -m " update:`date` "
+ git commit -m "`date` "
  git push https://gitee.com/orangbus/vuePress.git master
 
 blue "========================================="
@@ -28,7 +28,7 @@ echo 'doc.orangbus.cn' > CNAME
 
 git init
 git add -A
-git commit -m " update:`date` "
+git commit -m "`date` "
 
 # 如果发布到 https://<USERNAME>.github.io
 # git push -f git@github.com:orangbus/orangbus.github.io.git master

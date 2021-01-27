@@ -40,12 +40,13 @@ module.exports = {
             '@vuepress/back-to-top', //回到顶部
             'vuepress-plugin-helper-live2d',
             {
+                log: true,
                 live2d: {
                     // 是否启用(关闭请设置为false)(default: true)
                     enable: true,
                     // 模型名称(default: hibiki)>>>取值请参考：
                     // https://github.com/JoeyBling/hexo-theme-yilia-plus/wiki/live2d%E6%A8%A1%E5%9E%8B%E5%8C%85%E5%B1%95%E7%A4%BA
-                    model: 'shizuku',//hibiki
+                    model: 'shizuku',//hibiki  shizuku
                     display: {
                         // position: "right", // 显示位置：left/right(default: 'right')
                         width: 135, // 模型的长度(default: 135)
@@ -97,7 +98,7 @@ module.exports = {
         `],
         // 以下文件非必须
         // ["script",{src:'/js/jquery-3.5.min.js'}],
-        // ["script",{src:'/js/cursor.min.js'}],
+        ["script",{src:'/js/cursor.min.js'}],
     ],
 
 };

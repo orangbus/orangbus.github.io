@@ -369,7 +369,7 @@ docker-compose up -d workspace
 
 列出所有进项，
 
-![](./images/image-20201207103646644.png)
+![](/images/dockerimage.png)
 
 ```bash
 ➜  laradock git:(master) ✗ docker images    
