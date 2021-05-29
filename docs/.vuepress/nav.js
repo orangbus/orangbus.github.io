@@ -80,9 +80,8 @@ module.exports = [
 		]
 	},
 	{text: "MyNote", link: "/MyNote/"},
-	{
-		text: "WebNote", link: "/WebNote/"
-	},
+	{text: "WebNote", link: "/WebNote/"},
+	{text: "OrangBus", link: "/OrangBus/"},
 	{
 		text: 'More',
 		items: [

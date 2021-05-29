@@ -218,7 +218,7 @@ bash <(curl -Lso- https://git.io/superspeed)
 
 打开 `https://www.ipaddress.com` 搜索 `github.com` 和`raw.githubusercontent.com`  你会看到一个如下IP地址
 
-![image-20201215110741455](../images/image-20201215110741455.png)
+![image-20201215110741455](/images/image-20201215110741455.png)
 
 打开本机电脑的 `hosts` 文件，我的电脑是linux，所以我的 `hosts`文件在 (window用户自行百度)
 
@@ -249,7 +249,7 @@ sudo vim /etc/hosts
 
 安装完之后你的界面是这样的
 
-![image-20201215111505365](../images/image-20201215111505365.png)
+![image-20201215111505365](/images/image-20201215111505365.png)
 
 先睹为快：https://github.com.cnpmjs.org/orangbus/tool
 
