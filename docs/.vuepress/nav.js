@@ -14,6 +14,21 @@ module.exports = [
 			{text: "生产工具", link: '/Linux/Tool'},
 			{text: 'Manjaro入门到生产', link: 'https://github.com/orangbus/tool'},
 			{
+				text: '开发环境', items: [
+					{text: 'Laradock', link: 'http://laradock.io'},
+					{text: '宝塔Linux面板', link: 'https://www.bt.cn/'},
+					{text: 'laragon-window', link: 'https://laragon.org/'},
+				]
+			},
+			{
+				text: 'Linux发行版', items: [
+					{text: 'Deepin', link: 'https://www.deepin.org/zh/'},
+					{text: 'Manjaro', link: 'https://manjaro.org/'},
+					{text: 'Ubuntu', link: 'https://cn.ubuntu.com/'},
+					{text: 'centos', link: 'https://www.centos.org/'},
+				]
+			},
+			{
 				text: 'Laradock实战', items: [
 					{
 						text: 'Docker入门到实战',
@@ -36,9 +51,10 @@ module.exports = [
 			{
 				text: "Html",
 				items: [
-					{text: 'Css样式收藏', link: '/Code/Css'},
+					{text: 'RequireJs', link: '/Code/RequireJs'},
 					{text: 'Layui笔记', link: '/Code/Layui'},
 					{text: 'Javascript手册', link: '/Code/Javascript'},
+					{text: 'Css样式收藏', link: '/Code/Css'},
 					{text: '在线手册', link: '/Code/Menu'},
 				]
 			},

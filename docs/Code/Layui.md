@@ -976,3 +976,84 @@ form.on('select(cate_id)', function (obj) {
 {/block}
 ```
 
+## 图片放大
+
+```html
+<a href="javascript:void(0);" onclick=viewImage("/static/images/default.png")><image style="max-width:30px;max-height:30px;" src="/static/images/default.png"/></a>
+```
+
+## 搜索
+
+```
+
+```
+
+```javascript
+layui.form.on('submit(user-search)', function (data) {
+    layui.table.reload('userTable', {
+        where: data.field
+        , page: {
+            curr: 1 //重新从第 1 页开始
+        },
+        method:'POST'
+    });
+    return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+});
+```
+
+## layui表单换行显示
+
+```css
+<style>
+    .layui-form-label{
+        text-align: left;
+        float: none;
+        width: 100%;
+    }
+    .layui-input-block{
+        margin-left: 14px;
+    }
+    .layui-input-inline{
+        margin-left: 10px;
+    }
+</style>
+```
+
+## 页面弹窗接受数据
+
+接受弹窗回传参数
+
+```javascript
+window.callback=function (data,type){
+    console.log(data,type);
+}
+```
+
+​	传递参数给父级页面
+
+```javascript
+var  getCourse = window.iframeWindow || parent;
+    getCourse.callback(newData,type);//回调方法:传递给页面的参数
+    var index1 = parent.layer.getFrameIndex(window.name);
+    parent.layer.close(index1);//关闭当前页
+});
+```
+
+## ayui中table表格内容过多自动换行
+
+```
+
+<style>
+.layui-table-cell {
+    font-size:14px;
+    padding:0 5px;
+    height:auto;
+    overflow:visible;
+    text-overflow:inherit;
+    white-space:normal;
+    word-break: break-all;
+}
+```
+
+
+

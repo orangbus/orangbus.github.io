@@ -218,7 +218,7 @@ bash <(curl -Lso- https://git.io/superspeed)
 
 打开 `https://www.ipaddress.com` 搜索 `github.com` 和`raw.githubusercontent.com`  你会看到一个如下IP地址
 
-![image-20201215110741455](/images/image-20201215110741455.png)
+![image-20201215110741455](../images/image-20201215110741455.png)
 
 打开本机电脑的 `hosts` 文件，我的电脑是linux，所以我的 `hosts`文件在 (window用户自行百度)
 
@@ -235,6 +235,8 @@ sudo vim /etc/hosts
 
 现在打开 `https://github.com` 就可以访问了。
 
+如何还是无法访问，cmd中输入`ipconfig/flushdns`刷新dns
+
 其它国外的网站是不是也可以类似的操作？比如 google? youtube? .........
 
 ### Github镜像站
@@ -247,7 +249,7 @@ sudo vim /etc/hosts
 
 安装完之后你的界面是这样的
 
-![image-20201215111505365](/images/image-20201215111505365.png)
+![image-20201215111505365](../images/image-20201215111505365.png)
 
 先睹为快：https://github.com.cnpmjs.org/orangbus/tool
 
@@ -299,6 +301,52 @@ Centos：<https://www.centos.org/>
 备注：不推荐使用 Debian 8 系统，因为 Caddy 申请证书可能会出现一些莫名其妙的问题
 ```bash
 bash <(curl -s -L https://git.io/v2ray.sh)
+```
+
+## crontab使用
+
+> 语法检查网站：https://crontab.guru/
+
+安装：
+
+```bash
+sudo apt-get install contab
+```
+
+基本命令
+
+```bash
+sudo service cron restart/status/start
+```
+
+基本语法
+
+```
+语法： 分钟 小时 每月中的某一天 月份 每周中的某一天 需要执行的命令
+
+// 每分钟输出 orangbus.cn 字符串到 /home/orangbus/data/demo.txt 文件中
+* * * * * echo "orangbus.cn" >> /home/orangbus/data/demo.txt
+```
+
+设置一个定时任务: 在打开的文件中加入你需要执行的命令即可，然后保存
+
+```bash
+crontab -e
+```
+
+列出现在运行的任务
+
+```bash
+crontab -l
+```
+
+案例： 每个小时以交互式备份 laradock 中数据库数据
+
+```bash
+crontab -e 
+
+* 1 * * * docker exec -it 7c02a70f345c mysqldump -uroot -proot xiehui > /home/$USER/Code/Data
+/`date +%Y-%m-%d`.sql
 ```
 
 ## Shell笔记
@@ -357,3 +405,150 @@ install_pack() {
 ```bash
 [ $(id -u) != "0" ] && { echo "${CFAILURE}Error: You must be root to run this script${CEND}"; exit 1; }
 ```
+
+#### sed 命令配合 for 循环方式
+
+假如我们现在有一堆文件，文件名格式是 test01.txt、test02.txt、test03.txt、test04.txt 也就是前半部分是英文，后半部分是数字。我们现在想将文件名改成 test-01.txt 这种形式。这次，我们用 sed 命令来完成这个需求。
+
+```bash
+#!/bin/bash
+
+for file in `ls *.txt`
+do
+     newFile=`echo $file | sed 's/[a−z]\+[0−9]\+/\1-\2/'`
+     mv $file $newFile
+done
+```
+
+批量修改文件名:  ==斗pc穹.mp4  => 斗破苍穹.mp4==
+
+```bash
+#!/bin/bash
+for file in `ls *.mp4`
+do
+     newFile=`echo $file | sed 's/pc/破苍/'`
+
+     mv $file $newFile
+done
+```
+
+## Debian卸载apache
+
+一般80端口被占用会和我们正在安装的程序产生冲突。这时候我们可以使用。
+
+```
+lsof -i
+
+lsof -i:80
+```
+
+来查看端口占用情况。如果是apache2占用了，我们就先安全卸载它。Debian 下删除apache 2 的代码
+
+```bash
+sudo apt-get --purge remove apache2 &&
+sudo apt-get --purge remove apache2.2-common &&
+sudo apt-get autoremove
+```
+
+最后还需要找到没有删除掉的配置文件进行删除
+
+```bash
+sudo find /etc -name "apache" -exec rm -rf {} \;
+sudo rm -rf /var/www
+```
+
+Linux debian 下重装apache 2
+
+```bash
+sudo apt-get install apache2
+sudo /etc/init.d/apache2 restart
+```
+
+## 服务器压力测试
+
+-c : 并发数
+
+-n:请求次数
+
+```bash
+ab -c 127 -n 20 demo.com/
+ab -c 127 -n 100 -H "Authorization: 4d43fe0c86c9d21019389678def79da2&6&1621665729" http://wanyin.heimeiai.com/api/exam/cate/list?cid=11
+```
+
+其它参数：
+
+```
+-n: 测试会话中所执行的请求个数,默认仅执行一个请求 
+-c: 一次产生的请求个数,即同一时间发出多少个请求,默认为一次一个 
+-t: 测试所进行的最大秒数,默认为无时间限制....其内部隐含值是[-n 50000],它可以使对服务器的测试限制在一个固定的总时间以内 
+-p: 包含了需要POST的数据的文件 
+-T: POST数据所使用的Content-type头信息 
+-v: 设置显示信息的详细程度 
+-w: 以HTML表格的形式输出结果,默认是白色背景的两列宽度的一张表
+-i: 以HTML表格的形式输出结果,默认是白色背景的两列宽度的一张表 
+-x: 设置<table>属性的字符串,此属性被填入<table 这里> 
+-y: 设置<tr>属性的字符串 
+-z: 设置<td>属性的字符串 
+-C: 对请求附加一个Cookie行，其典型形式是name=value的参数对,此参数可以重复 
+-H: 对请求附加额外的头信息,此参数的典型形式是一个有效的头信息行,其中包含了以冒号分隔的字段和值的对(如"Accept-Encoding: zip/zop;8bit") 
+-A: HTTP验证,用冒号:分隔传递用户名及密码 
+-P: 无论服务器是否需要(即是否发送了401认证需求代码),此字符串都会被发送 
+-X: 对请求使用代理服务器 
+-V: 显示版本号并退出 
+-k: 启用HTTP KeepAlive功能,即在一个HTTP会话中执行多个请求,默认为不启用KeepAlive功能 
+-d: 不显示"percentage served within XX [ms] table"的消息(为以前的版本提供支持) 
+-S: 不显示中值和标准背离值,且均值和中值为标准背离值的1到2倍时,也不显示警告或出错信息,默认会显示最小值/均值/最大值等(为以前的版本提供支持) 
+-g: 把所有测试结果写入一个'gnuplot'或者TSV(以Tab分隔的)文件 
+-e: 产生一个以逗号分隔的(CSV)文件,其中包含了处理每个相应百分比的请求所需要(从1%到100%)的相应百分比的(以微妙为单位)时间 
+-h: 显示使用方法 
+-k: 发送keep-alive指令到服务器端
+```
+
+**返回信息详解** 
+
+```tex
+This is ApacheBench, Version 2.3 <$Revision: 1879490 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking www.xxx.cn (be patient)
+
+
+Server Software:        nginx (服务器软件的版本信息)
+Server Hostname:        www.xxx.cn （请求的url）
+Server Port:            80 (请求端口)
+
+Document Path:          / (请求路劲)
+Document Length:        256738 bytes (页面长度 单位是字节)
+
+Concurrency Level:      127 (并发数)
+Time taken for tests:   202.470 seconds (一共使用了 124s)
+Complete requests:      1000 (请求的次数)
+Failed requests:        0 (失败的请求)
+Total transferred:      257836000 bytes (总共传输的字节数 http 头信息)
+HTML transferred:       256738000 bytes (实际页面传递的字节数)
+Requests per second:    4.94 [#/sec] (mean) (每秒多少个请求)
+Time per request:       25713.630 [ms] (mean) (平均每个用户等待多长时间)
+Time per request:       202.470 [ms] (mean, across all concurrent requests) (服务器平均用多长时间处理)
+Transfer rate:          1243.61 [Kbytes/sec] received (每秒获取多少数据)
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        4 2624 1919.7   2360    6329 ()
+Processing:   362 22309 3988.6  22767   49337
+Waiting:      133 2656 1769.9   2092   23343
+Total:        366 24933 4790.0  26094   55634
+
+Percentage of the requests served within a certain time (ms)
+  50%  26094 (50% 的用户的请求 15588ms 内返回)
+  66%  27477
+  75%  27765
+  80%  28206
+  90%  29575
+  95%  30081
+  98%  30610
+  99%  31703
+ 100%  55634 (longest request)
+
+```
+

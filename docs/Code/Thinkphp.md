@@ -5,6 +5,18 @@ sidebar: auto
 
 # Thinkphp学习笔记
 
+多应用：https://www.kancloud.cn/manual/thinkphp6_0/1297876
+
+```
+composer require topthink/think-multi-app
+```
+
+模板引擎：https://www.kancloud.cn/manual/thinkphp6_0/1037613
+
+```
+composer require topthink/think-view
+```
+
 扩展包推荐
 
 ```
@@ -153,6 +165,28 @@ protected function getBetweenTime(string $datebt){
     return ['create_time','between',[$datebegin,$dateend]];
 }
 ```
+
+## A表关联B表，统计B表统计排名
+
+用户可根据分享文章获得的收益sum之后进行排名
+
+UserModel
+
+```php
+// 关联浏览记录
+    public function visit()
+    {
+        return $this->hasMany(Visit::class,"muid","id");
+    }
+```
+
+controller
+
+```php
+$top = User::withSum("visit","mprize")->order("visit_sum","desc")->select()->toArray();
+```
+
+
 
 ## A表关联B表统计B表信息
 

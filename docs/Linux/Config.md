@@ -86,6 +86,26 @@ alias web="cd /home/Code/web"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```
 
+## ubuntu卸载默认的apache
+
+```bash
+sudo apt-get --purge remove apache2
+sudo apt-get --purge remove apache2.2-common
+sudo apt-get autoremove
+
+sudo find /etc -name "***apache***" -exec rm -rf {} \;
+sudo rm -rf /var/www
+```
+
+重装**apache**2
+
+```bash
+sudo apt-get install **apache**2
+sudo /etc/init.d/**apache**2 restart
+```
+
+
+
 ## Linux 查看端口占用情况
 
 Linux 查看端口占用情况可以使用 **lsof** 和 **netstat** 命令。
@@ -250,3 +270,24 @@ lan 口的DNS 没有配置正确
 > 所有配置都ok，但是还是不能科学上网
 
 重启电脑试试。
+
+## 禁止linux进入休眠
+
+最新买了一台工控机，于是安装了一个manjaro系统，用于人服务器使用，但是这个玩意长时间不懂她，他自己就睡着了，必须得按一下电源键，那如何阻止他休眠呢？
+
+**禁止休眠**
+
+```bash
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+```
+
+**解除禁止休眠**
+
+```bash
+sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target
+```
+
+## 方法二
+
+1. 编辑 `/etc/default/grub`文件，将 `GRUB_CMDLINE_LINUX_DEFAULT="quiet"`改为 `GRUB_CMDLINE_LINUX_DEFAULT="quiet acpi=off apm=off"`
+2. 执行 `sudo update-grub`命令

@@ -41,6 +41,61 @@ http://pecl.php.net/package/redis
 pecl install redis
 ```
 
+## linux安装redis扩展
+
+可能缺少的工具
+
+```bash
+// phpize
+sudo pacman -S php-dev
+sudo pacman -S autoconf
+```
+
+下载 `phpredis` 源码包，解压，编译安装
+
+```bash
+wget https://github.com/phpredis/phpredis/archive/5.3.3.tar.gz
+cd  phpredis-5.3.3
+phpize
+./configure
+make && make install //可能需要加 sudo
+```
+
+开启扩展
+
+```bash
+sudo vim /etc/php/php.ini
+```
+
+```
+// 添加
+extension="redis.so"
+```
+
+测试
+
+```bash
+php -m
+```
+
+## 安装sqlite3扩展
+
+首先编辑或者添加sqlite
+
+```
+// sudo vim /etc/php/php.ini
+extension=sqlite3
+extension=pdo_sqlite
+```
+
+安装
+
+```bash
+sudo pacman -S php-sqlite
+```
+
+
+
 ## window安装pecl
 
 **安装步骤**
@@ -498,6 +553,90 @@ class Test
         return $response;
 	}
 }
+```
+
+## 数值转化技巧
+
+> 场景，当我们从excel导入数据到数据库中时，可能会遇到将同一个类型的名称转换为数值代替，但是查询的时候又希望通过数值转化为名称。
+
+当我有这样一个数组，想要插入到数据库中
+
+```php
+$data = [
+    ["name":"orangbus","sex": "男"],
+    ["name":"orangbus.cn","sex": "女"],
+];
+```
+
+但是我希望存储的格式是这样的
+
+| id   | name        | sex  |
+| ---- | ----------- | ---- |
+| 1    | orangbus    | 1    |
+| 2    | orangbus.cn | 2    |
+
+但是查询出来还是
+
+```
+$data = [
+    {"name":"orangbus","sex": "男"},
+    {"name":"orangbus.cn","sex": "女"},
+];
+```
+
+### 方法：
+
+array_search : 返回值
+
+array_flip：数组键值翻转
+
+```php
+/**
+     *  * 性别转换
+     * @param $sex name|code
+     * @param int $type
+     * @return false|int|string
+     */
+protected function transformSex($sex,$type=1){
+    $list = [
+        '1' => "男",
+        "2" => "女"
+    ];
+    if ($type != 1) $list = array_flip($list);
+    return array_search($sex,$list);
+}
+```
+
+## php使用正则：preg_match
+
+提取文件名：530126100000000x_one.jpg
+
+```php
+$str = "/var/www/pathTo/public/ticket/card/530126100000000x_one.jpg";
+
+preg_match('/(\d+[a-zA-Z]).*.g/i',$str,$res);
+print_r($res[0]);
+```
+
+## php数组传给js使用
+
+有时候我们需要传递一个php array给前端的js使用，可以怎么处理呢？
+
+```php
+$array = [
+    "name" => "orangbus",
+    "age" => 18,
+    "weight" => 180
+];
+// 我们在返回的时候将数组转换为字符串
+$response_str = implode(",",$array);
+```
+
+前端再讲字符串转array使用
+
+```javascript
+let str = '<?php echo implode(",",$response_str); ?>';
+let str_to_array = str.split(",");
 ```
 
 

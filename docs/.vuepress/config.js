@@ -3,7 +3,7 @@ const nav = require("./nav");
 
 module.exports = {
     title: "OrangBus",
-    description: "分享生活高效技能,保持勇敢，坚持有趣，生命不息，折腾不止！",
+    description: "分享生活高效技能,保持勇敢，坚持有趣，生命不息，折腾不止，不断分享个人的生活笔记！",
     themeConfig: {
         title: "OrangBus",
         description: "分享生活高效技能",

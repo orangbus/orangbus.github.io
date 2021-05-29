@@ -3,6 +3,15 @@ title: laravel学习笔记
 sidebar: auto
 ---
 
+## laravel环境部署常见缺少的php扩展
+
+```bash
+sudo apt-get install php-dev
+sudo apt-get install php-curl
+sudo apt-get install php-gd
+sudo apt-get install php-xml
+```
+
 ## 安装前端脚手架
 
 ```
@@ -41,7 +50,79 @@ mix.browserSync('websocket.test');
 php artisan ui vue --auth
 ```
 
+## tailwindcss安装
 
+> 中文网站：https://docs.tailwindchina.com/docs/guides/laravel
+
+```bash
+npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+```
+
+### 创建您的配置文件
+
+接下来，生成您的 `tailwind.config.js` 文件：
+
+```shell
+npx tailwindcss init
+```
+
+这将会在您的项目根目录创建一个最小化的 `tailwind.config.js` 文件：
+
+```js
+// tailwind.config.js
+module.exports = {
+  purge: [
+       './resources/**/*.blade.php',
+     './resources/**/*.js',
+     './resources/**/*.vue',
+  ],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+### 在 Laravel Mix 中配置 Tailwind
+
+在您的 `webpack.mix.js` 中，添加 `tailwindcss` 作为 PostCSS 插件。
+
+```javascript
+  // webpack.mix.js
+  mix.js("resources/js/app.js", "public/js")
+    .postCss("resources/css/app.css", "public/css", [
+     require("tailwindcss"),
+    ]);
+```
+
+### 在您的 CSS 中引入 Tailwind
+
+打开 Laravel 默认为您生成的 ./resources/css/app.css 文件 并使用 `@tailwind` 指令来包含 Tailwind的 `base`、 `components` 和 `utilities` 样式，来替换掉原来的文件内容。
+
+```css
+/* ./resources/css/app.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+接下来，在您的主 Blade 布局中导入您的样式表(通常是 `resources/views/layouts/app.php` 或类似的)，如果还没有存在的话， 请添加响应的视口元标签。
+
+```diff-html
+  <!doctype html>
+  <head>
+    <!-- ... --->
++   <meta charset="UTF-8" />
++   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  </head>
+```
+
+现在，当您运行 `npm run watch`, `npm run dev` 或 `npm run prod`, Tailwind CSS 就可以在您的 Laravel Mix 项目中使用了。
 
 ## npm package
 
@@ -159,6 +240,24 @@ protected function serializeDate(\DateTimeInterface $date)
 
 控制器构造方法 -> 父类构造方法 -> 中间件构造方法
 
+## Laravel查询技巧
+
+### wherein查询
+
+```php
+$status = 1;
+$ids = [1,2];
+User::when($status, function ($query, $status) {
+        return $query->where('status', $status);
+    })
+        ->when($ids, function ($query, $ids) {
+            return $query->whereIn('id', $ids);
+        })
+        ->get();
+```
+
+
+
 ## laravel使用factory填充数据
 
 ### 设置中文数据
@@ -249,6 +348,64 @@ public function index(){
 
 看不懂就参考：https://blog.csdn.net/qq175023117/article/details/101032253
 
+## 动作授权
+
+场景：假如我们的系统有不同的角色，同一个页面中，展示不同的点击按钮，这个时候就可以用laravel用户授权
+
+1、创建一个授权类（非必须）
+
+```bash
+php artisan make:policy UserCheckPolicy --model=User
+```
+
+```php
+<?php
+
+namespace App\Policies;
+
+use App\Models\User;
+use Illuminate\Auth\Access\HandlesAuthorization;
+
+class UserPolicy
+{
+    use HandlesAuthorization;
+
+    public function show(User $user , $path="") //这里的user必填，也就是当前登录用户的信息
+    {
+        return in_array($path,['user/add','user/delete']);
+    }
+    
+}
+
+```
+
+2、打开 `\app\ProvidersAuthServiceProvider.php` 注册授权
+
+```php
+public function boot()
+    {
+        $this->registerPolicies();
+
+        Gate::define("check",[UserPolicy::class,"checkBtn"]); // 注意引入刚刚创建的类
+        // 如果判断比较简单，可以直接写在这里也是可以的
+//        Gate::define("check",function (User $user ,$path="") {
+//            return in_array($path,["delete","update]);
+//        });
+    }
+```
+
+Ps:在rbac权限中，如果传入的url地址在我们后台授权的列表中，则拥有该权限
+
+3、在页面中进行授权操作（当前页面没有登录时没有效果的）
+
+```php
+@can("check","user/delete")
+     <button type="button" class="btn btn-primary">delete</button>
+@endcan
+```
+
+这样的大功告成了。
+
 ## Laravel中使用redis
 
 安装predis
@@ -274,6 +431,52 @@ class Index extends Controller
     }
 }
 ```
+
+## Laravel中使用MongoDB
+
+> 自行安装php-mongo扩展
+
+安装
+
+```bash
+composer require jenssegers/mongodb
+```
+
+注册
+
+```php
+Jenssegers\Mongodb\MongodbServiceProvider::class,
+```
+
+添加门脸
+
+```php
+'Mongo'     => Jenssegers\Mongodb\MongodbServiceProvider::class,
+```
+
+配置mongo连接
+
+```
+'mongodb' => [    
+        'driver'   => 'mongodb',    
+        'host'     => 'localhost',    
+        'port'     => 27017,    
+        'database' => 'mydb',    
+        'username' => '',    
+        'password' => '',
+],
+```
+
+数据库操作跟跟laravel默认的数据库操作基本是一样的，案例
+
+```php
+ $data = DB::connection('mongodb') // 连接mongodb驱动
+            ->collection("user") // 数据库集合
+     		->paginate(\request("limit",15));
+        return $this->resData($data->items(),$data->total());
+```
+
+案例：https://learnku.com/articles/2560/using-mongodb-in-laravel
 
 ## laravel8广播+pusher
 
@@ -890,6 +1093,48 @@ php artisan queue:listen
 
 
 
+## 广播使用注意事项
+
+### 前端没有接收到消息
+
+1、检查此文件是否配置正确。
+
+```javascript
+import Echo from 'laravel-echo';
+
+// window.io = require('socket.io-client'); // 这个玩意好像没用，但是官网说要引入他
+
+window.Echo = new Echo({
+    broadcaster: 'socket.io',
+    host: window.location.hostname + ':6001',
+    enabledTransports: ['ws','wss'], //如果你的消息发送失败多半是因为这个
+});
+```
+
+2、使用redis作为消息驱动
+
+```
+BROADCAST_DRIVER=redis
+CACHE_DRIVER=redis
+QUEUE_CONNECTION=redis
+SESSION_DRIVER=redis
+SESSION_LIFETIME=1200
+```
+
+3、入口文件引入`scoket,io` js文件
+
+```
+<script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script>
+```
+
+4、命令行中查看 `Channel` 和 `Event:xxxx` 是否执行正确，默认laravel会给channel加上一个前缀，可以打开 `config/app.php` ,把下面这样注释了。
+
+```php
+'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+```
+
+5、以上配置还是不行，检查查看laravel版本，寻找对应版本的文档在走一一边，还是不行就放弃吧，哈哈哈哈。
+
 
 
 ## laravel广播+redis+laradock
@@ -944,6 +1189,10 @@ QUEUE_CONNECTION=redis
 1、使用 `php-worker` 的时候，需要开启redis扩展。
 
 2、最好把 `workspace` 的PHP 的 redis 扩展也安装了。
+
+## laravel中使用mongodb数据库
+
+github：https://github.com/jenssegers/laravel-mongodb
 
 
 
