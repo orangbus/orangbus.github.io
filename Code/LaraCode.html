@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>laravel学习笔记 | OrangBus</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="shortcut icon" href="/orangbus.ico" type="image/jpg">
+    <script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?e4f927d450af136af0b561715b21b9ea";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    <meta name="description" content="分享生活高效技能,保持勇敢，坚持有趣，生命不息，折腾不止，不断分享个人的生活笔记！">
+    <meta property="article:modified_time" content="2021-05-29T15:07:31.000Z">
+    <meta property="og:site_name" content="OrangBus">
+    <meta property="og:title" content="laravel学习笔记">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/Code/LaraCode.html">
+    <meta name="twitter:title" content="laravel学习笔记">
+    <meta name="twitter:url" content="/Code/LaraCode.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords" content="html,css,jquery,thinkphp,laravel,docker,linux,manjaro">
+    <meta name="auther" content="OrangBus">
+    <link rel="preload" href="/assets/css/0.styles.8405cd42.css" as="style"><link rel="preload" href="/assets/js/app.c247bf6a.js" as="script"><link rel="preload" href="/assets/js/2.986f6ed5.js" as="script"><link rel="preload" href="/assets/js/8.c36500a2.js" as="script"><link rel="prefetch" href="/assets/js/10.73c6197d.js"><link rel="prefetch" href="/assets/js/11.6be7a7de.js"><link rel="prefetch" href="/assets/js/12.bd2a76b5.js"><link rel="prefetch" href="/assets/js/13.2831420d.js"><link rel="prefetch" href="/assets/js/14.a145e198.js"><link rel="prefetch" href="/assets/js/15.8f601005.js"><link rel="prefetch" href="/assets/js/16.2d49486e.js"><link rel="prefetch" href="/assets/js/17.15ac6e81.js"><link rel="prefetch" href="/assets/js/18.144ac3ee.js"><link rel="prefetch" href="/assets/js/19.0c2e3fc8.js"><link rel="prefetch" href="/assets/js/20.31f35c12.js"><link rel="prefetch" href="/assets/js/21.d5f04004.js"><link rel="prefetch" href="/assets/js/22.8d905648.js"><link rel="prefetch" href="/assets/js/23.9b837a6e.js"><link rel="prefetch" href="/assets/js/24.541484c5.js"><link rel="prefetch" href="/assets/js/25.861c8943.js"><link rel="prefetch" href="/assets/js/26.cac9feed.js"><link rel="prefetch" href="/assets/js/27.7b8c6cc9.js"><link rel="prefetch" href="/assets/js/28.b3b7e898.js"><link rel="prefetch" href="/assets/js/29.480ac30c.js"><link rel="prefetch" href="/assets/js/3.a3a6b999.js"><link rel="prefetch" href="/assets/js/30.5a3922da.js"><link rel="prefetch" href="/assets/js/31.18e40bfb.js"><link rel="prefetch" href="/assets/js/32.d34f30b8.js"><link rel="prefetch" href="/assets/js/33.b5561872.js"><link rel="prefetch" href="/assets/js/34.b51669b0.js"><link rel="prefetch" href="/assets/js/35.cc668717.js"><link rel="prefetch" href="/assets/js/36.04eebfcb.js"><link rel="prefetch" href="/assets/js/37.930a9801.js"><link rel="prefetch" href="/assets/js/38.d137b624.js"><link rel="prefetch" href="/assets/js/39.4d617c17.js"><link rel="prefetch" href="/assets/js/4.66cb441f.js"><link rel="prefetch" href="/assets/js/40.0bf24fa8.js"><link rel="prefetch" href="/assets/js/41.9ace173e.js"><link rel="prefetch" href="/assets/js/42.c5247c86.js"><link rel="prefetch" href="/assets/js/43.d6662fd0.js"><link rel="prefetch" href="/assets/js/44.098e6d71.js"><link rel="prefetch" href="/assets/js/45.a76eefef.js"><link rel="prefetch" href="/assets/js/46.2616f378.js"><link rel="prefetch" href="/assets/js/47.85652812.js"><link rel="prefetch" href="/assets/js/48.4e4b670c.js"><link rel="prefetch" href="/assets/js/49.536308a4.js"><link rel="prefetch" href="/assets/js/5.3efdf6a7.js"><link rel="prefetch" href="/assets/js/6.0fa850d7.js"><link rel="prefetch" href="/assets/js/7.a784b705.js"><link rel="prefetch" href="/assets/js/9.0ab208dc.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8405cd42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/orangbus.png" alt="OrangBus" class="logo"> <span class="site-name can-hide">OrangBus</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://k8smeetup.github.io/docs/tutorials/kubernetes-basics/deploy-interactive/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Kubernetes互动教程
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="More" class="dropdown-title"><span class="title">More</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://space.bilibili.com/32604448" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  BiliBili
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://music.163.com/#/user/home?id=107573124" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  NetMusic
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://jq.qq.com/?wv=1027&amp;k=5UQXtUm" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  QQ交流群
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://k8smeetup.github.io/docs/tutorials/kubernetes-basics/deploy-interactive/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Kubernetes互动教程
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="More" class="dropdown-title"><span class="title">More</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://space.bilibili.com/32604448" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  BiliBili
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://music.163.com/#/user/home?id=107573124" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  NetMusic
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://jq.qq.com/?wv=1027&amp;k=5UQXtUm" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  QQ交流群
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>laravel学习笔记</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Code/LaraCode.html#laravel环境部署常见缺少的php扩展" class="sidebar-link">laravel环境部署常见缺少的php扩展</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/LaraCode.html#安装前端脚手架" class="sidebar-link">安装前端脚手架</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/LaraCode.html#tailwindcss安装" class="sidebar-link">tailwindcss安装</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#创建您的配置文件" class="sidebar-link">创建您的配置文件</a></li><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#在-laravel-mix-中配置-tailwind" class="sidebar-link">在 Laravel Mix 中配置 Tailwind</a></li><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#在您的-css-中引入-tailwind" class="sidebar-link">在您的 CSS 中引入 Tailwind</a></li></ul></li><li><a href="/Code/LaraCode.html#npm-package" class="sidebar-link">npm package</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/LaraCode.html#laravel-ide-helper" class="sidebar-link">Laravel IDE Helper</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/LaraCode.html#laravel-引入中文语言包" class="sidebar-link">laravel 引入中文语言包</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/LaraCode.html#配置中国时间" class="sidebar-link">配置中国时间</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/LaraCode.html#laravel周期" class="sidebar-link">laravel周期</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/LaraCode.html#laravel查询技巧" class="sidebar-link">Laravel查询技巧</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#wherein查询" class="sidebar-link">wherein查询</a></li></ul></li><li><a href="/Code/LaraCode.html#laravel使用factory填充数据" class="sidebar-link">laravel使用factory填充数据</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#设置中文数据" class="sidebar-link">设置中文数据</a></li><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#创建迁移文件" class="sidebar-link">创建迁移文件</a></li><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#创建工厂数据" class="sidebar-link">创建工厂数据</a></li><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#填充数据" class="sidebar-link">填充数据</a></li></ul></li><li><a href="/Code/LaraCode.html#获取原始数据" class="sidebar-link">获取原始数据</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/LaraCode.html#时间搜索" class="sidebar-link">时间搜索</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/LaraCode.html#手动表单验证（api验证）" class="sidebar-link">手动表单验证（api验证）</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/LaraCode.html#scope使用" class="sidebar-link">scope使用</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/LaraCode.html#动作授权" class="sidebar-link">动作授权</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/LaraCode.html#laravel中使用redis" class="sidebar-link">Laravel中使用redis</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/LaraCode.html#laravel中使用mongodb" class="sidebar-link">Laravel中使用MongoDB</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/LaraCode.html#laravel8广播-pusher" class="sidebar-link">laravel8广播+pusher</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#安装pusher驱动" class="sidebar-link">安装pusher驱动</a></li></ul></li><li><a href="/Code/LaraCode.html#laravel8广播-websocket" class="sidebar-link">laravel8广播+websocket</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#安装laravel-和前端脚手架" class="sidebar-link">安装laravel 和前端脚手架</a></li><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#安装-laravel-websocket" class="sidebar-link">安装 laravel/websocket</a></li><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#安装-pusher" class="sidebar-link">安装 pusher</a></li><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#安装前端库" class="sidebar-link">安装前端库</a></li><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#创建事件" class="sidebar-link">创建事件</a></li></ul></li><li><a href="/Code/LaraCode.html#laravel8广播-redis" class="sidebar-link">laravel8广播-redis</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#安装redis广播库" class="sidebar-link">安装redis广播库</a></li><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#安装前端依赖" class="sidebar-link">安装前端依赖</a></li><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#开启广播" class="sidebar-link">开启广播</a></li><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#创建一个公有广播事件" class="sidebar-link">创建一个公有广播事件</a></li><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#私有广播事件" class="sidebar-link">私有广播事件</a></li><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#广播使用redis" class="sidebar-link">广播使用redis</a></li></ul></li><li><a href="/Code/LaraCode.html#广播使用注意事项" class="sidebar-link">广播使用注意事项</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#前端没有接收到消息" class="sidebar-link">前端没有接收到消息</a></li></ul></li><li><a href="/Code/LaraCode.html#laravel广播-redis-laradock" class="sidebar-link">laravel广播+redis+laradock</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/LaraCode.html#laradock-laravel-redis广播" class="sidebar-link">Laradock+Laravel+redis广播</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Code/LaraCode.html#注意事项" class="sidebar-link">注意事项</a></li></ul></li><li><a href="/Code/LaraCode.html#laravel中使用mongodb数据库" class="sidebar-link">laravel中使用mongodb数据库</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="laravel环境部署常见缺少的php扩展"><a href="#laravel环境部署常见缺少的php扩展" class="header-anchor">#</a> laravel环境部署常见缺少的php扩展</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> php-dev
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> php-curl
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> php-gd
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> php-xml
+</code></pre></div><h2 id="安装前端脚手架"><a href="#安装前端脚手架" class="header-anchor">#</a> 安装前端脚手架</h2> <div class="language- extra-class"><pre class="language-text"><code>omposer create-project --prefer-dist laravel/laravel
+
+laravel new app
+</code></pre></div><p>有时候在window下安装会提示一些插件错误可以跳过插件检查</p> <div class="language-bash extra-class"><pre class="language-bash"><code>composer <span class="token function">install</span> --ignore-platform-reqs
+</code></pre></div><p>安装基础脚手架</p> <div class="language-bash extra-class"><pre class="language-bash"><code>composer require laravel/ui --dev
+
+// 生成 登陆/注册 脚手架<span class="token punctuation">..</span>.
+php artisan ui bootstrap --auth
+php artisan ui vue --auth
+php artisan ui react --auth
+
+<span class="token function">npm</span> <span class="token function">install</span> --save laravel-echo pusher-js
+
+<span class="token function">npm</span> i <span class="token operator">&amp;&amp;</span> <span class="token function">npm</span> run <span class="token function">watch</span>
+
+// 热加载 webpack.mix.js
+mix.browserSync<span class="token punctuation">(</span><span class="token string">'websocket.test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>一键命令</p> <div class="language-bash extra-class"><pre class="language-bash"><code>php artisan ui vue --auth
+</code></pre></div><h2 id="tailwindcss安装"><a href="#tailwindcss安装" class="header-anchor">#</a> tailwindcss安装</h2> <blockquote><p>中文网站：https://docs.tailwindchina.com/docs/guides/laravel</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> -D tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+</code></pre></div><h3 id="创建您的配置文件"><a href="#创建您的配置文件" class="header-anchor">#</a> 创建您的配置文件</h3> <p>接下来，生成您的 <code>tailwind.config.js</code> 文件：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>npx tailwindcss init
+</code></pre></div><p>这将会在您的项目根目录创建一个最小化的 <code>tailwind.config.js</code> 文件：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// tailwind.config.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  purge<span class="token operator">:</span> <span class="token punctuation">[</span>
+       <span class="token string">'./resources/**/*.blade.php'</span><span class="token punctuation">,</span>
+     <span class="token string">'./resources/**/*.js'</span><span class="token punctuation">,</span>
+     <span class="token string">'./resources/**/*.vue'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  darkMode<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// or 'media' or 'class'</span>
+  theme<span class="token operator">:</span> <span class="token punctuation">{</span>
+    extend<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  variants<span class="token operator">:</span> <span class="token punctuation">{</span>
+    extend<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="在-laravel-mix-中配置-tailwind"><a href="#在-laravel-mix-中配置-tailwind" class="header-anchor">#</a> 在 Laravel Mix 中配置 Tailwind</h3> <p>在您的 <code>webpack.mix.js</code> 中，添加 <code>tailwindcss</code> 作为 PostCSS 插件。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>  <span class="token comment">// webpack.mix.js</span>
+  mix<span class="token punctuation">.</span><span class="token function">js</span><span class="token punctuation">(</span><span class="token string">&quot;resources/js/app.js&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;public/js&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">postCss</span><span class="token punctuation">(</span><span class="token string">&quot;resources/css/app.css&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;public/css&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+     <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;tailwindcss&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="在您的-css-中引入-tailwind"><a href="#在您的-css-中引入-tailwind" class="header-anchor">#</a> 在您的 CSS 中引入 Tailwind</h3> <p>打开 Laravel 默认为您生成的 ./resources/css/app.css 文件 并使用 <code>@tailwind</code> 指令来包含 Tailwind的 <code>base</code>、 <code>components</code> 和 <code>utilities</code> 样式，来替换掉原来的文件内容。</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token comment">/* ./resources/css/app.css */</span>
+<span class="token atrule"><span class="token rule">@tailwind</span> base<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@tailwind</span> components<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@tailwind</span> utilities<span class="token punctuation">;</span></span>
+</code></pre></div><p>接下来，在您的主 Blade 布局中导入您的样式表(通常是 <code>resources/views/layouts/app.php</code> 或类似的)，如果还没有存在的话， 请添加响应的视口元标签。</p> <div class="language-diff-html extra-class"><pre class="language-text"><code>  &lt;!doctype html&gt;
+  &lt;head&gt;
+    &lt;!-- ... ---&gt;
++   &lt;meta charset=&quot;UTF-8&quot; /&gt;
++   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
++   &lt;link href=&quot;{{ asset('css/app.css') }}&quot; rel=&quot;stylesheet&quot;&gt;
+  &lt;/head&gt;
+</code></pre></div><p>现在，当您运行 <code>npm run watch</code>, <code>npm run dev</code> 或 <code>npm run prod</code>, Tailwind CSS 就可以在您的 Laravel Mix 项目中使用了。</p> <h2 id="npm-package"><a href="#npm-package" class="header-anchor">#</a> npm package</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> i mdui vuex vue-router Axios vue-m-message --save
+</code></pre></div><h2 id="laravel-ide-helper"><a href="#laravel-ide-helper" class="header-anchor">#</a> Laravel IDE Helper</h2> <blockquote><p>https://github.com/barryvdh/laravel-ide-helper</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code>composer require --dev barryvdh/laravel-ide-helper
+</code></pre></div><ul><li><p>add the package to the <code>extra.laravel.dont-discover</code> key in <code>composer.json</code></p> <div class="language- extra-class"><pre class="language-text"><code>&quot;extra&quot;: {
+  &quot;laravel&quot;: {
+    &quot;dont-discover&quot;: [
+      &quot;barryvdh/laravel-ide-helper&quot;
+    ]
+  }
+}
+</code></pre></div></li> <li><p>Add the following class to the <code>providers</code> array in <code>config/app.php</code></p> <div class="language- extra-class"><pre class="language-text"><code>Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+</code></pre></div><p>If you want to manually load it only in non-production environments, instead you can add this to your <code>AppServiceProvider</code> with the <code>register()</code> method:</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">register</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">isLocal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">register</span><span class="token punctuation">(</span>\<span class="token package">Barryvdh<span class="token punctuation">\</span>LaravelIdeHelper<span class="token punctuation">\</span>IdeHelperServiceProvider</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>run</p> <div class="language-bash extra-class"><pre class="language-bash"><code>php artisan ide-helper:generate
+</code></pre></div><p>checked<code>,</code>email<code>,</code>is_admin<code>,</code>password<code>,</code>phone<code>,</code>usernam
+e</p></li></ul> <h2 id="laravel-引入中文语言包"><a href="#laravel-引入中文语言包" class="header-anchor">#</a> <a href="https://www.cnblogs.com/clubs/p/12562790.html" target="_blank" rel="noopener noreferrer">laravel 引入中文语言包<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></h2> <p>第一步：</p> <div class="language- extra-class"><pre class="language-text"><code>composer require overtrue/laravel-lang
+</code></pre></div><p>第二步：</p> <p>安装成功后，在config/app.php文件中将以下这一行：</p> <div class="language- extra-class"><pre class="language-text"><code>Illuminate\Translation\TranslationServiceProvider::class,
+</code></pre></div><p>替换为：</p> <div class="language- extra-class"><pre class="language-text"><code>Overtrue\LaravelLang\TranslationServiceProvider::class,
+</code></pre></div><p>第三步：</p> <p>config/app.php 修改</p> <div class="language- extra-class"><pre class="language-text"><code>'locale' =&gt; 'zh-CN',
+</code></pre></div><p>中文语言包引用结束</p> <p>表单验证错误信息显示为中文：</p> <div class="language- extra-class"><pre class="language-text"><code>faker_locale = 'zh-CN'
+</code></pre></div><h2 id="配置中国时间"><a href="#配置中国时间" class="header-anchor">#</a> 配置中国时间</h2> <p>1、<code>config/app.php</code></p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token single-quoted-string string">'timezone'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'Asia/Shanghai'</span><span class="token punctuation">,</span>
+<span class="token single-quoted-string string">'locale'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'zh-CN'</span><span class="token punctuation">,</span>
+<span class="token single-quoted-string string">'faker_locale'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'zh-CN'</span><span class="token punctuation">,</span>
+</code></pre></div><p>2、Model中添加</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">protected</span> <span class="token variable">$dateFormat</span> <span class="token operator">=</span> <span class="token single-quoted-string string">'U'</span><span class="token punctuation">;</span>
+<span class="token comment">// 时间配置</span>
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">serializeDate</span><span class="token punctuation">(</span>\<span class="token package">DateTimeInterface</span> <span class="token variable">$date</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token variable">$date</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'Y-m-d H:i:s'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="laravel周期"><a href="#laravel周期" class="header-anchor">#</a> laravel周期</h2> <p>控制器构造方法 -&gt; 父类构造方法 -&gt; 中间件构造方法</p> <h2 id="laravel查询技巧"><a href="#laravel查询技巧" class="header-anchor">#</a> Laravel查询技巧</h2> <h3 id="wherein查询"><a href="#wherein查询" class="header-anchor">#</a> wherein查询</h3> <div class="language-php extra-class"><pre class="language-php"><code><span class="token variable">$status</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token variable">$ids</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+User<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">when</span><span class="token punctuation">(</span><span class="token variable">$status</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$query</span><span class="token punctuation">,</span> <span class="token variable">$status</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$query</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'status'</span><span class="token punctuation">,</span> <span class="token variable">$status</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">when</span><span class="token punctuation">(</span><span class="token variable">$ids</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$query</span><span class="token punctuation">,</span> <span class="token variable">$ids</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token variable">$query</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">whereIn</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'id'</span><span class="token punctuation">,</span> <span class="token variable">$ids</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="laravel使用factory填充数据"><a href="#laravel使用factory填充数据" class="header-anchor">#</a> laravel使用factory填充数据</h2> <h3 id="设置中文数据"><a href="#设置中文数据" class="header-anchor">#</a> 设置中文数据</h3> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">definition</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$faker</span> <span class="token operator">=</span> \<span class="token package">Faker<span class="token punctuation">\</span>Factory</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;zh_CN&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>
+            <span class="token double-quoted-string string">&quot;title&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$faker</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">title</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token comment">//通过配置文件配置</span>
+<span class="token comment">// config\app.php</span>
+faker_locale <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'zh_CN'</span>
+</code></pre></div><h3 id="创建迁移文件"><a href="#创建迁移文件" class="header-anchor">#</a> 创建迁移文件</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>php artisan make:model Demo -m
+</code></pre></div><h3 id="创建工厂数据"><a href="#创建工厂数据" class="header-anchor">#</a> 创建工厂数据</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>php artisan make:factory DemoFactory
+</code></pre></div><h3 id="填充数据"><a href="#填充数据" class="header-anchor">#</a> 填充数据</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>php artisan tinker
+namespace App<span class="token punctuation">\</span>Models<span class="token punctuation">;</span>
+
+Demo::factory<span class="token punctuation">(</span><span class="token punctuation">)</span>-<span class="token operator">&gt;</span>make<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> //测试，不会真的往数据库插入
+Demo::factory<span class="token punctuation">(</span><span class="token punctuation">)</span>-<span class="token operator">&gt;</span>create<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> // 直接写入数据库
+</code></pre></div><h2 id="获取原始数据"><a href="#获取原始数据" class="header-anchor">#</a> 获取原始数据</h2> <div class="language-php extra-class"><pre class="language-php"><code>Auth<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getAttributes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'identity'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">3</span>
+</code></pre></div><h2 id="时间搜索"><a href="#时间搜索" class="header-anchor">#</a> 时间搜索</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token comment">// 参数格式：2020-10-01 - 2020-10-31 （- 前后有空格）</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$datebt</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token variable">$datearr</span><span class="token operator">=</span><span class="token function">explode</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot; - &quot;</span><span class="token punctuation">,</span><span class="token variable">$datebt</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$datebegin</span><span class="token operator">=</span><span class="token function">strtotime</span><span class="token punctuation">(</span><span class="token variable">$datearr</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'0'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$dateend</span><span class="token operator">=</span><span class="token function">strtotime</span><span class="token punctuation">(</span><span class="token variable">$datearr</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'1'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$map</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token single-quoted-string string">'created_at'</span><span class="token punctuation">,</span><span class="token single-quoted-string string">'between'</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token variable">$datebegin</span><span class="token punctuation">,</span><span class="token variable">$dateend</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="手动表单验证（api验证）"><a href="#手动表单验证（api验证）" class="header-anchor">#</a> 手动表单验证（api验证）</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token variable">$param</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">request</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$validate</span> <span class="token operator">=</span> Validator<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">make</span><span class="token punctuation">(</span><span class="token variable">$param</span><span class="token punctuation">,</span><span class="token punctuation">[</span>
+    <span class="token double-quoted-string string">&quot;username&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token double-quoted-string string">&quot;required&quot;</span><span class="token punctuation">,</span>
+    <span class="token double-quoted-string string">&quot;password&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token double-quoted-string string">&quot;required&quot;</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span>
+    <span class="token double-quoted-string string">&quot;username.max&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token double-quoted-string string">&quot;用户名不能为空！&quot;</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$validate</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">fails</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token variable">$validate</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">errors</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 获取验证错误的第一条信息</span>
+</code></pre></div><h2 id="scope使用"><a href="#scope使用" class="header-anchor">#</a> scope使用</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token comment">// model:命名规范：scope+驼峰名字（Status）</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">scopeStatus</span><span class="token punctuation">(</span><span class="token variable">$query</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$query</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;status&quot;</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">//调用方式：直接写 scope后面的名称即可</span>
+    <span class="token keyword">return</span> <span class="token function">response</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">json</span><span class="token punctuation">(</span>User<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Status</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 这样就取出status为1的数据</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>看不懂就参考：https://blog.csdn.net/qq175023117/article/details/101032253</p> <h2 id="动作授权"><a href="#动作授权" class="header-anchor">#</a> 动作授权</h2> <p>场景：假如我们的系统有不同的角色，同一个页面中，展示不同的点击按钮，这个时候就可以用laravel用户授权</p> <p>1、创建一个授权类（非必须）</p> <div class="language-bash extra-class"><pre class="language-bash"><code>php artisan make:policy UserCheckPolicy --model<span class="token operator">=</span>User
+</code></pre></div><div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Policies</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Models<span class="token punctuation">\</span>User</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Auth<span class="token punctuation">\</span>Access<span class="token punctuation">\</span>HandlesAuthorization</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserPolicy</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">HandlesAuthorization</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">show</span><span class="token punctuation">(</span>User <span class="token variable">$user</span> <span class="token punctuation">,</span> <span class="token variable">$path</span><span class="token operator">=</span><span class="token double-quoted-string string">&quot;&quot;</span><span class="token punctuation">)</span> <span class="token comment">//这里的user必填，也就是当前登录用户的信息</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">in_array</span><span class="token punctuation">(</span><span class="token variable">$path</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'user/add'</span><span class="token punctuation">,</span><span class="token single-quoted-string string">'user/delete'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+<span class="token punctuation">}</span>
+
+</span></code></pre></div><p>2、打开 <code>\app\ProvidersAuthServiceProvider.php</code> 注册授权</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">registerPolicies</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Gate<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;check&quot;</span><span class="token punctuation">,</span><span class="token punctuation">[</span>UserPolicy<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">,</span><span class="token double-quoted-string string">&quot;checkBtn&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 注意引入刚刚创建的类</span>
+        <span class="token comment">// 如果判断比较简单，可以直接写在这里也是可以的</span>
+<span class="token comment">//        Gate::define(&quot;check&quot;,function (User $user ,$path=&quot;&quot;) {</span>
+<span class="token comment">//            return in_array($path,[&quot;delete&quot;,&quot;update]);</span>
+<span class="token comment">//        });</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><p>Ps:在rbac权限中，如果传入的url地址在我们后台授权的列表中，则拥有该权限</p> <p>3、在页面中进行授权操作（当前页面没有登录时没有效果的）</p> <div class="language-php extra-class"><pre class="language-php"><code>@<span class="token function">can</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;check&quot;</span><span class="token punctuation">,</span><span class="token double-quoted-string string">&quot;user/delete&quot;</span><span class="token punctuation">)</span>
+     <span class="token operator">&lt;</span>button type<span class="token operator">=</span><span class="token double-quoted-string string">&quot;button&quot;</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token double-quoted-string string">&quot;btn btn-primary&quot;</span><span class="token operator">&gt;</span>delete<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+@endcan
+</code></pre></div><p>这样的大功告成了。</p> <h2 id="laravel中使用redis"><a href="#laravel中使用redis" class="header-anchor">#</a> Laravel中使用redis</h2> <p>安装predis</p> <div class="language-bash extra-class"><pre class="language-bash"><code>composer require predis/predis
+</code></pre></div><div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Redis</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Index</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Redis<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;name&quot;</span><span class="token punctuation">,</span><span class="token double-quoted-string string">&quot;orangbus&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$name</span> <span class="token operator">=</span> Redis<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;name&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">view</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;welcome&quot;</span><span class="token punctuation">,</span><span class="token function">compact</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;name&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></code></pre></div><h2 id="laravel中使用mongodb"><a href="#laravel中使用mongodb" class="header-anchor">#</a> Laravel中使用MongoDB</h2> <blockquote><p>自行安装php-mongo扩展</p></blockquote> <p>安装</p> <div class="language-bash extra-class"><pre class="language-bash"><code>composer require jenssegers/mongodb
+</code></pre></div><p>注册</p> <div class="language-php extra-class"><pre class="language-php"><code>Jenssegers\<span class="token package">Mongodb<span class="token punctuation">\</span>MongodbServiceProvider</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+</code></pre></div><p>添加门脸</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token single-quoted-string string">'Mongo'</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> Jenssegers\<span class="token package">Mongodb<span class="token punctuation">\</span>MongodbServiceProvider</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+</code></pre></div><p>配置mongo连接</p> <div class="language- extra-class"><pre class="language-text"><code>'mongodb' =&gt; [    
+        'driver'   =&gt; 'mongodb',    
+        'host'     =&gt; 'localhost',    
+        'port'     =&gt; 27017,    
+        'database' =&gt; 'mydb',    
+        'username' =&gt; '',    
+        'password' =&gt; '',
+],
+</code></pre></div><p>数据库操作跟跟laravel默认的数据库操作基本是一样的，案例</p> <div class="language-php extra-class"><pre class="language-php"><code> <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token constant">DB</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">connection</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'mongodb'</span><span class="token punctuation">)</span> <span class="token comment">// 连接mongodb驱动</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">collection</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;user&quot;</span><span class="token punctuation">)</span> <span class="token comment">// 数据库集合</span>
+     		<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">paginate</span><span class="token punctuation">(</span>\<span class="token package">request</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;limit&quot;</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">resData</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">items</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token variable">$data</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">total</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>案例：https://learnku.com/articles/2560/using-mongodb-in-laravel</p> <h2 id="laravel8广播-pusher"><a href="#laravel8广播-pusher" class="header-anchor">#</a> laravel8广播+pusher</h2> <blockquote><p>使用广播之前自行安装好前端脚手架</p></blockquote> <p>第一先注册一个<code>pusher</code> 账号：https://pusher.com/</p> <p>创建应用，获取api信息，填入<code>.env</code>文件中，并修改驱动为<code>pusher</code></p> <div class="language-env extra-class"><pre class="language-text"><code>PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_CLUSTER=mt1
+
+BROADCAST_DRIVER=pusher
+</code></pre></div><h3 id="安装pusher驱动"><a href="#安装pusher驱动" class="header-anchor">#</a> 安装<code>pusher驱动</code></h3> <div class="language-bash extra-class"><pre class="language-bash"><code>composer require pusher/pusher-php-server <span class="token string">&quot;~4.0&quot;</span>
+</code></pre></div><p>在 resources/js/bootstrap.js 文件中实例化 Echo 对象时 pusher</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> Echo <span class="token keyword">from</span> <span class="token string">'laravel-echo'</span><span class="token punctuation">;</span>
+
+window<span class="token punctuation">.</span>Pusher <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'pusher-js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+window<span class="token punctuation">.</span>Echo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Echo</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    broadcaster<span class="token operator">:</span> <span class="token string">'pusher'</span><span class="token punctuation">,</span>
+    key<span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">MIX_PUSHER_APP_KEY</span><span class="token punctuation">,</span> <span class="token comment">//这里修改为 pusher 的key</span>
+    cluster<span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">MIX_PUSHER_APP_CLUSTER</span><span class="token punctuation">,</span> <span class="token comment">//pusher的地区</span>
+    forceTLS<span class="token operator">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>创建Free事件，检验pusher是否配置ok</p> <div class="language-php extra-class"><pre class="language-php"><code>php artisan make<span class="token punctuation">:</span>event Free
+</code></pre></div><p>编辑Free事件</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Events</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>Channel</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>InteractsWithSockets</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>PresenceChannel</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>PrivateChannel</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>ShouldBroadcast</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span class="token punctuation">\</span>Events<span class="token punctuation">\</span>Dispatchable</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span class="token punctuation">\</span>SerializesModels</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Free</span> <span class="token keyword">implements</span> <span class="token class-name">ShouldBroadcast</span> <span class="token comment">//实现广播接口</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">Dispatchable</span><span class="token punctuation">,</span> InteractsWithSockets<span class="token punctuation">,</span> SerializesModels<span class="token punctuation">;</span>
+    
+    <span class="token keyword">public</span> <span class="token variable">$msg</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Create a new event instance.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$msg</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">msg</span> <span class="token operator">=</span> <span class="token variable">$msg</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Get the channels the event should broadcast on.
+     *
+     * @return \Illuminate\Broadcasting\Channel|array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">broadcastOn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+<span class="token comment">//        return new PrivateChannel('channel-name');</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Channel</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'cctv1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//公有频道名称</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</span></code></pre></div><p>路由出发Free事件</p> <div class="language-php extra-class"><pre class="language-php"><code>Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'/free'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">event</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name"><span class="token punctuation">\</span>App<span class="token punctuation">\</span>Events<span class="token punctuation">\</span>Free</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;Hello OrangBus&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">dd</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;ok&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>接听消息</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token doctype">&lt;!doctype html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>viewport<span class="token punctuation">&quot;</span></span>
+          <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>X-UA-Compatible<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>ie=edge<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>csrf-token<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{{ csrf_token() }}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ mix(&quot;css/app.css&quot;) }}&quot;&gt;
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>app<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>pusher<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+&lt;script src=&quot;{{ mix(&quot;js/app.js&quot;) }}&quot;&gt;<span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+    window<span class="token punctuation">.</span>Echo<span class="token punctuation">.</span><span class="token function">channel</span><span class="token punctuation">(</span><span class="token string">'cctv1'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token string">'Free'</span><span class="token punctuation">,</span> <span class="token parameter">e</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>如果按照上面的步骤跑完了没有监听到数据：</p> <p>1、pusher推动延迟了，等一会或者多刷新几次</p> <p>2、pusher配置哪里出错了</p> <h2 id="laravel8广播-websocket"><a href="#laravel8广播-websocket" class="header-anchor">#</a> laravel8广播+websocket</h2> <h3 id="安装laravel-和前端脚手架"><a href="#安装laravel-和前端脚手架" class="header-anchor">#</a> 安装laravel 和前端脚手架</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>laravel new websocket
+
+// laravel8新出的（不会用）
+composer require laravel/jetstream
+
+php artisan jetstream:install livewire // blade模板
+php artisan jetstream:install inertia //vue模板
+
+// 可以使用脚手架
+composer require laravel/ui --dev
+
+// 生成基本脚手架<span class="token punctuation">..</span>.
+php artisan ui bootstrap
+php artisan ui vue
+php artisan ui react
+
+// 生成 登陆/注册 脚手架<span class="token punctuation">..</span>.
+php artisan ui bootstrap --auth
+php artisan ui vue --auth
+php artisan ui react --auth
+
+<span class="token function">npm</span> i <span class="token operator">&amp;&amp;</span> <span class="token function">npm</span> run dev
+
+// 热加载 webpack.mix.js
+mix.browserSync<span class="token punctuation">(</span><span class="token string">'redis.test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>配置数据库并迁移数据库文件</p> <div class="language-bash extra-class"><pre class="language-bash"><code>php artisan migrate
+</code></pre></div><p>先让项目跑起来看看有没有报错，能否正常注册</p> <div class="language-bash extra-class"><pre class="language-bash"><code>php artisan serve
+</code></pre></div><h3 id="安装-laravel-websocket"><a href="#安装-laravel-websocket" class="header-anchor">#</a> 安装 <code>laravel/websocket</code></h3> <blockquote><p>https://beyondco.de/</p></blockquote> <p>用过laravel的朋友因该都熟悉下面的操作吧</p> <div class="language-bash extra-class"><pre class="language-bash"><code>composer require beyondcode/laravel-websockets
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code>php artisan vendor:publish --provider<span class="token operator">=</span><span class="token string">&quot;BeyondCode\LaravelWebSockets\WebSocketsServiceProvider&quot;</span> --tag<span class="token operator">=</span><span class="token string">&quot;migrations&quot;</span>
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code>php artisan vendor:publish --provider<span class="token operator">=</span><span class="token string">&quot;BeyondCode\LaravelWebSockets\WebSocketsServiceProvider&quot;</span> --tag<span class="token operator">=</span><span class="token string">&quot;config&quot;</span>
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code>php artisan migrate
+</code></pre></div><h3 id="安装-pusher"><a href="#安装-pusher" class="header-anchor">#</a> 安装 <code>pusher</code></h3> <p>注册一个pusher账号，获取api信息：https://pusher.com/</p> <div class="language- extra-class"><pre class="language-text"><code>composer require pusher/pusher-php-server &quot;~3.0&quot;
+</code></pre></div><p>修改 <code>.env</code></p> <div class="language- extra-class"><pre class="language-text"><code>BROADCAST_DRIVER=pusher
+</code></pre></div><p>修改 <code>config/broadcasting.php</code> （记得要配置这里，不然接受不到消息）</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token single-quoted-string string">'pusher'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'driver'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'pusher'</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'key'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">env</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'PUSHER_APP_KEY'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'secret'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">env</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'PUSHER_APP_SECRET'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'app_id'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">env</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'PUSHER_APP_ID'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'options'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span> 
+        <span class="token single-quoted-string string">'cluster'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">env</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'PUSHER_APP_CLUSTER'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'encrypted'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token boolean constant">true</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'host'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'127.0.0.1'</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'port'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">6001</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'scheme'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'http'</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span>
+</code></pre></div><p>修改 <code>config/websockets.php</code></p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token single-quoted-string string">'apps'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'id'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">env</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'PUSHER_APP_ID'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'name'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">env</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'APP_NAME'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'key'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">env</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'PUSHER_APP_KEY'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'secret'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">env</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'PUSHER_APP_SECRET'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'enable_client_messages'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token boolean constant">false</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'enable_statistics'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token boolean constant">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span>
+</code></pre></div><p>启动 laravel-websocket 服务</p> <div class="language- extra-class"><pre class="language-text"><code>php artisan websockets:serve //默认6001
+// or
+php artisan websockets:serve --port=3030
+</code></pre></div><p>查看<strong>websocket dashboard</strong>：<code>ip/laravel-websockets</code></p> <p>你可以配置<strong>websocket dashboard</strong>访问权限：<code>AuthServiceProvider</code></p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">registerPolicies</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    Gate<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'viewWebSocketsDashboard'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$user</span> <span class="token operator">=</span> <span class="token constant">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">in_array</span><span class="token punctuation">(</span><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">email</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+            <span class="token comment">//</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="安装前端库"><a href="#安装前端库" class="header-anchor">#</a> 安装前端库</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> --save laravel-echo pusher-js
+<span class="token function">npm</span> <span class="token function">install</span> --save socket.io-client
+</code></pre></div><h3 id="创建事件"><a href="#创建事件" class="header-anchor">#</a> 创建事件</h3> <div class="language-php extra-class"><pre class="language-php"><code>php artisan make<span class="token punctuation">:</span>event WeChat
+</code></pre></div><p>在<code>app/Events/Wechat</code> 实现广播接口</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Events</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>Channel</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>InteractsWithSockets</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>PresenceChannel</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>PrivateChannel</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>ShouldBroadcast</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span class="token punctuation">\</span>Events<span class="token punctuation">\</span>Dispatchable</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span class="token punctuation">\</span>SerializesModels</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">WeChat</span> <span class="token keyword">implements</span> <span class="token class-name">ShouldBroadcast</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">Dispatchable</span><span class="token punctuation">,</span> InteractsWithSockets<span class="token punctuation">,</span> SerializesModels<span class="token punctuation">;</span>
+    
+    <span class="token keyword">public</span> <span class="token variable">$msg</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$user</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Create a new event instance.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$msg</span><span class="token punctuation">,</span><span class="token variable">$user</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">msg</span> <span class="token operator">=</span> <span class="token variable">$msg</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">user</span> <span class="token operator">=</span> <span class="token variable">$user</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Get the channels the event should broadcast on.
+     *
+     * @return \Illuminate\Broadcasting\Channel|array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">broadcastOn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Channel</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'cctv1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</span></code></pre></div><p><code>Wechat</code>:  事件的名称</p> <p><code>cctv1</code>:  频道的名称</p> <p>注册一个事件触发的路由</p> <div class="language-php extra-class"><pre class="language-php"><code>Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;/chat&quot;</span><span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token variable">$msg</span> <span class="token operator">=</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">input</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;msg&quot;</span><span class="token punctuation">,</span><span class="token double-quoted-string string">&quot;orangbus&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$user</span> <span class="token operator">=</span> \<span class="token package">Illuminate<span class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Auth</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">event</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name"><span class="token punctuation">\</span>App<span class="token punctuation">\</span>Events<span class="token punctuation">\</span>Wechat</span><span class="token punctuation">(</span><span class="token variable">$msg</span><span class="token punctuation">,</span><span class="token variable">$user</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">dd</span><span class="token punctuation">(</span><span class="token variable">$msg</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>监听事件:<code>bootstrap</code> （不要忘记了在视图页面加载 <code>app.css</code> 和 <code>app.js</code>文件）</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> Echo <span class="token keyword">from</span> <span class="token string">'laravel-echo'</span><span class="token punctuation">;</span>
+
+window<span class="token punctuation">.</span>Pusher <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'pusher-js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+window<span class="token punctuation">.</span>Echo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Echo</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    broadcaster<span class="token operator">:</span> <span class="token string">'pusher'</span><span class="token punctuation">,</span>
+    key<span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">MIX_PUSHER_APP_KEY</span><span class="token punctuation">,</span> <span class="token comment">//把 .env文件的信息复制过来</span>
+    cluster<span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">MIX_PUSHER_APP_CLUSTER</span><span class="token punctuation">,</span> <span class="token comment">//把 .env文件的信息复制过来</span>
+    forceTLS<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    wsHost<span class="token operator">:</span> <span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span>
+    wsPort<span class="token operator">:</span> <span class="token number">6001</span><span class="token punctuation">,</span>
+    <span class="token comment">// wsPath: '/ws',</span>
+    disableStats<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    enabledTransports<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'ws'</span><span class="token punctuation">,</span><span class="token string">'wss'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">//如果你的消息发送失败多半是因为这个</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//我们就可以接收到如下消息</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;msg&quot;</span><span class="token operator">:</span> <span class="token string">&quot;orangbus&quot;</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;user&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;orangbus&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;email&quot;</span><span class="token operator">:</span> <span class="token string">&quot;123@qq.com&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;email_verified_at&quot;</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;created_at&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-12-04T09:01:47.000000Z&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;updated_at&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-12-04T09:01:47.000000Z&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="laravel8广播-redis"><a href="#laravel8广播-redis" class="header-anchor">#</a> laravel8广播-redis</h2> <h3 id="安装redis广播库"><a href="#安装redis广播库" class="header-anchor">#</a> 安装redis广播库</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>composer require predis/predis
+</code></pre></div><h3 id="安装前端依赖"><a href="#安装前端依赖" class="header-anchor">#</a> 安装前端依赖</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> --save socket.io-client
+<span class="token function">npm</span> <span class="token function">install</span> --save laravel-echo pusher-js
+<span class="token function">npm</span> <span class="token function">install</span> -g laravel-echo-server
+
+<span class="token function">npm</span> i <span class="token operator">&amp;&amp;</span> <span class="token function">npm</span> run <span class="token function">watch</span>
+
+laravel-echo-server init
+laravel-echo-server start
+</code></pre></div><p>在入口文件中添加这个 <code>socket.io</code></p> <div class="language-javascript extra-class"><pre class="language-javascript"><code> <span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">&quot;//{{ Request::getHost() }}:6001/socket.io/socket.io.js&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><p>修改<code>.env</code></p> <div class="language-env extra-class"><pre class="language-text"><code>BROADCAST_DRIVER=redis
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+</code></pre></div><h3 id="开启广播"><a href="#开启广播" class="header-anchor">#</a> 开启广播</h3> <p>config/app.php 的 providers取消注释</p> <div class="language-php extra-class"><pre class="language-php"><code>App\<span class="token package">Providers<span class="token punctuation">\</span>BroadcastServiceProvider</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+</code></pre></div><h3 id="创建一个公有广播事件"><a href="#创建一个公有广播事件" class="header-anchor">#</a> 创建一个公有广播事件</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>php artisan make:event Free
+</code></pre></div><div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Events</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>Channel</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>InteractsWithSockets</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>PresenceChannel</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>PrivateChannel</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>ShouldBroadcast</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span class="token punctuation">\</span>Events<span class="token punctuation">\</span>Dispatchable</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span class="token punctuation">\</span>SerializesModels</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Free</span> <span class="token keyword">implements</span> <span class="token class-name">ShouldBroadcast</span> <span class="token comment">//实现广播接口</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">Dispatchable</span><span class="token punctuation">,</span> InteractsWithSockets<span class="token punctuation">,</span> SerializesModels<span class="token punctuation">;</span>
+    
+    <span class="token keyword">public</span> <span class="token variable">$msg</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Create a new event instance.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$msg</span><span class="token punctuation">)</span> <span class="token comment">//触发时间传递过来的参数</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">msg</span> <span class="token operator">=</span> <span class="token variable">$msg</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Get the channels the event should broadcast on.
+     *
+     * @return \Illuminate\Broadcasting\Channel|array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">broadcastOn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Channel</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'cctv'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//频道的名称</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</span></code></pre></div><h4 id="添加一条路由触发事件"><a href="#添加一条路由触发事件" class="header-anchor">#</a> 添加一条路由触发事件</h4> <div class="language-php extra-class"><pre class="language-php"><code>Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">any</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'/free'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$msg</span> <span class="token operator">=</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">input</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;msg&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">event</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name"><span class="token punctuation">\</span>App<span class="token punctuation">\</span>Events<span class="token punctuation">\</span>Free</span><span class="token punctuation">(</span><span class="token variable">$msg</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token variable">$msg</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="监听事件"><a href="#监听事件" class="header-anchor">#</a> 监听事件</h4> <p>记得在入口文件处添加header头</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>csrf-token<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{{ csrf_token() }}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//resources/js/bootstrap.js</span>
+<span class="token keyword">import</span> Echo <span class="token keyword">from</span> <span class="token string">&quot;laravel-echo&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// window.io = require('socket.io-client'); //按照官网的意思需要加上，可是我加上了却监听不到消息，搞了好多天无意间注释了反而接收到消息了，有没有大佬告知一下为什么？？</span>
+
+window<span class="token punctuation">.</span>Echo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Echo</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    broadcaster<span class="token operator">:</span> <span class="token string">'socket.io'</span><span class="token punctuation">,</span>
+    host<span class="token operator">:</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>hostname <span class="token operator">+</span> <span class="token string">':6001'</span> <span class="token comment">//如果需要单独写其他域名不用加http，</span>
+    <span class="token comment">// host: &quot;redis.test:6001&quot;</span>
+    <span class="token comment">//可选</span>
+    auth<span class="token operator">:</span> <span class="token punctuation">{</span>
+    headers<span class="token operator">:</span> <span class="token punctuation">{</span>
+      Authorization<span class="token operator">:</span> <span class="token string">&quot;Bearer &quot;</span> <span class="token operator">+</span> Cookies<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'access_token'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+window<span class="token punctuation">.</span>Echo<span class="token punctuation">.</span><span class="token function">channel</span><span class="token punctuation">(</span><span class="token string">'cctv'</span><span class="token punctuation">)</span> <span class="token comment">//频道的名称</span>
+    <span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token string">'Free'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token comment">// 监听的事件</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;这里是接受到的消息&quot;</span><span class="token punctuation">)</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="私有广播事件"><a href="#私有广播事件" class="header-anchor">#</a> 私有广播事件</h3> <p>先登录一个账号，私有广播需要权限认证</p> <h4 id="创建一个广播事件"><a href="#创建一个广播事件" class="header-anchor">#</a> 创建一个广播事件</h4> <div class="language-bash extra-class"><pre class="language-bash"><code>php artisan make:event LetChat
+</code></pre></div><div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Events</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>Channel</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>InteractsWithSockets</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>PresenceChannel</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>PrivateChannel</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>ShouldBroadcast</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span class="token punctuation">\</span>Events<span class="token punctuation">\</span>Dispatchable</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span class="token punctuation">\</span>SerializesModels</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">LetChat</span> <span class="token keyword">implements</span> <span class="token class-name">ShouldBroadcast</span> <span class="token comment">//事件广播接口</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">Dispatchable</span><span class="token punctuation">,</span> InteractsWithSockets<span class="token punctuation">,</span> SerializesModels<span class="token punctuation">;</span>
+ 
+    <span class="token keyword">public</span> <span class="token variable">$msg</span><span class="token punctuation">;</span> <span class="token comment">//前端传递过来的数据</span>
+    <span class="token keyword">public</span> <span class="token variable">$user_id</span><span class="token punctuation">;</span> <span class="token comment">//假如传递一个用户ID</span>
+
+    <span class="token comment">/**
+     * Create a new event instance.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$msg</span><span class="token punctuation">,</span><span class="token variable">$user_id</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">msg</span> <span class="token operator">=</span> <span class="token variable">$msg</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">user_id</span> <span class="token operator">=</span> <span class="token variable">$user_id</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Get the channels the event should broadcast on.
+     *
+     * @return \Illuminate\Broadcasting\Channel|array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">broadcastOn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">PrivateChannel</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'cctv.'</span><span class="token punctuation">.</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">user_id</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 这里是一个私有的广播，频道的名称大概是这样的： cctv.1</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</span></code></pre></div><h4 id="添加一个触发路由"><a href="#添加一个触发路由" class="header-anchor">#</a> 添加一个触发路由</h4> <div class="language-php extra-class"><pre class="language-php"><code>Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">any</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'/free'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$msg</span> <span class="token operator">=</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">input</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;msg&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$userId</span> <span class="token operator">=</span> Auth<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">id</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">event</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name"><span class="token punctuation">\</span>App<span class="token punctuation">\</span>Events<span class="token punctuation">\</span>Free</span><span class="token punctuation">(</span><span class="token variable">$msg</span><span class="token punctuation">,</span><span class="token variable">$userId</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token variable">$msg</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">middleware</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;auth&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 用户需要登录</span>
+</code></pre></div><h4 id="权限认证"><a href="#权限认证" class="header-anchor">#</a> 权限认证</h4> <p>这个文件跟 <code>routes/web</code> 路由是类似的，只有返回 <code>true</code> 的时候才会进行广播事件，所以我们可以在这里进行一些逻辑上的判断</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token comment">// routes/channels</span>
+Broadcast<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">channel</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'cctv.{id}'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 写一些判断逻辑，最终返回true即可</span>
+    <span class="token variable">$list</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">in_array</span><span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">,</span><span class="token variable">$list</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean constant">true</span><span class="token punctuation">;</span> <span class="token comment">//当传过来的用户id在 $list 这个才会进行广播</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="前端监听事件"><a href="#前端监听事件" class="header-anchor">#</a> 前端监听事件</h4> <div class="language-js extra-class"><pre class="language-js"><code>
+</code></pre></div><h3 id="广播使用redis"><a href="#广播使用redis" class="header-anchor">#</a> 广播使用redis</h3> <div class="language-env extra-class"><pre class="language-text"><code>BROADCAST_DRIVER=redis
+CACHE_DRIVER=redis
+QUEUE_CONNECTION=redis
+</code></pre></div><p>需要运行队列监听</p> <div class="language-bash extra-class"><pre class="language-bash"><code>php artisan queue:listen
+</code></pre></div><h2 id="广播使用注意事项"><a href="#广播使用注意事项" class="header-anchor">#</a> 广播使用注意事项</h2> <h3 id="前端没有接收到消息"><a href="#前端没有接收到消息" class="header-anchor">#</a> 前端没有接收到消息</h3> <p>1、检查此文件是否配置正确。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> Echo <span class="token keyword">from</span> <span class="token string">'laravel-echo'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// window.io = require('socket.io-client'); // 这个玩意好像没用，但是官网说要引入他</span>
+
+window<span class="token punctuation">.</span>Echo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Echo</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    broadcaster<span class="token operator">:</span> <span class="token string">'socket.io'</span><span class="token punctuation">,</span>
+    host<span class="token operator">:</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>hostname <span class="token operator">+</span> <span class="token string">':6001'</span><span class="token punctuation">,</span>
+    enabledTransports<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'ws'</span><span class="token punctuation">,</span><span class="token string">'wss'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">//如果你的消息发送失败多半是因为这个</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>2、使用redis作为消息驱动</p> <div class="language- extra-class"><pre class="language-text"><code>BROADCAST_DRIVER=redis
+CACHE_DRIVER=redis
+QUEUE_CONNECTION=redis
+SESSION_DRIVER=redis
+SESSION_LIFETIME=1200
+</code></pre></div><p>3、入口文件引入<code>scoket,io</code> js文件</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;script src=&quot;//{{ Request::getHost() }}:6001/socket.io/socket.io.js&quot;&gt;&lt;/script&gt;
+</code></pre></div><p>4、命令行中查看 <code>Channel</code> 和 <code>Event:xxxx</code> 是否执行正确，默认laravel会给channel加上一个前缀，可以打开 <code>config/app.php</code> ,把下面这样注释了。</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token single-quoted-string string">'prefix'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">env</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_PREFIX'</span><span class="token punctuation">,</span> Str<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">slug</span><span class="token punctuation">(</span><span class="token function">env</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'APP_NAME'</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'laravel'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'_'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token single-quoted-string string">'_database_'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+</code></pre></div><p>5、以上配置还是不行，检查查看laravel版本，寻找对应版本的文档在走一一边，还是不行就放弃吧，哈哈哈哈。</p> <h2 id="laravel广播-redis-laradock"><a href="#laravel广播-redis-laradock" class="header-anchor">#</a> laravel广播+redis+laradock</h2> <p>启动<code>laravel-echo-serve</code></p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">cd</span> pathTo/laradock
+docker-composer up -d redis laravel-echo-serve
+</code></pre></div><p>默认就开始了 6001端口，这样我们就可以连接了</p> <h2 id="laradock-laravel-redis广播"><a href="#laradock-laravel-redis广播" class="header-anchor">#</a> Laradock+Laravel+redis广播</h2> <div class="language-bash extra-class"><pre class="language-bash"><code>laravel new webscoket
+
+composer require predis/predis
+
+composer require laravel/ui --dev
+php artisan ui vue --auth
+
+<span class="token function">npm</span> <span class="token function">install</span> --save socket.io-client <span class="token operator">|</span>  <span class="token builtin class-name">echo</span> <span class="token string">'websocket 客户端'</span>
+<span class="token function">npm</span> <span class="token function">install</span> --save laravel-echo     <span class="token operator">|</span>  <span class="token builtin class-name">echo</span> <span class="token string">'websocket 客户端封装'</span>
+<span class="token function">npm</span> <span class="token function">install</span> -g laravel-echo-server  <span class="token operator">|</span>  <span class="token builtin class-name">echo</span> <span class="token string">'websocket 服务端'</span>
+<span class="token function">npm</span> <span class="token function">install</span>                         <span class="token operator">|</span>  <span class="token builtin class-name">echo</span> <span class="token string">'安装所有其他依赖'</span>
+<span class="token function">npm</span> run <span class="token function">watch</span>                        <span class="token operator">|</span>  <span class="token builtin class-name">echo</span> <span class="token string">'监控文件变化编译前端资源'</span>
+laravel-echo-server init             <span class="token operator">|</span>  <span class="token builtin class-name">echo</span> <span class="token string">'初始化 websocket 服务端'</span>
+laravel-echo-server start            <span class="token operator">|</span>  <span class="token builtin class-name">echo</span> <span class="token string">'启动 websocket 服务端'</span>
+
+// 热加载 webpack.mix.js
+mix.browserSync<span class="token punctuation">(</span><span class="token string">'redis.test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+cnpm <span class="token function">install</span> browser-sync browser-sync-webpack-plugin@2.0.1 --save-dev --production<span class="token operator">=</span>false
+
+</code></pre></div><p>.env 文件配置</p> <div class="language-env extra-class"><pre class="language-text"><code>BROADCAST_DRIVER=redis
+CACHE_DRIVER=redis
+QUEUE_CONNECTION=redis
+</code></pre></div><h3 id="注意事项"><a href="#注意事项" class="header-anchor">#</a> 注意事项</h3> <p>1、使用 <code>php-worker</code> 的时候，需要开启redis扩展。</p> <p>2、最好把 <code>workspace</code> 的PHP 的 redis 扩展也安装了。</p> <h2 id="laravel中使用mongodb数据库"><a href="#laravel中使用mongodb数据库" class="header-anchor">#</a> laravel中使用mongodb数据库</h2> <p>github：https://github.com/jenssegers/laravel-mongodb</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/orangbus/vuepress-blog/edit/master/docs/Code/LaraCode.md" target="_blank" rel="noopener noreferrer">帮助我们改善此页面！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">5/29/2021, 11:07:31 PM</span></div></footer> <!----> </main></div><div class="global-ui"><!----><div class="reading-progress top" data-v-21b39eda><div class="progress" data-v-21b39eda></div></div></div></div>
+    <script src="/assets/js/app.c247bf6a.js" defer></script><script src="/assets/js/2.986f6ed5.js" defer></script><script src="/assets/js/8.c36500a2.js" defer></script>
+  </body>
+</html>
