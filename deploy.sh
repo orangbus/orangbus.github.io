@@ -11,7 +11,7 @@ set -e
 # 备份项目到仓库中
  git add .
  git commit -m "`date` "
- git push https://gitee.com/orangbus/vuePress.git master
+ git push git@gitee.com:orangbus/vuePress.git master
 
 blue "========================================="
 blue "==============  备份成功！  ==============="
