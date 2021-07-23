@@ -2,7 +2,13 @@
 title: Css样式收藏
 sidebar: auto
 ---
-# 收藏样式
+# bootstrap常用样式
+
+## 固定头部
+
+```
+fixed-top
+```
 
 ## 手机弹窗预览内容
 
@@ -70,4 +76,5 @@ $("#open-form-pop").on('click',function () {
     event.stopPropagation();
 });
 ```
+
 

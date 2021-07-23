@@ -7,6 +7,9 @@
 module.exports = {
     "/WebNote/": [
         "","UserAgent"
+    ],
+    "/Linux/WebNote/": [
+        "","如何快速清理 docker 资源"
     ]
 }
 

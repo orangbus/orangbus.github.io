@@ -14,7 +14,7 @@ module.exports = {
         smoothScroll: true,
         search: true, //开启搜索
         searchMaxSuggestions: 10, //搜索显示结果条数
-        lastUpdated: 'Last Updated', // string | boolean
+        lastUpdated: '最后更新时间', // string | boolean
         lang: 'zh-CN',
         // 上 / 下一篇链接
         // 默认值是 true 。设置为 false 来禁用所有页面的 下一篇 链接

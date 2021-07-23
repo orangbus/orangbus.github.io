@@ -12,6 +12,7 @@ module.exports = [
 		items: [
 			{text: "配置文件", link: '/Linux/Config'},
 			{text: "生产工具", link: '/Linux/Tool'},
+            {text: "Linux-Web", link: "/Linux/WebNote/"},
 			{text: 'Manjaro入门到生产', link: 'https://github.com/orangbus/tool'},
 			{
 				text: '开发环境', items: [

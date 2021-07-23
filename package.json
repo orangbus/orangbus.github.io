@@ -6,7 +6,7 @@
   "author": "orangbus",
   "license": "MIT",
   "scripts": {
-    "dev": "vuepress dev docs",
+    "dev": "vuepress dev docs --temp .temp",
     "docs:build": "vuepress build docs"
   },
   "dependencies": {
