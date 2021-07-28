@@ -2,9 +2,6 @@
 title: Dockerfile
 ---
 
-Docker Dockerfile
-=================
-
 ### 什么是 Dockerfile？
 
 Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。
@@ -98,16 +95,18 @@ $ docker build -t nginx:v3 .
 
 格式：
 
-```
+```bash
+
 COPY [--chown=<user>:<group>] <源路径1>...  <目标路径>
 COPY [--chown=<user>:<group>] ["<源路径1>",...  "<目标路径>"]
-```
-
-**[--chown=<user>:<group>]**：可选参数，用户改变复制到容器内文件的拥有者和属组。
-
-**<源路径>**：源文件或者源目录，这里可以是通配符表达式，其通配符规则要满足 Go 的 filepath.Match 规则。例如：
 
 ```
+
+`[--chown=<user>:<group>]`：可选参数，用户改变复制到容器内文件的拥有者和属组。
+
+**<源路径>** :源文件或者源目录，这里可以是通配符表达式，其通配符规则要满足 Go 的 `filepath.Match` 规则。例如：
+
+```bash
 COPY hom* /mydir/
 COPY hom?.txt /mydir/
 ```
