@@ -2,10 +2,6 @@
 title: Laradock入门
 ---
 
-# Docker-LNMP
-
-> 
->
 > systemOS: debian 8+
 
 校对时间:
@@ -161,7 +157,22 @@ NEXTCLOUD_PORT=8083
 NEXTCLOUD=./nextcloud/NextCloud
 NEXTCLOUD_APPS=./nextcloud/Apps
 NEXTCLOUD_CONFIG=./nextcloud/Config
-NEXTCLOUD_DATA=./nextcloud/Data
+NEXTCLOUD_DATA=./nextcloud/Data## emby 
+# bash: mkdir -p emby/config emby/Data emby/Pan
+EMBY_IMAGE=emby/embyserver
+EMBY_HTTP_PORT=8085
+EMBY_HTTPS_PORT=8086
+EMBY_CONFIG_PATH=./emby/config
+EMBY_SHAREDIR_PATH=./emby/data
+EMBY_CLOUD_PATH=/home/orangbus/Pan
+
+## jellyfin
+# bash：mkdir -p /home/video && mkdir -p ./jellyfin/config cache
+JELLYFIN_IMAGE=jellyfin/jellyfin:latest
+JELLYFIN_HTTP_PORT=8096
+JELLYFIN_CONFIG=./jellyfin/config
+JELLYFIN_CACHE=./jellyfin/cache
+JELLYFIN_VIDEO_PATH=/home/video
 NEXTCLOUD_THEME=./nextcloud/Theme
 
 # 百度网盘
@@ -176,6 +187,19 @@ ARIA2_POER2=16881
 ARIA2_SECRET=admin  # 密码
 ARIA2_DOWNLOAD_DIR=./aria2/Download
 ARIA2_CONFIG=./aria2/config
+
+# ownCloud
+#bash mkdir -p owncloud/html owncloud/data owncloud/config owncloud/apps
+OWNCLOUD_PORT=8086
+OWNCLOUD_DATA=/home/orangbus/Owncloud
+OWNCLOUD_HTML=./owncloud/html
+OWNCLOUD_APP=./owncloud/apps
+OWNCLOUD_CONFIG=./owncloud/config
+
+# # scylla
+# bash mkdir -p scylla/data
+SCLLA_PORT=8087
+SCLLA_DATA=./scylla/data
 
 ```
 
@@ -293,7 +317,30 @@ docker-compose
         - "${ARIA2_HTTP_PORT}:80"
         - "${ARIA2_POER1}:6800"
         - "${ARIA2_POER2}:16881"
+        
+# owncloud
+    owncloud:
+      container_name: owncloud
+      image: owncloud
+      restart: always
+      ports:
+        - "${OWNCLOUD_PORT}:80"
+      volumes:
+        - ${OWNCLOUD_DATA}:/var/www/html/data
+        - ${OWNCLOUD_HTML}:/var/www/html
+        - ${OWNCLOUD_APP}:/var/www/html/apps
+        - ${OWNCLOUD_CONFIG}:/var/www/html/config
 
+####Scylla docker run -d -p 8899:8899 -p 8081:8081
+  #-v /var/www/scylla:/var/www/scylla --name scylla wildcat/scylla:latest
+    scylla:
+      container_name: scylla
+      image: wildcat/scylla:latest
+      ports:
+        - "8899:8899"
+        - "${SCLLA_PORT}:8081"
+      volumes:
+        - ${SCLLA_DATA}/var/www/scylla
 ```
 
 ## Laradock无法安装解决方法汇总
@@ -374,7 +421,6 @@ docker-compose up -d workspace
 ```bash
 ➜  laradock git:(master) ✗ docker images    
 laradock_nginx        latest         b7ba928e59d2        3 days ago           27.2MB
-
 ```
 
 挨个导出，然后下载到本地
@@ -408,8 +454,6 @@ docker load -i laradock_nginx.tar
 4、远程同步开发。
 
 是不是迫不及待了，马上操练起来。
-
-
 
 ## 遇到问题
 
@@ -470,5 +514,60 @@ sudo systemctl restart docker
 ```
 /etc/docker/daemon.json
 这个文件的格式不对，或者因为防火墙原因
+```
+
+## 使用ssh链接laradock的workspace
+
+首先需要在 .env 文件把 WORKSPACE_INSTALL_WORKSPACE_SSH 环境变量设为 true.
+
+然后重新构建镜像，使用 docker-compose build workspace，再启动镜像。
+
+Laradock 使用密钥方式连接 ssh
+
+![img](README.assets/L3Byb3h5L2h0dHBzL2ltZzIwMTguY25ibG9ncy5jb20vaS1iZXRhLzEyMTU0OTIvMjAxOTExLzEyMTU0OTItMjAxOTExMjIxMTA3MTkzOTQtMTgwNDU0MDQyNy5wbmc=.jpg) 
+
+登录用户名是 root，使用密钥方式，这里“用户密钥”可以选择项目 [workspace](https://oddyzfr8z.qnssl.com/wp-content/uploads/2017/09/laradock_ssh_workspace_20170921143431.png) 目录下的密钥文件 insecure_id_rsa 即可。
+
+这样就可以通过 ssh 方式登录了。
+
+
+
+# 停止、删除所有的docker容器和镜像
+
+这些命令总是记不住，或者说不用心去记，所以记录在本文中，以便将来查询。
+
+## 列出所有的容器 ID
+
+```
+docker ps -aq
+```
+
+## 停止所有的容器
+
+```
+docker stop $(docker ps -aq)
+```
+
+## 删除所有的容器
+
+```
+docker rm $(docker ps -aq)
+```
+
+## 删除所有的镜像
+
+```
+docker rmi $(docker images -q)
+```
+
+docker 1.13 中增加了`docker system prune`的命令，针对container、image可以使用`docker container prune`、`docker image prune`命令。
+
+- `docker image prune --force --all`或者docker image prune -f -a` : 删除所有不使用的镜像
+- `docker container prune -f`: 删除所有停止的容器
+
+## 删除名称或标签为none的镜像
+
+```bash
+docker rmi -f  `docker images | grep '<none>' | awk '{print $3}'`
 ```
 

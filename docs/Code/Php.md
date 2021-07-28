@@ -698,6 +698,20 @@ let str_to_array = str.split(",");
 
 
 
+# 文件操作
+
+## 复制文件：copy
+
+> copy(源文件，目标文件);
+
+```php
+copy("/temp/avatar.png","/home/code/avatar.png");
+```
+
+tip: 若是不存在，则写入；目标路径下的文件若是存在，则覆盖写入
+
+
+
 # php设计模式
 
 > https://learnku.com/docs/php-design-patterns/2018

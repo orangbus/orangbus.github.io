@@ -12,9 +12,9 @@ sidebar: auto
 
 华为云： <https://mirrors.huaweicloud.com>
 
-## SSH-keygen免密登录
+# SSH-keygen免密登录
 
-### 创建一个 SSH key 
+## 创建一个 SSH key 
 
 ```bash
 ssh-keygen -t rsa -C "your_email@example.com"
@@ -25,7 +25,7 @@ ls ~/.ssh
 
 目录下会包含两个文件： 私钥：`id_rsa` 公钥：`id_rsa.pub` 
 
-### 将公钥复制到远程主机中
+## 将公钥复制到远程主机中
 
 **第一种方式：** 使用ssh-copy-id命令将公钥复制到远程主机。ssh-copy-id会将公钥写到远程主机的 ~/ .ssh/authorized_keys 文件中
 
@@ -51,7 +51,7 @@ vim ~/.ssh/authorized_keys
 
 
 
-## 个人常用别名
+# 个人常用别名
 
 ```bash
 # bash: vim ~/.zshrc
@@ -86,7 +86,7 @@ alias web="cd /home/Code/web"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```
 
-## ubuntu卸载默认的apache
+# ubuntu卸载默认的apache
 
 ```bash
 sudo apt-get --purge remove apache2
@@ -106,13 +106,13 @@ sudo /etc/init.d/**apache**2 restart
 
 
 
-## Linux 查看端口占用情况
+# Linux 查看端口占用情况
 
 Linux 查看端口占用情况可以使用 **lsof** 和 **netstat** 命令。
 
 ------
 
-### lsof
+## lsof
 
 lsof(list open files)是一个列出当前系统打开文件的工具。
 
@@ -122,7 +122,7 @@ lsof 查看端口占用语法格式：
 lsof -i:端口号
 ```
 
-### 实例
+## 实例
 
 查看服务器 8000 端口的占用情况：
 
@@ -154,7 +154,7 @@ lsof -i -U：显示所有打开的端口和UNIX domain文件
 
 ------
 
-### netstat
+## netstat
 
 **netstat -tunlp** 用于显示 tcp，udp 的端口和进程等相关情况。
 
@@ -187,7 +187,7 @@ netstat -ntulp | grep 3306   //查看所有3306端口使用情况
 
 ------
 
-### kill
+## kill
 
 在查到端口占用的进程后，如果你要杀掉对应的进程可以使用 kill 命令：
 
@@ -201,13 +201,13 @@ kill -9 PID
 kill -9 26993
 ```
 
-## VirtualBox for koolshare
+# VirtualBox for koolshare
 
 > 环境需求:
 >
 > 1. 本机已经安装virtualbox虚拟机
 
-### 安装koolshare
+## 安装koolshare
 
 下载链接:https://firmware.koolshare.cn/LEDE_X64_fw867/
 
@@ -226,7 +226,7 @@ vim /etc/config/network
 
 修改后台 i p地址：`opteion ipaddr`选项，需要注意的是这里的ip地址必须和你的路由器处于同一个网段，假如我的路由器ip地址：`192.168.2.1` 那么我可以设置为：`192.168.2.x` ，x可随意，只要不要和现有的ip冲突即可,比如:`192.168.2.200`
 
-### Koolshre后台配置
+## Koolshre后台配置
 
 【网络】【接口】【lan】
 
@@ -246,7 +246,7 @@ IPV4网关: 192.168.2.1 //主路由器的ip地址
 
 ![](https://qnam.smzdm.com/202001/29/5e319f7383d253182.png_e680.jpg) 
 
-### 本地网络配置
+## 本地网络配置
 
 - linux系统设置 ：【系统设置】【网络】
 
@@ -261,7 +261,7 @@ IPV4网关: 192.168.2.1 //主路由器的ip地址
 
   已经一年多没有使用window了,以后有机会使用在补充上吧. (不知道什么鬼,window提示我不能在本机安装window,艹,果断放弃,哈哈!!!)
 
-### 常见问题
+## 常见问题
 
 > 1、酷软插件版本信息不一致
 
@@ -271,7 +271,9 @@ lan 口的DNS 没有配置正确
 
 重启电脑试试。
 
-## 禁止linux进入休眠
+# 禁止linux进入休眠
+
+## 方法一
 
 最新买了一台工控机，于是安装了一个manjaro系统，用于人服务器使用，但是这个玩意长时间不懂她，他自己就睡着了，必须得按一下电源键，那如何阻止他休眠呢？
 
@@ -291,3 +293,36 @@ sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.
 
 1. 编辑 `/etc/default/grub`文件，将 `GRUB_CMDLINE_LINUX_DEFAULT="quiet"`改为 `GRUB_CMDLINE_LINUX_DEFAULT="quiet acpi=off apm=off"`
 2. 执行 `sudo update-grub`命令
+
+# 简单的vimrc配置
+
+```vim
+"======== orangbus .vimrc ===============
+"github:https://github.com/orangbus/tool
+"About Me : Bili search: Orangbus
+"======== orangbus.cn ===================
+
+syntax on "语法高亮
+syntax enable 
+colorscheme desert "设置颜色
+
+set number "设置行号
+set history=1000 "设置历史记步
+set nocompatible  "关闭vi兼容模式
+set ruler "右下角显示光标的行列信息
+set tabstop=4 "设置所有的Tab和缩进为4个空格
+set wrap "自动换行
+set hlsearch "搜索逐字符高亮
+set encoding=utf-8 "设置编码
+set autowrite "自动保存
+set laststatus=2 "显示状态栏（默认值为1，表示无法显示状态栏）
+set completeopt=longest,preview,menu "文件类型自动检测，代码智能补全
+
+"用浅色高亮显示当前行"
+autocmd InsertLeave * se nocul
+autocmd InsertEnter * se cul
+
+"============= 插件相关==================
+filetype on " 检测文件类型 
+```
+

@@ -5,11 +5,8 @@
  * @type {{"/WebNote/": [string, string, string, string]}}
  */
 module.exports = {
-    "/WebNote/": [
-        "","UserAgent"
-    ],
-    "/Linux/WebNote/": [
-        "","如何快速清理 docker 资源"
-    ]
+    "/WebNote/": [],
+    "//Mysql//": [],
+    "/Linux/WebNote/": [],
 }
 

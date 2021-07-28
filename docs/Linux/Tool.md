@@ -471,8 +471,8 @@ sudo /etc/init.d/apache2 restart
 -n:请求次数
 
 ```bash
-ab -c 127 -n 20 demo.com/
-ab -c 127 -n 100 -H "Authorization: 4d43fe0c86c9d21019389678def79da2&6&1621665729" http://wanyin.heimeiai.com/api/exam/cate/list?cid=11
+ab -c 127 -n 2000 demo.com/
+ab -c 127 -n 1000 -H "Authorization: 4d43fe0c86c9d21019389678def79da2&6&1621665729" http://wanyin.heimeiai.com/api/exam/cate/list?cid=11
 ```
 
 其它参数：
@@ -540,7 +540,7 @@ Waiting:      133 2656 1769.9   2092   23343
 Total:        366 24933 4790.0  26094   55634
 
 Percentage of the requests served within a certain time (ms)
-  50%  26094 (50% 的用户的请求 15588ms 内返回)
+  50%  26094 (50% 的用户的请求 15.588ms 内返回)
   66%  27477
   75%  27765
   80%  28206
@@ -550,5 +550,11 @@ Percentage of the requests served within a certain time (ms)
   99%  31703
  100%  55634 (longest request)
 
+```
+
+## linux查看文件
+
+```bash
+tail -f path/filename.txt
 ```
 

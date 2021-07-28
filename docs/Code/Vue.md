@@ -1,8 +1,8 @@
 ```
-
+title: vue日常笔记
 ```
 
-## vue脚手架3.x
+# vu脚手架3.x
 
 官网：https://cli.vuejs.org/guide/installation.html
 
@@ -53,6 +53,14 @@ https://bulma.io/documentation/overview/start/
 
 ```bash
 npm install bulma
+```
+
+### 获取浏览器信息
+
+https://www.npmjs.com/package/ua-parser-js
+
+```
+npm i ua-parser-js
 ```
 
 
@@ -142,3 +150,46 @@ getChiren(arr){
 }
 ```
 
+##  Vue 使用axios分片上传 
+
+Vue的界面
+
+```
+ <input type="file"/>
+```
+
+上传方法
+
+```javascript
+fileUpload: function () {
+    var num = 1
+    var file = document.querySelector('input[type=file]').files[0]
+    // var file = $("#file")[0].files[0];
+    // this.msg.split('').reverse().join()
+    // 声明一个FormData对象
+    var formData = new FormData()
+    var time = new Date().getTime()
+    // 每片文件大小为5M
+    var blockSize = 5 * 1024 * 1024
+    var blockNum = Math.ceil(file.size / blockSize)
+    var nextSize = Math.min(num * blockSize, file.size)
+    var fileData = file.slice((num - 1) * blockSize, nextSize)
+    formData.append('file', fileData)
+    // 文件名
+    formData.append('name', file.name)
+    // 总片数
+    formData.append('chunks', blockNum)
+    formData.append('md5', time)
+    formData.append('uid', '13570')       let config = {
+        headers: {
+            'Content-Type': 'multipart/form-data;boundary = ' + new Date().getTime()
+        }
+    }       axios.post('http://xxx/fileUpload', formData, config)
+        .then(response => (
+        this.info = response
+    ))
+        .catch(function (error) { // 请求失败处理
+        console.log(error)
+    })
+}
+```

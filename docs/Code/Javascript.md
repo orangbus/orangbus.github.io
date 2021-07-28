@@ -3,7 +3,7 @@ title: Javascript Note
 sidebar: auto
 ---
 
-## Require.js使用
+# Require.js使用
 
 在入口文件中引入这两个文件
 
@@ -12,7 +12,7 @@ sidebar: auto
 <script src="/js/main.js"></script>
 ```
 
-### 表单验证
+## 表单验证
 
 > 参考：https://www.w3cschool.cn/jquery/kv69gfnm.html
 >
@@ -80,7 +80,7 @@ requirejs(["jquery","validate"],function ($){
 
 
 
-### 编辑器-wangEditor
+## 编辑器-wangEditor
 
 ```javascript
 var editor = "";
@@ -102,7 +102,7 @@ requirejs(['wangEditor'],function (E) {
 let data = editor.txt.html();
 ```
 
-### 剪贴板-[clipboard](https://clipboardjs.com/) 
+## 剪贴板-[clipboard](https://clipboardjs.com/) 
 
 ```html
 <input type="text" id="copy-url" value="hello orangbus">
@@ -131,7 +131,7 @@ requirejs(["clipboard","notyf"],function (clipboard){
         });
 ```
 
-### 消息提示-notyf 
+## 消息提示-notyf 
 
 ```javascript
 requirejs(["notyf"],function (){
@@ -140,7 +140,7 @@ requirejs(["notyf"],function (){
 });
 ```
 
-### 图片放大-magnify
+## 图片放大-magnify
 
 ```js
 <img
@@ -152,9 +152,74 @@ requirejs(["notyf"],function (){
         
 ```
 
+## 弹窗 - hsycmsAlert
+
+好看的弹窗
+
+```javascript
+requirejs(["halert"],function (){
+    //普通弹窗
+   hsycms.alert('Hello doc.orangbus.cn')
+});
+```
+
+全部方法
+
+```javascript
+<script>
+    //普通弹窗
+    function palert(txt) {
+        hsycms.alert('普通弹窗普通弹窗普通弹窗普通弹窗普通弹窗')
+    }
+
+    //提示弹窗
+    function tips(txt) {
+        hsycms.tips('tips', function () {
+            hsycms.tips('普通弹窗普通弹窗普通弹窗普通弹窗普通弹窗')
+        }, 2000)
+    }
+
+    //询问弹窗
+    function confirm() {
+        hsycms.confirm('确定删除吗???',
+            function (res) {
+                hsycms.success('点击了确定');
+            },
+            function (res) {
+                hsycms.fail('点击了取消');
+            },
+        )
+    }
+
+    //显示loading
+    function loading() {
+        hsycms.loading('loading', '正在加载');
+    //2秒后隐藏
+        setTimeout(res => {
+            hsycms.hideLoading('loading');
+        }, 2000)
+    }
+
+    //操作成功调用
+    function success() {
+        hsycms.success('操作成功', function () {
+
+        }, 1800)
+    }
+
+    //操作失败调用
+    function error() {
+        hsycms.fail('fail', '操作失败', function () {
+            console.log('操作失败关闭后');
+        }, 1800)
+    }
+
+</script>
+```
 
 
 
+http://sywlgzs.gitee.io/hsycmsalert/
 
 ## 字符串JSON 与 json字符串 互转
 
@@ -292,5 +357,235 @@ function copyToClipboard(s) {
         document.execCommand('Copy');
     }
 }
+```
+
+## 60s倒计时
+
+```javascript
+var timer = null;
+var count = 5;
+$("#get-code").click(function () {
+    let phone = $("#phone").val();
+    if (phone == ''){
+        layer.msg("手机号不能为空!");
+        return false;
+    }
+    var load = layer.load();
+    axios.post("{{ route("seedSms") }}",{phone}).then(res=>{
+    layer.close(load);
+    layer.msg(res.msg);
+    if (res.code !== 200){ return false; }
+    $("#get-code").text(count + "后获取验证码");
+    timer = setInterval(function () {
+        count--;
+        $("#get-code").text(count + "后获取验证码");
+        if (count <= 0) {
+            clearInterval(timer);
+            $('#get-code').text('重新获取验证码');
+        }
+    },1000)
+});
+});
+```
+
+vue
+
+```javascript
+phone: "18388110000",
+code: "",
+txt: '获取验证码',
+codeStatus: true
+
+
+getCode(){
+    let That = this;
+    if (this.phone == ''){
+        return this.$message.error("请输入验证码");
+    }
+    var timer = null;
+    let counts = 60;
+    if (That.codeStatus){
+        That.codeStatus = false;
+        seedSms({
+            phone: this.phone,
+        }).then(res=>{
+            if (res.code ==200){
+                this.$message.success(res.msg);
+                timer = setInterval(function () {
+                    counts--;
+                    That.txt = counts+"秒";
+                    if (counts <= 0){
+                        That.txt = "重新获取";
+                        That.codeStatus = true;
+                        clearInterval(timer);
+                    }
+                },1000);
+            }else{
+                this.$message.error(res.msg);
+            }
+        });
+    }else{
+        this.$message.info("验证码已发送，请耐心等待！");
+    }
+}
+
+```
+
+## JS 删除数组的某一项
+
+```javascript
+<script>
+    Array.prototype.indexOf = function(val){
+        for (let i =0;i<this.length;i++){
+            if (this[i] ==val) return i;
+        }
+        return -1;
+    }
+    Array.prototype.remove = function(val) {
+        var index = this.indexOf(val);
+        if (index > -1) {
+            this.splice(index, 1);
+        }
+    };
+    var test = ['orangbus','doc.orangbus','github.com/orangbus/tool','other'];
+    test.remove('other');//删除other
+</script>
+```
+
+## js将数组转为字符串
+
+1、`String(arr)` ：输出数组的每个元素值，用逗号分隔；
+
+2、`arr.join("分隔符")` ：输出数组的每个元素之，用指定的分隔符分隔；
+
+## js将字符串转为数组
+
+```javascript
+var str = '123,456,789';
+var arr = str.split(',');
+console.log(arr) //输出["123", "456", "789"]
+```
+
+## js for循环
+
+> 循环对象，数组
+
+```
+var obj = {
+	name: "orangbus",
+	url: "orangbus.cn",
+	job: 'linux运维'
+};
+
+for (item in obj){
+	let key = item;
+	let value = obj[item];
+}
+```
+
+**添加、更新**
+
+```javascript
+obj['hobby'] = 'watch video'
+```
+
+**删除**
+
+```javascript
+for (item in obj){
+    // 去空值
+	if(!obj[item]){
+        delete obj[item];
+    }
+}
+```
+
+## js foreach循环
+
+> 循环数组
+
+```javascript
+var array = ["orangbus",18,"php","laravel","linux"];
+// 添加
+array.push("python");
+
+array.forEach((item,index) =>{
+	console.log(item,index)
+    // 删除
+    delete array[index]
+})
+```
+
+## 文件上传
+
+本地预览
+
+```html
+<div class="form-group">
+    <label for="exampleInputEmail1">小店Logo</label>
+    <input type="file" name="file" id="file" onchange="upload()">
+    <div class="text-center mt-1" style="width: 50%;height: 50%;">
+        <img src="/static/images/avatar.jpg" id="pic" class="img-thumbnail">
+    </div>
+</div>
+```
+
+```javascript
+function upload() {
+        let reads = new FileReader();
+        let file = document.getElementById("file").files[0];
+        reads.readAsDataURL(file);
+        reads.onload = function (e) {
+            console.log(e)
+            document.getElementById("pic").src= this.result;
+        }
+    }
+```
+
+ajax文件上传
+
+```html
+<div class="form-group">
+    <label>小店Logo</label>
+    <input type="file" id="logo">
+    <div class="text-center mt-1 flex-center" style="width: 50%;height: 50%;">
+        <img id="pic" src="{$data->logo ?? ''}" class="img-thumbnail">
+    </div>
+    <input type="hidden" name="logo" id="logo-val" value="{$data->logo ?? ''}">
+</div>
+```
+
+```javascript
+$("#logo").change(function () {
+    let reads = new FileReader();
+    let file = $(this)[0].files[0];
+
+    let formData = new FormData();
+    formData.append("file",file)
+    $.ajax({
+        url:"{:url('upload')}",
+        dataType:'json',
+        type:'POST',
+        async: false,
+        data: formData,
+        processData : false, // 使数据不做处理
+        contentType : false, // 不要设置Content-Type请求头
+        success: function(res){
+            if (res.code == 200){
+                layer.msg(res.msg);
+                reads.readAsDataURL(file);
+                reads.onload = function (e) {
+                    $("#pic").attr("src",this.result).show()
+                    $("#logo-val").val(res.data.url)
+                }
+            }else{
+                layer.alert(res.msg);
+            }
+        },
+        error:function(response){
+            console.log(response);
+        }
+    });
+});
 ```
 

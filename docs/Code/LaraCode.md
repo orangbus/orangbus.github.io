@@ -1190,9 +1190,132 @@ QUEUE_CONNECTION=redis
 
 2、最好把 `workspace` 的PHP 的 redis 扩展也安装了。
 
+## 广播使用总结
+
+### 1、共有广播
+
+只要监听公有广播，则监听的用户都可以收到广播发送的消息。
+
+### 2、私有广播
+
+- 需要登录才能收到消息
+
+- 可以做一对一聊天，通过channel路由进行授权
+
+  默认有一个 `$user` 表示监听该频道的用户
+
+  ```php
+  // 私有消息
+  Broadcast::channel('privateChannel.{toId}', function ($user,$toId) {
+      // 如果监听的用户是我发送消息的用户，则该用户可以接受消息
+      if ($user->id == $toId) return true; 
+      return false;
+  });
+  ```
+
+  ```javascript
+  //我自己监听我自己的频道，别人发消息到我的频道，我就可以收到别人给我发的消息了
+  window.Echo.channel("private-privateChannel.{{ auth()->id() }}") // 频道名称
+      .listen("PrivateMessage",(res)=>{ // 事件名称
+      console.log("下面是接收到的消息")
+      console.log(res)
+      $("#list").append(`<div class="col-md-12">
+  <div class="alert alert-success " role="alert">
+  <strong>${res.formUser.username}:</strong>${res.msg}
+  </div>
+  </div>`)
+  })
+  ```
+
+### 3、presence频道
+
+- 必须登录
+
+- 多人聊天
+
+  ```javascript
+  // 监听消息，user:当前进入的用户
+  window.Echo.join("room.{{ $room_id }}")
+      .here((user) =>{
+      console.log("here：已经在聊天室的小伙伴")
+      console.log(user)
+  })
+      .joining((user)=>{
+      // orangbus 进入了聊天室
+      console.log("joining：某个用户进来会收到什么消息")
+      console.log(user)
+  })
+      .leaving((user)=>{
+      // orangbus 离开了聊天室
+      console.log("leaving：某个用户离开了")
+      console.log(user)
+  })
+  ```
+
+
+## 广播遇到的文件
+
+> Unable to join channel. Member data for presence channel missing
+
+
+
+
+
+
+
 ## laravel中使用mongodb数据库
 
 github：https://github.com/jenssegers/laravel-mongodb
 
+# laradock使用elasticsearch
 
+```bash
+sudo sysctl -w vm.max_map_count = 262144
+```
+
+## MeiliSearch搜索
+
+安装Scout
+
+```bash
+composer require laravel/scout
+
+composer require meilisearch/meilisearch-php
+
+php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider"
+
+# 模型中user
+use Searchable;
+```
+
+`scout.php` 
+
+```
+'meilisearch' => [
+    'host' => env('MEILISEARCH_HOST', '127.0.0.1:7700'),
+]
+```
+
+```
+# .env
+
+SCOUT_DRIVER=meilisearch
+MEILISEARCH_MASTER_KEY=xxx
+MEILISEARCH_HOST=http://xxxx:7700
+```
+
+导入索引
+
+```
+php artisan scout:import "App\Models\Post"
+
+// 删除
+php artisan scout:flush "App\Models\Post"
+```
+
+搜索
+
+```php
+$data = Joke::where("id","<",460)->searchable();
+```
 

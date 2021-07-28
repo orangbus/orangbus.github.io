@@ -1041,9 +1041,7 @@ var  getCourse = window.iframeWindow || parent;
 
 ## ayui中table表格内容过多自动换行
 
-```
-
-<style>
+```stylus
 .layui-table-cell {
     font-size:14px;
     padding:0 5px;

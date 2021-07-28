@@ -35,3 +35,14 @@ title: AbouMe
 ## 大学 
 
 ​	因为从那个时候开始，QQ的头像都是一个唐僧的头像，昵称：橙留香，上大学的时候，经常有人叫我橙留香，后来帮别人修电脑的时候，慢慢的别人叫我变成了橙子，刚好那个时候想弄一个英文名字，一开始就用 `orange` ，用了一段时候之后，大二开始折腾微信公众号（橙子工作室），后来把 `orange` 换成了 `OrangeStudio` 用了一段时间后，发现这个名字有点太长了，不是很便便记忆，别人看起来也很变扭，再加上那个时候非常流行内涵段子，可惜后来被关闭了，最后为了方便记忆和简写，最后就变成你们看到的这个昵称了：`OrangBus`. 如果你想看到我在那些网站上活跃，可以在百度或者Google搜索`OrangBus` 就可以看到我很多信息了。
+
+## 联系
+
+Bilibili：[https://space.bilibili.com/32604448](https://space.bilibili.com/32604448)
+
+网易云：[https://music.163.com/#/user/home?id=107573124](https://music.163.com/#/user/home?id=107573124)
+
+QQ交流群：[https://jq.qq.com/?wv=1027&k=5UQXtUm](https://jq.qq.com/?wv=1027&k=5UQXtUm)
+
+电报：OrangBus
+

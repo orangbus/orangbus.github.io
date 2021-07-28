@@ -26,8 +26,9 @@ footer: MIT Licensed | Copyright © 2020-present OrangBus
 
 ```$bash
 git clone https://gitee.com/orangbus/vuePress.git VueBlog --depth 1
-npm i
-npm run docs:dev
+
+npm i && npm run docs:dev
+
 # 部署到 Github
 bash deploy.sh
 ```

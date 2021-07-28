@@ -5,6 +5,14 @@ module.exports = [
 		items: [
 			{text: '高效工具', link: '/Window/'},
 			{text: '软件中心', link: 'https://pc.qq.com'},
+            {
+                text: '开发工具', items: [
+                    {text: 'jetbrains', link: 'https://www.jetbrains.com/toolbox-app/'},
+                    {text: 'laragon', link: 'https://laragon.org/'},
+                    {text: 'php版本安装', link: 'https://www.php.net/downloads.php'},
+                    {text: 'php扩展', link: 'https://pecl.php.net/'},
+                ]
+            }
 		]
 	},
 	{
@@ -46,6 +54,7 @@ module.exports = [
 		]
 	},
 	{text: "Docker", link: "/Docker/"},
+	{text: "Mysql", link: "/Mysql/"},
 	{
 		text: "Code",
 		items: [
@@ -82,13 +91,5 @@ module.exports = [
 	},
 	{text: "MyNote", link: "/MyNote/"},
 	{text: "WebNote", link: "/WebNote/"},
-	{text: "OrangBus", link: "/OrangBus/"},
-	{
-		text: 'More',
-		items: [
-			{text: 'BiliBili', link: "https://space.bilibili.com/32604448"},
-			{text: 'NetMusic', link: "https://music.163.com/#/user/home?id=107573124"},
-			{text: 'QQ交流群', link: "https://jq.qq.com/?wv=1027&k=5UQXtUm"}
-		]
-	},
+	{text: "OrangBus", link: "/OrangBus/"}
 ]
