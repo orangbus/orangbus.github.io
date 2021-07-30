@@ -406,6 +406,38 @@ Ps:在rbac权限中，如果传入的url地址在我们后台授权的列表中�
 
 这样的大功告成了。
 
+## 快速生成100w条用户数据
+
+创建一个测试的表 (同时创建factory和migrate文件)
+
+```bash
+php artisan make:model MillionUser -fm
+```
+
+创建好表和对应的模拟数据，先运行测试一下
+
+```
+php artisan php artisan db:seed --class=MillionUserSeeder
+```
+
+如果没有错误，表写一个 `stary.sh` 脚本放在laravel项目的根目录
+
+```bash
+#!/usr/bin/env bash
+
+faker_user(){
+    for ((i=1 ; i<=100; i++)); do
+        php artisan db:seed --class=MillionUserSeeder
+        echo "已生成" $i "万条数据"
+    done
+    echo "生成成功！！"
+    exit
+}
+faker_user
+```
+
+运行脚本：`sh ./start` 
+
 ## Laravel中使用redis
 
 安装predis
