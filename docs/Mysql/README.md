@@ -20,8 +20,6 @@ max_allowed_packet = 1024M
 show VARIABLES like '%max_allowed_packet%';
 ```
 
-
-
 本地终端连接数据库导入
 
 ```bash
@@ -44,9 +42,31 @@ source xxx.sql
 commit;
 ```
 
-## mysql优化
+## mysql最左原则
 
-### 添加索引
+```mysql
+create index idx_name_phone on user(name,phone);
+```
+
+当我们查询数据库的时候，以下查询会走索引，`name` 查询在前，`phone` 在后
+
+```mysql
+select * from user where name like 'oranggbus%' and phone like '1830001%'
+```
+
+不会走搜索,因为 创建的索引 `name` 在前，`phone` 在后
+
+```mysql
+select * from user where phone like '1830001%' and name like 'oranggbus%' 
+```
+
+
+
+# mysql优化
+
+> 参考网站：https://www.begtut.com/mysql/mysql-index.html
+
+## 添加索引
 
 ```mysql
 CREATE INDEX idx_name on tablename(filed);
@@ -136,9 +156,9 @@ EXPLAIN select title from jokes where title like '%搞笑%'
 
 > https://downloads.mysql.com/docs/sakila-db.zip
 
-## 优化案例
+# 优化案例
 
-### order by 查询太慢
+## order by 查询太慢
 
 - 索引的列顺序和`order by` 子句的顺序完全一致
 
@@ -172,7 +192,7 @@ create index idx_cate_id_id on jokes(cate_id,id);
 
 当行小于 `max_length_for_sort_data` 会生成全字段中间结果集
 
-### 用户查询
+## 用户查询
 
 ```mysql
 # 用户统计
@@ -197,7 +217,7 @@ select * from million_users where name="橙留香" and password="caVLvYBY8HfRjGS
 select * from million_users where name like "hlubo%" order by id desc limit 20; # 107 ms
 ```
 
-### 关联统计优化
+## 关联统计优化
 
 > 通过【文章分类】统计该分类下面的【文章】数
 

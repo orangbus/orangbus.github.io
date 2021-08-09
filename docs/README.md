@@ -12,7 +12,7 @@ features:
 - title: Linux
   details: 发生生活，改变自己，拥抱开源，痛并快乐着前行。
 - title: About
-  details: 所有能穿越时间的东西，就该坚守；所有会被时间过滤的，改翻篇就翻篇。
+  details: 所有能穿越时间的东西，就该坚守；所有会被时间过滤的，该翻篇就翻篇。
 - title: Grow
   details: 不要因为走得太远，就忘记你当初为什么出发的。
 - title: Work

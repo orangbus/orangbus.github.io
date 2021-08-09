@@ -718,6 +718,52 @@ tip: 若是不存在，则写入；目标路径下的文件若是存在，则覆
 
 ## 单例模式
 
+```php
+<?php
+/**
+ * Created by OrangBus
+ * User email: orangbus40400@gmail.com
+ * website: orangbus.cn
+ * blog: doc.orangbus.cn
+ * github: github.com/orangbus
+ */
+
+class UserService
+{
+
+    private static $instance;
+
+    /**
+     * @return UserService
+     */
+    public static function getInstance()
+    {
+        if (!self::$instance instanceof self) {
+            return new self::$instance;
+        }
+        return self::$instance;
+    }
+    private function __construct()
+    {
+        
+    }
+    private function __clone() {
+
+    }
+
+    public function getUserById($id)
+    {
+        return \App\Models\User::find($id);
+    }
+
+}
+
+```
+
+```php
+$user = UserService::getInstance()->getUserById(1);
+```
+
 
 
 ## 观察者模式

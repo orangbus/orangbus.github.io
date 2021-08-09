@@ -45,10 +45,7 @@ module.exports = [
 					},
 					{text: 'Laradock官网', link: 'http://laradock.io'},
 					{text: 'Docker在线学习调试', link: 'https://labs.play-with-docker.com/'},
-					{
-						text: 'Kubernetes互动教程',
-						link: 'https://k8smeetup.github.io/docs/tutorials/kubernetes-basics/deploy-interactive/'
-					},
+					{text: 'play with Kubernetes',link: 'https://labs.play-with-k8s.com/'},
 				]
 			}
 		]

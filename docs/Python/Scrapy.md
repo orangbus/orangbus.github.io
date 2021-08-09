@@ -34,5 +34,29 @@ content.find(class_="entry-copyright").decompose()
 content = content.prettify()
 ```
 
+### 清除css样式
+
+```python
+for p in soup.find_all('p'):
+    if 'style' in p.attrs:
+        del p.attrs['style']
+```
+
+## 替换图片地址
+
+```python
+html = """
+<img src='/upload/a/b/aa.png'>
+<img src='/upload/a/b/bb.png'>
+"""
+# 匹配的字符串或者正则表达式，替换的内容，需要被替换的内容
+result = result = re.sub(r'/uploads/', 'http://orangbus.cn/uploads/', html)
+
+result = """
+<img src='http://orangbus.cn/upload/a/b/aa.png'>
+<img src='http://orangbus.cn/upload/a/b/bb.png'>
+"""
+```
+
 
 

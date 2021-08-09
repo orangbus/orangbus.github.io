@@ -236,6 +236,62 @@ protected function serializeDate(\DateTimeInterface $date)
 }
 ```
 
+## 时间转化
+
+1、如果你需要添加`start_time` ,`end_time`的也需要时间转化，那么可以在Model中添加转化
+
+```php
+//model
+protected $dates = [
+        'start_time',
+        'end_time',
+    ];
+```
+
+2、时间类型的转化
+
+```php
+protected $casts = [
+    'email_verified_at' => 'datetime',
+    'created_at' => 'datetime:Y-m-d H:i:s', //格式化：2021-01:-01 12:00:01
+    'updated_at' => 'timestamp', // 时间戳的格式
+];
+```
+
+3、`timestamp` 类型的时间存储和查询出来的不一致
+
+![image-20210803111115811](/images/image-20210803111115811.png)
+
+```php
+/**
+     * 为数组 / JSON 序列化准备日期。
+     *
+     * @param \DateTimeInterface $date
+     * @return string
+     */
+protected function serializeDate(\DateTimeInterface $date)
+{
+    return Carbon::instance($date)->toDateTimeString();
+}
+```
+
+参考：https://learnku.com/articles/44212
+
+4、如果需要存储时间戳格式的时间
+
+```php
+protected $dateFormat = 'U';
+```
+
+5、获取时间戳
+
+如果`created_at` 是日期格式`2021-01-02 10:12:13` 获取到他的时间戳
+
+```php
+$user = \App\Models\User::where("id",1)->first();
+$user->created_at->getTimestamp();
+```
+
 ## laravel周期
 
 控制器构造方法 -> 父类构造方法 -> 中间件构造方法
@@ -255,6 +311,32 @@ User::when($status, function ($query, $status) {
         })
         ->get();
 ```
+
+## 表单验证
+
+方式一：
+
+
+
+方式二：
+
+
+
+
+
+## 观察者
+
+
+
+## 事件监听
+
+
+
+
+
+## 异常处理
+
+
 
 
 
@@ -1351,3 +1433,6 @@ php artisan scout:flush "App\Models\Post"
 $data = Joke::where("id","<",460)->searchable();
 ```
 
+### 扩展包推荐
+
+发送钉钉消息（钉钉机器人）：https://github.com/wowiwj/ding-notice
