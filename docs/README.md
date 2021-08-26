@@ -12,7 +12,7 @@ features:
 - title: Linux
   details: 发生生活，改变自己，拥抱开源，痛并快乐着前行。
 - title: About
-  details: 所有能穿越时间的东西，就该坚守；所有会被时间过滤的，该翻篇就翻篇。
+  details: 所有能穿越时间的东西，就该坚守，所有会被时间过滤的，该翻篇就翻篇。
 - title: Grow
   details: 不要因为走得太远，就忘记你当初为什么出发的。
 - title: Work
@@ -32,11 +32,15 @@ npm i && npm run docs:dev
 # 部署到 Github
 bash deploy.sh
 ```
-老司机开车群：[511300462](https://jq.qq.com/?_wv=1027&k=5UQXtUm)
+OrangBus交流群：[511300462](https://jq.qq.com/?_wv=1027&k=5UQXtUm)
 
 电报交流群：[OrangBus](https://t.me/joinchat/LHI0dxToaOG-uSFjpa7gzg)
 
-BiliBili:[OrangBus](https://space.bilibili.com/32604448)
+BiliBili:[OrangBus](https://space.bilibili.com/32604448) 
+
+Github: http://github.com/orangbus
+
+Gitee: http://gitee.com/orangbus
 
 <h3 style="color:#3EAF7C;text-align:center;">人生的美妙之处在于未来的不可知！</h3>
 

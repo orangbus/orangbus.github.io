@@ -2,6 +2,62 @@
 title: Laradock入门
 ---
 
+# docker安装
+
+安装命令如下：
+
+```bash
+curl -fsSL https://get.docker.com | bash -s docker --mirror aliyun
+```
+
+也可以使用国内 daocloud 一键安装命令：
+
+```bash
+curl -sSL https://get.daocloud.io/docker | sh
+```
+
+## docker开机启动
+
+```bash
+sudo systemctl start docker && sudo systemctl enable docker
+```
+
+## docker卸载
+
+删除安装包：
+
+```
+yum remove docker-ce
+```
+
+删除镜像、容器、配置文件等内容：
+
+```
+rm -rf /var/lib/docker
+```
+
+# docker-compose安装
+
+> 下载对应的版本：https://github.com/docker/compose/releases/
+
+```bash
+wget https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64
+
+# 修改名称
+mv docker-compose-Linux-x86_64 docker-compose
+
+# 添加执行权限
+sudo chmod +x docker-compose
+
+# 移动到 /usr/local/bin
+sudo mv docker-compose /usr/local/bin
+
+# 验证安装是否成功
+docker-compose -version
+```
+
+
+
 > systemOS: debian 8+
 
 校对时间:

@@ -589,3 +589,11 @@ $("#logo").change(function () {
 });
 ```
 
+# 返回
+
+```javascript
+function goBack() {
+        document.referrer === '' ? window.location.href = "{:url('storeArc')}" : window.history.go(-1);
+    }
+```
+

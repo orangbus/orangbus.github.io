@@ -155,3 +155,21 @@ window10： <https://www.microsoft.com/zh-cn/software-download/windows10ISO>
 > 如果你有更好的资源，请联系我！
 > 其实我收藏了太多了，懒得整理了，以后关注的人多了在说吧！
 
+## window git别名
+
+```bash
+# cd
+# vim .bashrc
+
+alias cls='clear && ls'
+alias la='ls -a'
+
+alias web="cd /d/laragon/www"
+```
+
+重载配置
+
+```bash
+source .bashrc
+```
+

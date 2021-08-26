@@ -696,6 +696,39 @@ let str_to_array = str.split(",");
   - 自动修复：phpcbf /path/to/code
   - 详细的使用说明见[官方wiki](https://github.com/squizlabs/PHP_CodeSniffer/wiki) 
 
+# 进制转换
+
+## 二进制转十六进制
+
+```php
+$str = bin2hex('orangbus.cn');
+```
+
+
+
+# 随机字符串
+
+```php
+/**
+* 随机字符换
+*/
+protected function randStr($length=6) {
+    //字符组合
+    $str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    $len = strlen($str)-1;
+    $randstr = '';
+    for ($i=0;$i<$length;$i++) {
+        $num=mt_rand(0,$len);
+        $randstr .= $str[$num];
+    }
+    return $randstr;
+}
+```
+
+
+
+
+
 
 
 # 文件操作

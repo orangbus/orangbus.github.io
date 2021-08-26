@@ -3,7 +3,7 @@ title: 开源框架推荐
 sidebar: auto
 ---
 
-## 开源框架推荐
+# 开源框架推荐
 
 站在巨人之上，我们才能走得更远， 一并致谢以下开源框架
 
@@ -17,3 +17,8 @@ sidebar: auto
  - 短信集成(https://github.com/overtrue/easy-sms)
  - vueAdmin-template(https://github.com/PanJiaChen/vueAdmin-template)
  - API接口文档书写(http://apidocjs.com/)
+ - 文件加密：`npm install --save spark-md5` 
+
+# Phpstorm清理缓存
+
+file Invalidate Caches/Restart 按钮
