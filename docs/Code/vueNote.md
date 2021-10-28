@@ -558,3 +558,115 @@ getCode(){
 },
 ```
 
+## vue数组元素交换位置
+
+i: 当前移动的元素
+
+1: 移动长度
+
+```javascript
+var tempOption = this.resourceLists[i - 1];
+this.$set(this.resourceLists, i - 1, this.resourceLists[i]);
+this.$set(this.resourceLists, i, tempOption)
+```
+
+## 数组插入
+
+```javascript
+this.list.splice(i,1)
+```
+
+
+
+```javascript
+// 原来的数组
+var array = ["one", "two", "four"];
+// splice(position, numberOfItemsToRemove, item)
+// 拼接函数(索引位置, 要删除元素的数量, 元素)
+array.splice(2, 0, "three");
+ 
+array;  // 现在数组是这个样子 ["one", "two", "three", "four"]
+```
+
+```javascript
+Array.prototype.insert = function (index, item) {
+  this.splice(index, 0, item);
+};
+---
+var nums = ["one", "two", "four"];
+nums.insert(2, 'three'); // 注意数组索引, [0,1,2..]
+array	// ["one", "two", "three", "four"]
+```
+
+
+
+## 数组删除
+
+```javascript
+```
+
+
+
+## 根据值获取到索引值
+
+```javascript
+let book_name = ['1984','动物庄园','乌合之众']
+let i = book_name.indexOf('动物庄园')
+book_name.splice(i,1)
+console.log(book_name)  //[ '1984', '乌合之众' ]
+```
+
+## set
+
+set对象是值的集合,元素只会出现一次,即Set中的元素是唯一的.
+
+### set对象与数组之间的转换
+
+```javascript
+var arr = [1,2,3,4,4];
+var set = new Set(arr) //数组转换set对象
+set //{1,2,3,4}
+//方法一
+Array.from(set) //[1,2,3,4]
+//方法二
+[...set] //[1,2,3,4]
+```
+
+### 集合操作
+
+```javascript
+let items = new Set(["orangbus","bus","apple"]);
+items.add("banana");
+
+items.has("orangbus") // true
+
+items.delete("bus"); // true
+// {"orangbus","apple","banana"}
+
+
+```
+
+## array
+
+```
+var a = [1,2,3,4,5,6,7,8,9,0];
+
+// 添加
+a.push(10);
+
+// 截取
+a.slice(start,end);
+
+// 删除
+a.spl
+
+// 转换为字符串
+a.toString(); //"1,2,3,4,5,6,7,8,9,0,10"
+
+// 分隔符
+a.json("|"); // "1|2|3|4|5|6|7|8|9|0|10"
+
+```
+
+
+

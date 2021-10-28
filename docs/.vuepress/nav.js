@@ -50,8 +50,6 @@ module.exports = [
 			}
 		]
 	},
-	{text: "Docker", link: "/Docker/"},
-	{text: "Mysql", link: "/Mysql/"},
 	{
 		text: "Code",
 		items: [
@@ -83,9 +81,13 @@ module.exports = [
 					{text: 'Python入门', link: '/Python/Python'},
 					{text: 'Scrapy', link: '/Python/Scrapy'},
 				],
-			}
+			},
+
 		]
 	},
+	{text: "Docker", link: "/Docker/"},
+	{text: "Mysql", link: "/Mysql/"},
+	{text: "Java",link: "/Java/"},
 	{text: "MyNote", link: "/MyNote/"},
 	{text: "WebNote", link: "/WebNote/"},
 	{text: "OrangBus", link: "/OrangBus/"}

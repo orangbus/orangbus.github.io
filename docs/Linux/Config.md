@@ -326,3 +326,67 @@ autocmd InsertEnter * se cul
 filetype on " 检测文件类型 
 ```
 
+# nginx端口转发
+
+```nginx
+server {
+         listen       80;
+         server_name  www.123.com;
+
+        location / {
+            proxy_pass http://127.0.0.1:8080;
+             index  index.html index.htm index.jsp;
+        }
+     }
+```
+
+# nginx负载均衡
+
+```nginx
+upstream guwenjie_http {
+        server **.***.***.***:9503 weight=1;
+        server **.***.***.***:8811 weight=2;
+}
+server
+     {
+        listen 80;
+        #listen [::]:80 default_server ipv6only=on;
+        server_name test1.freephp.top;
+        index  index.php index.html   index.htm ;
+        root   /home/wwwroot/workspace/public/static;
+
+        #error_page   404   /404.html;
+		
+		location / {
+             if (!-e $request_filename){
+                #proxy_pass http://127.0.0.1:8855;
+                proxy_pass http://guwenjie_http;
+             }
+         }
+         
+        location /nginx_status
+        {
+            stub_status on;
+            access_log   off;
+        }
+
+        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
+        {
+            expires      30d;
+        }
+
+        location ~ .*\.(js|css)?$
+        {
+            expires      12h;
+        }
+
+        location ~ /.well-known {
+            allow all;
+        }
+
+        location ~ /\.
+        {
+            deny all;
+        }
+```
+

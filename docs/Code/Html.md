@@ -1,7 +1,77 @@
 ---
-
 title: html
 ---
+
+# css
+
+## 样式排版
+
+https://github.com/sofish/Typo.css
+
+## 获取视频时长
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ mix("css/app.css") }}">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form action="@">
+                <input type="file" id="video">
+                <div id="infos"></div>
+{{--                <button type="button" id="submit" class="btn btn-success btn-block">上传</button>--}}
+            </form>
+        </div>
+    </div>
+</div>
+<script src="{{ mix("/js/app.js") }}"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    
+    var myVideos = [];
+
+    window.URL = window.URL || window.webkitURL;
+
+    document.getElementById('video').onchange = setFileInfo;
+
+    function setFileInfo() {
+        var files = this.files;
+        myVideos.push(files[0]);
+        var video = document.createElement('video');
+        video.preload = 'metadata';
+
+        video.onloadedmetadata = function() {
+            window.URL.revokeObjectURL(video.src);
+            var duration = video.duration;
+            myVideos[myVideos.length - 1].duration = duration;
+            updateInfos();
+        }
+
+        video.src = URL.createObjectURL(files[0]);
+    }
+
+    function updateInfos() {
+        var infos = document.getElementById('infos');
+        infos.textContent = "";
+        for (var i = 0; i < myVideos.length; i++) {
+            infos.textContent += myVideos[i].name + " duration: " + (myVideos[i].duration/60).toPrecision(3) + '分\n';
+        }
+    }
+</script>
+</body>
+</html>
+```
+
+
 
 # 手机播放m3u8视频
 
@@ -14,6 +84,26 @@ title: html
     <source type="application/x-mpegURL" src="http://dlhls.cdn.zhanqi.tv/zqlive/22578_yKdJM.m3u8">
 </video>
 ```
+
+```html
+<iframe width="100%" height="100%" src="https://streamtape.com/e/LDjWpakZmpHRX9X" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" referrerpolicy="no-referrer"></iframe>
+```
+
+
+
+# 资源采集规则
+
+列表接收参数
+
+| key  | value            | 说明           |
+| ---- | ---------------- | -------------- |
+| ac   | list / videolist | 视频列表       |
+| t    |                  | 类别ID         |
+| wd   |                  | 搜索关键字     |
+| h    |                  | 几小时内的数据 |
+| pg   |                  | 页码           |
+
+
 
 # TinyMCE配置基本使用
 

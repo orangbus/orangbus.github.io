@@ -1,5 +1,5 @@
 ---
-title: Linux-Application
+/home/orangbus/下载/SH Key 突然失效问题解答及处理办法.mdtitle: Linux-Application
 desc: SSh远程链接工具、推荐Uinux发行版、扶墙脚本、google上网
 keyword: orangbus.cn
 date: 2019-06-04 14:56:23
@@ -558,3 +558,6 @@ Percentage of the requests served within a certain time (ms)
 tail -f path/filename.txt
 ```
 
+## 软件：
+
+https://aur.archlinux.org/packages/icalingua/

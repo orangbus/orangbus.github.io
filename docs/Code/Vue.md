@@ -63,7 +63,16 @@ https://www.npmjs.com/package/ua-parser-js
 npm i ua-parser-js
 ```
 
+### 获取en值
 
+```.env
+// .env
+app_name=orangbus
+```
+
+```.env
+process.env.app_name
+```
 
 ## Vue数组操作
 
@@ -193,3 +202,14 @@ fileUpload: function () {
     })
 }
 ```
+
+## Vue变量引用值联动
+
+```javascript
+let fields = JSON.parse(JSON.stringify(that.fields));
+
+let newFields = fields; //引用的是同一个数组
+
+that.fields = fields; //引用的是不同的数组
+```
+

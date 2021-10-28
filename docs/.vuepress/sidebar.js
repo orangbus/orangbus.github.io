@@ -8,5 +8,6 @@ module.exports = {
     "/WebNote/": [],
     "//Mysql//": [],
     "/Linux/WebNote/": [],
+    "/Java/": [],
 }
 
