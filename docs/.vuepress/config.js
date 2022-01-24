@@ -97,7 +97,7 @@ module.exports = {
             })();
         `],
         // 以下文件非必须
-        // ["script",{src:'/js/cursor.min.js'}],
+        // ["script",{src:'/js/cursor.min.js'}]
     ],
 
 };
