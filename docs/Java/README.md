@@ -409,7 +409,7 @@ Active power mode
 ## 数据库连接信息：
 
 ```
-jdbcUrl
+
 ```
 
 
