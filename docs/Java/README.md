@@ -132,22 +132,13 @@ bin\jlink.exe --module-path jmods --add-modules java.desktop --output jre
 ApplicationContext content = new ClassPathXmlApplicationContext("classpath:applicationContent.xml");
 ```
 
-加载多个
-
-```java
-```
-
-![image-20210820150052794](/images/image-20210820150052794.png)
-
 ### 依赖注入
 
-![image-20210820150608005](../.vuepress/public/images/image-20210820150608005-16294431909491.png)
+
 
 ### 注入 - List
 
 数据可以重复
-
-![image-20210820154441371](../.vuepress/public/images/image-20210820154441371.png)
 
 
 
@@ -155,37 +146,35 @@ ApplicationContext content = new ClassPathXmlApplicationContext("classpath:appli
 
 数据可以重复
 
-![image-20210820154526316](/images/image-20210820154526316.png)
-
 ### 注入-map
 
-![image-20210820154617928](README.assets/image-20210820154617928.png) 
+![image-20210820154617928](./README.assets/image-20210820154617928.png) 
 
 
 
 ### 注入-Properties
 
-![image-20210820154704963](images/image-20210820154704963.png) 
+![image-20210820154704963](./images/image-20210820154704963.png) 
 
 ### bean scope 范围
 
-![image-20210820162900894](images/image-20210820162900894.png) 
+![image-20210820162900894](./images/image-20210820162900894.png) 
 
-![image-20210820162955688](images/image-20210820162955688.png)
+![image-20210820162955688](./images/image-20210820162955688.png)
 
 
 
-![image-20210820163010839](images/image-20210820163010839.png)
+![image-20210820163010839](./images/image-20210820163010839.png)
 
-![image-20210820163842866](images/image-20210820163842866.png) 
+![image-20210820163842866](./images/image-20210820163842866.png) 
 
 
 
 ## 注解
 
-![image-20210820202609249](images/image-20210820202609249.png)
+![image-20210820202609249](./images/image-20210820202609249.png)
 
-![image-20210820202855712](images/image-20210820202855712.png)
+![image-20210820202855712](./images/image-20210820202855712.png)
 
 ## 自动装配注解
 
@@ -261,13 +250,13 @@ public class SpringApplication {
 
 
 
-![image-20210820205313559](images/image-20210820205313559.png)
+![image-20210820205313559](./images/image-20210820205313559.png)
 
  
 
 ## 元数据注解
 
-![image-20210821212300782](images/image-20210821212300782.png) 
+![image-20210821212300782](./images/image-20210821212300782.png) 
 
 ### @Value
 
@@ -300,7 +289,7 @@ private String metaData;
 
 摆脱xml配置
 
-![image-20210820211245554](images/image-20210820211245554.png) 
+![image-20210820211245554](./images/image-20210820211245554.png) 
 
 
 
