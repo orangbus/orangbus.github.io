@@ -316,6 +316,27 @@ private function createSn()
 }
 ```
 
+# 生成惟一数字字符串
+
+```php
+function getUniqNumId(){
+	//获取uniqid()生成的字符串的后八位（包含字母）, 而且处理成ASCII 码值数组
+	$tmp = array_map('ord', str_split(substr(uniqid(), 7, 13)));
+
+	//将数组处理成数值字符串，并获取前8位（由于长度不定）
+	$tmp = substr(implode(null, $tmp), 0, 8);
+
+	//前面添加日期
+	$tmp = date('Ymd') . $tmp;
+
+	//返回
+	return $tmp;
+}
+// 2022012050975698
+```
+
+
+
 ## fiel_get_contents 请求
 
 ```php

@@ -86,6 +86,19 @@ alias web="cd /home/Code/web"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```
 
+# window在git中使用alias
+
+
+
+```bash
+bash: cd && vim .bashrc
+=============================
+alias cls="clear && ls"
+alias web="cd /d/laragon/www"
+```
+
+
+
 # ubuntu卸载默认的apache
 
 ```bash

@@ -173,3 +173,12 @@ alias web="cd /d/laragon/www"
 source .bashrc
 ```
 
+## 微信多开
+
+```
+# wechat.bat
+
+start "" "D:\Program Files (x86)\Tencent\WeChat\WeChat.exe"
+start "" "D:\Program Files (x86)\Tencent\WeChat\WeChat.exe"
+```
+

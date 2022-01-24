@@ -21,3 +21,20 @@ ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 ```
 
 如果上述两个文件存在，仍然出现这个错误，那么试试 chmod 600 上述两个文件。之后应该可以解决。
+
+# linux-webstorm无法打字
+
+在启动脚本中加下面的支持即可,前提是你已经安装了搜过输入法
+
+```bash
+# webstorem (根据自己的实际情况找到对的文件，大概路径是这样的)
+# vim $HOME/.local/share/JetBrains/Toolbox/apps/WebStorm/ch-0/212.5457.55/bin/webstorm.sh
+
+# start ======>
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+# <=======end
+
+```
+

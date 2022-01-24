@@ -1433,6 +1433,50 @@ php artisan scout:flush "App\Models\Post"
 $data = Joke::where("id","<",460)->searchable();
 ```
 
+# minio文件上传
+
+安装依赖,(记得限制版本，不然安装会出错)
+
+```bash
+composer require league/flysystem-aws-s3-v3 ~1.0
+composer require league/flysystem-cached-adapter ~1.0
+```
+
+> config/filesystems.php
+
+```
+<?php
+return [
+    // ...
+    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
+    'disks' => [
+        // ...
+        'minio' => [
+            'driver' => 's3',
+            'endpoint' => env('MINIO_ENDPOINT', 'http://127.0.0.1:9005'),
+            'use_path_style_endpoint' => true,
+            'key' => env('AWS_KEY'),
+            'secret' => env('AWS_SECRET'),
+            'region' => env('AWS_REGION'),
+            'bucket' => env('AWS_BUCKET'),
+        ],
+    ],
+];
+```
+
+> .env
+
+```
+# Minio config
+MINIO_ENDPOINT="http://127.0.0.1:9005"
+AWS_KEY=KBSIYRR36U3A1IO1QARI
+AWS_SECRET=Z9BV6YsP7jtRQR1qCJk3PWecs22smNTOl7HC1Yj3
+AWS_REGION=us-east-1
+AWS_BUCKET=test
+```
+
+如果生成的地址无法访问，请检查当前 `Buckets` 的 `Access Policy：public` 即可。
+
 ### 扩展包推荐
 
 发送钉钉消息（钉钉机器人）：https://github.com/wowiwj/ding-notice

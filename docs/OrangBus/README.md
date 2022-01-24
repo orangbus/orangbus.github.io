@@ -21,16 +21,17 @@ title: AboutMe
 
 基本上很多剧情都是颠覆了以往我们对西游记的刻板印象，其中有一张唐僧的照片特别有趣，于是就保存下来当做QQ头像了，一直沿用到今
 
-<img src="/images/qq-avatar.jpg" style="zoom: 33%;;align:center" />  
+<img src="./README.assets/qq-avatar.jpg" style="zoom:50%;" />
 
 关于《国宝特工》，里面有一个人主人翁叫：**橙留香** ，当时只是觉得他的性格和我有点相像，最后就用这个名字当做QQ昵称了，前段时间无意间在百度百科上看到对这个人物的评价，还挺有趣的70%都被说中了，哈哈：[更多详细讲解](https://baike.baidu.com/item/%E6%A9%99%E7%95%99%E9%A6%99/1899135?fr=aladdin) 
 
 > 节选：橙留香，橙色的圆形身体，黑亮的双眸，头上有像呆毛般的叶子；因为经常和菠萝吹雪站在一起所以总是被人们忽视其长相，但其实本人相貌堂堂，英俊潇洒，剑眉星目，有气宇轩昂的英雄气概，同样是一名不需要过多打扮的英俊男子。
 
-<img src="/images/gb.jpg" alt="img" style="zoom: 80%;;align:center" /> 
+![](./README.assets/gb.jpg)
 
 其实现在使用的Logo 50%也是因为他。
-<img src="/orangbus.png" style="zoom: 33%;align:center" />
+
+<img src="./README.assets/orangbus.png" style="zoom:50%;" /> 
 
 ## 大学 
 

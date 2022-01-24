@@ -8,6 +8,22 @@
 lsof -i:8081
 ```
 
+# jdk11环境配置
+
+```text
+JAVA_HONME: D:\Program Files\java11
+CLASSPATH: .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar
+PATH: %JAVA_HOME%\bin;%JAVA_HOME%\jre\bin
+```
+
+如何没有jre目录，手动生成
+
+```bash
+bin\jlink.exe --module-path jmods --add-modules java.desktop --output jre
+```
+
+最后验证一下: 打开cmd命令行窗口，分别输入 java javac java -version 三个命令进行验证，都没有出错，则配置成功。
+
 
 
 # 方法重载
@@ -139,11 +155,11 @@ ApplicationContext content = new ClassPathXmlApplicationContext("classpath:appli
 
 数据可以重复
 
-![image-20210820154526316](../.vuepress/public/images/image-20210820154526316.png)
+![image-20210820154526316](/images/image-20210820154526316.png)
 
 ### 注入-map
 
-![image-20210820154617928](images/image-20210820154617928.png) 
+![image-20210820154617928](README.assets/image-20210820154617928.png) 
 
 
 

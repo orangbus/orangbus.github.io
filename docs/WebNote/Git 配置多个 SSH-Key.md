@@ -27,6 +27,8 @@ $ ssh-keygen -t rsa -C 'xxxxx@qq.com' -f ~/.ssh/github_id_rsa
 # gitee
 Host gitee.com
 HostName gitee.com
+HostkeyAlgorithms +ssh-rsa 
+PubkeyAcceptedAlgorithms +ssh-rsa
 PreferredAuthentications publickey
 IdentityFile ~/.ssh/gitee_id_rsa
 # github

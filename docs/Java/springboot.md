@@ -1,16 +1,167 @@
 ---
-Spring boot 学习笔记
+title: Spring boot 学习笔记
 ---
 
-# 依赖
+# 初始化项目
+
+## 父工程
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.3</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    
+    <groupId>com.orangbus</groupId>
+    <artifactId>yeb</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+	<!--pom管理-->
+    <packaging>pom</packaging>
+    <name>yeb</name>
+    <description>yeb</description>
+    <properties>
+        <java.version>11</java.version>
+    </properties>
+
+</project>
+
+```
+
+## 依赖
+
+```xml
+<!-- web 依赖-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+
+<!-- lombok 依赖-->
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+</dependency>
+
+<!-- mysql 依赖-->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <scope>runtime</scope>
+</dependency>
+
+<!-- mybatis-plus 依赖-->
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-plus-boot-starter</artifactId>
+    <version>3.3.1.tmp</version>
+</dependency>
+
+ <!-- mybatis-plus 代码生成器-->
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-plus-generator</artifactId>
+    <version>3.5.1</version>
+</dependency>
+
+<!-- freemarker 模板引擎-->
+<dependency>
+    <groupId>org.freemarker</groupId>
+    <artifactId>freemarker</artifactId>
+</dependency>
+
+<!-- swagger2 依赖-->
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger2</artifactId>
+    <version>3.0.0</version>
+</dependency>
+<dependency>
+    <groupId>com.github.xiaoymin</groupId>
+    <artifactId>swagger-bootstrap-ui</artifactId>
+    <version>1.9.6</version>
+</dependency>
+
+ <!--security 依赖-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+<!--jwt 依赖-->
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt</artifactId>
+    <version>0.9.1</version>
+</dependency>
+```
 
 
 
-## 配置文件:
+## 配置文件
 
 application.yml
 
+```yaml
+server:
+  port: 8081
+
+spring:
+  profiles: # 使用那个环境的配置
+    active: dev
+```
+
 application-dev.yml
+
+```yaml
+server:
+  port: 8081
+
+# 开启热部署
+spring:
+  thymeleaf:
+    cache: false
+  devtools:
+    livereload:
+      enabled: true #是否支持livereload
+      port: 35729
+    restart:
+      enabled: true
+
+  # 本地数据库连接
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/laravel_web?useSSL=false&useUnicode=true&characterEncode=UTF-8&serverTimezone=GMT
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  logging:
+    level:
+      root: info
+      org.orangbus: debug
+      #com.baomidou: debug
+    file:
+      path: /log/logs.txt
+
+#mybatis-plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  # 配置 数据返回类型的别名
+  type-aliases-package: com.orangbus.server.pojo
+  configuration:
+    # 自动驼峰命名
+    map-underscore-to-camel-case: false
+
+# mybatis sql 打印 （方法接口所在的包，不是mapper.xml所在的包）
+logging:
+  level: 
+    com.orangbus.server.mappder: debug
+```
 
 application-prod.yml
 
@@ -21,6 +172,23 @@ spring:
 	profiles: //具体使用那个配置文件
 		active: dev
 ```
+
+## 逆向工程-生成Empty
+
+官网：[https://baomidou.com/guide/install.html#release](https://baomidou.com/guide/install.html#release) 
+
+代码生成插件：mybatisx | MyBatis Generator | Free MyBatis plugin
+
+![image-20220122144814070](./springboot.assets/image-20220122144814070.png) 
+
+
+
+## Swagger-ui配置
+
+```java
+```
+
+
 
 
 
@@ -48,6 +216,8 @@ spring:
 // 时间转化
 @Temporal(TemporalType,TIMESTAMP
 ```
+
+
 
 # 自定义跳转连接
 
@@ -713,7 +883,7 @@ Availability : 可用性 ，非故障节点应该在合理的时间范围内作�
 
 Partition tolerance: 分区容存，当出现网络分区现象后，系统能都继续运行（网络通信错误）
 
-![image-20210913172919741](images/image-20210913172919741.png) 
+![image-20210913172919741](./images/image-20210913172919741.png) 
 
 # RabbitMq
 
@@ -744,7 +914,7 @@ AMQP协议
 
 `topic` 生产者指定`RoutingKey` 消息根据消费端指定的队列通过模糊匹配的方式进行相应转发
 
-![image-20210913220415716](springboot.assets/image-20210913220415716.png) 
+![image-20210913220415716](./springboot.assets/image-20210913220415716.png) 
 
 - `*` 替代一个单词
 - `#` 替代0或多个单词
@@ -771,7 +941,7 @@ springcloud： 众多子项目
 
 # Lambda表达式
 
-![image-20210914104707187](images/image-20210914104707187.png) 
+![image-20210914104707187](./images/image-20210914104707187.png) 
 
 # 部署到服务器
 

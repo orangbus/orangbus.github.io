@@ -213,3 +213,34 @@ let newFields = fields; //引用的是同一个数组
 that.fields = fields; //引用的是不同的数组
 ```
 
+## 代理
+
+```javascript
+"devServer" : {
+            "port" : 80,
+            "disableHostCheck" : true,
+            "proxy" : {
+                "/m1" : {
+                    "target" : "http://api.000zy.com/provide/vod",
+                    "changeOrigin" : true,
+                    "secure" : false
+                },
+                "/m2" : {
+                    "target" : "https://caiji.naichaapi.com/inc/apijson_vod.php",
+                    "changeOrigin" : true,
+                    "secure" : false
+                },
+                "/m3" : {
+                    "target" : "https://m3u8.bdxzyapi.com/api.php/provide/vod",
+                    "changeOrigin" : true,
+                    "secure" : false
+                },
+                "/m4" : {
+                    "target" : "http://www.kuaibozy.com/api.php/provide/vod",
+                    "changeOrigin" : true,
+                    "secure" : false
+                }
+            }
+        }
+```
+

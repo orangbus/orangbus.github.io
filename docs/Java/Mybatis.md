@@ -108,11 +108,6 @@ spring:
 
 # Mybatis开发步骤
 
-```xml
-```
-
-
-
 1、引入mybatis依赖
 
 2、创建核心配置文件
@@ -162,6 +157,20 @@ spring:
 官网：[https://baomidou.com/guide/install.html#release](https://baomidou.com/guide/install.html#release) 
 
 代码生成插件：mybatisx | MyBatis Generator | Free MyBatis plugin
+
+## 常用注解
+
+@Repository 标识持久层
+
+
+
+循环输出
+
+```java
+userLists.forEach(System.out::printLn);
+```
+
+
 
 ## mybatisx使用技巧
 
@@ -438,6 +447,96 @@ public void delete(){
 }
 ```
 
+## 完整案例
+
+```java
+package com.orangbus.springbootmybatisplus.controller;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.orangbus.springbootmybatisplus.common.ApiResponse;
+import com.orangbus.springbootmybatisplus.empty.ArticleCates;
+import com.orangbus.springbootmybatisplus.mapper.ArticleCatesMapper;
+import com.orangbus.springbootmybatisplus.paramArgs.ArticleCateParam;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
+import java.util.List;
+
+@RestController
+public class Index {
+
+    @Autowired
+    private ArticleCatesMapper articleCatesMapper;
+
+    @GetMapping("/")
+    public ApiResponse index(){
+        ArticleCates articleCates = articleCatesMapper.selectById(27);
+        return ApiResponse.success(articleCates);
+    }
+    @PostMapping("create")
+    public ApiResponse create(
+            @RequestParam("name") String name,
+            @RequestParam(value = "from_name",defaultValue = "我是默认值") String from_name,
+            @RequestParam int sort
+    ){
+        ArticleCates cates = new ArticleCates();
+        cates.setName(name);
+        cates.setFromName(from_name);
+        cates.setSort(sort);
+        cates.setCreatedAt(new Date());
+        cates.setUpdatedAt(new Date());
+        int result = articleCatesMapper.insert(cates);
+        return ApiResponse.success(result);
+    }
+
+    @PostMapping("add")
+    public ApiResponse add(ArticleCates articleCates){
+        int result = articleCatesMapper.insert(articleCates);
+        return ApiResponse.success(articleCates);
+    }
+
+    @GetMapping("/list")
+    public ApiResponse list(){
+        QueryWrapper<ArticleCates> queryWrapper = new QueryWrapper<>();
+        queryWrapper.like("name","%语录%");
+        queryWrapper.orderByDesc("id");
+        List<ArticleCates> articleCatesList = articleCatesMapper.selectList(queryWrapper);
+        return ApiResponse.success(articleCatesList);
+    }
+
+    @PostMapping("update")
+    public ApiResponse update(
+            @RequestParam Long id,
+            ArticleCateParam articleCateParam){
+        UpdateWrapper<ArticleCates> wrapper = new UpdateWrapper<>();
+        wrapper.eq("id",id);
+        ArticleCates cates = new ArticleCates();
+        cates.setSort(articleCateParam.getSort());
+        cates.setName(articleCateParam.getName());
+        cates.setFromName(articleCateParam.getFrom_name());
+        int byId = articleCatesMapper.update(cates,wrapper);
+        return ApiResponse.success(byId);
+    }
+
+    @GetMapping("delete")
+    public ApiResponse delete(@RequestParam(value = "id",defaultValue = "0") Long id){
+        if (id <= 0){
+            return ApiResponse.error("参数错误");
+        }
+        int result = articleCatesMapper.deleteById(id);
+        if (result == 1){
+            return ApiResponse.success("删除成功");
+        }else{
+            return ApiResponse.error("删除失败");
+        }
+    }
+
+}
+
+```
+
 
 
 
@@ -553,8 +652,6 @@ public class MyBatisPlusConfig {
         userList.forEach(System.out::println);
     }
 ```
-
-
 
 ## 条件构造器-Wrapper
 

@@ -97,7 +97,6 @@ module.exports = {
             })();
         `],
         // 以下文件非必须
-        // ["script",{src:'/js/jquery-3.5.min.js'}],
         // ["script",{src:'/js/cursor.min.js'}],
     ],
 

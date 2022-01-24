@@ -176,6 +176,42 @@ docker swarm init --advertise-addr 192.168.99.100
 rclone mount DriveName:Folder LocalFolder --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000
 ```
 
+# Laradock修改记录
+
+## minio
+
+```env
+# .env
+MINIO_WEB_PORT=9001
+```
+
+```bash
+minio:
+      image: minio/minio
+      privileged: true
+      restart: always
+      volumes:
+        - ${DATA_PATH_HOST}/minio/data:/data
+        - ${DATA_PATH_HOST}/minio/config:/root/.minio
+      ports:
+        - "${MINIO_PORT}:9000"
+        - "${MINIO_WEB_PORT}:9001"
+      command: server --console-address ':9001' /data  #指定容器中的目录 /data
+      healthcheck: # 健康检查
+        test: [ "CMD", "curl", "-f", "http://localhost:9000/minio/health/live" ]
+        interval: 30s
+        timeout: 20s
+        retries: 3
+      environment:
+        - MINIO_ROOT_USER=admin
+        - MINIO_ROOT_PASSWORD=admin666
+      networks:
+        - frontend
+        - backend
+```
+
+
+
 # Laradock扩展应用
 
 > 相应文件夹可以到github或者群里获取。
