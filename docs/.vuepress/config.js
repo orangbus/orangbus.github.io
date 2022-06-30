@@ -79,14 +79,13 @@ module.exports = {
         },
         ], //生成站点的Sitemap，有助于SEO。
         ['@vuepress/medium-zoom'], //图片放大
-        ["vuepress-plugin-auto-sidebar",{}]
     ],
     head: [
         ['link', { rel: 'shortcut icon', href: "/orangbus.ico", type: 'image/jpg' }],
         ["meta",{name: "keywords", content: "html,css,jquery,thinkphp,laravel,docker,linux,manjaro"}],
         ["meta",{name: "description", content: "保持勇敢，坚持有趣，生命不息，折腾不止！"}],
         ["meta",{name: "auther", content: "OrangBus"}],
-
+            // 百度统计代码
         ['script', {}, `
             var _hmt = _hmt || [];
             (function() {

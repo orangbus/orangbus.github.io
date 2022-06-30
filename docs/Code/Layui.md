@@ -1053,5 +1053,111 @@ var  getCourse = window.iframeWindow || parent;
 }
 ```
 
+# layuimin
+
+## 弹窗关闭
+
+```java
+var content = miniPage.getHrefContent("{{ route("admin.add") }}");
+layer.open({
+    type: 1,
+    title: '添加',
+    area: ['600px', '600px'],
+    content: content,
+    skin: 'layui-layer-molv',
+    btn: ['确定', '取消'],
+    btnAlign: 'c',
+    yes: function (index, layero) {
+        var submit = layero.contents().find("#submit");// #subBtn为页面层提交按钮ID
+        submit.click();// 触发提交监听
+        return false;
+    },
+    btn2: function (index) {
+        layer.close(index);
+    }
+});
+```
+
+```html
+<div class="layuimini-main">
+    <div class="layui-form">
+        <input type="hidden" name="id" value="{{ $data->id ?? 0 }}">
+        <div class="layui-form-item">
+            <label class="layui-form-label required">用户名</label>
+            <div class="layui-input-block">
+                <input type="text" name="username" lay-verify="required" lay-reqtext="用户名不能为空" placeholder="请输入用户名"
+                       value="{{ $data->name ?? '' }}" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label required">密码</label>
+            <div class="layui-input-block">
+                <input type="password" name="password" placeholder="无需修改留空即可" value="{{ $data->password ?? '' }}"
+                       class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label required">手机</label>
+            <div class="layui-input-block">
+                <input type="number" name="phone" lay-verify="required" lay-reqtext="手机不能为空" placeholder="请输入手机"
+                       value="{{ $data->phone ?? '' }}" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">邮箱</label>
+            <div class="layui-input-block">
+                <input type="email" name="email" placeholder="请输入邮箱" value="{{ $data->email ??'' }}"
+                       class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label required">状态</label>
+            <div class="layui-input-block">
+                <input type="radio" name="status" value="1" title="启用"
+                       @if(empty($data) || $data->status == 1) checked @endif>
+                <input type="radio" name="status" value="0" title="禁用"
+                       @if(!empty($data) && $data->status == 0) checked @endif>
+            </div>
+        </div>
+        <div class="layui-form-item layui-hide">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" id="submit" lay-submit lay-filter="submit">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(['form', 'table', 'jquery'], function () {
+        var form = layui.form,
+            layer = layui.layer,
+            table = layui.table,
+            $ = layui.jquery;
+
+        form.render();
+
+        //监听提交
+        form.on('submit(submit)', function (data) {
+            let param = data.field;
+
+            axios.post("{{ route("admin.store") }}", param).then(res => {
+                if (res.code === 200) {
+                    layer.msg(res.msg, {time: 1000}, function () {
+                        parent.layui.table.reload('dataTable', {page: {curr: 1}});
+                        var index = layer.index; //获取窗口索引
+                        parent.layer.close(index);
+                    });
+                } else {
+                    layer.alert(res.msg);
+                }
+            });
+            return false;
+        });
+
+    });
+</script>
+
+```
+
 
 

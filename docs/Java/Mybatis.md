@@ -327,7 +327,7 @@ private String userName;
 
 
 
-## CRUD
+# CRUD
 
 controller：接受请求参数，返回数据
 
@@ -341,7 +341,17 @@ resources/mapper：数据库查询
 
 流程：controlloer -> service->mapper实现类
 
-### 查询
+**mapper字段介绍** 
+
+id：命名空间唯一标识，可以被用来引用这条语句
+parameterType：将会传入这条语句的参数类的完全限定名
+resultType：从这条语句要返回的期望类型的类的完全限定名或别名【这里需要注意下集合类型，集合可以包含的类型，不能是集合本身】
+resultMap：命名引用外部的resultMap，其名称要和外部的resultMap元素中的id名称一致，主要是用于将其结果映射到实体类中指定的对象。
+重要：`resultType` (单个对象) 和 `resultMap`(列表) 不能同时使用。
+
+
+
+## 查询
 
 ```java
 @Test
@@ -353,7 +363,7 @@ void testSeleteOne(){
 
 
 
-### 添加
+## 添加
 
 ```java
 @Test
@@ -373,7 +383,7 @@ void testInsert(){
 
 
 
-### 分页查询
+## 分页查询
 
 ```java
 package com.orangbus.mybatisplus.config;
@@ -420,9 +430,14 @@ public void pageList(){
 }
 ```
 
+## 自定义分页查询
+
+```java
+```
 
 
-### 更新
+
+## 更新
 
 ```java
 @Test
@@ -437,7 +452,7 @@ public void update(){
 
 
 
-### 删除
+## 删除
 
 ```java
 @Test
@@ -446,6 +461,24 @@ public void delete(){
     System.out.println(count);
 }
 ```
+
+## 一对一查询
+
+
+
+## 一对多查询
+
+```
+association
+```
+
+
+
+## 关联统计
+
+
+
+
 
 ## 完整案例
 

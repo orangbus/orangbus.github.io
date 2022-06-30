@@ -2,6 +2,18 @@
 title: Laradock入门
 ---
 
+# docker常用命令
+
+## 查看资源
+
+```bash
+docker system df -v
+```
+
+
+
+
+
 # docker安装
 
 安装命令如下：
@@ -97,11 +109,11 @@ sudo usermod -aG docker $USER
 开机启动docker：
 
 ```bash
-sudo systemctl enable docker 
+sudo systemctl enable docker &&
 sudo systemctl start docker
 
 // 重启docker
-systemctl daemon-reload
+systemctl daemon-reload &&
 systemctl restart docker
 ```
 
@@ -661,5 +673,13 @@ docker 1.13 中增加了`docker system prune`的命令，针对container、image
 
 ```bash
 docker rmi -f  `docker images | grep '<none>' | awk '{print $3}'`
+```
+
+## 清理docker存储
+
+>  failed to register layer: ApplyLayer exit status 1 stdout:  stderr: open /usr/lib64/python3.6/ctypes/__pycache__/wintypes.cpython-36.opt-2.pyc: no space left on device
+
+```bash
+docker system prune -a --volumes
 ```
 

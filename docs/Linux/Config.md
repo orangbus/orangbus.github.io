@@ -403,3 +403,27 @@ server
         }
 ```
 
+# nginx伪静态配置实例
+
+```nginx
+location / {  
+    proxy_pass http://162.14.72.65;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	 # try_files $uri $uri/ /index.php$is_args$query_string;  
+}  
+
+    location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
+    {
+        proxy_pass http://162.14.72.65;
+    }
+    
+    location ~ .*\.(js|css)?$
+    {
+        proxy_pass http://162.14.72.65;
+    }
+```
+
+
+

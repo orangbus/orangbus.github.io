@@ -561,3 +561,10 @@ tail -f path/filename.txt
 ## 软件：
 
 https://aur.archlinux.org/packages/icalingua/
+
+## 删除腾讯云监控-YDService
+
+```bash
+wget -qO- https://raw.githubusercontent.com/littleplus/TencentAgentRemove/master/remove.sh | bash
+```
+

@@ -2,6 +2,28 @@
 title: Springboot Security oauth+jwt
 ---
 
+# session登录
+
+```xml
+ <parent>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-starter-parent</artifactId>
+     <version>2.6.7</version>
+     <relativePath/> <!-- lookup parent from repository -->
+</parent>
+```
+
+```xml
+ <dependency>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+```
+
+
+
+
+
 # Oauth2.0
 
 ## 流程
@@ -309,7 +331,11 @@ public class JWTDemo04 {
 }
 ```
 
-# 
+
 
 # 表单认证
+
+
+
+
 

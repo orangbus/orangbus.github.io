@@ -112,3 +112,10 @@ docker-compose exec elasticsearch /usr/share/elasticsearch/bin/elasticsearch-plu
 
 ```
 
+# curd
+
+## 创建索引（数据库）
+
+```json
+```
+

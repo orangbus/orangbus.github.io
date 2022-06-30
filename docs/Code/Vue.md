@@ -102,13 +102,41 @@ data.splice(index,1); //index 数组的索引
 
 子页面,接受父组件传过来的值
 
-```vue
+```javascript
 props: [
-	"content" //这里接受父组件传过来的值，然后就可以直接在页面中直接渲染，不用再data中定义
+    type: Number,
+    default:()=> 0 //这里接受父组件传过来的值，然后就可以直接在页面中直接渲染，不用再data中定义
 ],
 // 使用
 {{ content }}
 ```
+
+### 数据没有及时渲染
+
+```vue
+<parent-item :id="id">
+    
+ id:0
+```
+
+假如说我们把父组件的id改为：10
+
+```javascript
+// 子组件
+props: {
+    active_id: { //活动id
+        type: Number,
+            default: () => 0
+    }
+},
+
+console.log(this.id) // 这里还是初始化的：0
+this.$nextTick(function () {
+   console.log(this.id) // 这里会变成改变后的：10
+})
+```
+
+
 
 ## 父组件删除子组件数据
 

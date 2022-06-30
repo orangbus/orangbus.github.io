@@ -79,6 +79,8 @@ listen  proxy-mysql
     option  tcpka
 ```
 
+
+
 ## 创建容器
 
 ```
@@ -322,6 +324,166 @@ http://172.16.98.133:8100/rabbitmq-stats
 ```
 
 代码中访问mq集群地址，则变为访问haproxy地址:5672
+
+
+
+# docker-compose
+
+```yaml
+version: "3.5"
+
+networks:
+  pxc:
+    driver: bridge
+
+volumes:
+  data:
+    driver: local
+
+services:
+  node1:
+    image: perconalab/percona-xtradb-cluster:5.7
+    container_name: "${node_name}"
+    privileged: true
+    ports:
+      - "${port}:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${password}
+      - CLUSTER_NAME=PXC_ClUSTER
+      - XTRABACKUP_PASSWORD=${password}
+    volumes:
+      - ${node1_data}:/var/lib/mysql:rw
+    networks:
+      - pxc
+
+  node2:
+    image: perconalab/percona-xtradb-cluster:5.7
+    container_name: "node2"
+    privileged: true
+    environment:
+      - MYSQL_ROOT_PASSWORD=${password}:wq
+      - CLUSTER_NAME=PXC_ClUSTER
+      - XTRABACKUP_PASSWORD=${password}
+      - CLUSTER_JOIN=${node_name}
+    volumes:
+      - ${node2_data}:/var/lib/mysql:rw
+    ports:
+      - "3307:3306"
+    depends_on:
+      - node1
+    networks:
+      - pxc
+
+  node3:
+    image: perconalab/percona-xtradb-cluster:5.7
+    container_name: "node3"
+    privileged: true
+    environment:
+      - MYSQL_ROOT_PASSWORD=${password}
+      - CLUSTER_NAME=PXC_ClUSTER
+      - XTRABACKUP_PASSWORD=${password}
+      - CLUSTER_JOIN=${node_name}
+    volumes:
+      - ${node3_data}:/var/lib/mysql:rw
+    ports:
+      - "3308:3306"
+    depends_on:
+      - node2
+    networks:
+      - pxc
+
+  ha:
+    image: haproxy:1.9.3
+    container_name: haproxy
+    ports:
+      - 4001:4001
+      - 4002:4002
+    volumes:
+      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    links:
+      - node1
+      - node2
+      - node3
+    networks:
+      - pxc
+```
+
+```
+# 数据库账号密码
+password=admin666
+port=3306
+
+node_name=node1
+
+# 数据保存位置
+node1_data=./data/node1
+node2_data=./data/node2
+node3_data=./data/node3
+```
+
+haproxy.cfg配置文件
+
+```cfg
+#configure haproxy.cfg
+
+global
+#工作目录
+chroot /usr/local/etc/haproxy
+#日志文件，使用rsyslog服务中local5日志设备（/var/log/local5），等级info
+log 127.0.0.1 local5 info
+#守护进程运行
+daemon
+
+defaults
+log	global
+mode	http
+#日志格式
+option	httplog
+#日志中不记录负载均衡的心跳检测记录
+option	dontlognull
+#连接超时（毫秒）
+timeout connect 5000
+#客户端超时（毫秒）
+timeout client  50000
+#服务器超时（毫秒）
+timeout server  50000
+
+#监控界面
+listen  admin_stats
+#监控界面的访问的IP和端口
+bind  0.0.0.0:4001
+#访问协议
+mode        http
+#URI相对地址
+stats uri   /admin
+#统计报告格式
+stats realm     Global\ statistics
+#登陆帐户信息
+stats auth  admin:admin666
+#数据库负载均衡
+listen  proxy-mysql
+#访问的IP和端口
+bind  0.0.0.0:4002
+#网络协议
+mode  tcp
+#负载均衡算法（轮询算法）
+#轮询算法：roundrobin
+#权重算法：static-rr
+#最少连接算法：leastconn
+#请求源IP算法：source
+balance  roundrobin
+#日志格式
+option  tcplog
+#在MySQL中创建一个没有权限的haproxy用户，密码为空。Haproxy使用这个账户对MySQL数据库心跳检测
+option  mysql-check user haproxy
+server  MySQL_1 node1:3306 check weight 1 maxconn 2000 # 服务器名称+端口（3306，不是映射端口）
+server  MySQL_2 node2:3306 check weight 1 maxconn 2000
+server  MySQL_3 node3:3306 check weight 1 maxconn 2000
+#使用keepalive检测死链
+option  tcpka
+```
+
+
 
 
 

@@ -130,9 +130,15 @@ docker run -d -p 3318:3306 -v v3:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -e
 
 ```
 
+# PXC-故障恢复
+
+## 重启
 
 
 
+## 单节点恢复
+
+删除之前的节点，已新节点的方式加入到其他任意一个节点，
 
 
 

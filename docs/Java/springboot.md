@@ -6,6 +6,8 @@ title: Spring boot 学习笔记
 
 ## 父工程
 
+pom.xml
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -93,11 +95,37 @@ title: Spring boot 学习笔记
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-security</artifactId>
 </dependency>
+
 <!--jwt 依赖-->
 <dependency>
     <groupId>io.jsonwebtoken</groupId>
     <artifactId>jjwt</artifactId>
     <version>0.9.1</version>
+</dependency>
+
+ <!--redis 依赖-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+
+ <!-- mongo-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-mongodb</artifactId>
+</dependency>
+
+<!-- RabbitMQ-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-amqp</artifactId>
+</dependency>
+
+ <!--网页解析-->
+<dependency>
+    <groupId>org.jsoup</groupId>
+    <artifactId>jsoup</artifactId>
+    <version>1.14.3</version>
 </dependency>
 ```
 
@@ -183,12 +211,209 @@ spring:
 
 
 
+# 插件整合
+
+## elasticsearch-7.15
+
+> 官方文档：https://www.elastic.co/guide/en/elasticsearch/client/java-rest/7.15/index.html
+
+```xml
+ <dependency>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+ </dependency>
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>fastjson</artifactId>
+    <version>1.2.49</version>
+</dependency>
+```
+
+配置文件
+
+```java
+package com.example.esdemo.config;
+
+import org.apache.http.HttpHost;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestClientBuilder;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ElasticSearchConfig {
+
+    @Bean(destroyMethod = "close")
+    public RestHighLevelClient client(){
+        HttpHost  httpHost= new HttpHost("192.168.3.5", 9200, "http");
+        RestClientBuilder restClientBuilder = RestClient.builder(httpHost);
+        return new RestHighLevelClient(restClientBuilder);
+    }
+}
+
+```
+
+使用
+
+```java
+package com.example.esdemo.controller;
+
+import com.alibaba.fastjson.JSON;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.elasticsearch.action.index.IndexRequest;
+import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.common.xcontent.XContentType;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.io.IOException;
+
+@RestController
+public class Index {
+
+    @Autowired
+    private RestHighLevelClient client;
+
+    private String indexName="video-test";
+
+    @GetMapping("/")
+    public String index() throws IOException {
+        Object data = new Video("斗罗大陆","http://orangbus.cn");
+        IndexRequest request = new IndexRequest(indexName).id("1").source(JSON.toJSONString(data), XContentType.JSON);
+        IndexResponse response = client.index(request, RequestOptions.DEFAULT);
+        System.out.println(response.getResult());
+        return "elasticsearch";
+    }
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @ToString
+    class Video{
+        private String name;
+        private String url;
+    }
+}
+
+```
+
+
+
+## redis
+
+
+
+## mongo
+
+
+
+## rabbitmq
+
+
+
+## aliyun阿里云maven 
+
+打开解压的maven文件夹,找到conf文件夹打开,选择settings.xml文件用编辑器打开,搜索mirrors标签,把下面的内容添加在其子标签中
+
+```java
+<mirror>
+    <id>alimaven</id>
+    <name>aliyun maven</name>
+    <url>https://maven.aliyun.com/nexus/content/groups/public/</url>
+    <mirrorOf>central</mirrorOf>        
+</mirror>
+```
+
 ## Swagger-ui配置
 
 ```java
 ```
 
+# knife4j
 
+```xml
+<!--knife4j文档-->
+<dependency>
+    <groupId>com.github.xiaoymin</groupId>
+    <artifactId>knife4j-spring-boot-starter</artifactId>
+    <version>3.0.3</version>
+</dependency>
+```
+
+配置
+
+```java
+package com.orangbus.web.config;
+
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+@EnableSwagger2
+@Configuration
+public class Knife4jConfig {
+    @Bean(value = "defaultApi2")
+    public Docket defaultApi2() {
+        Docket docket = new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(
+                        new ApiInfoBuilder()
+                                .title("orangbus接口文档")
+                                .description("orangbus接口文档")
+                                .termsOfServiceUrl("http://orangbus.cn")
+                                .contact(new Contact("orangbus", "heep://orangbus.cn", "linuc40400@gmail.com"))
+                                .version("1.0")
+                                .build()
+                )
+//                .groupName("1.0版本")
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.orangbus.web.controller"))
+                .paths(PathSelectors.any())
+                .build();
+        return docket;
+    }
+}
+
+```
+
+```yaml
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+```
+
+
+
+## 源配置
+
+```xml
+```
+
+## 热加载
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+    <optional>true</optional>
+</dependency>
+```
+
+![image-20220312205600779](springboot.assets/image-20220312205600779.png) 
 
 
 
@@ -435,6 +660,16 @@ public ApiResponse login(
 
 
 
+### @ResourceMapper
+
+
+
+### @RequestMapping("/user")
+
+
+
+
+
 ### 请求参数处理
 
 ```java
@@ -471,7 +706,7 @@ public ApiResponse login(
 
 定义表的映射关系
 
-### dao: 数据库查询方法
+### dao(mapper): 数据库查询方法
 
 ### pojo: 实体类-数据库字段
 
@@ -887,20 +1122,64 @@ Partition tolerance: 分区容存，当出现网络分区现象后，系统能�
 
 # RabbitMq
 
-## spring-boot-rabbitmq
+协议：AMQP协议
 
-```xml
+## 步骤
+
+1、安装rabbitmq，并且成功运行
+
+```
+
+```
+
+2、添加依赖，配置连接信息
+
+```
 <dependency>
      <groupId>org.springframework.boot</groupId>
      <artifactId>spring-boot-starter-amqp</artifactId>
 </dependency>
 ```
 
+```yaml
+
+```
+
+3、发送消息，接受消息
 
 
-AMQP协议
+
+
 
 ## 安装
+
+配置
+
+```yaml
+spring:
+    rabbitmq:
+        host: 162.14.72.65
+        port: 5672
+        username: guest
+        password: guest
+        virtual-host: /
+        #  支持发布确认
+        publisher-confirms: true
+        #  支持发布返回
+        publisher-returns: true
+        listener:
+          simple:
+            #  采用手动应答
+            acknowledge-mode: manual
+            #  当前监听容器数
+            concurrency: 1
+            #  最大数
+            max-concurrency: 1
+            #  是否支持重试
+            retry:
+              enabled: true
+              #  mvc
+```
 
 
 
@@ -951,13 +1230,135 @@ springcloud： 众多子项目
 nohub java-jar -Dserver.port=80 -Dspring.profiles.active=prod /path/to/project.jar > /tmp/null 2>&
 ```
 
+# 错误汇总
+
+> SpringBoot集成swagger后出现: Failed to start bean ‘documentationPluginsBootstrapper‘的解决方法
+
+解决办法：在启动类加一个注解：@EnableWebMvc
+
+## 版本冲突
+
+当使用`httpclient` 和 `elasticsearch` 的时候，他们两个的版本需要保持一致
+
+elasticsearch的版本需要和安装的es的版本保持一致
 
 
 
 
 
+```java
+package com.orangbus.volunteer.config.security;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.orangbus.volunteer.empty.Users;
+import com.orangbus.volunteer.service.UsersService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.annotation.Resource;
+
+//@Configuration
+//@EnableGlobalMethodSecurity(proxyTargetClass = true)
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private AuthenticationSuccessHandler authenticationSuccessHandler;
+    @Autowired
+    private AuthenticationFailedHandler authenticationFailedHandler;
+
+    @Resource
+    private UsersService usersService;
+
+    /**
+     * 放行静态资源
+     * @param web
+     * @throws Exception
+     */
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers(
+                "/css/**",
+                "/image/**",
+                "/js/**",
+                "/lib/**"
+        );
+    }
+
+    /**
+     * 配置登录地址
+     * @param http
+     * @throws Exception
+     */
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable()
+                .headers().frameOptions().disable()
+                .and()
+                .formLogin()
+                .usernameParameter("name")
+                .passwordParameter("password")
+                .loginPage("/")
+                .loginProcessingUrl("/login")
+                .successHandler(authenticationSuccessHandler)
+                .failureHandler(authenticationFailedHandler)
+                .and()
+                .authorizeRequests().antMatchers(
+                        "/","login"
+                ).permitAll()
+                .anyRequest().authenticated();
+    }
+
+    /**
+     * 自定义登录方法
+     * @return
+     */
+//    @Bean
+//    public UserDetailsService userDetailsService(){
+//       return  new UserDetailsService() {
+//           @Override
+//           public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//               // 通过用户查询用户
+//               QueryWrapper<Users> queryWrapper = new QueryWrapper<>();
+//               queryWrapper.eq("phone",username);
+////               UserDetails userDetails = usersService.getBaseMapper().selectOne(queryWrapper);
+////               return userDetails;
+//               return null;
+//           }
+//       };
+//    }
+
+    /**
+     * 密码加密
+     */
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+    /**
+     * 告诉框架使用哪个 userDetailsService （上面自定义）
+     */
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService())
+                .passwordEncoder(passwordEncoder());
+    }
+}
+
+```
+
+![image-20220428225748202](springboot.assets/image-20220428225748202.png) 
 
 
 

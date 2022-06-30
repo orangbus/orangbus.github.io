@@ -1,6 +1,8 @@
-Linux常见错误排查
+---
+title: Linux常见错误排查
+---
 
-## [sshd: no hostkeys available — exiting](https://www.cnblogs.com/tianziru/p/5522350.html)
+# [sshd: no hostkeys available — exiting](https://www.cnblogs.com/tianziru/p/5522350.html)
 
 在开启SSHD服务时报错.
 ==sshd re-exec requires execution with an absolute path==
@@ -38,3 +40,42 @@ export XMODIFIERS=@im=fcitx
 
 ```
 
+> CentOS Linux 8 - AppStream
+> Error: Failed to download metadata for repo 'appstream': Cannot prepare internal mirrorlist: No URLs in mirrorlist
+
+**Step 1:** Go to the `/etc/yum.repos.d/` directory.
+
+```bash
+cd /etc/yum.repos.d/
+```
+
+**Step 2:** Run the below commands
+
+```bash
+sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+
+sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+```
+
+**Step 3:** Now run the yum update
+
+```bash
+yum update -y
+```
+
+That’s it!
+
+
+
+> # Failed to download metadata for repo ‘AppStream’ [CentOS]
+
+```bash
+cd /etc/yum.repos.d/
+
+sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+
+sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+
+yum update -y
+
+```

@@ -50,6 +50,21 @@ mix.browserSync('websocket.test');
 php artisan ui vue --auth
 ```
 
+分页配置
+
+```php
+// AppServiceProvider
+
+use Illuminate\Pagination\Paginator;
+
+public function boot()
+{
+    Paginator::useBootstrap();
+}
+```
+
+
+
 ## tailwindcss安装
 
 > 中文网站：https://docs.tailwindchina.com/docs/guides/laravel
@@ -164,7 +179,7 @@ composer require --dev barryvdh/laravel-ide-helper
       if ($this->app->isLocal()) {
           $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
       }
-      // ...
+     
   }
   ```
 
@@ -212,7 +227,7 @@ config/app.php 修改
 表单验证错误信息显示为中文：
 
 ```
-faker_locale = 'zh-CN'
+faker_locale => 'zh-CN'
 ```
 
 ## 配置中国时间
@@ -310,7 +325,43 @@ User::when($status, function ($query, $status) {
             return $query->whereIn('id', $ids);
         })
         ->get();
+
+// 另外写法
+$where[] = [function($query){
+    $query->whereIn("id","in",[1.2.3]);
+}];
 ```
+
+### 时间查询
+
+```php
+ $data = [];
+
+#今天数据
+$data['customer_today'] = Customer::where('customer_type', 1)->where('created_at', Carbon::today())->count();
+#昨天数据
+$data['customer_yesterday'] = Customer::where('customer_type', 1)->where('created_at', Carbon::yesterday())->count();
+
+// 本周数据
+$this_week = [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()];
+$data['customer_this_week'] = Customer::where('customer_type', 1)->whereBetween('created_at', $this_week)->count();
+
+// 上周数据
+$last_week = [Carbon::now()->startOfWeek()->subWeek(), Carbon::now()->endOfWeek()->subWeek()];
+$data['customer_last_week'] = Customer::where('customer_type', 1)->whereBetween('created_at', $last_week)->count();
+
+// 本月数据
+$data['customer_this_month'] = Customer::where('customer_type', 1)->whereMonth('created_at', Carbon::now()->month)->count();
+
+// 上月数据
+$data['customer_last_month'] = Customer::where('customer_type', 1)->whereMonth('created_at', Carbon::now()->subMonth()->month)->count();
+
+// 本年数据
+$data['customer_this_year'] = Customer::where('customer_type', 1)->whereYear('created_at', Carbon::now()->year)->count();
+
+```
+
+
 
 ## 表单验证
 
@@ -1394,13 +1445,29 @@ sudo sysctl -w vm.max_map_count = 262144
 ```bash
 composer require laravel/scout
 
-composer require meilisearch/meilisearch-php
+composer require meilisearch/meilisearch-php http-interop/http-factory-guzzle
 
 php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider"
+```
 
+model 配置
+
+```php
 # 模型中user
 use Searchable;
+
+/**
+     * 获取与模型关联的索引的名称。
+     *
+     * @return string
+     */
+public function searchableAs()
+{
+    return 'users_index';
+}
 ```
+
+
 
 `scout.php` 
 
@@ -1413,9 +1480,12 @@ use Searchable;
 ```
 # .env
 
+# 搜索配置
+SCOUT_QUEUE=true # 使用队列
+SCOUT_IDENTIFY=true # 识别用户
 SCOUT_DRIVER=meilisearch
-MEILISEARCH_MASTER_KEY=xxx
-MEILISEARCH_HOST=http://xxxx:7700
+MEILISEARCH_HOST=http://192.168.3.5:7700
+MEILISEARCH_KEY=
 ```
 
 导入索引
@@ -1433,6 +1503,12 @@ php artisan scout:flush "App\Models\Post"
 $data = Joke::where("id","<",460)->searchable();
 ```
 
+## elasticsearch 搜索
+
+
+
+
+
 # minio文件上传
 
 安装依赖,(记得限制版本，不然安装会出错)
@@ -1440,6 +1516,9 @@ $data = Joke::where("id","<",460)->searchable();
 ```bash
 composer require league/flysystem-aws-s3-v3 ~1.0
 composer require league/flysystem-cached-adapter ~1.0
+
+// laravel9
+composer require -W league/flysystem-aws-s3-v3 "^3.0"
 ```
 
 > config/filesystems.php
@@ -1466,17 +1545,490 @@ return [
 
 > .env
 
-```
+```.env
 # Minio config
-MINIO_ENDPOINT="http://127.0.0.1:9005"
-AWS_KEY=KBSIYRR36U3A1IO1QARI
-AWS_SECRET=Z9BV6YsP7jtRQR1qCJk3PWecs22smNTOl7HC1Yj3
-AWS_REGION=us-east-1
-AWS_BUCKET=test
+
+AWS_ACCESS_KEY_ID=orangbus
+AWS_SECRET_ACCESS_KEY=orangbus
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=laravel
+AWS_ENDPOINT=http://ip:9000
+CDN_HOST=http://ip:9000
+AWS_USE_PATH_STYLE_ENDPOINT=false
 ```
 
 如果生成的地址无法访问，请检查当前 `Buckets` 的 `Access Policy：public` 即可。
 
+### laravel文件上传案例
+
+```php
+<?php
+
+namespace App\Http\Controllers\common;
+
+use App\Enum\GlobalEnum;
+use App\Exceptions\BusinessException;
+use App\Http\Controllers\Controller;
+use App\Models\Admin;
+use App\Models\Merchant;
+use App\Models\MerchantConfig;
+use App\Models\SmsCode;
+use App\Service\UtilService;
+use Illuminate\Support\Facades\Storage;
+
+/**
+ * 一些公共的接口：文件上传，发送验证码等
+ */
+class Index extends Controller
+{
+    /**
+     * 获取用户存储信息
+     * @return string
+     */
+    public function getDistType($fileType="image"){
+        switch ($fileType){
+            case "image":
+                $disk = "images";
+                break;
+            case "video":
+                $disk = "videos";
+                break;
+            case "audio":
+                $disk = "audios";
+                break;
+            case "private": //重要文件
+                $disk = "private";
+                break;
+            default:
+                $disk = "others";
+                break;
+        }
+        return '/'.$disk;
+    }
+
+    /**
+     * 文件存储方式
+     * @return string
+     */
+    public function getOssType()
+    {
+        return 'minio'; // minio
+    }
+
+    /**
+     * 获取下载链接
+     * @param $backet
+     * @param $path
+     * @return string
+     */
+    public function getUrl($backet,$path)
+    {
+        if (empty($backet)) {
+            return GlobalEnum::fileCdnHost()."/". $path;
+        }
+        return GlobalEnum::fileCdnHost()."/".$backet."/". $path;
+    }
+
+    public function upload()
+    {
+        $file = request()->file("file");
+        if (empty($file)) {
+            return $this->error("请选择文件");
+        }
+        // 非空判断
+        if (!$file->isValid()) return $this->error("无效文件！");
+        if (!$file->isFile()) return $this->error($file->getErrorMessage());
+        $fileType = explode("/", $file->getClientMimeType())[0];
+        //文件类型,【将重要的文件单独存放】
+        $ext = $file->getClientOriginalExtension();
+        if (in_array($ext,GlobalEnum::importanceFileTypeList())) {
+            $fileType = "private";
+        }
+
+        // 上传文件大小限制为2m
+        $fileSize = round($file->getSize()/1024,2);
+        if ($fileSize > 3 * 1024) return $this->error("文件大小不能超过3M");
+
+        // 非登录用户禁止上传文件
+        $user = request()->user();
+        if (is_null($user)) {
+            return $this->error("禁止上传文件");
+        }
+
+        $backet = GlobalEnum::backetName(); // 存储卷
+        $disk = $this->getDistType($fileType);
+        if ($fileType == 'private') {
+            $path = Storage::disk($this->getOssType())->putFileAs($disk, $file,$file->getClientOriginalName());
+        }else{
+            $path = Storage::disk($this->getOssType())->put($disk, $file);
+        }
+        
+        return $this->success("文件上传成功！", [
+            "name" =>  $file->getClientOriginalName(),
+            "size" => ($file->getSize() / 1024*1024),
+            "url" => $this->getUrl($backet,$path),
+            "fileType" => $fileType
+        ]);
+    }
+
+    /**
+     * @param filename 绝对路径: /image/orangbus.png
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function delete()
+    {
+        $fileName = request()->input("filename");
+        if (empty($fileName)) return $this->error("文件名不能为空");
+        $explode = explode("/", $fileName);
+        $fileName = "/".implode("/",array_splice($explode,4,6));
+        Storage::disk($this->getOssType())->delete($fileName);
+        return $this->success("删除成功！");
+    }
+}
+
+```
+
+
+
 ### 扩展包推荐
 
 发送钉钉消息（钉钉机器人）：https://github.com/wowiwj/ding-notice
+
+# templet模板
+
+## 路由
+
+增删路由： @curd-router
+
+```php
+Route::get("list", [$controller$, "list"]); //列表
+Route::post("store", [$controller$, "store"]); // 添加、编辑
+Route::post("delete", [$controller$, "delete"]); //删除
+```
+
+增删改查分组路由： @curd-router-group
+
+```php
+Route::group(["prefix" => "$prefix$"], function () {
+    Route::get("list", [$controller$, "list"]); //列表
+    Route::post("store", [$controller$, "store"]); // 添加、编辑
+    Route::post("delete", [$controller$, "delete"]); //删除
+});
+```
+
+
+
+## 增删改查
+
+增删改查： @curd
+
+```php
+public function list($model$ $alias$){
+    $data = $cate->getList();
+    return $this->resData($data->items(),$data->total());
+}
+
+public function store()
+{
+    $param = $this->request->all();
+    $id = 0;
+    if (isset($param['id']) && !empty($param['id'])) {
+        $id = $param['id'];
+    }
+    $param['uid'] = $this->request->user()->id;
+    $model$::updateOrCreate(["id"=>$id],$param);
+    $msg = empty($param['id']) ? '添加成功': '更新成功';
+    return $this->success($msg);
+}
+
+public function delete()
+{
+    $ids = $this->request->input("ids",[]);
+    if (count($ids) == 0) $ids[] = $this->request->input("id");
+    if (count($ids) == 0) return $this->error("请选择删除数据");
+    $model$::whereIn("id",$ids)->delete();
+    return $this->success("删除成功");
+}
+```
+
+## 模型方法
+
+获取列表数据： @getList
+
+```php
+public function getList($where=[])
+{
+    return $this->where($where)->paginate($this->getLimit());
+}
+```
+
+## 返回
+
+数据返回： resdd
+
+```php
+return $this->resData($data->items(),$data->total());
+```
+
+成功返回： res-success
+
+```php
+return $this->success($msg$);
+
+enum("success","删除成功",'添加成功','保存成功','更新成功','修改成功')
+```
+
+失败返回： res-error
+
+```php
+return $this->error($msg$);
+
+enum("error","删除失败",'添加失败','保存失败','更新失败','修改失败','参数错误')
+```
+
+# 远程一对一关系
+
+远程一对一关联通过一个中间关联模型实现。
+
+例如，如果每个供应商都有一个用户，并且每个用户与一个用户历史记录相关联，那么供应商可以通过用户访问用户的历史记录，让我们看看定义这种关系所需的数据库表：
+
+```
+users
+
+  id - integer
+
+  supplier_id - integer
+
+
+
+suppliers
+
+  id - integer
+
+
+
+history
+
+  id - integer
+
+  user_id - integer
+```
+
+```php
+ * 第一个参数是希望访问的模型名称，
+
+     * 第二个参数是中间模型的名称。
+
+     * 方法传递第三个和第四个参数实现，
+
+     * 第三个参数表示中间模型的外键名，
+
+     * 第四个参数表示最终模型的外键名。
+
+     * 第五个参数表示本地键名，
+
+     * 而第六个参数表示中间模型的本地键名：
+
+     * 'App\History',
+
+* 'App\User',
+
+* 'supplier_id', // 用户表外键
+
+* 'user_id', // 历史记录表外键
+
+* 'id', // 供应商本地键
+
+* 'id' // 用户本地键
+public function userHistory()
+{
+    return $this->hasOneThrough('App\History', 'App\User');
+}         
+```
+
+## 远程一对多
+
+课程表  -> 中间表 -> 老师表
+
+```php
+public function teacher()
+{
+    return $this->hasManyThrough(
+        Teacher::class, // 远程表
+        CourseRoleTeacher::class, // 中间表
+        "course_id", // 【中间表】对主表的关联字段
+        "id", // 【远程表】对中间表的关联字段
+        "id", // 【主表】对中间表的关联字段
+        "teacher_id" // 【中间表】对远程表的关联字段
+    );
+}
+```
+
+
+
+# 全局作用于
+
+方式一(匿名函数)：
+
+```php
+$user = \Auth::user();
+        if (!empty($user->provider) && GlobalEnum::inNeedQuarantine($user->provider)) {
+            static::addGlobalScope("mer_id", function (Builder $builder) use ($user) {
+                $builder->where("mer_id", $user->mer_id);
+            });
+            // 触发保存的时候自动添加上 mer_id,数据已经整理完毕，但是还没有写入数据库触发
+            static::saving(function ($model) use ($user) {
+                $model->mer_id = $user->mer_id;
+            });
+        }
+```
+
+方式二
+
+```php
+<?php
+/**
+ * Created by OrangBus
+ * User email: orangbus40400@gmail.com
+ * website: orangbus.cn
+ * blog: doc.orangbus.cn
+ * github: github.com/orangbus
+ */
+
+namespace App\Scopes;
+
+use App\Enum\GlobalEnum;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Scope;
+
+class MerScope implements Scope
+{
+    /**
+     * 商户的数据隔离
+     * @param Builder $builder
+     * @param Model $model
+     * @return void
+     */
+    public function apply(Builder $builder, Model $model)
+    {
+        $user = request()->user();
+        if (!empty($user->provider) && GlobalEnum::inNeedQuarantine($user->provider)) {
+            $builder->where("mer_id", $user->mer_id);
+            // 触发保存的时候自动添加上 mer_id,数据已经整理完毕，但是还没有写入数据库触发
+            $model->mer_id = $user->mer_id;
+        }
+    }
+
+}
+
+```
+
+```php
+<?php
+
+namespace App\Models;
+
+use App\Enum\GlobalEnum;
+use App\Scopes\MerScope;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class BaseModel extends Model
+{
+    use HasFactory;
+
+    /**
+     * 全局查询作用域
+     * 主要作用：当用户保存数据或者查询数据的时候，自动的添加一个 mer_id 字段限制
+     * @var array
+     */
+    protected static function booted()
+    {
+        parent::booted();
+        static::addGlobalScope(new MerScope());
+    }
+```
+
+# Horizon 队列管理工具
+
+```bash
+composer require laravel/horizon
+
+php artisan horizon:install
+```
+
+启动
+
+```bash
+php artisan horizon
+ $this->notice->next_time = (time() + $this->notice->minute * 60); // 下次更新时间
+  $this->notice->notice_count += 1;
+```
+
+
+
+访问：http:// ip/horizon
+
+
+
+> laravel/horizon[v5.9.0, ..., 5.x-dev] require ext-pcntl * -> it is missing from your system. Install or enable PHP's pcntl extension.
+>
+>     - Root composer.json requires laravel/horizon ^5.9 -> satisfiable by laravel/horizon[v5.9.0, ..., 5.x-dev]
+
+```
+// composer.json
+
+"config": {
+        "platform": {
+            "ext-pcntl": "8.0",
+            "ext-posix": "8.0"
+        }
+    },
+```
+
+# laravel9-时区不对
+
+在模型中添加
+
+```php
+use DateTimeInterface;
+
+/**
+     * 为数组 / JSON 序列化准备日期。
+     *
+     * @param \DateTimeInterface $date
+     * @return string
+     */
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format($this->dateFormat ?: 'Y-m-d H:i:s');
+    }
+```
+
+
+
+
+
+
+
+
+
+
+
+> [webpack-cli] Error: Cannot find module 'webpack/lib/rules/DescriptionDataMatcherRulePlugin'
+
+```bash
+npm update vue-loader
+
+npm i vue-loader --save
+
+```
+
+
+
+
+
+
+

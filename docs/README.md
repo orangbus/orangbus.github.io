@@ -2,7 +2,7 @@
 home: true
 title: OrangBus
 heroImage: /orangbus.png
-heroText: OrangBus Netes
+heroText: OrangBus Notes
 tagline: 保持勇敢，坚持有趣，生命不息，折腾不止！
 actionText: Start →
 actionLink: /Guide/
@@ -19,7 +19,7 @@ features:
   details: 程序员是一种追求，追求这个不完美世界里的完美模式。
 - title: Go
   details: 种一棵树最好的时间是10年前，而后是现在。
-footer: MIT Licensed | Copyright © 2020-present OrangBus
+footer: MIT Licensed | Copyright © 2022-present OrangBus 橙子工作室
 ---
 
 # <span style="color:#3EAF7C;text-align:center;">如何开始？</span>
