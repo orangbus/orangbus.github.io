@@ -2,7 +2,7 @@
 home: true
 title: OrangBus
 heroImage: /orangbus.png
-heroText: OrangBus Notes
+heroText: OrangBus Netes
 tagline: 保持勇敢，坚持有趣，生命不息，折腾不止！
 actionText: Start →
 actionLink: /Guide/

@@ -3,7 +3,7 @@ title: haproxy
 ---
 
 
-![在这里插入图片描述](/images/20200211153601387.png) 
+![在这里插入图片描述](../images/20200211153601387.png) 
 
 配套仓库地址：[https://gitee.com/orangbus/mysql-cluster](https://gitee.com/orangbus/mysql-cluster) 
 

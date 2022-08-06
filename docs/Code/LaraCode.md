@@ -571,6 +571,15 @@ faker_user
 
 运行脚本：`sh ./start` 
 
+# Passport使用
+
+安装
+
+```bash
+```
+
+
+
 ## Laravel中使用redis
 
 安装predis
@@ -2007,11 +2016,12 @@ use DateTimeInterface;
     }
 ```
 
+`config/app.php`时区设置
 
-
-
-
-
+```php
+ 'timezone' => 'PRC', // 中国的时间
+ 'locale' => 'zh_CN',
+```
 
 
 

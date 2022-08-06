@@ -2,6 +2,41 @@
 title: mysql学习笔记
 ---
 
+# mysql 优化
+
+配置文件
+
+```config
+[mysqld]
+binlog_format=mixed
+```
+
+
+
+# 单表优化
+
+ALL, index, **range**, ref, eq_ref, const, system, NULL (从左到右, 性能从差到好)
+
+## and 查询
+
+```sql
+select * from `movies` where (`api_id` = 36 and (`type_id` in (1, 6, 7, 8, 9, 20))) order by `updated_at` desc limit 24 offset 24;
+```
+
+优化方案
+
+```sql
+# 创建索引
+CREATE INDEX api_id_tyoe_id on movies(api_id,type_id)
+
+#删除索引
+DROP index api_id_type_id on movies;
+```
+
+
+
+
+
 # mysql导入大文件
 
 **修改该目录下my.ini文件中max_allowed_packet**
@@ -231,5 +266,78 @@ select * from million_users where name like "hlubo%" order by id desc limit 20; 
 create index idx_cate_id on joke(cate_id);
 ```
 
+# Mysql占用空间统计
 
+## 「所有库」的容量大小
 
+```sql
+SELECT 
+table_schema as '数据库',
+sum(table_rows) as '记录数',
+sum(truncate(data_length/1024/1024, 2)) as '数据容量(MB)',
+sum(truncate(index_length/1024/1024, 2)) as '索引容量(MB)',
+sum(truncate(DATA_FREE/1024/1024, 2)) as '碎片占用(MB)'
+from information_schema.tables
+group by table_schema
+order by sum(data_length) desc, sum(index_length) desc;
+```
+
+![image-20220804145302307](README.assets/image-20220804145302307.png) 
+
+## MySQL 数据库中容量排名前 10 的表
+
+```sql
+USE information_schema;
+SELECT 
+  TABLE_SCHEMA as '数据库',
+  table_name as '表名',
+  table_rows as '记录数',
+  ENGINE as '存储引擎',
+  truncate(data_length/1024/1024, 2) as '数据容量(MB)',
+  truncate(index_length/1024/1024, 2) as '索引容量(MB)',
+  truncate(DATA_FREE/1024/1024, 2) as '碎片占用(MB)'
+from  tables 
+order by table_rows desc limit 10;
+```
+
+![image-20220804144629733](./README.assets/image-20220804144629733.png)
+
+## 「指定库」中，容量排名前 10 的表
+
+```sql
+USE information_schema;
+SELECT 
+  TABLE_SCHEMA as '数据库',
+  table_name as '表名',
+  table_rows as '记录数',
+  ENGINE as '存储引擎',
+  truncate(data_length/1024/1024, 2) as '数据容量(MB)',
+  truncate(index_length/1024/1024, 2) as '索引容量(MB)',
+  truncate(DATA_FREE/1024/1024, 2) as '碎片占用(MB)'
+from  tables 
+where 
+  table_schema='laravel_web'  # 表名
+order by table_rows desc limit 10;
+```
+
+![image-20220804144917519](README.assets/image-20220804144917519.png) 
+
+## 「指定库」中「指定表」的容量大小
+
+```sql
+SELECT
+  table_schema as '数据库',
+  table_name as '表名',
+  table_rows as '记录数',
+  truncate(data_length/1024/1024, 2) as '数据容量(MB)',
+  truncate(index_length/1024/1024, 2) as '索引容量(MB)',
+  truncate(DATA_FREE/1024/1024, 2) as '碎片占用(MB)'
+from 
+  information_schema.tables
+where 
+  table_schema='laravel_web'and table_name='movies'
+order by 
+  data_length desc, index_length desc;
+```
+
+![image-20220804145552907](README.assets/image-20220804145552907.png) 
