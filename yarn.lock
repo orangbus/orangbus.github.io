@@ -5354,13 +5354,6 @@ opencollective-postinstall@^2.0.2:
   resolved "https://registry.npm.taobao.org/opencollective-postinstall/download/opencollective-postinstall-2.0.3.tgz"
   integrity sha1-eg//l49tv6TQBiOPusmO1BmMMlk=
 
-openteam-postinstall@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npm.taobao.org/openteam-postinstall/download/openteam-postinstall-1.0.2.tgz"
-  integrity sha1-wx6Y7aLHh8qozis1ctZl6wjMmRY=
-  dependencies:
-    lodash "^4.17.15"
-
 opn@^5.5.0:
   version "5.5.0"
   resolved "https://registry.npm.taobao.org/opn/download/opn-5.5.0.tgz"
@@ -7667,15 +7660,6 @@ vuepress-plugin-container@^2.0.2:
   integrity sha1-vVhlh/+zA/hH5Kai4laBcfMRSTs=
   dependencies:
     markdown-it-container "^2.0.0"
-
-vuepress-plugin-helper-live2d@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-helper-live2d/-/vuepress-plugin-helper-live2d-1.0.2.tgz#6ba1c2f0a440c9263078ae5083de26fbbfac0759"
-  integrity sha512-OQFynzDJeuEpxv25oNE15otpfCV8Yf0Nxsqq2Y/RHRIdzMpgcp7B0HZRDKUjUqRUa+Sd0NxXbCdzPSxP/9TwWw==
-  dependencies:
-    chalk "^2.4.2"
-    lodash "^4.17.15"
-    openteam-postinstall "^1.0.2"
 
 vuepress-plugin-reading-progress@^1.0.8:
   version "1.0.9"
