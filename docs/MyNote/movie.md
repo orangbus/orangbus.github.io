@@ -120,7 +120,7 @@ location /admin {
 
 # 后续
 
-模板2
+## 模板2
 
 仓库地址：[https://github.com/orangbus/movie-web](https://github.com/orangbus/movie-web) 
 
@@ -128,7 +128,7 @@ location /admin {
 
 
 
-集成elasticsearch搜索
+## 集成elasticsearch搜索
 
 后期出一个教程吧，如果大家感兴趣可以查看一下这个仓库，可快速搭建一个elk的环境
 
