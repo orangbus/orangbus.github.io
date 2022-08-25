@@ -11,6 +11,14 @@ title: mysql学习笔记
 binlog_format=mixed
 ```
 
+# OPTIMIZE 优化表
+
+```sql
+OPTIMIZE TABLE table_name;
+```
+
+会重组表数据和索引的物理存储，减少对存储空间使用和提升访问表时io效率。
+
 
 
 # 单表优化
@@ -32,6 +40,132 @@ CREATE INDEX api_id_tyoe_id on movies(api_id,type_id)
 #删除索引
 DROP index api_id_type_id on movies;
 ```
+
+# 基本命令
+
+## 用户操作
+
+```sql
+# 创建用户
+create user demo@'%' identified by '123456';
+
+# 查看用户信息
+select user,host,plugin from mysql.user;
+
+# 修改用户密码
+alter user demo@'%' identified by 'new password';
+
+
+# 修改用户连接方式
+update mysql.user set Host='localhost' where user='demo';
+
+# 删除用户
+drop user demo@'%';
+```
+
+## 权限操作
+
+```sql
+# 查看当前用户权限
+show grants ;
+
+# 查看制定用户权限
+show grants for orangbus@'%';
+
+# 授权
+# grant: 关键字
+# test.*: 作用域,test库所有表
+# 'tom'@'192.168.150.%': 哪个用户
+grant select,update,insert on test.* to demo@'%';
+
+# 授予所有权限
+grant all privileges on *.* to demo@'%';
+
+# 授予用户授权其他用户权限的权限
+grant select,insert,update,delete on test.* to demo@'%' with grant option;
+
+# 删除用户权限
+revoke insert on test.* from demo@'%';
+
+# 删除授予权限
+revoke grant option on test.* from demo@'%';
+
+# 删除所有权限
+# revoke仅删除权限, 不删除用户
+# revoke all 后还是会有一个USAGE 权限
+revoke all on test.* from demo@'%';
+```
+
+
+
+## 数据库操作
+
+```sql
+# 创建
+CREATE DATABASE 数据库名;
+
+# 删除
+drop database 数据库名;
+
+------
+create database user;
+drop database user;
+```
+
+## 表操作
+
+```sql
+# 创建表
+CREATE TABLE table_name (
+	id INT UNSIGNED AUTO_INCREMENT,
+    name char(11) not null,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+# 添加表字段
+alert table tabme_name add phone char(11) first|after filed_name;
+
+# 修改表字段
+ alert table table_name change phone phone varchrt(11);
+
+# 删除表字段
+alert table table_name drop phone;
+
+# 删除表
+drop table table_name;
+```
+
+## 导入sql
+
+```sql
+```
+
+
+
+## 导出sql
+
+```sql
+
+```
+
+1.导出整个数据库
+mysqldump -u 用户名 -p 数据库名 > 导出的文件名
+mysqldump -u dbuser -p dbname > dbname.sql
+
+2.导出一个表
+mysqldump -u 用户名 -p 数据库名 表名> 导出的文件名
+mysqldump -u dbuser -p dbname users> dbname_users.sql
+
+3.导出一个数据库结构
+mysqldump -u dbuser -p -d --add-drop-table dbname >d:/dbname_db.sql
+-d 没有数据 --add-drop-table 在每个create语句之前增加一个drop table
+
+4.导入数据库
+常用source 命令
+进入mysql数据库控制台，如
+mysql -u root -p
+mysql>use 数据库
+然后使用source命令，后面参数为脚本文件(如这里用到的.sql)
+mysql>source d:/dbname.sql
 
 
 

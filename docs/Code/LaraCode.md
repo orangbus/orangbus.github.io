@@ -2023,9 +2023,25 @@ use DateTimeInterface;
  'locale' => 'zh_CN',
 ```
 
+# laravel按日期时间分组并统计
 
+## 统计七天内注册用户数量按天进行分组
 
+```php
+$user = DB::table('users')->whereBetween('created_at',['2018-01-01','2018-01-07'])
+        ->selectRaw('DATE(created_at) as date,COUNT(*) as value')
+        ->groupBy('date')->get();
+```
 
+## 统计一年内注册用户数量按月份进行分组
+
+```php
+$user = DB::table('users')->whereBetween('created_at',['2018-01-01','2018-12-31'])
+        ->selectRaw('DATE_FORMAT(created_at,"%Y-%m") as date,COUNT(*) as value')
+        ->groupBy('date')->get();
+```
+
+# laravel9运行webpack出错
 
 > [webpack-cli] Error: Cannot find module 'webpack/lib/rules/DescriptionDataMatcherRulePlugin'
 

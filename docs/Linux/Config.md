@@ -425,5 +425,70 @@ location / {
     }
 ```
 
+# systemctl 如何启动、关闭、启用/禁用服务
 
+```bash
+启动服务：systemctl start xxx.service
+关闭服务：systemctl stop xxx.service
+重启服务：systemctl restart xxx.service
+显示服务的状态：systemctl status xxx.service
+在开机时启用服务：systemctl enable xxx.service
+在开机时禁用服务：systemctl disable xxx.service
+查看服务是否开机启动：systemctl is-enabled xxx.service
+查看已启动的服务列表：systemctl list-unit-files|grep enabled
+查看启动失败的服务列表：systemctl --failed
+```
+
+# vim配置
+
+[https://github.com/junegunn/vim-plug](https://github.com/junegunn/vim-plug) 
+
+## 安装
+
+```bash
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+## 配置插件
+
+```bash
+# vim ~/.vimrc
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'preservim/nerdtree'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'itchyny/lightline.vim'
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'junegunn/vim-easy-align'
+Plug 'preservim/nerdtree'
+Plug 'preservim/nerdcommenter'
+
+call plug#end()
+```
+
+## 安装插件
+
+```bash
+vim demo.txt
+
+# 按ESC
+::PlugInstall
+```
+
+Commands
+
+| Command                             | Description                                                  |
+| ----------------------------------- | ------------------------------------------------------------ |
+| `PlugInstall [name ...] [#threads]` | Install plugins                                              |
+| `PlugUpdate [name ...] [#threads]`  | Install or update plugins                                    |
+| `PlugClean[!]`                      | Remove unlisted plugins (bang version will clean without prompt) |
+| `PlugUpgrade`                       | Upgrade vim-plug itself                                      |
+| `PlugStatus`                        | Check the status of plugins                                  |
+| `PlugDiff`                          | Examine changes from the previous update and the pending changes |
+| `PlugSnapshot[!] [output path]`     | Generate script for restoring the current snapshot of the plugins |
 

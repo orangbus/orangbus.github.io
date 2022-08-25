@@ -59,11 +59,11 @@ SHOW MASTER STATUS
 默认会创建一个用户，配置在当前文件的 `.env` 中
 
 ```
-#授权用户orangbus使用123456密码登录mysql
-grant replication slave on *.* to 'orangbus'@'mysql-master' identified by '123456';
+# 创建一个同步的用户，该用户数据master节点，
+CREATE USER 'slaveuser'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
 
-# 如果授权失败可以这样
-grant replication slave on *.* to 'orangbus'@'%'
+#授权用户slaveuser使用123456密码登录mysql
+grant replication slave on *.* to 'slaveuser'@'%';
 
 #刷新配置
 flush privileges;
@@ -133,6 +133,74 @@ reset slave;
 show slave status
 ```
 
+# 配置文件
+
+## master服务器
+
+```
+[mysqld]
+#开启主从复制，主库的配置
+log-bin=mysql-bin
+
+#指定主库serverid
+server-id=1
+
+# 设置需要复制的数据库(可设置多个)
+# binlog-do-db=test
+
+# 设置不要复制的数据库(可设置多个)
+binlog-ignore-db=sys
+binlog-ignore-db=mysql
+binlog-ignore-db=information_schema
+binlog-ignore-db=performance_schema
+
+# 设置logbin格式
+binlog_format=mixed
+
+# 处理报错
+sql-mode="STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"
+character-set-server=utf8
+```
+
+## slave 服务器配置
+
+```
+[mysqld]
+#开启主从复制，主库的配置
+log-bin=mysql-bin
+
+default_authentication_plugin=mysql_native_password
+
+#指定主库serverid
+server-id=2
+
+#指定同步的数据库，如果不指定则同步全部数据库
+# binlog-do-db=laravel
+
+## 复制过滤：也就是指定哪个数据库不用同步（mysql库一般不同步）
+binlog-ignore-db=mysql
+binlog-ignore-db=sys
+binlog-ignore-db=information_schema
+binlog-ignore-db=performance_schema
+
+## 主从复制的格式（mixed,statement,row，默认格式是statement）
+binlog_format=mixed
+
+## 二进制日志自动删除/过期的天数。默认值为0，表示不自动删除。
+expire_logs_days=7
+
+## 跳过主从复制中遇到的所有错误或指定类型的错误，避免slave端复制中断。
+## 如：1062错误是指一些主键重复，1032错误是因为主从数据库数据不一致
+slave_skip_errors=1062
+
+# 处理报错
+sql-mode="STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"
+character-set-server=utf8
+
+```
+
+
+
 
 
 
@@ -199,7 +267,24 @@ sudo chmod 644 my.cnf
 
 
 
-备注
+# 备注
+
+my.conf
+
+```
+# 需要同步的二进制数据库名
+binlog-do-db=masterdemo
+
+# 只保留7天的二进制日志，以防磁盘被日志占满(可选)
+expire-logs-days  = 7
+
+# 不备份的数据库
+binlog-ignore-db=information_schema
+binlog-ignore-db=performation_schema
+binlog-ignore-db=sys
+```
+
+
 
 ```
 show slave status;

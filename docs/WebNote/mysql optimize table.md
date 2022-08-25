@@ -1,0 +1,99 @@
+---
+title: mysql optimize table
+---
+
+> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 [www.cnblogs.com](https://www.cnblogs.com/abclife/p/9573578.html)
+
+语法结构：
+
+```
+OPTIMIZE [NO_WRITE_TO_BINLOG | LOCAL]
+    TABLE tbl_name [, tbl_name] ...
+```
+
+optimize table 会重组表数据和索引的物理存储，减少对存储空间使用和提升访问表时io效率。optimize table后，表的变化和存储引擎也有关。
+
+以下场景使用 optimize table，和表的类型有关：  
+1.innodb存储引擎+独立表空间，optimize table会重组表和索引数据，磁盘空间被回收。  
+2.插入、更新、删除的列是innodb表中fulltext索引的列，要先设置innodb_optimize_fulltext_only=1。  
+为了将对索引的维护设置在一个合理的时间内，可以设置innodb_ft_num_word_optimize指定一次处理多少个words，执行多次optimize table操作直到索引更新结束。  
+3.删除myisam、archive存储引擎表中大量数据，或者对myisam、archive表变长的行做了大量修改。删除的行被为维护在一个链表中，之后的insert可以重用这些位置。  
+可以使用optimize TABLE来回收未使用的空间并整理数据文件。在对表进行了大量更改之后，该语句还可以提高使用该表的语句的性能，有时效果显著。
+
+optimize table需要对表具有select、insert权限。
+
+
+**optimize table支持innodb、myisam、archive存储引擎的表。**
+
+
+默认是不支持其他存储引擎的表，会返回不支持的提示信息。要想支持其他存储引擎，可以使用mysqld --skip-new选项开启对其他存储引擎的支持。使用--skip-new选项后，optimize table仅仅被映射成alter table操作。
+
+
+不支持对view进行optimize。
+
+
+optimize table支持分区表。
+
+缺省，optimize table被记入二进制日志，并复制到slave节点。可以使用no_write_binlog或local取消对二进制日志的写入。
+
+**对innodb表执行optimize table**
+
+对于innodb表，optimize table被映射成alter table ... force，重建表和更新索引统计信息并释放空间。  
+对innodb执行optimize table操作，输出类似下面的结果：
+
+[?](#)<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter">1234567</td><td class="code"><code class="sql plain">&gt; OPTIMIZE </code><code class="sql keyword">TABLE</code> <code class="sql plain">foo;</code><code class="sql plain">+</code><code class="sql comments">----------+----------+----------+-------------------------------------------------------------------+</code><code class="sql plain">| </code><code class="sql keyword">Table</code>&nbsp;&nbsp;&nbsp; <code class="sql plain">| Op&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Msg_type | Msg_text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</code><code class="sql plain">+</code><code class="sql comments">----------+----------+----------+-------------------------------------------------------------------+</code><code class="sql plain">| test.foo | optimize | note&nbsp;&nbsp;&nbsp;&nbsp; | </code><code class="sql keyword">Table</code> <code class="sql plain">does </code><code class="sql color1">not</code> <code class="sql plain">support optimize, doing recreate + analyze </code><code class="sql keyword">instead</code> <code class="sql plain">|</code><code class="sql plain">| test.foo | optimize | status&nbsp;&nbsp; | OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</code><code class="sql plain">+</code><code class="sql comments">----------+----------+----------+-------------------------------------------------------------------+</code></td></tr></tbody></table>
+
+optimize table对innodb常规表、分区表执行在线ddl，减少了并发dml操作的宕机时间。
+
+optimize table 触发表重建，内部执行alter table ... force操作。  
+在prepare阶段和commit阶段会对表加上排他锁。在prepare阶段会更新元数据并创建一个内部中间表，在commit阶段提交对元数据的修改。
+
+**optimize table在以下场景使用数据拷贝的方式进行重建表：**  
+1.开启了old_alter_table系统变量  
+2.使用了mysqld --skip-new选项启动数据库
+
+如果innodb表包含fulltext索引，是不支持optimize table使用在线ddl的。只能使用数据拷贝的方式。 
+
+InnoDB使用页面分配方法存储数据，不像传统存储引擎(比如MyISAM)那样存在碎片问题。执行optimize table之前要考虑事务的负载大小：  
+·有些级别的碎片是系统预期的。innodb只会插入数据到页面的93%，剩下的空间是给update预留的，以免出现页的分裂  
+·删除操作可能会留下很多空隙，执行optimize table是有意义的  
+·更新通常是在相同的页中重写数据，空间是否充足取决于行格式和列的数据类型  
+·由于innodb的mvcc机制，高并发环境可能会导致索引产生空隙
+
+**对myisam表执行optimize table**  
+对于myisam表，optimize table操作执行以下工作：  
+1.如果表含有删除的列、分列的列，optimize table会修复表  
+2.如果索引页没有排序，optimize table会将索引页进行排序  
+3.如果表的统计信息不是最新的，optimize table会更新索引信息
+
+**补充：**
+
+对innodb表执行optimize table操作的时候，会报"Table does not support optimize, doing recreate + analyze instead"提示。有人直接说optimize table不支持innodb表。其实并不能这么理解。
+
+下面是测试结果：
+
+[?](#)<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter">1234567891011121314151617181920</td><td class="code"><code class="sql plain">Server version: 5.7.19 MySQL Community Server (GPL)</code>&nbsp;<code class="sql keyword">CREATE</code> <code class="sql keyword">TABLE</code> <code class="sql plain">m_test(id </code><code class="sql keyword">int</code> <code class="sql plain">unsigned, body text) engine=myisam charset=utf8;</code><code class="sql keyword">CREATE</code> <code class="sql keyword">TABLE</code> <code class="sql plain">i_test(id </code><code class="sql keyword">int</code> <code class="sql plain">unsigned, body text) engine=innodb charset=utf8;</code>&nbsp;<code class="sql keyword">INSERT</code> <code class="sql keyword">INTO</code> <code class="sql plain">m_test </code><code class="sql keyword">VALUES</code><code class="sql plain">(1, </code><code class="sql string">'AAAAA'</code><code class="sql plain">);</code><code class="sql keyword">INSERT</code> <code class="sql keyword">INTO</code> <code class="sql plain">m_test </code><code class="sql keyword">VALUES</code><code class="sql plain">(2, </code><code class="sql string">'BBBBB'</code><code class="sql plain">);</code><code class="sql keyword">INSERT</code> <code class="sql keyword">INTO</code> <code class="sql plain">m_test </code><code class="sql keyword">VALUES</code><code class="sql plain">(3, </code><code class="sql string">'CCCCC'</code><code class="sql plain">);</code><code class="sql keyword">INSERT</code> <code class="sql keyword">INTO</code> <code class="sql plain">m_test </code><code class="sql keyword">VALUES</code><code class="sql plain">(4, </code><code class="sql string">'DDDDD'</code><code class="sql plain">);</code><code class="sql keyword">INSERT</code> <code class="sql keyword">INTO</code> <code class="sql plain">m_test </code><code class="sql keyword">VALUES</code><code class="sql plain">(5, </code><code class="sql string">'EEEEE'</code><code class="sql plain">);</code><code class="sql keyword">INSERT</code> <code class="sql keyword">INTO</code> <code class="sql plain">i_test </code><code class="sql keyword">VALUES</code><code class="sql plain">(1, </code><code class="sql string">'AAAAA'</code><code class="sql plain">);</code><code class="sql keyword">INSERT</code> <code class="sql keyword">INTO</code> <code class="sql plain">i_test </code><code class="sql keyword">VALUES</code><code class="sql plain">(2, </code><code class="sql string">'BBBBB'</code><code class="sql plain">);</code><code class="sql keyword">INSERT</code> <code class="sql keyword">INTO</code> <code class="sql plain">i_test </code><code class="sql keyword">VALUES</code><code class="sql plain">(3, </code><code class="sql string">'CCCCC'</code><code class="sql plain">);</code><code class="sql keyword">INSERT</code> <code class="sql keyword">INTO</code> <code class="sql plain">i_test </code><code class="sql keyword">VALUES</code><code class="sql plain">(4, </code><code class="sql string">'DDDDD'</code><code class="sql plain">);</code><code class="sql keyword">INSERT</code> <code class="sql keyword">INTO</code> <code class="sql plain">i_test </code><code class="sql keyword">VALUES</code><code class="sql plain">(5, </code><code class="sql string">'EEEEE'</code><code class="sql plain">);</code>&nbsp;<code class="sql plain">#多次插入相同的数据：</code><code class="sql keyword">INSERT</code> <code class="sql keyword">INTO</code> <code class="sql plain">m_test </code><code class="sql keyword">SELECT</code> <code class="sql plain">id, body </code><code class="sql keyword">FROM</code> <code class="sql plain">m_test;</code><code class="sql keyword">INSERT</code> <code class="sql keyword">INTO</code> <code class="sql plain">i_test </code><code class="sql keyword">SELECT</code> <code class="sql plain">id, body </code><code class="sql keyword">FROM</code> <code class="sql plain">i_test;</code><code class="sql plain">...</code></td></tr></tbody></table>
+
+查看表和文件的大小：
+
+[?](#)<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter">12345678910111213141516171819202122</td><td class="code"><code class="sql plain">ysql&gt; </code><code class="sql keyword">select</code> <code class="sql color2">count</code><code class="sql plain">(*) </code><code class="sql keyword">from</code> <code class="sql plain">m_test;</code><code class="sql plain">+</code><code class="sql comments">----------+</code><code class="sql plain">| </code><code class="sql color2">count</code><code class="sql plain">(*) |</code><code class="sql plain">+</code><code class="sql comments">----------+</code><code class="sql plain">| 83886080 |</code><code class="sql plain">+</code><code class="sql comments">----------+</code><code class="sql plain">1 row </code><code class="sql color1">in</code> <code class="sql keyword">set</code> <code class="sql plain">(0.00 sec)</code>&nbsp;<code class="sql plain">mysql&gt; </code><code class="sql keyword">select</code> <code class="sql color2">count</code><code class="sql plain">(*) </code><code class="sql keyword">from</code> <code class="sql plain">i_test;</code><code class="sql plain">+</code><code class="sql comments">----------+</code><code class="sql plain">| </code><code class="sql color2">count</code><code class="sql plain">(*) |</code><code class="sql plain">+</code><code class="sql comments">----------+</code><code class="sql plain">| 83886080 |</code><code class="sql plain">+</code><code class="sql comments">----------+</code><code class="sql plain">1 row </code><code class="sql color1">in</code> <code class="sql keyword">set</code> <code class="sql plain">(36.04 sec) #明显慢很多</code><code class="sql plain">mysql&gt; </code><code class="sql plain"># ll |grep test</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8586 Sep&nbsp; 2 10:03 i_test.frm</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql 3267362816 Sep&nbsp; 2 10:30 i_test.ibd</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8586 Sep&nbsp; 2 10:03 m_test.frm</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql 1677721600 Sep&nbsp; 2 10:26 m_test.MYD</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1024 Sep&nbsp; 2 10:26 m_test.MYI</code></td></tr></tbody></table>
+
+删除一定数据后查看表和文件的大小：
+
+[?](#)<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter">1234567891011121314151617181920212223</td><td class="code"><code class="sql plain">mysql&gt; </code><code class="sql keyword">DELETE</code> <code class="sql keyword">FROM</code> <code class="sql plain">i_test </code><code class="sql keyword">WHERE</code> <code class="sql plain">id &lt; 3;</code><code class="sql plain">mysql&gt; </code><code class="sql keyword">DELETE</code> <code class="sql keyword">FROM</code> <code class="sql plain">m_test </code><code class="sql keyword">WHERE</code> <code class="sql plain">id &lt; 3;</code><code class="sql plain"># ll |grep test</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8586 Sep&nbsp; 2 10:03 i_test.frm</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql 3267362816 Sep&nbsp; 2 10:39 i_test.ibd</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8586 Sep&nbsp; 2 10:03 m_test.frm</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql 1677721600 Sep&nbsp; 2 10:37 m_test.MYD</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1024 Sep&nbsp; 2 10:37 m_test.MYI</code><code class="sql plain">mysql&gt; </code><code class="sql keyword">select</code> <code class="sql color2">count</code><code class="sql plain">(*) </code><code class="sql keyword">from</code> <code class="sql plain">m_test;</code><code class="sql plain">+</code><code class="sql comments">----------+</code><code class="sql plain">| </code><code class="sql color2">count</code><code class="sql plain">(*) |</code><code class="sql plain">+</code><code class="sql comments">----------+</code><code class="sql plain">| 50331648 |</code><code class="sql plain">+</code><code class="sql comments">----------+</code><code class="sql plain">1 row </code><code class="sql color1">in</code> <code class="sql keyword">set</code> <code class="sql plain">(0.00 sec)</code>&nbsp;<code class="sql plain">mysql&gt; </code><code class="sql keyword">select</code> <code class="sql color2">count</code><code class="sql plain">(*) </code><code class="sql keyword">from</code> <code class="sql plain">i_test;</code><code class="sql plain">+</code><code class="sql comments">----------+</code><code class="sql plain">| </code><code class="sql color2">count</code><code class="sql plain">(*) |</code><code class="sql plain">+</code><code class="sql comments">----------+</code><code class="sql plain">| 50331648 |</code><code class="sql plain">+</code><code class="sql comments">----------+</code><code class="sql plain">1 row </code><code class="sql color1">in</code> <code class="sql keyword">set</code> <code class="sql plain">(52.91 sec)</code></td></tr></tbody></table>
+
+分别执行optimize table操作：
+
+[?](#)<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter">123456789101112131415161718192021222324</td><td class="code"><code class="sql plain">mysql&gt; optimize </code><code class="sql keyword">table</code> <code class="sql plain">m_test;</code><code class="sql plain">+</code><code class="sql comments">-------------+----------+----------+----------+</code><code class="sql plain">| </code><code class="sql keyword">Table</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code class="sql plain">| Op&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Msg_type | Msg_text |</code><code class="sql plain">+</code><code class="sql comments">-------------+----------+----------+----------+</code><code class="sql plain">| test.m_test | optimize | status&nbsp;&nbsp; | OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</code><code class="sql plain">+</code><code class="sql comments">-------------+----------+----------+----------+</code><code class="sql plain">1 row </code><code class="sql color1">in</code> <code class="sql keyword">set</code> <code class="sql plain">(8.49 sec)</code>&nbsp;<code class="sql plain">mysql&gt; optimize </code><code class="sql keyword">table</code> <code class="sql plain">i_test;</code><code class="sql plain">+</code><code class="sql comments">-------------+----------+----------+-------------------------------------------------------------------+</code><code class="sql plain">| </code><code class="sql keyword">Table</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code class="sql plain">| Op&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Msg_type | Msg_text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</code><code class="sql plain">+</code><code class="sql comments">-------------+----------+----------+-------------------------------------------------------------------+</code><code class="sql plain">| test.i_test | optimize | note&nbsp;&nbsp;&nbsp;&nbsp; | </code><code class="sql keyword">Table</code> <code class="sql plain">does </code><code class="sql color1">not</code> <code class="sql plain">support optimize, doing recreate + analyze </code><code class="sql keyword">instead</code> <code class="sql plain">|</code><code class="sql plain">| test.i_test | optimize | status&nbsp;&nbsp; | OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</code><code class="sql plain">+</code><code class="sql comments">-------------+----------+----------+-------------------------------------------------------------------+</code><code class="sql plain">2 </code><code class="sql keyword">rows</code> <code class="sql color1">in</code> <code class="sql keyword">set</code> <code class="sql plain">(47.73 sec)</code>&nbsp;<code class="sql plain">mysql&gt; </code><code class="sql plain"># ll |grep test</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8586 Sep&nbsp; 2 10:42 i_test.frm</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql 2243952640 Sep&nbsp; 2 10:43 i_test.ibd</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8586 Sep&nbsp; 2 10:03 m_test.frm</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql 1006632960 Sep&nbsp; 2 10:41 m_test.MYD</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1024 Sep&nbsp; 2 10:41 m_test.MYI</code></td></tr></tbody></table>
+
+从上面的结果可以看到，无论是innodb、还是myisam表都被收缩了。
+
+使用mysqld --skip-new重启mysqlserver后，再次对innodb表执行optimize table操作：
+
+[?](#)<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter">1234567891011</td><td class="code"><code class="sql plain">mysql&gt; optimize </code><code class="sql keyword">table</code> <code class="sql plain">i_test;</code><code class="sql plain">Query OK, 50331648 </code><code class="sql keyword">rows</code> <code class="sql plain">affected (3 </code><code class="sql keyword">min</code> <code class="sql plain">10.82 sec)</code><code class="sql plain">Records: 50331648&nbsp; Duplicates: 0&nbsp; Warnings: 0</code>&nbsp;<code class="sql plain">mysql&gt; </code><code class="sql plain"># ll |grep test</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8586 Sep&nbsp; 2 10:47 i_test.frm</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql 1962934272 Sep&nbsp; 2 10:50 i_test.ibd</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8586 Sep&nbsp; 2 10:03 m_test.frm</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql 1006632960 Sep&nbsp; 2 10:41 m_test.MYD</code><code class="sql plain">-rw-r</code><code class="sql comments">----- 1 mysql mysql&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1024 Sep&nbsp; 2 10:41 m_test.MYI</code></td></tr></tbody></table>
+
+可以看到，innodb表再次发生了收缩。
+
+**结论：**  
+**"Table does not support optimize, doing recreate + analyze instead"并不是说innodb不支持optimize table。**  
+**因为对于innodb表，optimize table被映射成alter table ... force，重建表和更新索引统计信息并释放空间。**

@@ -280,6 +280,12 @@ brew doctor
 brew install hello
 ```
 
+## 删除站点的 .user.ini 文件
+
+```bash
+sudo chattr -i .user.ini
+```
+
 ## 推荐Uinux发行版-常用Debian
 
 Manjaro：<https://manjaro.org/>
