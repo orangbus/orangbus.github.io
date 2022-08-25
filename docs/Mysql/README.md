@@ -416,7 +416,6 @@ group by table_schema
 order by sum(data_length) desc, sum(index_length) desc;
 ```
 
-![image-20220804145302307](README.assets/image-20220804145302307.png) 
 
 ## MySQL 数据库中容量排名前 10 的表
 
@@ -434,7 +433,6 @@ from  tables
 order by table_rows desc limit 10;
 ```
 
-![image-20220804144629733](./README.assets/image-20220804144629733.png)
 
 ## 「指定库」中，容量排名前 10 的表
 
@@ -454,8 +452,6 @@ where
 order by table_rows desc limit 10;
 ```
 
-![image-20220804144917519](./README.assets/image-20220804144917519.png) 
-
 ## 「指定库」中「指定表」的容量大小
 
 ```sql
@@ -474,4 +470,3 @@ order by
   data_length desc, index_length desc;
 ```
 
-![image-20220804145552907](README.assets/image-20220804145552907.png) 
