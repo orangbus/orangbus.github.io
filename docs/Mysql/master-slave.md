@@ -34,10 +34,10 @@ dc up -d
 查看是否启动成功
 
 ```
-dcps
+dcps 
 ```
 
-![image-20210716160951393](/images/image-20210716160951393.png) 
+![image-20210716160951393](master-slave.assets/image-20210716160951393.png)  
 
 ## 一、主服务配置-master
 
@@ -48,7 +48,7 @@ dcps
 SHOW MASTER STATUS
 ```
 
-![image-20210716161418042](/images/image-20210716161418042.png) 
+![image-20210716161418042](master-slave.assets/image-20210716161418042.png) 
 
 
 
@@ -93,7 +93,7 @@ show global variables like 'server%';
 show slave status;
 ```
 
-![image-20210716163127323](/images/image-20210716163127323.png) 
+![image-20210716163127323](master-slave.assets/image-20210716163127323.png)  
 
 ### 2、设置与master的关联信息
 
@@ -123,9 +123,7 @@ stop slave
 reset slave;
 ```
 
-![image-20210716163725181](/images/image-20210716163725181.png) 
-
-
+![image-20210716163725181](master-slave.assets/image-20210716163725181.png)
 
 ### 3、查看是否配置成功
 
@@ -199,17 +197,11 @@ character-set-server=utf8
 
 ```
 
-
-
-
-
-
-
 # 问题排查
 
 ## 1、slave连接失败
 
-![image-20210716163918107](/images/image-20210716163918107.png) 
+![image-20210716163918107](master-slave.assets/image-20210716163918107.png) 
 
 连接失败我们就去查看一下slave容器的日志：
 
@@ -217,7 +209,7 @@ character-set-server=utf8
 dc logs mysql-slave
 ```
 
-![image-20210716164130511](/images/image-20210716164130511.png) 
+![image-20210716164130511](master-slave.assets/image-20210716164130511.png) 
 
 从日志中我们看出，应该是密码错误了，如果你们也遇到这个错误，那就检查一下 master的`端口` `连接密码`
 
@@ -227,7 +219,7 @@ dc logs mysql-slave
 
 ## 2、不知道什么错误
 
-![image-20210716165325357](/images/image-20210716165325357.png) 
+![image-20210716165325357.png](master-slave.assets/image-20210716165325357.png) 
 
 可能是更改了配置没有生效。
 
@@ -264,8 +256,6 @@ sudo chmod 644 my.cnf
 ## 5、踩坑指北
 
 能复制的参数尽量复制，别手敲
-
-
 
 # 备注
 

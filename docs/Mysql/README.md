@@ -454,7 +454,7 @@ where
 order by table_rows desc limit 10;
 ```
 
-![image-20220804144917519](README.assets/image-20220804144917519.png) 
+![image-20220804144917519](./README.assets/image-20220804144917519.png) 
 
 ## 「指定库」中「指定表」的容量大小
 

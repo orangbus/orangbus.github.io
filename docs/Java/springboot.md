@@ -1074,9 +1074,7 @@ spring:
 
 # 线程池
 
-![image-20210913145233477](../../../../../../BackUp/Sync/docs/public/images/image-20210913145233477.png) 
 
-![image-20210913161241236](../../../../../../BackUp/Sync/docs/public/images/image-20210913161241236.png) 
 
 ## 创建
 
