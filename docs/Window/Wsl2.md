@@ -16,8 +16,6 @@ Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 
 启用这些更改后，需要`重新启动计算机`。
 
-[![微软win10子系统wsl2安装教程（附三个实例应用场景）](../images/5d3c3159d1a49.png)](https://img.baiyue.one/upload/2019/07/5d3c3159d1a49.png)
-
 ### 使用命令行设置要由 WSL 2 支持的发行版
 
 在 PowerShell 中运行：
@@ -63,5 +61,3 @@ Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docke
 window下非常好用的继承环境
 
 > https://laragon.org
-
-![image-20201215114012421](../images/image-20201215114012421.png)

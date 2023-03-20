@@ -3,7 +3,6 @@
 desc: SSh远程链接工具、推荐Uinux发行版、扶墙脚本、google上网
 keyword: orangbus.cn
 date: 2019-06-04 14:56:23
-sidebar: auto
 ---
 
 > <span style="color:red;">更多Linux配置请参考：</span><https://github.com/orangbus/Tool

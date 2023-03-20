@@ -89,6 +89,7 @@ module.exports = [
 	},
 	{text: "Docker", link: "/Docker/"},
 	{text: "Mysql", link: "/Mysql/"},
+	{text: "Vue", link: "/Vue/"},
 	{text: "Java",link: "/Java/"},
 	{text: "Golang",link: "/Golang/"},
 	{text: "MyNote", link: "/MyNote/"},
