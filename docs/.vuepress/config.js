@@ -30,6 +30,8 @@ module.exports = {
 		editLinks: true,
 		// 默认为 "Edit this page"
 		editLinkText: '帮助我们改善此页面！',
+		// 页面滚动效果
+		smoothScroll: true,
 		nav,
 	},
 	//插件

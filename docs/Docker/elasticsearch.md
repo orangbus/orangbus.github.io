@@ -4,13 +4,13 @@ title: elasticsearch
 
 > 版本要一致
 
-安装：
+# 安装：
 
 ```bash
 sudo pacman -S elasticsearch
 ```
 
-## 跨域处理
+# 跨域处理
 
 ```bash
 sudo -i
@@ -31,15 +31,110 @@ http.cors.allow-origin: "*"
 sudo systemctl start elasticsreach
 ```
 
+本机运行多个elasticsearch
+
+```
+bin/elasticsearch -E node.name=node1 -E cluster.name=orangbus -E path.data=node1_data
+bin/elasticsearch -E node.name=node2 -E cluster.name=orangbus -E path.data=node2_data
+bin/elasticsearch -E node.name=node3 -E cluster.name=orangbus -E path.data=node3_data
+```
+
+删除进程
+
+```bash
+ps grep | elasticsearch / kill pid
+```
+
 安装可视化工具：elasticsearch-head
 
+# elaticsearch with docker-composer 
+
+```
+# .env
+# Version of Elastic products
+STACK_VERSION=8.5.2
+# Password for the 'elastic' user (at least 6 characters)
+ELASTIC_PASSWORD=admin666
+
+# Password for the 'kibana_system' user (at least 6 characters)
+KIBANA_PASSWORD=admin666
+
+# Set the cluster name
+CLUSTER_NAME=docker-cluster
+
+# Set to 'basic' or 'trial' to automatically start the 30-day trial
+LICENSE=basic
+#LICENSE=trial
+
+# Port to expose Elasticsearch HTTP API to the host
+ES_PORT=9200
+#ES_PORT=127.0.0.1:9200
+
+# Increase or decrease based on the available host memory (in bytes)
+MEM_LIMIT=1073741824
+```
+
+```yaml
+version: "3.5"
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  es_data:
+    driver: local
+  kibana_data:
+    driver: local
+
+services:
+  es:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
+    privileged: true
+    restart: always
+    environment:
+      - discovery.type=single-node
+      - CLUSTER.NAME=${CLUSTER_NAME}
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+      - ./elasticsearch/plugins:/usr/share/elasticsearch/plugins
+    ports:
+      - ${ES_PORT}:9200
+      - "9300:9300"
+    networks:
+      - backend
+    mem_limit: ${MEM_LIMIT}
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+```
 
 
-安装kibana
+
+
+
+# 安装kibana
 
 ## 插件
 
 下载插件放到`elasticsreach` 的`plugin` 文件夹即可
+
+## 查看已安装插件
+
+```bash
+/bin/elasticsearch-plugin list
+```
+
+## 安装插件
+
+```bash
+/bin/elasticsearch-plugin install analysis-icu
+```
+
+
 
 ## ik分词器
 
@@ -114,25 +209,61 @@ docker-compose exec elasticsearch /usr/share/elasticsearch/bin/elasticsearch-plu
 
 # curd
 
-## 索引操作（数据库）
+## 索引操作（表）
 
 ```json
-```
-
-## 文档操作（表）
-
-```
-# 查看索引
-GET user
-
 # 创建索引
-PUT user
+PUT /jokes
+
+# 获取索引
+GET /jokes
 
 # 删除索引
-DELETE user
+DELETE /jokes
+
+# 关闭索引
+POST /jokes/_close
+
+# 开启索引
+POST /jokes/_open
+
+# 重建索引
+POST _reindex
+{
+  "source": {
+    "index": "jokes2"
+  }
+}
+
+# 查看所有索引
+GET /_cat/indices/?v&pretty
 
 
+// 查看索引分词
 
+
+// 设置分片信息
+PUT /jokes/_settings
+{
+  "settings":{
+    "number_of_replicas":1
+  }
+}
+
+// 设置分词器
+PUT /jokes
+{
+  "settings": {
+    "index":{
+      "anlysis.analyzer.default.type": "ik_max_word"
+    }
+  }
+}
+```
+
+## 文档操作（每一条数据）
+
+```
 # 添加文档
 PUT user/_doc/1
 {
@@ -164,6 +295,24 @@ GET user/_search
   }
 }
 ```
+
+
+
+# 安装kibana
+
+
+
+
+
+## 插件安装
+
+```bash
+bin/kibana-plugin install plugin_location
+bin/kibana-plugin list
+bin/kibana-plugin remove
+```
+
+
 
 
 
@@ -200,3 +349,206 @@ dc up -d kibana
 ![image-20220812144017187](elasticsearch.assets/image-20220812144017187.png) 
 
 至此kibaba就配置成功了。
+
+
+
+备份
+
+```
+version: "3.5"
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
+    privileged: true
+    restart: always
+    volumes:
+      - ${DATA_PATH_HOST}/elasticsearch:/usr/share/elasticsearch/data:rw
+      - ./elasticsearch/plugins:/usr/share/elasticsearch/plugins:rw
+    ports:
+      - ${ES_PORT}:9200
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
+      - CLUSTER.NAME=${CLUSTER_NAME}
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    mem_limit: ${MEM_LIMIT}
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+```
+
+```
+// .env
+
+DATA_PATH_HOST=./data
+# Password for the 'elastic' user (at least 6 characters)
+ELASTIC_PASSWORD=admin666
+
+# Password for the 'kibana_system' user (at least 6 characters)
+KIBANA_PASSWORD=admin666
+
+# Version of Elastic products
+STACK_VERSION=8.4.3
+
+# Set the cluster name
+CLUSTER_NAME=orangbus
+
+# Set to 'basic' or 'trial' to automatically start the 30-day trial
+LICENSE=basic
+#LICENSE=trial
+
+# Port to expose Elasticsearch HTTP API to the host
+ES_PORT=9200
+#ES_PORT=127.0.0.1:9200
+
+# Port to expose Kibana to the host
+KIBANA_PORT=5601
+#KIBANA_PORT=80
+
+# Increase or decrease based on the available host memory (in bytes)
+MEM_LIMIT=1073741824
+
+# Project namespace (defaults to the current folder name if not set)
+#COMPOSE_PROJECT_NAME=myproject
+```
+
+```
+#elasticsearch.yml
+
+cluster.name: "cluster"
+network.host: 0.0.0.0
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+
+xpack:
+  license.self_generated.type: basic
+  security:
+    enabled: true # 开启密码设置为 true
+    enrollment:
+      enabled: true
+```
+
+```
+# jvm.options
+################################################################
+##
+## JVM configuration
+##
+################################################################
+##
+## WARNING: DO NOT EDIT THIS FILE. If you want to override the
+## JVM options in this file, or set any additional options, you
+## should create one or more files in the jvm.options.d
+## directory containing your adjustments.
+##
+## See https://www.elastic.co/guide/en/elasticsearch/reference/8.1/jvm-options.html
+## for more information.
+##
+################################################################
+
+
+
+################################################################
+## IMPORTANT: JVM heap size
+################################################################
+##
+## The heap size is automatically configured by Elasticsearch
+## based on the available memory in your system and the roles
+## each node is configured to fulfill. If specifying heap is
+## required, it should be done through a file in jvm.options.d,
+## which should be named with .options suffix, and the min and
+## max should be set to the same value. For example, to set the
+## heap to 4 GB, create a new file in the jvm.options.d
+## directory containing these lines:
+##
+-Xms200m
+-Xmx1G
+##
+## See https://www.elastic.co/guide/en/elasticsearch/reference/8.1/heap-size.html
+## for more information
+##
+################################################################
+
+
+################################################################
+## Expert settings
+################################################################
+##
+## All settings below here are considered expert settings. Do
+## not adjust them unless you understand what you are doing. Do
+## not edit them in this file; instead, create a new file in the
+## jvm.options.d directory containing your adjustments.
+##
+################################################################
+
+## GC configuration
+8-13:-XX:+UseConcMarkSweepGC
+8-13:-XX:CMSInitiatingOccupancyFraction=75
+8-13:-XX:+UseCMSInitiatingOccupancyOnly
+
+## G1GC Configuration
+# to use G1GC, uncomment the next two lines and update the version on the
+# following three lines to your version of the JDK
+# 8-13:-XX:-UseConcMarkSweepGC
+# 8-13:-XX:-UseCMSInitiatingOccupancyOnly
+14-:-XX:+UseG1GC
+
+## JVM temporary directory
+-Djava.io.tmpdir=${ES_TMPDIR}
+
+## heap dumps
+
+# generate a heap dump when an allocation from the Java heap fails; heap dumps
+# are created in the working directory of the JVM unless an alternative path is
+# specified
+-XX:+HeapDumpOnOutOfMemoryError
+
+# exit right after heap dump on out of memory error. Recommended to also use
+# on java 8 for supported versions (8u92+).
+9-:-XX:+ExitOnOutOfMemoryError
+
+# specify an alternative path for heap dumps; ensure the directory exists and
+# has sufficient space
+-XX:HeapDumpPath=data
+
+# specify an alternative path for JVM fatal error logs
+-XX:ErrorFile=logs/hs_err_pid%p.log
+
+## GC logging
+-Xlog:gc*,gc+age=trace,safepoint:file=logs/gc.log:utctime,pid,tags:filecount=32,filesize=64m
+
+```
+
+elaticsearch + kibana
+
+```yaml
+version: "3.0"
+services:
+  elasticsearch:
+    container_name: es-container
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.11.0
+    environment:
+      - xpack.security.enabled=false
+      - "discovery.type=single-node"
+    networks:
+      - es-net
+    ports:
+      - 9200:9200
+  kibana:
+    container_name: kb-container
+    image: docker.elastic.co/kibana/kibana:7.11.0
+    environment:
+      - ELASTICSEARCH_HOSTS=http://es-container:9200
+    networks:
+      - es-net
+    depends_on:
+      - elasticsearch
+    ports:
+      - 5601:5601
+networks:
+  es-net:
+    driver: bridge
+```

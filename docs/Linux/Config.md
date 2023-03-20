@@ -82,6 +82,11 @@ alias ldn="ld && dcn && cd -"
 alias ldd="ld && dcd && cd -"
 alias ldres="ld && dcres && cd -"
 alias web="cd /home/Code/web"
+alias www="cd /www/wwwroot"
+# ============ laravel ===================
+alias pa="php artisan"
+alias paqc="pa queue:clear"
+alias paqw="pa queue:work"
 # ============= zsh-autosuggestions ==============
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```
@@ -491,4 +496,30 @@ Commands
 | `PlugStatus`                        | Check the status of plugins                                  |
 | `PlugDiff`                          | Examine changes from the previous update and the pending changes |
 | `PlugSnapshot[!] [output path]`     | Generate script for restoring the current snapshot of the plugins |
+
+# centos8替换源
+
+```bash
+cd  /etc/yum.repos.d/ &&
+rm -rf ./*.repo &&
+wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo &&
+yum clean all && yum makecache
+```
+
+# 子管理员权限
+
+```
+sudo vim /etc/sudoers
+=======================
+root    ALL=(ALL)   ALL
+orangbus    ALL=(ALL)   ALL
+```
+
+# chmod 用法
+
+```
+chmod -R 777 dirname 
+```
+
+
 

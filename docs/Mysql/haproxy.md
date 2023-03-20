@@ -79,8 +79,6 @@ listen  proxy-mysql
     option  tcpka
 ```
 
-
-
 ## 创建容器
 
 ```
@@ -94,8 +92,6 @@ haproxy
 // 进入haproxy容器启动haproxy
 haproxy -f paht/to/haproxy.cfg
 ```
-
-
 
 ## haproxy连接
 
@@ -299,7 +295,6 @@ listen rabbitmq_cluster
 	#balance source //ip
 	
 	balance roundrobin
-	
         server node1 127.0.0.1:5673 check inter 5000 rise 2 fall 2
         server node2 127.0.0.1:5674 check inter 5000 rise 2 fall 2
 

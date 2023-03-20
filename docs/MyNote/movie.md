@@ -136,6 +136,17 @@ location /admin {
 
 
 
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=movie
+DB_USERNAME=movie
+DB_PASSWORD=mAGTMyKpjx8Hj2Dz
+```
+
+
+
 
 
 

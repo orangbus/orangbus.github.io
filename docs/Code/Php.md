@@ -660,6 +660,25 @@ let str = '<?php echo implode(",",$response_str); ?>';
 let str_to_array = str.split(",");
 ```
 
+##  内容过滤
+
+```php
+public function filterScript(string $content="")
+    {
+     $content =preg_replace('/<script[\s\S]*?<\/script>/i', '', $content);
+        return  preg_replace( "@<(.*?)>@is", "", $content );
+    
+    	// or
+        $content = preg_replace( "@<script(.*?)</script>\\n@is", "", $content );
+        $content = preg_replace( "@<iframe(.*?)</iframe>\\n@is", "", $content );
+        $content = preg_replace( "@<style(.*?)</style>\\n@is", "", $content );
+        $content = preg_replace( "@<(.*?)>@is", "", $content );
+        //# 代表换行
+        $content =str_replace("#","<br>",$content);
+        return $content;
+    }
+```
+
 
 
 # 函数工具
@@ -763,6 +782,21 @@ copy("/temp/avatar.png","/home/code/avatar.png");
 ```
 
 tip: 若是不存在，则写入；目标路径下的文件若是存在，则覆盖写入
+
+# m3u8文件制作
+
+格式
+
+```m3u
+#EXTM3U (固定格式)
+#EXTINF:-1,频道名称
+频道直播地址.m3u8
+
+#EXTINF:-1,频道名称
+频道直播地址.m3u8
+```
+
+
 
 
 

@@ -1,11 +1,29 @@
 ---
 title: Minikube入门教程
 ---
+# 安装kubelet kubeadm kubectl
+
+[https://kubernetes.io/zh-cn/docs/setup/production-environment/tools/kubeadm/install-kubeadm/](https://kubernetes.io/zh-cn/docs/setup/production-environment/tools/kubeadm/install-kubeadm/ )  
+
+```sh
+apt-get update && apt-get install -y apt-transport-https
+curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - 
+cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
+deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
+EOF
+
+apt-get update
+apt-get install -y kubelet kubeadm kubectl
+
+## 另外，你也可以指定版本安装
+## apt-get install kubectl=1.21.3-00 kubelet=1.21.3-00 kubeadm=1.21.3-00
+```
+
 # minikube
 
 ## 安装
 
-minikube
+minikube: [https://minikube.sigs.k8s.io/docs/start](https://minikube.sigs.k8s.io/docs/start) 
 
 ```bash
 sudo pacman -S nimikube
@@ -22,8 +40,8 @@ minikube start --driver=virtualbox /
 minikube start --vm-driver=virtualbox /
 --image-mirror-country=cn /
 --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers /
---iso-url=https://kubernetes.oss-cn-hangzhou.aliyuncs.com/minikube/iso/minikube-v1.7.3.iso --registry-mirror=https://reg-mirror.qiniu.com
-
+--iso-url=https://kubernetes.oss-cn-hangzhou.aliyuncs.com/minikube/iso/minikube-v1.7.3.iso /
+--registry-mirror=https://reg-mirror.qiniu.com
 ```
 
 - `--vm-driver` 如果不写会自动检测，可选值 virtualbox, vmwarefusion, hyperv, vmware
@@ -47,6 +65,11 @@ preloaded-images-k8s-v1-v1.17.3-docker-overlay2.tar.lz4: https://storage.googlea
 minikube start --image-mirror-country=cn --registry-mirror=https://registry.docker-cn.com
 ## or 
 minikube start --vm-driver=virtualbox --image-mirror-country=cn --registry-mirror=https://reg-mirror.qiniu.com
+
+minikube start --image-mirror-country='cn' --image-repository='registry.cn-hangzhou.aliyuncs.com/google_containers'
+
+minikube start --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers --image-mirror-country=cn --extra-config=kubelet.cgroup-driver=systemd
+
 ```
 
 ## 图形化管理界面
@@ -101,12 +124,6 @@ service去关联 pod ，也就是pod和pod之间沟通的桥梁
 ```bash
 kubectl exec -it busybox-pod sh
 ```
-
-
-
-
-
-
 
 ## service
 
@@ -176,11 +193,7 @@ kubectl delete services nginx-deployment
 
 ## K8s网络
 
-![image-20210723210018898](/home/orangbus/Nutstore Files/docs/public/images/demo.doc)
-
 ## service
-
-![image-20210723211038980](/home/orangbus/Nutstore Files/docs/public/images/image-20210723211038980.png)
 
 
 

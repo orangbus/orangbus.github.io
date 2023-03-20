@@ -8,15 +8,136 @@ sidebar: auto
 
 > <span style="color:red;">更多Linux配置请参考：</span><https://github.com/orangbus/Tool
 
-## 在线工具
+# 在线工具
 
 php在线调试：<http://php.jsrun.net>
 
-## Linux快捷键
+# Linux快捷键
 
 - `Ctrl + r` 搜索匹配历史执行过的命令。
 
-## Linux 如何开放端口和关闭端口
+# nginx日志分析工具:GoAccess
+
+## 前期准备
+
+```bash
+# arch | manjaro
+sudo pacman -S goaccess
+
+# cnetos
+yum install epel-release
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+
+yum install geoip
+```
+
+## 安装GoAccess
+
+```bash
+wget https://tar.goaccess.io/goaccess-1.6.3.tar.gz
+tar -xzvf goaccess-1.6.3.tar.gz
+cd goaccess-1.6.3/
+./configure --enable-utf8 --enable-geoip=mmdb
+make && make install
+```
+
+## 配置日志格式
+
+配置文件位于：`/usr/local/etc/goaccess/goaccess.conf` 
+
+manjaro : `/etc/goaccess` 
+
+cemtos8: `/usr/local/etc` 
+
+```
+time-format %H:%M:%S
+date-format %d/%b/%Y
+log-format %h - %^ [%d:%t %^]; "%r" %s %b "%R" - %^"%u" - %^ %T
+```
+
+## 使用终端分析日志结果
+
+```
+goaccess -a -d -f /var/log/nginx/access.log
+```
+
+## 以HTML格式输出分析结果
+
+```bash
+LANG="zh_CN.UTF-8" bash -c "goaccess /data/log/nginx/access.log -o /usr/share/nginx/html/goaccess.html  --real-time-html --time-format='%H:%M:%S' --date-format='%d/%b/%Y' --log-format=COMBINED"
+```
+
+```bash
+goaccess -a -d -f /var/log/nginx/access.log -o /data/www/goaccess/html/report-项目名称.html
+
+# 案例演示
+goaccess -a -d -f /home/orangbus/Code/Server/nginx/error/laravel_access.log -o /tmp/report.html
+
+goaccess -a -d -f /www/wwwlogs/deepin.com.log -o /www/wwwroot/weblog.com/deepin.html
+
+goaccess -a -d -f /home/orangbus/Logs/plat.xyekatu.com.log -o /home/orangbus/Logs/plat-xyekatu.html
+goaccess -a -d -f /home/orangbus/Logs/www.ynneea.com.log -o /home/orangbus/Logs/ynneea.html
+goaccess -a -d -f /home/orangbus/Logs/www.ynzhuobo.com.log -o /home/orangbus/Logs/ynzhuobo.html
+
+goaccess -a -d -f /www/wwwlogs/wugou-admin.com.log -o /www/wwwroot/statistics.com/wugou-admin.html
+goaccess -a -d -f /www/wwwlogs/wugou-web.com.log -o /www/wwwroot/statistics.com/wugou-web.html
+
+# 高职大专访问统计
+goaccess -a -d -f /www/wwwroot/nginx_log/gaozhidazhuan.com.log -o 	/www/wwwroot/nginx_log/html/gaozhi/index.html
+```
+
+# nginx配置密码访问
+
+1、安装httpd-tools
+
+```bash
+yum install  httpd-tools
+```
+
+2、生成密码到指定目录
+
+```bash
+htpasswd -c /path/.htpasswd user_name
+
+# 案例
+htpasswd -c /www/password/.htpasswd orangbus
+```
+
+3、修改Nginx配置文件，添加授权访问
+
+```nginx
+server {
+    listen       80;
+    server_name  bicycle.umdzz.cn;
+	#提示信息
+    auth_basic "Please Input Password..."; 
+	#用户密码文件存放路径
+    auth_basic_user_file /www/password; 
+    location / {
+        #列表
+        autoindex on;
+        #隐藏真实大小，以M或G显示
+        autoindex_exact_size off;
+        #显示时间
+        autoindex_localtime on;
+  }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+
+    location ~ /\.ht {
+        deny  all;
+    }
+}
+```
+
+
+
+
+
+# Linux 如何开放端口和关闭端口
 
 打开端口号
 
@@ -36,7 +157,7 @@ iptables -A OUTPUT -p tcp --dport 端口号-j DROP
 service iptables save
 ```
 
-## you-get 使用技巧
+# you-get 使用技巧
 
 首先安装pip，更多安装方法参考[菜鸟](https://www.runoob.com/w3cnote/python-pip-install-usage.html)
 
@@ -59,7 +180,7 @@ pip3 -v
 pip3 install you-get
 ```
 
-### 如何下载bilibili视频,并指定清晰度
+## 如何下载bilibili视频,并指定清晰度
 
 下载单个视频 (直接跟上视频的地址就可以)
 
@@ -124,7 +245,7 @@ you-get -F dash-flv https://www.bilibili.com/video/BV1xxxxxx
 you-get -l -F dash-flv https://www.bilibili.com/video/avxxxxxx
 ```
 
-### 如何断点下载
+## 如何断点下载
 
 假如我们的下载的视频一共有 100 集，但是 you-get 下载到 50集就停止了，那我们应该怎么从 51集开始下载呢？
 
@@ -140,7 +261,7 @@ https://www.bilibili.com/video/BVxxxxxx?p=57
 you-get -l -F dash-flv https://www.bilibili.com/video/avxxxxxx?p=51
 ```
 
-## 通过lrzsz与Linux传文件
+# 通过lrzsz与Linux传文件
 
 安装
 
@@ -162,7 +283,7 @@ sz fileName.txt
 
 详细：<https://birdteam.net/4479>
 
-## SSh远程链接工具
+# SSh远程链接工具
 
 FinalShell（推荐）：<http://www.hostbuf.com/>
 
@@ -172,7 +293,7 @@ Git (必备)：<https://git-scm.com/>
 
 babun：<http://babun.github.io/>
 
-## linux开启ssh连接
+# linux开启ssh连接
 
 - debian
 
@@ -190,7 +311,7 @@ babun：<http://babun.github.io/>
   重启ssh： sudo systemctl restartt sshd
   ```
 
-## 压力测试
+# 压力测试
 
 > webbench -c 并发数 -t 运行测试时间 URL 【http://www.baidu.com/】
 
@@ -198,15 +319,15 @@ babun：<http://babun.github.io/>
 webbench -c 100 -t 10 http://www.baidu.com/
 ```
 
-## 测速脚本
+# 测速脚本
 
 ```bash
 bash <(curl -Lso- https://git.io/superspeed)
 ```
 
-## 如何快速访问Github
+# 如何快速访问Github
 
-### IP解析
+## IP解析
 
 作为一个小白，经常需要访问 `github` 来学习，但是呢经常打不开这个网站，或者clone的时候网速很慢，这个时候==怎么解决呢？==
 
@@ -239,7 +360,7 @@ sudo vim /etc/hosts
 
 其它国外的网站是不是也可以类似的操作？比如 google? youtube? .........
 
-### Github镜像站
+## Github镜像站
 
 假如以上方法还是很慢，或者不可行，你可以尝试采用下面的方法
 
@@ -253,13 +374,13 @@ sudo vim /etc/hosts
 
 先睹为快：https://github.com.cnpmjs.org/orangbus/tool
 
-### SwitchHosts
+## SwitchHosts
 
 > https://github.com/oldj/SwitchHosts/releases
 
 具体怎么使用就查看官网文档吧。
 
-## ubuntu install brew
+# ubuntu install brew
 
 > https://docs.brew.sh/Homebrew-on-Linux
 
@@ -280,13 +401,13 @@ brew doctor
 brew install hello
 ```
 
-## 删除站点的 .user.ini 文件
+# 删除站点的 .user.ini 文件
 
 ```bash
 sudo chattr -i .user.ini
 ```
 
-## 推荐Uinux发行版-常用Debian
+# 推荐Uinux发行版-常用Debian
 
 Manjaro：<https://manjaro.org/>
 
@@ -296,7 +417,7 @@ Ubuntu：<https://www.ubuntu.com/index_kylin>
 
 Centos：<https://www.centos.org/>
 
-## 扶墙脚本
+# 扶墙脚本
 
 233Blog:https://233blog.com
 
@@ -309,7 +430,7 @@ Centos：<https://www.centos.org/>
 bash <(curl -s -L https://git.io/v2ray.sh)
 ```
 
-## crontab使用
+# crontab使用
 
 > 语法检查网站：https://crontab.guru/
 
@@ -355,9 +476,9 @@ crontab -e
 /`date +%Y-%m-%d`.sql
 ```
 
-## Shell笔记
+# Shell笔记
 
-### 颜色
+## 颜色
 
 ```bash
 #!/usr/bin/env bash
@@ -388,7 +509,7 @@ function white(){
 }
 ```
 
-### 初始化工具安装
+## 初始化工具安装
 
 ```bash
 #工具安装
@@ -406,13 +527,13 @@ install_pack() {
 }
 ```
 
-### root权限检测
+## root权限检测
 
 ```bash
 [ $(id -u) != "0" ] && { echo "${CFAILURE}Error: You must be root to run this script${CEND}"; exit 1; }
 ```
 
-#### sed 命令配合 for 循环方式
+## sed 命令配合 for 循环方式
 
 假如我们现在有一堆文件，文件名格式是 test01.txt、test02.txt、test03.txt、test04.txt 也就是前半部分是英文，后半部分是数字。我们现在想将文件名改成 test-01.txt 这种形式。这次，我们用 sed 命令来完成这个需求。
 
@@ -438,7 +559,7 @@ do
 done
 ```
 
-## Debian卸载apache
+# Debian卸载apache
 
 一般80端口被占用会和我们正在安装的程序产生冲突。这时候我们可以使用。
 
@@ -470,7 +591,7 @@ sudo apt-get install apache2
 sudo /etc/init.d/apache2 restart
 ```
 
-## 服务器压力测试
+# 服务器压力测试
 
 -c : 并发数
 
@@ -558,7 +679,7 @@ Percentage of the requests served within a certain time (ms)
 
 ```
 
-## linux查看文件
+# linux查看文件
 
 ```bash
 tail -f path/filename.txt
@@ -566,7 +687,7 @@ tail -f path/filename.txt
 
 # linux文件清理
 
-## 查看当前目录下的文件磁盘占用
+# 查看当前目录下的文件磁盘占用
 
 ```bash
  du -lh --max-depth=1
@@ -820,4 +941,169 @@ sudo hping3 -c 999999999 -d 150 -S -w 64 -p 8082 -i u1000 1.14.63.64
 sudo hping3 --tcp-connect --rate=90000 -c 900000 -q 1.14.63.64
 sudo  hping3 -c 10000 -d 120 --icmp -w 64 -p 80 -i u1000 --flood --rand-sourcet 1.14.63.64
 ```
+
+# 挂在后台-nohup
+
+```bash
+nohup m3d -f=./2.txt 2>&1 &
+```
+
+查看日志
+
+```bash
+tail -fn 20 nohup.out
+```
+
+查看进行
+
+```bash
+ps aux |grep m3d
+
+orangbus  5371  0.0  0.0 112828  1000 pts/4    S+   11:11   0:00 grep --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn --exclude-dir=.idea --exclude-dir=.tox m3d
+orangbus 18113 34.5  1.2 780084 96212 ?        SNl  3月01 335:40 m3d -f=./29-1.txt # 这里是后台挂起的命令
+```
+
+关闭进程
+
+```bash
+kill -9 18113
+```
+
+# linux磁盘挂载
+
+查看磁盘
+
+```bash
+fdisk -l
+
+fdisk /dev/vdb # 根据提示设置，默认可以一路回车到头
+
+# 格式化分区
+mkfs.ext4 /dev/vdb
+
+# 创建一个目录
+mkdir /data
+
+# 挂载磁盘
+mount /dev/vdb /data
+
+# 开机自动挂载
+vim /etc/fstab
+
+/dev/vdb(磁盘分区) /data（挂载目录） ext4（文件格式）defaults 0 0
+
+	
+```
+
+# windows自带局域网扫描IP
+
+```shell
+arp -a
+```
+
+# 刷新 DNS 缓存
+
+```shell
+// Mac用户
+sudo killall -HUP mDNSResponder
+
+// Win
+ipconfig /flushdns
+```
+
+# 移动ntfs硬盘挂载
+
+查看磁盘
+
+```shell
+fdisk -l
+-----------------------
+磁盘 /dev/sdb：1000.2 GB, 1000204885504 字节，1953525167 个扇区
+Units = 扇区 of 1 * 512 = 512 bytes
+扇区大小(逻辑/物理)：512 字节 / 4096 字节
+I/O 大小(最小/最佳)：4096 字节 / 4096 字节
+磁盘标签类型：dos
+磁盘标识符：0x2268b4ff
+
+   设备 Boot      Start         End      Blocks   Id  System
+/dev/sdb1   *        2048   209717247   104857600    7  HPFS/NTFS/exFAT
+/dev/sdb2       209717248   904944106   347613429+   f  W95 Ext'd (LBA)
+/dev/sdb3       419432448   695228906   137898229+   7  HPFS/NTFS/exFAT
+/dev/sdb4       904944107  1953521663   524288778+   7  HPFS/NTFS/exFAT
+Partition 4 does not start on physical sector boundary.
+/dev/sdb5       209717311   419432447   104857568+   7  HPFS/NTFS/exFAT
+```
+
+创建挂载目录 (2 挂载不上)
+
+```shell
+mkdir -p sdb1 sdb3 sdb4 sdb5
+```
+
+安装 `ntfs-3g` 
+
+```shell
+sudo yum install ntfs-3g
+```
+
+挂载磁盘
+
+```shell
+sudo mount -t ntfs-3g 磁盘 本地目录
+--------------------------------
+sudo mount -t ntfs-3g /dev/sdb1 /home/orangbus/sdb1
+# 以此类推
+```
+
+卸载
+
+```shell
+sudo unmount  本地目录
+--------------------------------
+sudo unmount /home/orangbus/sdb1
+```
+
+开机自动挂载
+
+```shell
+sudo vim /etc/fstab
+# 添加挂载
+/dev/sdb1 /home/orangbus/sdb1 ntfs-3g default 0 0
+/dev/sdb2 /home/orangbus/sdb2 ntfs-3g default 0 0
+/dev/sdb3 /home/orangbus/sdb3 ntfs-3g default 0 0
+/dev/sdb4 /home/orangbus/sdb4 ntfs-3g default 0 0
+```
+
+# Centos 7 学习之静态IP设置
+
+```shell
+vim /etc/sysconfig/network-scripts/ifcfg-eth0
+```
+
+```
+BOOTPROTO="static" #dhcp改为static 
+ONBOOT="yes" #开机启用本配置
+IPADDR=192.168.2.200 # 需要固定的静态IP
+GATEWAY=192.168.2.1 #默认网关
+NETMASK=255.255.255.0 #子网掩码
+DNS1=192.168.2.1 #DNS 配置
+```
+
+重启
+
+```shell
+service network restart
+```
+
+
+
+
+
+
+
+
+
+
+
+
 

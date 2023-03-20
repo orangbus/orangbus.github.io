@@ -1,0 +1,36 @@
+# bootstrap常用样式
+
+## 固定头部
+
+```
+fixed-top
+```
+
+# css实现超出屏幕宽度横向滚动
+
+```html
+  <div class="scrollTest">
+      <div class="box" v-for="(item, index) in list"></div>
+  </div>
+
+<style>
+.scrollTest{
+    height: 300px;
+    white-space: nowrap;
+    overflow-x: scroll;
+    // 隐藏滚动条
+    &::-webkit-scrollbar{
+      display: none;
+    }
+    .box{
+      display: inline-block;
+      width: 150px;
+      height: 200px;
+      border: 1px solid red;
+      margin-left: 15px;
+      box-sizing: border-box;
+    }
+  }
+</style>
+```
+

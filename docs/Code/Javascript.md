@@ -3,6 +3,22 @@ title: Javascript Note
 sidebar: auto
 ---
 
+# 链接跳转QQ加好友
+
+1.以下链接可直接跳转至QQ添加好友界面
+
+```
+tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=QQ&website=www.oicqzone.com
+```
+
+2.以下链接可直接跳转至QQ临时会话界面
+
+```
+tencent://message/?Menu=yes&uin=QQ&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45
+```
+
+将上述链接中的“QQ”替换为QQ号即可。
+
 # Js获取当前日期时间及其它操作
 
 > https://www.cnblogs.com/carekee/articles/1678041.html

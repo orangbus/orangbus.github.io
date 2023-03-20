@@ -683,3 +683,41 @@ docker rmi -f  `docker images | grep '<none>' | awk '{print $3}'`
 docker system prune -a --volumes
 ```
 
+# 修改docker默认存储位置
+
+查看存储位置: ` /var/lib/docker` 
+
+```bash
+docker info | grep "Docker Root Dir"
+```
+
+前置工作
+
+备份来源的数据
+
+```
+cp -r /var/lib/docker /data/docker
+```
+
+停止docker
+
+```bash
+systemctl stop docker
+```
+
+修改配置文件`/etc/docker/daemon.json`
+
+```json
+{
+    ...
+    "data-root": "/data/docker/", # 新路径存储位置
+    ...
+}
+```
+
+重启
+
+```bash
+systemctl restart docker
+```
+

@@ -20,7 +20,9 @@ module.exports = [
 		items: [
 			{text: "配置文件", link: '/Linux/Config'},
 			{text: "生产工具", link: '/Linux/Tool'},
-            {text: "Linux-Web", link: "/Linux/WebNote/"},
+			{text: "应用", link: '/Linux/App'},
+			{text: "SedAwk", link: '/Linux/SedAwk'},
+			{text: "问题解答", link: '/Linux/Question'},
 			{text: 'Manjaro入门到生产', link: 'https://github.com/orangbus/tool'},
 			{
 				text: '开发环境', items: [
@@ -31,10 +33,10 @@ module.exports = [
 			},
 			{
 				text: 'Linux发行版', items: [
-					{text: 'Deepin', link: 'https://www.deepin.org/zh/'},
-					{text: 'Manjaro', link: 'https://manjaro.org/'},
-					{text: 'Ubuntu', link: 'https://cn.ubuntu.com/'},
 					{text: 'centos', link: 'https://www.centos.org/'},
+					{text: 'Deepin', link: 'https://www.deepin.org/zh/'},
+					{text: 'Ubuntu', link: 'https://cn.ubuntu.com/'},
+					{text: 'Manjaro', link: 'https://manjaro.org/'},
 				]
 			},
 			{

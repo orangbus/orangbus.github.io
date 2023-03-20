@@ -182,3 +182,26 @@ start "" "D:\Program Files (x86)\Tencent\WeChat\WeChat.exe"
 start "" "D:\Program Files (x86)\Tencent\WeChat\WeChat.exe"
 ```
 
+## 清理C盘的3种办法
+
+## 1、使用电脑管家快速清理
+
+## 2、转移C盘安装软件到其他盘
+
+# 3、修改C盘 appData 位置
+
+```
+计算机\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders
+# 以及
+计算机\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders
+```
+
+![image-20221208091757212](README.assets/image-20221208091757212.png) 
+
+修改后
+
+![image-20221208092148738](README.assets/image-20221208092148738.png) 
+
+接着把 `C:\Users\$USER$\AppData` 复制到你自定义为位置，重启电脑即可
+
+对于c盘的文件，你可以查看你改动过的目录，把对应的目录文件删除即可，其他没有改动的文件就保持原来的。

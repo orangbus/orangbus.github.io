@@ -272,3 +272,50 @@ that.fields = fields; //引用的是不同的数组
         }
 ```
 
+# Vue3
+
+## vite 创建项目
+
+```bash
+yarn create vite app-name --templet=vue
+```
+
+[https://cn.vitejs.dev/](https://cn.vitejs.dev/)
+
+## vue-router
+
+```shell
+yarn add vue-router@4
+```
+
+## pain
+
+```bash
+```
+
+
+
+## axios
+
+```
+yarn add axios
+```
+
+拦截器
+
+```javascript
+```
+
+## 图标
+
+```bash
+@mdi/font
+```
+
+```javascript
+```
+
+
+
+
+

@@ -242,3 +242,34 @@ https://github.com/sofish/Typo.css
 
 
 
+# 图片跨域
+
+```html
+<meta name="referrer" content="no-referrer" />
+```
+
+# 网站优化配置
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>《Laravel 9 中文文档》 | Laravel China 社区</title>
+<meta name="description" content="我们是高品质的 Laravel 开发者社区，致力于为 Laravel 开发者提供一个分享创造、结识伙伴、协同互助的论坛。" />
+<meta name="keywords" content="laravel,laravel论坛,laravel社区,laravel教程,laravel视频,laravel开源,laravel新手,laravel5" />
+<meta name="author" content="Summer" />
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="mobile-agent" content="format=html5; url= https://m.chinaz.com/">
+<meta name="mobile-agent" content="format=wml;url= https://m.chinaz.com/">
+<meta name="mobile-agent" content="format=xhtml;url= https://m.chinaz.com/">
+<link rel="alternate" media="only screen and(max-width:640px)" href="https://m.chinaz.com/">
+
+<meta name="applicable-device" content="pc">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+
+
