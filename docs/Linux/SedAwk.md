@@ -200,6 +200,41 @@ find ./ -type f -size -100M | xargs rm -rf
 find ./ -name “*.mp3” |xargs rm -rf   
 ```
 
+示例
+
+```
+# 查询 当前目录大于10M的文件，并打印出来
+find . -type f -size +10M | xargs ls -ahl
+```
+
+## 搜索匹配某个目录下的文件，并且删除
+
+```
+find ./ -name "my*" -delete
+```
+
+
+
+### 过滤进程杀死
+
+```bash
+ps aux | grep "php artisan queue:work" | awk '{print $2}' | xargs kill -9
+```
+
+# 文件查询
+
+```bash
+grep -n "查询字符串" 文件ming.txt
+```
+
+# 文件删除
+
+```bash
+sed -i '11,15d' 文件名.txt
+```
+
+此命令将直接在example.txt中删除第5行到第10行的数据。请注意，在使用-i选项时，请确保在执行此命令之前备份原始文件。
+
 
 
 

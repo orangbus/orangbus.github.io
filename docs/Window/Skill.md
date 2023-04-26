@@ -1,3 +1,7 @@
+---
+title: window 使用技巧
+---
+
 ## window下如何给git bash添加别名
 
 **方法一：**

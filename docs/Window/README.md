@@ -1,11 +1,8 @@
 ---
-
 sidebar: auto
 title: windows
 desc: 下载 ，资源 ， 电脑辅助工具 ， 动态桌面 ， 录屏
 keyword: 下载工具 ，资源 ， 电脑辅助工具 ， 动态桌面 ， 录屏，电脑辅助工具，视频下载，免费ppt，素材
-date: 2019-06-04 14:56:23
-
 ---
 
 ## 在线工具
@@ -196,11 +193,11 @@ start "" "D:\Program Files (x86)\Tencent\WeChat\WeChat.exe"
 计算机\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders
 ```
 
-![image-20221208091757212](README.assets/image-20221208091757212.png) 
+![image-20221208091757212](./README.assets/image-20221208091757212.png) 
 
 修改后
 
-![image-20221208092148738](README.assets/image-20221208092148738.png) 
+![image-20221208092148738](./README.assets/image-20221208092148738.png) 
 
 接着把 `C:\Users\$USER$\AppData` 复制到你自定义为位置，重启电脑即可
 

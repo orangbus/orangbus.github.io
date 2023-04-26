@@ -1,8 +1,5 @@
 ---
-/home/orangbus/下载/SH Key 突然失效问题解答及处理办法.mdtitle: Linux-Application
-desc: SSh远程链接工具、推荐Uinux发行版、扶墙脚本、google上网
-keyword: orangbus.cn
-date: 2019-06-04 14:56:23
+title: Linux工具
 ---
 
 > <span style="color:red;">更多Linux配置请参考：</span><https://github.com/orangbus/Tool
@@ -80,9 +77,6 @@ goaccess -a -d -f /home/orangbus/Logs/www.ynzhuobo.com.log -o /home/orangbus/Log
 
 goaccess -a -d -f /www/wwwlogs/wugou-admin.com.log -o /www/wwwroot/statistics.com/wugou-admin.html
 goaccess -a -d -f /www/wwwlogs/wugou-web.com.log -o /www/wwwroot/statistics.com/wugou-web.html
-
-# 高职大专访问统计
-goaccess -a -d -f /www/wwwroot/nginx_log/gaozhidazhuan.com.log -o 	/www/wwwroot/nginx_log/html/gaozhi/index.html
 ```
 
 # nginx配置密码访问

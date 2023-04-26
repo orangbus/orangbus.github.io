@@ -47,31 +47,67 @@ ps grep | elasticsearch / kill pid
 
 安装可视化工具：elasticsearch-head
 
-# elaticsearch with docker-composer 
+# 源码安装
+
+下载：
+
+```bash
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.6.2-linux-x86_64.tar.gz
+
+# 解压
+tar -xzf elasticsearch-8.6.2-linux-x86_64.tar.gz
+```
+
+
+
+运行
+
+```bash
+# 创建一个es用户
+useradd es
+
+# 切换到es用户
+su es
+
+# 后台启动
+./bin/elasticsearch -d -p pid
+```
+
+```
+ # 最后会输出这些东西，需要保存一下
+ 
+ Password for the elastic user (reset with `bin/elasticsearch-reset-password -u elastic`):
+  9H5YDoVDwfBU1eSsUD_i
+
+ℹ️  HTTP CA certificate SHA-256 fingerprint:
+  b0bd5b1e1b35b53907e4054c393d14939f64a815309a4c22d09bd9f7a13f4ce8
+
+ℹ️  Configure Kibana to use this cluster:
+• Run Kibana and click the configuration link in the terminal when Kibana starts.
+• Copy the following enrollment token and paste it into Kibana in your browser (valid for the next 30 minutes):
+  eyJ2ZXIiOiI4LjYuMiIsImFkciI6WyIxMC4wLjAuMzo5MjAwIl0sImZnciI6ImIwYmQ1YjFlMWIzNWI1MzkwN2U0MDU0YzM5M2QxNDkzOWY2NGE4MTUzMDlhNGMyMmQwOWJkOWY3YTEzZjRjZTgiLCJrZXkiOiJ6UDNKVkljQkhDTzJPU29sN3ZPNzp1b0ZkT0lOeVF1LVVLcTlYaUdOZjdRIn0=
+
+ℹ️ Configure other nodes to join this cluster:
+• Copy the following enrollment token and start new Elasticsearch nodes with `bin/elasticsearch --enrollment-token <token>` (valid for the next 30 minutes):
+  eyJ2ZXIiOiI4LjYuMiIsImFkciI6WyIxMC4wLjAuMzo5MjAwIl0sImZnciI6ImIwYmQ1YjFlMWIzNWI1MzkwN2U0MDU0YzM5M2QxNDkzOWY2NGE4MTUzMDlhNGMyMmQwOWJkOWY3YTEzZjRjZTgiLCJrZXkiOiJ6djNKVkljQkhDTzJPU29sN3ZPODpXbTFQZzE5TFRkYVIzOU1GMUNCT0x3In0=
+
+  If you're running in Docker, copy the enrollment token and run:
+  `docker run -e "ENROLLMENT_TOKEN=<token>" docker.elastic.co/elasticsearch/elasticsearch:8.6.2`
+
+```
+
+
+
+# docker-composer 
 
 ```
 # .env
-# Version of Elastic products
-STACK_VERSION=8.5.2
-# Password for the 'elastic' user (at least 6 characters)
-ELASTIC_PASSWORD=admin666
-
-# Password for the 'kibana_system' user (at least 6 characters)
-KIBANA_PASSWORD=admin666
-
-# Set the cluster name
-CLUSTER_NAME=docker-cluster
-
-# Set to 'basic' or 'trial' to automatically start the 30-day trial
-LICENSE=basic
-#LICENSE=trial
-
-# Port to expose Elasticsearch HTTP API to the host
+STACK_VERSION=8.6.1
 ES_PORT=9200
-#ES_PORT=127.0.0.1:9200
-
-# Increase or decrease based on the available host memory (in bytes)
-MEM_LIMIT=1073741824
+KIBANA_PORT=5601
+ELASTIC_PASSWORD=admin666
+# cerebro 监控
+cerebro_port=5000
 ```
 
 ```yaml
@@ -81,12 +117,6 @@ networks:
   backend:
     driver: bridge
 
-volumes:
-  es_data:
-    driver: local
-  kibana_data:
-    driver: local
-
 services:
   es:
     image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
@@ -94,29 +124,64 @@ services:
     restart: always
     environment:
       - discovery.type=single-node
-      - CLUSTER.NAME=${CLUSTER_NAME}
-      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
+      - ELASTIC_PASSWORD=elastic666 # elastic密码
     volumes:
-      - es_data:/usr/share/elasticsearch/data
+      - ./elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:rw
+      - ./elasticsearch/jvm.options:/usr/share/elasticsearch/config/jvm.options:rw
       - ./elasticsearch/plugins:/usr/share/elasticsearch/plugins
+      - ./data/elasticsearch:/usr/share/elasticsearch/data
     ports:
       - ${ES_PORT}:9200
       - "9300:9300"
     networks:
       - backend
-    mem_limit: ${MEM_LIMIT}
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:${STACK_VERSION}
+    volumes:
+      - ./data/kibana:/usr/share/kibana/data
+      - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml:rw
+    ports:
+      - ${KIBANA_PORT}:5601
+    environment:
+      - SERVERNAME=kibana
+      - ELASTICSEARCH_URL=http://es:9200
+    depends_on:
+      - es
+    links:
+      - es
+    networks:
+      - backend
+
+  cerebro:
+    image: lmenezes/cerebro
+    container_name: cerebro
+    restart: always
+    ports:
+      - "${cerebro_port}:9000"
+    links:
+      - es
+    depends_on:
+      - es
+    networks:
+      - backend
 ```
 
+# 密码设置
 
+```bash
+docker-compose exec es bash
 
-
+/bin/elasticsearch-reset-password -u elastic -i # 自定义密码：elastic
+/bin/elasticsearch-reset-password -u kibana_system -i # 自定义kibana_system的密码：kibana666
+```
 
 # 安装kibana
+
+```shell
+dc up -d kibana
+```
 
 ## 插件
 
@@ -132,9 +197,10 @@ services:
 
 ```bash
 /bin/elasticsearch-plugin install analysis-icu
+bin/kibana-plugin install plugin_location
+bin/kibana-plugin list
+bin/kibana-plugin remove
 ```
-
-
 
 ## ik分词器
 
@@ -206,6 +272,36 @@ docker-compose exec elasticsearch /usr/share/elasticsearch/bin/elasticsearch-plu
 ```bash
 
 ```
+
+## Kibana配置
+
+启动
+
+```
+dc up -d kibana
+```
+
+查看kibaba日志，这个时候会提示你访问 `Go to http://0.0.0.0:5601/?code=679455 to get started` 进行初始化
+
+![image-20220812142948774](elasticsearch.assets/image-20220812142948774.png) 
+
+打开浏览器：输入提示的地址：`http://0.0.0.0:5601/?code=679455` 
+
+![image-20220812143204206](elasticsearch.assets/image-20220812143204206.png) 
+
+![image-20220812143341658](elasticsearch.assets/image-20220812143341658.png) 
+
+这个时候需要进行验证，这里的验证码可以去kibana日志里面去找到
+
+![image-20220812143836769](elasticsearch.assets/image-20220812143836769.png)  
+
+![image-20220812143851283](elasticsearch.assets/image-20220812143851283.png) 
+
+输入完成后，可能出现一下情况，重启一下整个应用就好了，或者看看是不是因为kibana配置文件没有权限。
+
+![image-20220812144017187](elasticsearch.assets/image-20220812144017187.png) 
+
+至此kibaba就配置成功了。
 
 # curd
 
@@ -296,259 +392,161 @@ GET user/_search
 }
 ```
 
+# Elasticsearch做成systemctl服务
 
+## 一、添加elasticsearch基本信息的配置文件
 
-# 安装kibana
-
-
-
-
-
-## 插件安装
-
-```bash
-bin/kibana-plugin install plugin_location
-bin/kibana-plugin list
-bin/kibana-plugin remove
+```
+vim /etc/sysconfig/elasticsearch-1   #elasticsearch-1 这个名字任意定义，因为我服务器中有多个es所以加-1进行命名。
 ```
 
+将下列内容添加到elasticsearch-1中
 
+```
+#es的目录文件地址
+ES_HOME=/data/es-cluster/elasticsearch-7.9.2-1
+#Java的目录文件地址（这里我就用es7中自带的jdk）
+JAVA_HOME=/data/es-cluster/elasticsearch-7.9.2-1/jdk
+#es中的config文件的地址  
+ES_PATH_CONF=/data/es-cluster/elasticsearch-7.9.2-1/config
+#运行es进程的地址（这里需要注意由于es启动的时候非root用户启动 所以你配置的目录es用户要有写如的权限）
+PID_DIR=/data/es-cluster/elasticsearch-7.9.2-1/run/elasticsearch-1
+ES_STARTUP_SLEEP_TIME=5
+```
 
+## 二、编写控制elasticsearch启动的service文件
 
+```
+vim /usr/lib/systemd/system/elasticsearch-1.service   #elasticsearch-1.service这个名字根据喜好定义，后续需要这个名字来进行启动关闭。
+```
 
-# Elk环境配置
+将下列内容添加到elasticsearch-1.service中
 
+```
+[Unit]
+Description=Elasticsearch
+Documentation=http://www.elastic.co
+Wants=network-online.target
+After=network-online.target
 
+[Service]
+Environment=ES_HOME=/data/es-cluster/elasticsearch-7.9.2-1
+Environment=ES_PATH_CONF=/data/es-cluster/elasticsearch-7.9.2-1/config
+Environment=PID_DIR=/data/es-cluster/elasticsearch-7.9.2-1/run/elasticsearch-1
+EnvironmentFile=/etc/sysconfig/elasticsearch-1
+WorkingDirectory=/data/es-cluster/elasticsearch-7.9.2-1
+#启动的用户
+User=es
+#启动的用户组
+Group=es
+#启动线程地址
+ExecStart=/data/es-cluster/elasticsearch-7.9.2-1/bin/elasticsearch -p ${PID_DIR}/elasticsearch.pid
 
-## Kibana配置
+#下列这些如无特殊情况，不需要进行修改直接进行复制就行
+StandardOutput=journal
+StandardError=inherit
+
+# Specifies the maximum file descriptor number that can be opened by this process
+LimitNOFILE=65536
+
+# Specifies the maximum number of process
+LimitNPROC=4096
+
+# Specifies the maximum size of virtual memory
+LimitAS=infinity
+
+# Specifies the maximum file size
+LimitFSIZE=infinity
+
+# Disable timeout logic and wait until process is stopped
+TimeoutStopSec=0
+
+# SIGTERM signal is used to stop the Java process
+KillSignal=SIGTERM
+
+# Send the signal only to the JVM rather than its control group
+KillMode=process
+
+# Java process is never killed
+SendSIGKILL=no
+
+# When a JVM receives a SIGTERM signal it exits with code 143
+SuccessExitStatus=143
+ 
+[Install]
+WantedBy=multi-user.target
+```
+
+添加可执行权限
+
+```
+chmod +x /usr/lib/systemd/system/elasticsearch-1.service
+```
+
+重新加载systemctl服务配置文件
+
+```
+systemctl daemon-reload
+```
+
+## 三、服务开启关闭自启动
 
 启动
 
 ```
-dc up -d kibana
+systemctl start elasticsearch-1.service
 ```
 
-查看kibaba日志，这个时候会提示你访问 `Go to http://0.0.0.0:5601/?code=679455 to get started` 进行初始化
-
-![image-20220812142948774](elasticsearch.assets/image-20220812142948774.png) 
-
-打开浏览器：输入提示的地址：`http://0.0.0.0:5601/?code=679455` 
-
-![image-20220812143204206](elasticsearch.assets/image-20220812143204206.png) 
-
-![image-20220812143341658](elasticsearch.assets/image-20220812143341658.png) 
-
-这个时候需要进行验证，这里的验证码可以去kibana日志里面去找到
-
-![image-20220812143836769](elasticsearch.assets/image-20220812143836769.png)  
-
-![image-20220812143851283](elasticsearch.assets/image-20220812143851283.png) 
-
-输入完成后，可能出现一下情况，重启一下整个应用就好了，或者看看是不是因为kibana配置文件没有权限。
-
-![image-20220812144017187](elasticsearch.assets/image-20220812144017187.png) 
-
-至此kibaba就配置成功了。
-
-
-
-备份
+关闭
 
 ```
-version: "3.5"
+systemctl stop elasticsearch-1.service
+```
 
-services:
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
-    privileged: true
-    restart: always
-    volumes:
-      - ${DATA_PATH_HOST}/elasticsearch:/usr/share/elasticsearch/data:rw
-      - ./elasticsearch/plugins:/usr/share/elasticsearch/plugins:rw
-    ports:
-      - ${ES_PORT}:9200
-      - "9300:9300"
-    environment:
-      - discovery.type=single-node
-      - CLUSTER.NAME=${CLUSTER_NAME}
-      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    mem_limit: ${MEM_LIMIT}
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
+重启
+
+```
+systemctl restart elasticsearch-1.service
+```
+
+开机自启动
+
+```
+systemctl enable elasticsearch-1.service
+```
+
+# Filebeat：8.7.0
+
+```bash
+sudo rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
+```
+
+编辑 `/etc/yum.repos.d/elastic-filebeat.repo` 
+
+```
+[elastic-8.x]
+name=Elastic repository for 8.x packages
+baseurl=https://artifacts.elastic.co/packages/8.x/yum
+gpgcheck=1
+gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+autorefresh=1
+type=rpm-md
 ```
 
 ```
-// .env
+sudo yum install filebeat
 
-DATA_PATH_HOST=./data
-# Password for the 'elastic' user (at least 6 characters)
-ELASTIC_PASSWORD=admin666
-
-# Password for the 'kibana_system' user (at least 6 characters)
-KIBANA_PASSWORD=admin666
-
-# Version of Elastic products
-STACK_VERSION=8.4.3
-
-# Set the cluster name
-CLUSTER_NAME=orangbus
-
-# Set to 'basic' or 'trial' to automatically start the 30-day trial
-LICENSE=basic
-#LICENSE=trial
-
-# Port to expose Elasticsearch HTTP API to the host
-ES_PORT=9200
-#ES_PORT=127.0.0.1:9200
-
-# Port to expose Kibana to the host
-KIBANA_PORT=5601
-#KIBANA_PORT=80
-
-# Increase or decrease based on the available host memory (in bytes)
-MEM_LIMIT=1073741824
-
-# Project namespace (defaults to the current folder name if not set)
-#COMPOSE_PROJECT_NAME=myproject
+sudo systemctl enable|start filebeat
 ```
 
-```
-#elasticsearch.yml
+默认目录
 
-cluster.name: "cluster"
-network.host: 0.0.0.0
-http.cors.enabled: true
-http.cors.allow-origin: "*"
+| Type       | Description                                    | Location                  |
+| ---------- | ---------------------------------------------- | ------------------------- |
+| **home**   | Home of the Filebeat installation.             | `/usr/share/filebeat`     |
+| **bin**    | The location for the binary files.             | `/usr/share/filebeat/bin` |
+| **config** | The location for configuration files.          | `/etc/filebeat`           |
+| **data**   | The location for persistent data files.        | `/var/lib/filebeat`       |
+| **logs**   | The location for the logs created by Filebeat. | `/var/log/filebeat`       |
 
-xpack:
-  license.self_generated.type: basic
-  security:
-    enabled: true # 开启密码设置为 true
-    enrollment:
-      enabled: true
-```
-
-```
-# jvm.options
-################################################################
-##
-## JVM configuration
-##
-################################################################
-##
-## WARNING: DO NOT EDIT THIS FILE. If you want to override the
-## JVM options in this file, or set any additional options, you
-## should create one or more files in the jvm.options.d
-## directory containing your adjustments.
-##
-## See https://www.elastic.co/guide/en/elasticsearch/reference/8.1/jvm-options.html
-## for more information.
-##
-################################################################
-
-
-
-################################################################
-## IMPORTANT: JVM heap size
-################################################################
-##
-## The heap size is automatically configured by Elasticsearch
-## based on the available memory in your system and the roles
-## each node is configured to fulfill. If specifying heap is
-## required, it should be done through a file in jvm.options.d,
-## which should be named with .options suffix, and the min and
-## max should be set to the same value. For example, to set the
-## heap to 4 GB, create a new file in the jvm.options.d
-## directory containing these lines:
-##
--Xms200m
--Xmx1G
-##
-## See https://www.elastic.co/guide/en/elasticsearch/reference/8.1/heap-size.html
-## for more information
-##
-################################################################
-
-
-################################################################
-## Expert settings
-################################################################
-##
-## All settings below here are considered expert settings. Do
-## not adjust them unless you understand what you are doing. Do
-## not edit them in this file; instead, create a new file in the
-## jvm.options.d directory containing your adjustments.
-##
-################################################################
-
-## GC configuration
-8-13:-XX:+UseConcMarkSweepGC
-8-13:-XX:CMSInitiatingOccupancyFraction=75
-8-13:-XX:+UseCMSInitiatingOccupancyOnly
-
-## G1GC Configuration
-# to use G1GC, uncomment the next two lines and update the version on the
-# following three lines to your version of the JDK
-# 8-13:-XX:-UseConcMarkSweepGC
-# 8-13:-XX:-UseCMSInitiatingOccupancyOnly
-14-:-XX:+UseG1GC
-
-## JVM temporary directory
--Djava.io.tmpdir=${ES_TMPDIR}
-
-## heap dumps
-
-# generate a heap dump when an allocation from the Java heap fails; heap dumps
-# are created in the working directory of the JVM unless an alternative path is
-# specified
--XX:+HeapDumpOnOutOfMemoryError
-
-# exit right after heap dump on out of memory error. Recommended to also use
-# on java 8 for supported versions (8u92+).
-9-:-XX:+ExitOnOutOfMemoryError
-
-# specify an alternative path for heap dumps; ensure the directory exists and
-# has sufficient space
--XX:HeapDumpPath=data
-
-# specify an alternative path for JVM fatal error logs
--XX:ErrorFile=logs/hs_err_pid%p.log
-
-## GC logging
--Xlog:gc*,gc+age=trace,safepoint:file=logs/gc.log:utctime,pid,tags:filecount=32,filesize=64m
-
-```
-
-elaticsearch + kibana
-
-```yaml
-version: "3.0"
-services:
-  elasticsearch:
-    container_name: es-container
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.11.0
-    environment:
-      - xpack.security.enabled=false
-      - "discovery.type=single-node"
-    networks:
-      - es-net
-    ports:
-      - 9200:9200
-  kibana:
-    container_name: kb-container
-    image: docker.elastic.co/kibana/kibana:7.11.0
-    environment:
-      - ELASTICSEARCH_HOSTS=http://es-container:9200
-    networks:
-      - es-net
-    depends_on:
-      - elasticsearch
-    ports:
-      - 5601:5601
-networks:
-  es-net:
-    driver: bridge
-```
