@@ -413,7 +413,7 @@ spring:
 </dependency>
 ```
 
-![image-20220312205600779](springboot.assets/image-20220312205600779.png) 
+![image-20220312205600779](./springboot.assets/image-20220312205600779.png) 
 
 
 
@@ -1356,7 +1356,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 ```
 
-![image-20220428225748202](springboot.assets/image-20220428225748202.png) 
+![image-20220428225748202](./springboot.assets/image-20220428225748202.png) 
 
 
 

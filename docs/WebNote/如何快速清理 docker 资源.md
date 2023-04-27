@@ -16,7 +16,7 @@ title: 如何快速清理 docker 资源
 通过这些命令查看 docker 使用的资源情况后，相信你已经决定要清理 docker 占用的一些资源了！让我们先从那些未被使用的资源开始。
 
 只删除那些未被使用的资源
-============
+---
 
 Docker 提供了方便的 docker system prune 命令来删除那些已停止的容器、dangling 镜像、未被容器引用的 network 和构建过程中的 cache：
 
@@ -37,7 +37,7 @@ $ docker system prune --all --force --volumes
 
 ![](https://images2018.cnblogs.com/blog/952033/201806/952033-20180613130913846-62053387.png)
 
-在本地的镜像更新之后，就会出现类似图中红框内的 <none> 镜像。这表示旧的镜像已经不再被引用了，此时它们就变成了 dangling images。如果使用 -a 参数，你还会发现另外一种类型的 <none> 镜像，它们的 repository 和 tag 列都表现为 <none>：
+在本地的镜像更新之后，就会出现类似图中红框内的 `<none> `镜像。这表示旧的镜像已经不再被引用了，此时它们就变成了 dangling images。如果使用 -a 参数，你还会发现另外一种类型的 `<none>` 镜像，它们的 repository 和 tag 列都表现为 `<none>`
 
 ![](https://images2018.cnblogs.com/blog/952033/201806/952033-20180613130946874-1564572085.png)
 
@@ -49,7 +49,7 @@ $ docker system prune --all --force --volumes
 **docker image prune** # 删除 dangling 或所有未被使用的镜像
 
 让 docker 回到安装时的状态
-=================
+---
 
 这里的 "安装时的状态" 指资源占用情况而不是 docker 的相关配置。这也是一种比较常见的用例，比如笔者就需要在一个干净的 docker 环境中自动化的还原出某天的一个生产环境(使用生产环境的备份数据)用于 bug 调查。让我们一起来看看都需要做些什么？  
 回想我们前面介绍的 docker system prune --all --force --volumns 命令，如果在执行这个命令前系统中所有的容器都已停止，那么这个命令就会移除所有的资源！好，现在让我们想办法停掉系统中的所有容器。  
@@ -81,7 +81,7 @@ $ docker container stop $(docker container ls -a -q) && docker system prune --al
 **删除 network**：docker network rm $(docker network ls -q)
 
 创建 shell 别名
-===========
+---
 
 上面的命令可以完成任务但是却很繁琐，我们可以通过 shell 的别名功能来简化这些命令的执行。
 

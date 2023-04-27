@@ -360,7 +360,7 @@ applicationContext.xml
 
 - 多个拦截器处理流程
 
-  ![image-20210829214951550](springMvc.assets/image-20210829214951550.png)
+  ![image-20210829214951550](./springMvc.assets/image-20210829214951550.png)
 
 
 

@@ -887,7 +887,7 @@ systemctl stop vncserver@:1.service           #关闭vnc
 
 vnc viewer连接ip 192.168.3.40:5901即可
 
-![image-20220725100100564](Tool.assets/image-20220725100100564.png) 
+![image-20220725100100564](./Tool.assets/image-20220725100100564.png) 
 
 ## 软件：
 

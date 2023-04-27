@@ -267,7 +267,7 @@ public class JwtUtil {
 | iat  |                     |
 | jti  |                     |
 
-![image-20211017221945784](Security.assets/image-20211017221945784.png) 
+![image-20211017221945784](./Security.assets/image-20211017221945784.png) 
 
 # Jwt
 

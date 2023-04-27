@@ -323,7 +323,7 @@ sudo bin/elasticsearch-plugin install ingest-geoip
 ./filebeat -c nginx-filebeat.yml setup
 ```
 
-![image-20221027154300367](elk.assets/image-20221027154300367.png)  
+![image-20221027154300367](./elk.assets/image-20221027154300367.png)  
 
 ### 5、运行
 
@@ -341,11 +341,11 @@ ps -ef | grep filebeat
 
 在kibana中会多出几个视图，即表示安装成功
 
-![](elk.assets/image-20221027154553072.png) 
+![](./elk.assets/image-20221027154553072.png) 
 
 搜索nginx 
 
-![image-20221027154823022](elk.assets/image-20221027154823022.png) 
+![image-20221027154823022](./elk.assets/image-20221027154823022.png) 
 
 ---
 
@@ -353,7 +353,7 @@ ps -ef | grep filebeat
 
 # kibann 配置filebeat
 
-![image-20221026213646094](elk.assets/image-20221026213646094.png) 
+![image-20221026213646094](./elk.assets/image-20221026213646094.png) 
 
 
 
@@ -367,7 +367,7 @@ ps -ef | grep filebeat
 
 进入kibana，删除 filebeat的数据流
 
-![image-20220826144221606](elk.assets/image-20220826144221606.png) 
+![image-20220826144221606](./elk.assets/image-20220826144221606.png) 
 
 ### 如何从头开始读取
 

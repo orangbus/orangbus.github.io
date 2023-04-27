@@ -12,8 +12,6 @@ docker system df -v
 
 
 
-
-
 # docker安装
 
 安装命令如下：
@@ -628,7 +626,7 @@ sudo systemctl restart docker
 
 Laradock 使用密钥方式连接 ssh
 
-![img](README.assets/L3Byb3h5L2h0dHBzL2ltZzIwMTguY25ibG9ncy5jb20vaS1iZXRhLzEyMTU0OTIvMjAxOTExLzEyMTU0OTItMjAxOTExMjIxMTA3MTkzOTQtMTgwNDU0MDQyNy5wbmc=.jpg) 
+![img](./README.assets/L3Byb3h5L2h0dHBzL2ltZzIwMTguY25ibG9ncy5jb20vaS1iZXRhLzEyMTU0OTIvMjAxOTExLzEyMTU0OTItMjAxOTExMjIxMTA3MTkzOTQtMTgwNDU0MDQyNy5wbmc=.jpg) 
 
 登录用户名是 root，使用密钥方式，这里“用户密钥”可以选择项目 [workspace](https://oddyzfr8z.qnssl.com/wp-content/uploads/2017/09/laradock_ssh_workspace_20170921143431.png) 目录下的密钥文件 insecure_id_rsa 即可。
 

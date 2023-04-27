@@ -201,8 +201,6 @@ if (!pid){
 
 - 首先获取本地需要上传的文件，格式
 
-  ![image-20200508091612362](/home/orangbus/.config/Typora/typora-user-images/image-20200508091612362.png)
-
   ```
   let img = file[0];
   let formdata = new FormData();

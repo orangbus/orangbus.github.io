@@ -180,9 +180,9 @@ userLists.forEach(System.out::printLn);
 
 3、点击对应的表生成相应的代码
 
-![image-20211020100527774](images/image-20211020100527774.png) 
+![image-20211020100527774](./images/image-20211020100527774.png) 
 
-![image-20211020100555646](images/image-20211020100555646.png) 
+![image-20211020100555646](./images/image-20211020100555646.png) 
 
 
 

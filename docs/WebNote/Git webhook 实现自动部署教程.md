@@ -140,7 +140,7 @@ cat ~/.ssh/id_rsa.pub
 
 以 GitHub 为例，在 Settings -> Deploy keys，选择 Add deploy key.
 
-![GitHub Deploy Keys](/images/2017/github_deploy_keys.png)
+[//]: # (![GitHub Deploy Keys]&#40;/images/2017/github_deploy_keys.png&#41;)
 
 添加完毕后，可以运行 `ssh -T git@github.com` 来验证是否设置成功。首次运行时会看到一条 RSA key 指纹的连接确认信息，输入 `yes` 回车即可。
 

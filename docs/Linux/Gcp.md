@@ -46,7 +46,7 @@ title: Gcp推荐
 
 ### 云服务器购买页
 
-![云服务器336-280](Gcp.assets/server.jpg) 
+![云服务器336-280](./Gcp.assets/server.jpg) 
 
 <div style='text-align:center'>
     <h3 ><a href='https://curl.qcloud.com/GnGXI3js' target='_black'>点击查看详情</a> </h3>
@@ -55,7 +55,7 @@ title: Gcp推荐
 
 ### 新客专属福利
 
-![1340x640](Gcp.assets/1340x640-1622461743537.jpg)
+![1340x640](./Gcp.assets/1340x640-1622461743537.jpg)
 
 <div style='text-align:center'>
     <h3 ><a href='https://curl.qcloud.com/Vf0PfkMJ' target='_black'>点击查看详情</a> </h3>
@@ -64,7 +64,7 @@ title: Gcp推荐
 
 ### 星星海SA2云服务器
 
-![1340x640](Gcp.assets/1340x640-1622461765712.jpg)
+![1340x640](./Gcp.assets/1340x640-1622461765712.jpg)
 
 <div style='text-align:center'>
     <h3 ><a href='https://curl.qcloud.com/Nj9ZMC2T' target='_black'>点击查看详情</a> </h3>

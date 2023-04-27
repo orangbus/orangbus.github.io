@@ -36,13 +36,14 @@ load({state, dispatch}) {
         resolve(state.info);
     })
 }
-```
 
-<FormItem label="满意度" prop="manyidu">    <Input v-model="form.manyidu" type="text"           placeholder=""></Input></FormItem>
+```html
+
+<FormItem label="满意度" prop="manyidu">    
+    <Input v-model="form.manyidu" type="text" placeholder=""></Input>
+</FormItem>
 
 
-
-```
 <Col span="24">
     <FormItem label="满意度" prop="manyidu">
         <Select v-model="form.manyidu" placeholder="请选择">
@@ -61,7 +62,8 @@ load({state, dispatch}) {
 # 抽屉提交模板
 
 ```html
-# ui-drawer-submit
+ui-drawer-submit
+
 <Drawer
         title="Create"
         v-model="drawer"
@@ -77,8 +79,9 @@ load({state, dispatch}) {
 </Drawer>    
 ```
 
-```
-# ui-drawer-data
+```js
+ui-drawer-data
+
 drawer: false,
 styles: {
     height: 'calc(100% - 55px)',
@@ -89,7 +92,8 @@ styles: {
 ```
 
 ```css
-# ui-drawer-css
+ui-drawer-css
+
 <style>
     .demo-drawer-footer{
         width: 100%;

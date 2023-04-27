@@ -24,7 +24,7 @@ minute hour day month week command 顺序：分 时 日 月 周
 
 图解[图片来自网络]：
 
-![](/img/remote/1460000021815912)
+[//]: # (![]&#40;/img/remote/1460000021815912&#41;)
 
 **常用的Crontab命令：**
 
@@ -54,7 +54,7 @@ crontab服务操作说明：
 
 [https://tool.lu/crontab/](https://tool.lu/crontab/)
 
-![](/img/remote/1460000021815910)
+[//]: # (![]&#40;/img/remote/1460000021815910&#41;)
 
 **实例：**
 
@@ -189,6 +189,6 @@ export RUN_CONF=/home/d139/conf/platform/cbp/cbp_jboss.conf
 
 [https://www.cnblogs.com/intva...](https://www.cnblogs.com/intval/p/5763929.html)
 
-![](/img/remote/1460000021815911)
+[//]: # (![]&#40;/img/remote/1460000021815911&#41;)
 
 [linux](/t/linux)[shell](/t/shell)[命令行](/t/%E5%91%BD%E4%BB%A4%E8%A1%8C)阅读 2k发布于 2020-02-23赞1收藏[分享](#)本作品系原创，[采用《署名-非商业性使用-禁止演绎 4.0 国际》许可协议](https://creativecommons.org/licenses/by-nc-nd/4.0/)

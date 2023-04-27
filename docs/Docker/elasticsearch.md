@@ -283,23 +283,23 @@ dc up -d kibana
 
 查看kibaba日志，这个时候会提示你访问 `Go to http://0.0.0.0:5601/?code=679455 to get started` 进行初始化
 
-![image-20220812142948774](elasticsearch.assets/image-20220812142948774.png) 
+![image-20220812142948774](./elasticsearch.assets/image-20220812142948774.png) 
 
 打开浏览器：输入提示的地址：`http://0.0.0.0:5601/?code=679455` 
 
-![image-20220812143204206](elasticsearch.assets/image-20220812143204206.png) 
+![image-20220812143204206](./elasticsearch.assets/image-20220812143204206.png) 
 
-![image-20220812143341658](elasticsearch.assets/image-20220812143341658.png) 
+![image-20220812143341658](./elasticsearch.assets/image-20220812143341658.png) 
 
 这个时候需要进行验证，这里的验证码可以去kibana日志里面去找到
 
-![image-20220812143836769](elasticsearch.assets/image-20220812143836769.png)  
+![image-20220812143836769](./elasticsearch.assets/image-20220812143836769.png)  
 
-![image-20220812143851283](elasticsearch.assets/image-20220812143851283.png) 
+![image-20220812143851283](./elasticsearch.assets/image-20220812143851283.png) 
 
 输入完成后，可能出现一下情况，重启一下整个应用就好了，或者看看是不是因为kibana配置文件没有权限。
 
-![image-20220812144017187](elasticsearch.assets/image-20220812144017187.png) 
+![image-20220812144017187](./elasticsearch.assets/image-20220812144017187.png) 
 
 至此kibaba就配置成功了。
 

@@ -8,8 +8,6 @@ title: Scrapy入门笔记
 string.strip()
 ```
 
-
-
 ## bs4技巧
 
 ### 节点找不到判断

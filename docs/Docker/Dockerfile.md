@@ -104,8 +104,6 @@ ping demo1 # 这样可是可ping通的
 
 > 参数说明参考：https://www.cnblogs.com/wutao666/p/11332186.html
 
-![image-20210720215253553](/home/orangbus/.config/Typora/typora-user-images/image-20210720215253553.png) 
-
 多个nginx做负载均衡，可以使用paproxy做负载均衡即可
 
 
