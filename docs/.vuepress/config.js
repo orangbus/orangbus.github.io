@@ -59,7 +59,7 @@ module.exports = {
 		["meta", {name: "keywords", content: "html,css,jquery,thinkphp,laravel,docker,linux,manjaro"}],
 		["meta", {name: "description", content: "保持勇敢，坚持有趣，生命不息，折腾不止！"}],
 		["meta", {name: "auther", content: "OrangBus"}],
-		['meta', { name: 'baidu-site-verification', content: 'bce708a7324b269ea7cda5dde023625e' }]
+		['meta', { name: 'baidu-site-verification', content: 'bce708a7324b269ea7cda5dde023625e' }],
 		// 百度统计代码
 		['script', {}, `<script>
 			var _hmt = _hmt || [];
