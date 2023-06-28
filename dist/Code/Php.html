@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>php常用函数 | OrangBus</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="shortcut icon" href="/orangbus.ico" type="image/jpg">
+    <script><script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?75a195c58b50e00357efe9066f49f8b0";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+			</script>
+			</script>
+    <meta name="description" content="分享生活高效技能,保持勇敢，坚持有趣，生命不息，折腾不止！">
+    <meta property="article:modified_time" content="2023-03-20T03:31:12.000Z">
+    <meta property="og:site_name" content="OrangBus">
+    <meta property="og:title" content="php常用函数">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/Code/Php.html">
+    <meta name="twitter:title" content="php常用函数">
+    <meta name="twitter:url" content="/Code/Php.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords" content="html,css,jquery,thinkphp,laravel,docker,linux,manjaro">
+    <meta name="auther" content="OrangBus">
+    <link rel="preload" href="/assets/css/0.styles.8405cd42.css" as="style"><link rel="preload" href="/assets/js/app.ea451ed9.js" as="script"><link rel="preload" href="/assets/js/3.6c5e3284.js" as="script"><link rel="preload" href="/assets/js/35.cb9c230e.js" as="script"><link rel="prefetch" href="/assets/js/10.36e3baf2.js"><link rel="prefetch" href="/assets/js/100.c62c728f.js"><link rel="prefetch" href="/assets/js/101.ae1ee2be.js"><link rel="prefetch" href="/assets/js/102.9cbe442f.js"><link rel="prefetch" href="/assets/js/103.865c8704.js"><link rel="prefetch" href="/assets/js/104.f2a95690.js"><link rel="prefetch" href="/assets/js/105.d1b44fe7.js"><link rel="prefetch" href="/assets/js/106.23035218.js"><link rel="prefetch" href="/assets/js/107.278448f9.js"><link rel="prefetch" href="/assets/js/108.a0ae7f91.js"><link rel="prefetch" href="/assets/js/109.cf958a7f.js"><link rel="prefetch" href="/assets/js/11.6e113d65.js"><link rel="prefetch" href="/assets/js/110.4abe4a81.js"><link rel="prefetch" href="/assets/js/111.d14fcb85.js"><link rel="prefetch" href="/assets/js/112.548bcab9.js"><link rel="prefetch" href="/assets/js/113.175d2143.js"><link rel="prefetch" href="/assets/js/114.ea5534cc.js"><link rel="prefetch" href="/assets/js/115.8fde4729.js"><link rel="prefetch" href="/assets/js/116.892c24fc.js"><link rel="prefetch" href="/assets/js/117.b6407011.js"><link rel="prefetch" href="/assets/js/118.e6b176a0.js"><link rel="prefetch" href="/assets/js/119.f5f2daa6.js"><link rel="prefetch" href="/assets/js/12.4a156561.js"><link rel="prefetch" href="/assets/js/120.9665106a.js"><link rel="prefetch" href="/assets/js/121.9796f87f.js"><link rel="prefetch" href="/assets/js/122.99ed8d50.js"><link rel="prefetch" href="/assets/js/123.178c8139.js"><link rel="prefetch" href="/assets/js/124.c5da5022.js"><link rel="prefetch" href="/assets/js/125.a471379a.js"><link rel="prefetch" href="/assets/js/126.b023af6d.js"><link rel="prefetch" href="/assets/js/127.1881be96.js"><link rel="prefetch" href="/assets/js/128.dc0cb30c.js"><link rel="prefetch" href="/assets/js/129.49a46e09.js"><link rel="prefetch" href="/assets/js/13.ffe35305.js"><link rel="prefetch" href="/assets/js/130.eb431321.js"><link rel="prefetch" href="/assets/js/131.d2e4e355.js"><link rel="prefetch" href="/assets/js/132.e06be357.js"><link rel="prefetch" href="/assets/js/133.a301aae1.js"><link rel="prefetch" href="/assets/js/134.d4f8d457.js"><link rel="prefetch" href="/assets/js/135.44b350c1.js"><link rel="prefetch" href="/assets/js/136.8c7e2989.js"><link rel="prefetch" href="/assets/js/137.1f1c660c.js"><link rel="prefetch" href="/assets/js/138.8cb25d26.js"><link rel="prefetch" href="/assets/js/139.f522c59c.js"><link rel="prefetch" href="/assets/js/14.d36de9de.js"><link rel="prefetch" href="/assets/js/140.017da4d3.js"><link rel="prefetch" href="/assets/js/141.e9e1855f.js"><link rel="prefetch" href="/assets/js/142.c45accfd.js"><link rel="prefetch" href="/assets/js/143.9ada7c7e.js"><link rel="prefetch" href="/assets/js/144.08072e47.js"><link rel="prefetch" href="/assets/js/145.c5e578ae.js"><link rel="prefetch" href="/assets/js/146.f7dd1b72.js"><link rel="prefetch" href="/assets/js/147.4b80c07c.js"><link rel="prefetch" href="/assets/js/148.f40aeae9.js"><link rel="prefetch" href="/assets/js/149.7643921b.js"><link rel="prefetch" href="/assets/js/15.62ba96c3.js"><link rel="prefetch" href="/assets/js/150.a9088b08.js"><link rel="prefetch" href="/assets/js/151.855b11a5.js"><link rel="prefetch" href="/assets/js/152.d513c64a.js"><link rel="prefetch" href="/assets/js/153.612f9549.js"><link rel="prefetch" href="/assets/js/154.54322c84.js"><link rel="prefetch" href="/assets/js/155.c612edbd.js"><link rel="prefetch" href="/assets/js/156.c0e99fa3.js"><link rel="prefetch" href="/assets/js/157.66027807.js"><link rel="prefetch" href="/assets/js/158.3b7ef7c0.js"><link rel="prefetch" href="/assets/js/159.2129b9f4.js"><link rel="prefetch" href="/assets/js/16.b3d1377d.js"><link rel="prefetch" href="/assets/js/160.81804cfd.js"><link rel="prefetch" href="/assets/js/161.b3f6a037.js"><link rel="prefetch" href="/assets/js/162.b50f19cf.js"><link rel="prefetch" href="/assets/js/17.5897ff24.js"><link rel="prefetch" href="/assets/js/18.bdf46b90.js"><link rel="prefetch" href="/assets/js/19.7abc88da.js"><link rel="prefetch" href="/assets/js/2.86f796bf.js"><link rel="prefetch" href="/assets/js/20.30b9f95b.js"><link rel="prefetch" href="/assets/js/21.86a8aad5.js"><link rel="prefetch" href="/assets/js/22.b4f5a61f.js"><link rel="prefetch" href="/assets/js/23.e5b7871f.js"><link rel="prefetch" href="/assets/js/24.861737df.js"><link rel="prefetch" href="/assets/js/25.461bdc07.js"><link rel="prefetch" href="/assets/js/26.1d1a614d.js"><link rel="prefetch" href="/assets/js/27.475c6b8a.js"><link rel="prefetch" href="/assets/js/28.ab8849ef.js"><link rel="prefetch" href="/assets/js/29.d1b58c6c.js"><link rel="prefetch" href="/assets/js/30.d2c71ed7.js"><link rel="prefetch" href="/assets/js/31.805bcd3c.js"><link rel="prefetch" href="/assets/js/32.4226174c.js"><link rel="prefetch" href="/assets/js/33.37be6a15.js"><link rel="prefetch" href="/assets/js/34.466ebcf5.js"><link rel="prefetch" href="/assets/js/36.771f66ea.js"><link rel="prefetch" href="/assets/js/37.e443a86a.js"><link rel="prefetch" href="/assets/js/38.2af0dbd3.js"><link rel="prefetch" href="/assets/js/39.0c54ac88.js"><link rel="prefetch" href="/assets/js/4.e55e7d6c.js"><link rel="prefetch" href="/assets/js/40.e349bc43.js"><link rel="prefetch" href="/assets/js/41.2c82d80b.js"><link rel="prefetch" href="/assets/js/42.09865f77.js"><link rel="prefetch" href="/assets/js/43.d1a1945d.js"><link rel="prefetch" href="/assets/js/44.44056441.js"><link rel="prefetch" href="/assets/js/45.23f4bcb1.js"><link rel="prefetch" href="/assets/js/46.523377ed.js"><link rel="prefetch" href="/assets/js/47.39c2ac9b.js"><link rel="prefetch" href="/assets/js/48.446932bc.js"><link rel="prefetch" href="/assets/js/49.47b2cdc5.js"><link rel="prefetch" href="/assets/js/5.73b6d780.js"><link rel="prefetch" href="/assets/js/50.9cb1d170.js"><link rel="prefetch" href="/assets/js/51.4b7a3e4f.js"><link rel="prefetch" href="/assets/js/52.2310dbde.js"><link rel="prefetch" href="/assets/js/53.70514c3c.js"><link rel="prefetch" href="/assets/js/54.316cdc49.js"><link rel="prefetch" href="/assets/js/55.db4816c8.js"><link rel="prefetch" href="/assets/js/56.7241b38e.js"><link rel="prefetch" href="/assets/js/57.f947ebe6.js"><link rel="prefetch" href="/assets/js/58.3e277572.js"><link rel="prefetch" href="/assets/js/59.3476f0cf.js"><link rel="prefetch" href="/assets/js/6.49bd8bb9.js"><link rel="prefetch" href="/assets/js/60.6589e146.js"><link rel="prefetch" href="/assets/js/61.22492af7.js"><link rel="prefetch" href="/assets/js/62.1fc6799a.js"><link rel="prefetch" href="/assets/js/63.e3f9a2ca.js"><link rel="prefetch" href="/assets/js/64.1d1d0763.js"><link rel="prefetch" href="/assets/js/65.470a3295.js"><link rel="prefetch" href="/assets/js/66.4c1b39ef.js"><link rel="prefetch" href="/assets/js/67.882578f3.js"><link rel="prefetch" href="/assets/js/68.e37c1840.js"><link rel="prefetch" href="/assets/js/69.74668543.js"><link rel="prefetch" href="/assets/js/7.a146e8b1.js"><link rel="prefetch" href="/assets/js/70.3f357a01.js"><link rel="prefetch" href="/assets/js/71.1639510a.js"><link rel="prefetch" href="/assets/js/72.235a2ff5.js"><link rel="prefetch" href="/assets/js/73.b6403efb.js"><link rel="prefetch" href="/assets/js/74.8028105e.js"><link rel="prefetch" href="/assets/js/75.8317d79b.js"><link rel="prefetch" href="/assets/js/76.2bcfe34f.js"><link rel="prefetch" href="/assets/js/77.8a0fa722.js"><link rel="prefetch" href="/assets/js/78.dfb11693.js"><link rel="prefetch" href="/assets/js/79.4c573711.js"><link rel="prefetch" href="/assets/js/8.361bf975.js"><link rel="prefetch" href="/assets/js/80.ae55b008.js"><link rel="prefetch" href="/assets/js/81.fcf62caf.js"><link rel="prefetch" href="/assets/js/82.c75bff49.js"><link rel="prefetch" href="/assets/js/83.bc4cf04e.js"><link rel="prefetch" href="/assets/js/84.6e7b5e11.js"><link rel="prefetch" href="/assets/js/85.6b48a9e4.js"><link rel="prefetch" href="/assets/js/86.7a637af9.js"><link rel="prefetch" href="/assets/js/87.92ca344e.js"><link rel="prefetch" href="/assets/js/88.31ecec95.js"><link rel="prefetch" href="/assets/js/89.c5bde116.js"><link rel="prefetch" href="/assets/js/9.17b1e357.js"><link rel="prefetch" href="/assets/js/90.a41fd3df.js"><link rel="prefetch" href="/assets/js/91.46a2cc9e.js"><link rel="prefetch" href="/assets/js/92.761117f0.js"><link rel="prefetch" href="/assets/js/93.40eecc87.js"><link rel="prefetch" href="/assets/js/94.7de38523.js"><link rel="prefetch" href="/assets/js/95.372f7ca9.js"><link rel="prefetch" href="/assets/js/96.850a8aca.js"><link rel="prefetch" href="/assets/js/97.d3f7516f.js"><link rel="prefetch" href="/assets/js/98.b00ac6e4.js"><link rel="prefetch" href="/assets/js/99.aa632710.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8405cd42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/orangbus.png" alt="OrangBus" class="logo"> <span class="site-name can-hide">OrangBus</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>php常用函数</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Code/Php.html#php扩展安装" class="sidebar-link">php扩展安装</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#linux安装redis扩展" class="sidebar-link">linux安装redis扩展</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#安装sqlite3扩展" class="sidebar-link">安装sqlite3扩展</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#window安装pecl" class="sidebar-link">window安装pecl</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#字符串处理" class="sidebar-link">字符串处理</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#文字包含判断" class="sidebar-link">文字包含判断</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#汉字截取" class="sidebar-link">汉字截取</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#一维数组无限极分类后排序" class="sidebar-link">一维数组无限极分类后排序</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#随机验证码" class="sidebar-link">随机验证码</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#php数值处理" class="sidebar-link">php数值处理</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#生成唯一sn" class="sidebar-link">生成唯一SN</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#fiel-get-contents-请求" class="sidebar-link">fielgetcontents 请求</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#php请求封装" class="sidebar-link">php请求封装</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Code/Php.html#案例" class="sidebar-link">案例</a></li></ul></li><li><a href="/Code/Php.html#数值转化技巧" class="sidebar-link">数值转化技巧</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Code/Php.html#方法：" class="sidebar-link">方法：</a></li></ul></li><li><a href="/Code/Php.html#php使用正则：preg-match" class="sidebar-link">php使用正则：preg_match</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#php数组传给js使用" class="sidebar-link">php数组传给js使用</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#内容过滤" class="sidebar-link">内容过滤</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#check" class="sidebar-link">Check</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#【php】代码规范检查工具phpcs" class="sidebar-link">【PHP】代码规范检查工具PHPCS</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#二进制转十六进制" class="sidebar-link">二进制转十六进制</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#复制文件：copy" class="sidebar-link">复制文件：copy</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#单例模式" class="sidebar-link">单例模式</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Code/Php.html#观察者模式" class="sidebar-link">观察者模式</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="安装php"><a href="#安装php" class="header-anchor">#</a> 安装php</h1> <p><strong>manjaro</strong></p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> pacman -S php
+</code></pre></div><p><strong>ubuntu | debian</strong></p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> php
+</code></pre></div><p><strong>Cnetos</strong></p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> yum <span class="token function">install</span> php
+</code></pre></div><h2 id="php扩展安装"><a href="#php扩展安装" class="header-anchor">#</a> php扩展安装</h2> <p><strong>Ubuntu</strong></p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 使用扩展安装请先安装这两个东西</span>
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> php-pear
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> php-dev
+</code></pre></div><p><strong>安装php扩展</strong></p> <p>http://pecl.php.net/package/redis</p> <div class="language-bash extra-class"><pre class="language-bash"><code>pecl <span class="token function">install</span> redis
+</code></pre></div><h2 id="linux安装redis扩展"><a href="#linux安装redis扩展" class="header-anchor">#</a> linux安装redis扩展</h2> <p>可能缺少的工具</p> <div class="language-bash extra-class"><pre class="language-bash"><code>// phpize
+<span class="token function">sudo</span> pacman -S php-dev
+<span class="token function">sudo</span> pacman -S autoconf
+</code></pre></div><p>下载 <code>phpredis</code> 源码包，解压，编译安装</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">wget</span> https://github.com/phpredis/phpredis/archive/5.3.3.tar.gz
+<span class="token builtin class-name">cd</span>  phpredis-5.3.3
+phpize
+./configure
+<span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span> //可能需要加 <span class="token function">sudo</span>
+</code></pre></div><p>开启扩展</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">vim</span> /etc/php/php.ini
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>// 添加
+extension=&quot;redis.so&quot;
+</code></pre></div><p>测试</p> <div class="language-bash extra-class"><pre class="language-bash"><code>php -m
+</code></pre></div><h2 id="安装sqlite3扩展"><a href="#安装sqlite3扩展" class="header-anchor">#</a> 安装sqlite3扩展</h2> <p>首先编辑或者添加sqlite</p> <div class="language- extra-class"><pre class="language-text"><code>// sudo vim /etc/php/php.ini
+extension=sqlite3
+extension=pdo_sqlite
+</code></pre></div><p>安装</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> pacman -S php-sqlite
+</code></pre></div><h2 id="window安装pecl"><a href="#window安装pecl" class="header-anchor">#</a> window安装pecl</h2> <p><strong>安装步骤</strong>
+PECL是 The PHP Extension Community Library 缩写。</p> <ul><li>下载go-pear.phar 到 <code>d:/tool/go-pear.phar</code></li> <li>执行 <code>php d:/tool/go-pear.phar</code>
+下载地址：http://pear.php.net/go-pear.phar
+官方文档：https://pear.php.net/manual/en/installation.getting.php</li></ul> <p><strong>关键事项</strong></p> <ul><li>注意事项：第一个一定是选择 local。</li> <li>第一次执行的时候一定要指定 php的路径，输入13弹出对话框选择PHP的目录。</li> <li>之后直接按 Enter 继续。完成！</li></ul> <p>安装过程：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>D:<span class="token punctuation">\</span>pear<span class="token operator">&gt;</span>php d:/tool/go-pear.phar
+
+Are you installing a system-wide PEAR or a <span class="token builtin class-name">local</span> copy?
+<span class="token punctuation">(</span>system<span class="token operator">|</span><span class="token builtin class-name">local</span><span class="token punctuation">)</span> <span class="token punctuation">[</span>system<span class="token punctuation">]</span> <span class="token builtin class-name">:</span> <span class="token builtin class-name">local</span>
+Please confirm <span class="token builtin class-name">local</span> copy by typing <span class="token string">'yes'</span> <span class="token builtin class-name">:</span> <span class="token function">yes</span>
+
+Below is a suggested <span class="token function">file</span> layout <span class="token keyword">for</span> your new PEAR installation.  To
+change individual locations, <span class="token builtin class-name">type</span> the number <span class="token keyword">in</span> front of the
+directory.  Type <span class="token string">'all'</span> to change all of them or simply press Enter to
+accept these locations.
+
+ <span class="token number">1</span>. Installation base <span class="token punctuation">(</span><span class="token variable">$prefix</span><span class="token punctuation">)</span>                   <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear
+ <span class="token number">2</span>. Temporary directory <span class="token keyword">for</span> processing            <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span>tmp
+ <span class="token number">3</span>. Temporary directory <span class="token keyword">for</span> downloads             <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span>tmp
+ <span class="token number">4</span>. Binaries directory                            <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear
+ <span class="token number">5</span>. PHP code directory <span class="token punctuation">(</span><span class="token variable">$php_dir</span><span class="token punctuation">)</span>                 <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span>pear
+ <span class="token number">6</span>. Documentation directory                       <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span>docs
+ <span class="token number">7</span>. Data directory                                <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span>data
+ <span class="token number">8</span>. User-modifiable configuration files directory <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span>cfg
+ <span class="token number">9</span>. Public Web Files directory                    <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span>www
+<span class="token number">10</span>. System manual pages directory                 <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span>man
+<span class="token number">11</span>. Tests directory                               <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span>tests
+<span class="token number">12</span>. Name of configuration <span class="token function">file</span>                    <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span>pear.ini
+<span class="token number">13</span>. Path to CLI php.exe                           <span class="token builtin class-name">:</span>
+
+<span class="token number">1</span>-13, <span class="token string">'all'</span> or Enter to continue: <span class="token number">13</span>
+php.exe <span class="token punctuation">(</span>sapi: cli<span class="token punctuation">)</span> found.
+
+
+
+Below is a suggested <span class="token function">file</span> layout <span class="token keyword">for</span> your new PEAR installation.  To
+change individual locations, <span class="token builtin class-name">type</span> the number <span class="token keyword">in</span> front of the
+directory.  Type <span class="token string">'all'</span> to change all of them or simply press Enter to
+accept these locations.
+
+ <span class="token number">1</span>. Installation base <span class="token punctuation">(</span><span class="token variable">$prefix</span><span class="token punctuation">)</span>                   <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span>
+ <span class="token number">2</span>. Temporary directory <span class="token keyword">for</span> processing            <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span><span class="token punctuation">\</span>tmp
+ <span class="token number">3</span>. Temporary directory <span class="token keyword">for</span> downloads             <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span><span class="token punctuation">\</span>tmp
+ <span class="token number">4</span>. Binaries directory                            <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span>
+ <span class="token number">5</span>. PHP code directory <span class="token punctuation">(</span><span class="token variable">$php_dir</span><span class="token punctuation">)</span>                 <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span><span class="token punctuation">\</span>pear
+ <span class="token number">6</span>. Documentation directory                       <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span><span class="token punctuation">\</span>docs
+ <span class="token number">7</span>. Data directory                                <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span><span class="token punctuation">\</span>data
+ <span class="token number">8</span>. User-modifiable configuration files directory <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span><span class="token punctuation">\</span>cfg
+ <span class="token number">9</span>. Public Web Files directory                    <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span><span class="token punctuation">\</span>www
+<span class="token number">10</span>. System manual pages directory                 <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span><span class="token punctuation">\</span>man
+<span class="token number">11</span>. Tests directory                               <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span><span class="token punctuation">\</span>tests
+<span class="token number">12</span>. Name of configuration <span class="token function">file</span>                    <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span><span class="token punctuation">\</span>pear.ini
+<span class="token number">13</span>. Path to CLI php.exe                           <span class="token builtin class-name">:</span> D:<span class="token punctuation">\</span>php73<span class="token punctuation">\</span>
+
+<span class="token number">1</span>-13, <span class="token string">'all'</span> or Enter to continue:
+Beginning install<span class="token punctuation">..</span>.
+Configuration written to D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span><span class="token punctuation">\</span>pear.ini<span class="token punctuation">..</span>.
+Initialized registry<span class="token punctuation">..</span>.
+Preparing to install<span class="token punctuation">..</span>.
+installing phar://D:/tool/go-pear.phar/PEAR/go-pear-tarballs/Archive_Tar-1.4.7.t
+ar<span class="token punctuation">..</span>.
+installing phar://D:/tool/go-pear.phar/PEAR/go-pear-tarballs/Console_Getopt-1.4.
+<span class="token number">2</span>.tar<span class="token punctuation">..</span>.
+installing phar://D:/tool/go-pear.phar/PEAR/go-pear-tarballs/PEAR-1.10.9.tar<span class="token punctuation">..</span>.
+installing phar://D:/tool/go-pear.phar/PEAR/go-pear-tarballs/Structures_Graph-1.
+<span class="token number">1.1</span>.tar<span class="token punctuation">..</span>.
+installing phar://D:/tool/go-pear.phar/PEAR/go-pear-tarballs/XML_Util-1.4.3.tar.
+<span class="token punctuation">..</span>
+<span class="token function">install</span> ok: channel://pear.php.net/Archive_Tar-1.4.7
+<span class="token function">install</span> ok: channel://pear.php.net/Console_Getopt-1.4.2
+<span class="token function">install</span> ok: channel://pear.php.net/Structures_Graph-1.1.1
+<span class="token function">install</span> ok: channel://pear.php.net/XML_Util-1.4.3
+<span class="token function">install</span> ok: channel://pear.php.net/PEAR-1.10.9
+PEAR: Optional feature webinstaller available <span class="token punctuation">(</span>PEAR<span class="token string">'s web-based installer)
+PEAR: Optional feature gtkinstaller available (PEAR'</span>s PHP-GTK-based installer<span class="token punctuation">)</span>
+PEAR: Optional feature gtk2installer available <span class="token punctuation">(</span>PEAR<span class="token string">'s PHP-GTK2-based installer)
+
+PEAR: To install optional features use &quot;pear install pear/PEAR#featurename&quot;
+
+******************************************************************************
+WARNING!  The include_path defined in the currently used php.ini does not
+contain the PEAR PHP directory you just specified:
+&lt;D:\pear<span class="token entity" title="\\">\\</span>pear&gt;
+If the specified directory is also not in the include_path used by
+your scripts, you will have problems getting any PEAR packages working.
+
+
+Would you like to alter php.ini &lt;D:\PHP73\php.ini&gt;? [Y/n] : Y
+
+php.ini &lt;D:\PHP73\php.ini&gt; include_path updated.
+
+Current include path           : .;C:\php\pear
+Configured directory           : D:\pear<span class="token entity" title="\\">\\</span>pear
+Currently used php.ini (guess) : D:\PHP73\php.ini
+Press Enter to continue:
+
+** WARNING! Old version found at C:\Program Files (x86)\Common Files\Oracle\Java
+\javapath\pear.bat, please remove it or be sure to use the new d:\pear<span class="token entity" title="\\">\\</span>pear.bat
+ command
+
+The '</span>pear<span class="token string">' command is now at your service at d:\pear<span class="token entity" title="\\">\\</span>pear.bat
+
+** The '</span>pear<span class="token string">' command is not currently in your PATH, so you need to
+** use '</span>d:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span><span class="token punctuation">\</span>pear.bat<span class="token string">' until you have added
+** '</span>D:<span class="token punctuation">\</span>pear<span class="token punctuation">\</span>' to your <span class="token environment constant">PATH</span> environment variable.
+
+Run it without parameters to see the available actions, try <span class="token string">'pear list'</span>
+to see what packages are installed, or <span class="token string">'pear help'</span> <span class="token keyword">for</span> help.
+
+For <span class="token function">more</span> information about PEAR, see:
+
+  http://pear.php.net/faq.php
+  http://pear.php.net/manual/
+
+Thanks <span class="token keyword">for</span> using go-pear<span class="token operator">!</span>
+
+</code></pre></div><h1 id="php常用函数"><a href="#php常用函数" class="header-anchor">#</a> <strong>php常用函数</strong></h1> <h2 id="字符串处理"><a href="#字符串处理" class="header-anchor">#</a> 字符串处理</h2> <p><a href="http://www.5idev.com/p-php_explode_str_split.shtml#explode" target="_blank" rel="noopener noreferrer">explode()<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>：使用一个字符串分割另一个字符串</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token variable">$str</span><span class="token operator">=</span> <span class="token single-quoted-string string">'one|two|three|four'</span><span class="token punctuation">;</span>
+
+<span class="token function">print_r</span><span class="token punctuation">(</span><span class="token function">explode</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'|'</span><span class="token punctuation">,</span><span class="token variable">$str</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>str_split() 将字符串分割为一个数组，成功返回一个数组。</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token function">arraystr_split</span><span class="token punctuation">(</span> string string <span class="token punctuation">[</span><span class="token punctuation">,</span> int length<span class="token punctuation">]</span> <span class="token punctuation">)</span>
+</code></pre></div><h2 id="文字包含判断"><a href="#文字包含判断" class="header-anchor">#</a> 文字包含判断</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strpos</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;云南省&quot;</span><span class="token punctuation">,</span><span class="token double-quoted-string string">&quot;云南&quot;</span><span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token boolean constant">false</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="汉字截取"><a href="#汉字截取" class="header-anchor">#</a> 汉字截取</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token function">mb_substr</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;清华大学&quot;</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//清华</span>
+</code></pre></div><h2 id="一维数组无限极分类后排序"><a href="#一维数组无限极分类后排序" class="header-anchor">#</a> 一维数组无限极分类后排序</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token function">array_multisort</span><span class="token punctuation">(</span><span class="token function">array_column</span><span class="token punctuation">(</span><span class="token variable">$list</span><span class="token punctuation">,</span><span class="token single-quoted-string string">'sort'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token constant">SORT_ASC</span><span class="token punctuation">,</span><span class="token variable">$list</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="随机验证码"><a href="#随机验证码" class="header-anchor">#</a> 随机验证码</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token variable">$pattern</span><span class="token operator">=</span><span class="token single-quoted-string string">'1234567890'</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span> <span class="token variable">$i</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">&lt;</span><span class="token number">6</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token variable">$code_number</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token variable">$pattern</span><span class="token punctuation">[</span><span class="token function">mt_rand</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="php数值处理"><a href="#php数值处理" class="header-anchor">#</a> php数值处理</h2> <ul><li><p>四舍五入</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">echo</span><span class="token punctuation">(</span><span class="token function">ceil</span><span class="token punctuation">(</span><span class="token number">0.60</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token comment">// 1</span>
+<span class="token keyword">echo</span><span class="token punctuation">(</span><span class="token function">ceil</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token comment">// -5</span>
+</code></pre></div></li> <li><p>四舍五入保留小数点位数</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">echo</span> <span class="token function">round</span><span class="token punctuation">(</span><span class="token number">3.4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 3 </span>
+<span class="token keyword">echo</span> <span class="token function">round</span><span class="token punctuation">(</span><span class="token number">3.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 4 </span>
+<span class="token keyword">echo</span> <span class="token function">round</span><span class="token punctuation">(</span><span class="token number">3.6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 4 </span>
+<span class="token keyword">echo</span> <span class="token function">round</span><span class="token punctuation">(</span><span class="token number">1.95583</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1.96 </span>
+<span class="token keyword">echo</span> <span class="token function">round</span><span class="token punctuation">(</span><span class="token number">5.045</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 5.05 </span>
+<span class="token keyword">echo</span> <span class="token function">round</span><span class="token punctuation">(</span><span class="token number">5.055</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 5.06 </span>
+</code></pre></div></li> <li><p>舍去小数点</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">echo</span> <span class="token function">floor</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token comment">// 0</span>
+<span class="token keyword">echo</span> <span class="token function">floor</span><span class="token punctuation">(</span><span class="token number">1.6</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token comment">// 1</span>
+</code></pre></div></li></ul> <h2 id="生成唯一sn"><a href="#生成唯一sn" class="header-anchor">#</a> 生成唯一SN</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token comment">/**
+ * 生成sn 
+*/</span>
+<span class="token keyword">private</span> <span class="token keyword">function</span> <span class="token function">createSn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$str</span> <span class="token operator">=</span> <span class="token single-quoted-string string">'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'</span><span class="token punctuation">;</span>
+    <span class="token variable">$number</span> <span class="token operator">=</span> <span class="token function">substr</span><span class="token punctuation">(</span><span class="token function">microtime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">date</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'Ymd'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token function">str_shuffle</span><span class="token punctuation">(</span><span class="token variable">$str</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token variable">$number</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h1 id="生成惟一数字字符串"><a href="#生成惟一数字字符串" class="header-anchor">#</a> 生成惟一数字字符串</h1> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">function</span> <span class="token function">getUniqNumId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token comment">//获取uniqid()生成的字符串的后八位（包含字母）, 而且处理成ASCII 码值数组</span>
+	<span class="token variable">$tmp</span> <span class="token operator">=</span> <span class="token function">array_map</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'ord'</span><span class="token punctuation">,</span> <span class="token function">str_split</span><span class="token punctuation">(</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token function">uniqid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">//将数组处理成数值字符串，并获取前8位（由于长度不定）</span>
+	<span class="token variable">$tmp</span> <span class="token operator">=</span> <span class="token function">substr</span><span class="token punctuation">(</span><span class="token function">implode</span><span class="token punctuation">(</span><span class="token constant">null</span><span class="token punctuation">,</span> <span class="token variable">$tmp</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">//前面添加日期</span>
+	<span class="token variable">$tmp</span> <span class="token operator">=</span> <span class="token function">date</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'Ymd'</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token variable">$tmp</span><span class="token punctuation">;</span>
+
+	<span class="token comment">//返回</span>
+	<span class="token keyword">return</span> <span class="token variable">$tmp</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 2022012050975698</span>
+</code></pre></div><h2 id="fiel-get-contents-请求"><a href="#fiel-get-contents-请求" class="header-anchor">#</a> fiel_get_contents 请求</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token comment">// 淘宝ip地址</span>
+    <span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">HttpIp</span><span class="token punctuation">(</span><span class="token variable">$ip</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$query_info</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token single-quoted-string string">'ip'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$ip</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'accessKey'</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token single-quoted-string string">'alibaba-inc'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token variable">$context</span> <span class="token operator">=</span> <span class="token function">stream_context_create</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'http'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+                <span class="token single-quoted-string string">'method'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'POST'</span><span class="token punctuation">,</span>
+                <span class="token single-quoted-string string">'header'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'Content-type:application/x-www-form-urlencoded'</span><span class="token punctuation">,</span>
+                <span class="token single-quoted-string string">'content'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">http_build_query</span><span class="token punctuation">(</span><span class="token variable">$query_info</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token single-quoted-string string">'timeout'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">30</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$httpRes</span> <span class="token operator">=</span> <span class="token function">file_get_contents</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'http://ip.taobao.com/outGetIpInfo'</span><span class="token punctuation">,</span> <span class="token boolean constant">false</span><span class="token punctuation">,</span> <span class="token variable">$context</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">json_decode</span><span class="token punctuation">(</span><span class="token variable">$httpRes</span><span class="token punctuation">,</span><span class="token boolean constant">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h2 id="php请求封装"><a href="#php请求封装" class="header-anchor">#</a> php请求封装</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token comment">/**
+ * HttpCurl Curl模拟Http工具类
+ * @author OrangBus
+ * @blog https://doc.orangbus.cn
+ */</span>
+<span class="token keyword">namespace</span> <span class="token package">app<span class="token punctuation">\</span>admin<span class="token punctuation">\</span>extend</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">HttpCurl</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token variable">$ch</span> <span class="token operator">=</span> <span class="token constant">null</span><span class="token punctuation">;</span> <span class="token comment">// curl handle</span>
+    <span class="token keyword">private</span> <span class="token variable">$headers</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// request header</span>
+    <span class="token keyword">private</span> <span class="token variable">$proxy</span> <span class="token operator">=</span> <span class="token constant">null</span><span class="token punctuation">;</span> <span class="token comment">// http proxy</span>
+    <span class="token keyword">private</span> <span class="token variable">$timeout</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>    <span class="token comment">// connnect timeout</span>
+    <span class="token keyword">private</span> <span class="token variable">$httpParams</span> <span class="token operator">=</span> <span class="token constant">null</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span> <span class="token operator">=</span> <span class="token function">curl_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 设置http header
+     * @param $header
+     * @return $this
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token variable">$header</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">is_array</span><span class="token punctuation">(</span><span class="token variable">$header</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_HTTPHEADER</span><span class="token punctuation">,</span> <span class="token variable">$header</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 设置http 超时
+     * @param int $time
+     * @return $this
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token variable">$time</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 不能小于等于0</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$time</span> <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token variable">$time</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+        <span class="token comment">//只需要设置一个秒的数量就可以</span>
+        <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_TIMEOUT</span><span class="token punctuation">,</span> <span class="token variable">$time</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token comment">/**
+     * 设置http 代理
+     * @param string $proxy
+     * @return $this
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">setProxy</span><span class="token punctuation">(</span><span class="token variable">$proxy</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$proxy</span><span class="token punctuation">)</span> curl_setopt <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_PROXY</span><span class="token punctuation">,</span> <span class="token variable">$proxy</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 设置http 代理端口
+     * @param int $port
+     * @return $this
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">setProxyPort</span><span class="token punctuation">(</span><span class="token variable">$port</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">is_int</span><span class="token punctuation">(</span><span class="token variable">$port</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_PROXYPORT</span><span class="token punctuation">,</span> <span class="token variable">$port</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 设置来源页面
+     * @param string $referer
+     * @return $this
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">setReferer</span><span class="token punctuation">(</span><span class="token variable">$referer</span> <span class="token operator">=</span> <span class="token double-quoted-string string">&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$referer</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_REFERER</span> <span class="token punctuation">,</span> <span class="token variable">$referer</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 设置用户代理
+     * @param string $agent
+     * @return $this
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">setUserAgent</span><span class="token punctuation">(</span><span class="token variable">$agent</span> <span class="token operator">=</span> <span class="token double-quoted-string string">&quot;&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$agent</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 模拟用户使用的浏览器</span>
+            <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_USERAGENT</span><span class="token punctuation">,</span> <span class="token variable">$agent</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * http响应中是否显示header，1表示显示
+     * @param $show
+     * @return $this
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">showResponseHeader</span><span class="token punctuation">(</span><span class="token variable">$show</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_HEADER</span><span class="token punctuation">,</span> <span class="token variable">$show</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token comment">/**
+     * 设置http请求的参数,get或post
+     * @param array $params
+     * @return $this
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">setParams</span><span class="token punctuation">(</span><span class="token variable">$params</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">httpParams</span> <span class="token operator">=</span> <span class="token variable">$params</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 设置证书路径
+     * @param $file
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">setCainfo</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_CAINFO</span><span class="token punctuation">,</span> <span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 模拟GET请求
+     * @param string $url
+     * @param string $dataType
+     * @return bool|mixed
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token variable">$url</span><span class="token punctuation">,</span> <span class="token variable">$dataType</span> <span class="token operator">=</span> <span class="token single-quoted-string string">'text'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">stripos</span><span class="token punctuation">(</span><span class="token variable">$url</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'https://'</span><span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token boolean constant">FALSE</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_SSL_VERIFYPEER</span><span class="token punctuation">,</span> <span class="token boolean constant">FALSE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_SSL_VERIFYHOST</span><span class="token punctuation">,</span> <span class="token boolean constant">FALSE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_SSLVERSION</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// 设置get参数</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">httpParams</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">is_array</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">httpParams</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strpos</span><span class="token punctuation">(</span><span class="token variable">$url</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'?'</span><span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token boolean constant">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token variable">$url</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token function">http_build_query</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">httpParams</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token variable">$url</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token single-quoted-string string">'?'</span> <span class="token punctuation">.</span> <span class="token function">http_build_query</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">httpParams</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// end 设置get参数</span>
+        <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_URL</span><span class="token punctuation">,</span> <span class="token variable">$url</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_RETURNTRANSFER</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$content</span> <span class="token operator">=</span> <span class="token function">curl_exec</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$status</span> <span class="token operator">=</span> <span class="token function">curl_getinfo</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">curl_close</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$status</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'http_code'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$status</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'http_code'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$dataType</span> <span class="token operator">==</span> <span class="token single-quoted-string string">'json'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token variable">$content</span> <span class="token operator">=</span> <span class="token function">json_decode</span><span class="token punctuation">(</span><span class="token variable">$content</span><span class="token punctuation">,</span> <span class="token boolean constant">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> <span class="token variable">$content</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean constant">FALSE</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 模拟POST请求
+     *
+     * @param string $url
+     * @param array $fields
+     * @param string $dataType
+     * @return mixed
+     *
+     * HttpCurl::post('http://api.example.com/?a=123', array('abc'=&gt;'123', 'efg'=&gt;'567'), 'json');
+     * HttpCurl::post('http://api.example.com/', '这是post原始内容', 'json');
+     * 文件post上传
+     * HttpCurl::post('http://api.example.com/', array('abc'=&gt;'123', 'file1'=&gt;'@/data/1.jpg'), 'json');
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">post</span><span class="token punctuation">(</span><span class="token variable">$url</span><span class="token punctuation">,</span> <span class="token variable">$dataType</span><span class="token operator">=</span><span class="token single-quoted-string string">'json'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">stripos</span><span class="token punctuation">(</span><span class="token variable">$url</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'https://'</span><span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token boolean constant">FALSE</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_SSL_VERIFYPEER</span><span class="token punctuation">,</span> <span class="token boolean constant">FALSE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_SSL_VERIFYHOST</span><span class="token punctuation">,</span> <span class="token boolean constant">FALSE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_SSLVERSION</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_URL</span><span class="token punctuation">,</span> <span class="token variable">$url</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 设置post body</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">httpParams</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">is_array</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">httpParams</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_POSTFIELDS</span><span class="token punctuation">,</span> <span class="token function">http_build_query</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">httpParams</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">is_string</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">httpParams</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_POSTFIELDS</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">httpParams</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// end 设置post body</span>
+        <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_RETURNTRANSFER</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_POST</span><span class="token punctuation">,</span> <span class="token boolean constant">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$content</span> <span class="token operator">=</span> <span class="token function">curl_exec</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$status</span> <span class="token operator">=</span> <span class="token function">curl_getinfo</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">curl_close</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">ch</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$status</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'http_code'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$status</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'http_code'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$dataType</span> <span class="token operator">==</span> <span class="token single-quoted-string string">'json'</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">json_decode</span><span class="token punctuation">(</span><span class="token variable">$content</span><span class="token punctuation">,</span> <span class="token boolean constant">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean constant">FALSE</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></code></pre></div><h3 id="案例"><a href="#案例" class="header-anchor">#</a> 案例</h3> <div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">use</span> <span class="token package">app<span class="token punctuation">\</span>admin<span class="token punctuation">\</span>extend<span class="token punctuation">\</span>HttpCurl</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Test</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token variable">$http</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HttpCurl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$header</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;Content-type:application/json;charset=utf-8&quot;</span><span class="token punctuation">,</span><span class="token double-quoted-string string">&quot;Accept:application/json&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$requestData</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token double-quoted-string string">&quot;user&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token double-quoted-string string">&quot;orangbus.cn&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token variable">$response</span> <span class="token operator">=</span> <span class="token variable">$http</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token variable">$header</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">setParams</span><span class="token punctuation">(</span><span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$requestData</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;https://httpbin.org/post&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token variable">$response</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></code></pre></div><h2 id="数值转化技巧"><a href="#数值转化技巧" class="header-anchor">#</a> 数值转化技巧</h2> <blockquote><p>场景，当我们从excel导入数据到数据库中时，可能会遇到将同一个类型的名称转换为数值代替，但是查询的时候又希望通过数值转化为名称。</p></blockquote> <p>当我有这样一个数组，想要插入到数据库中</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token variable">$data</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token double-quoted-string string">&quot;name&quot;</span><span class="token punctuation">:</span><span class="token double-quoted-string string">&quot;orangbus&quot;</span><span class="token punctuation">,</span><span class="token double-quoted-string string">&quot;sex&quot;</span><span class="token punctuation">:</span> <span class="token double-quoted-string string">&quot;男&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token double-quoted-string string">&quot;name&quot;</span><span class="token punctuation">:</span><span class="token double-quoted-string string">&quot;orangbus.cn&quot;</span><span class="token punctuation">,</span><span class="token double-quoted-string string">&quot;sex&quot;</span><span class="token punctuation">:</span> <span class="token double-quoted-string string">&quot;女&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre></div><p>但是我希望存储的格式是这样的</p> <table><thead><tr><th>id</th> <th>name</th> <th>sex</th></tr></thead> <tbody><tr><td>1</td> <td>orangbus</td> <td>1</td></tr> <tr><td>2</td> <td>orangbus.cn</td> <td>2</td></tr></tbody></table> <p>但是查询出来还是</p> <div class="language- extra-class"><pre class="language-text"><code>$data = [
+    {&quot;name&quot;:&quot;orangbus&quot;,&quot;sex&quot;: &quot;男&quot;},
+    {&quot;name&quot;:&quot;orangbus.cn&quot;,&quot;sex&quot;: &quot;女&quot;},
+];
+</code></pre></div><h3 id="方法："><a href="#方法：" class="header-anchor">#</a> 方法：</h3> <p>array_search : 返回值</p> <p>array_flip：数组键值翻转</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token comment">/**
+     *  * 性别转换
+     * @param $sex name|code
+     * @param int $type
+     * @return false|int|string
+     */</span>
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">transformSex</span><span class="token punctuation">(</span><span class="token variable">$sex</span><span class="token punctuation">,</span><span class="token variable">$type</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token variable">$list</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'1'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token double-quoted-string string">&quot;男&quot;</span><span class="token punctuation">,</span>
+        <span class="token double-quoted-string string">&quot;2&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token double-quoted-string string">&quot;女&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$type</span> <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token variable">$list</span> <span class="token operator">=</span> <span class="token function">array_flip</span><span class="token punctuation">(</span><span class="token variable">$list</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">array_search</span><span class="token punctuation">(</span><span class="token variable">$sex</span><span class="token punctuation">,</span><span class="token variable">$list</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="php使用正则：preg-match"><a href="#php使用正则：preg-match" class="header-anchor">#</a> php使用正则：preg_match</h2> <p>提取文件名：530126100000000x_one.jpg</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token variable">$str</span> <span class="token operator">=</span> <span class="token double-quoted-string string">&quot;/var/www/pathTo/public/ticket/card/530126100000000x_one.jpg&quot;</span><span class="token punctuation">;</span>
+
+<span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'/(\d+[a-zA-Z]).*.g/i'</span><span class="token punctuation">,</span><span class="token variable">$str</span><span class="token punctuation">,</span><span class="token variable">$res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$res</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="php数组传给js使用"><a href="#php数组传给js使用" class="header-anchor">#</a> php数组传给js使用</h2> <p>有时候我们需要传递一个php array给前端的js使用，可以怎么处理呢？</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token variable">$array</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token double-quoted-string string">&quot;name&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token double-quoted-string string">&quot;orangbus&quot;</span><span class="token punctuation">,</span>
+    <span class="token double-quoted-string string">&quot;age&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">18</span><span class="token punctuation">,</span>
+    <span class="token double-quoted-string string">&quot;weight&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">180</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// 我们在返回的时候将数组转换为字符串</span>
+<span class="token variable">$response_str</span> <span class="token operator">=</span> <span class="token function">implode</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;,&quot;</span><span class="token punctuation">,</span><span class="token variable">$array</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>前端再讲字符串转array使用</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">let</span> str <span class="token operator">=</span> <span class="token string">'&lt;?php echo implode(&quot;,&quot;,$response_str); ?&gt;'</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> str_to_array <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="内容过滤"><a href="#内容过滤" class="header-anchor">#</a> 内容过滤</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">filterScript</span><span class="token punctuation">(</span>string <span class="token variable">$content</span><span class="token operator">=</span><span class="token double-quoted-string string">&quot;&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+     <span class="token variable">$content</span> <span class="token operator">=</span><span class="token function">preg_replace</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'/&lt;script[\s\S]*?&lt;\/script&gt;/i'</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">''</span><span class="token punctuation">,</span> <span class="token variable">$content</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span>  <span class="token function">preg_replace</span><span class="token punctuation">(</span> <span class="token double-quoted-string string">&quot;@&lt;(.*?)&gt;@is&quot;</span><span class="token punctuation">,</span> <span class="token double-quoted-string string">&quot;&quot;</span><span class="token punctuation">,</span> <span class="token variable">$content</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    	<span class="token comment">// or</span>
+        <span class="token variable">$content</span> <span class="token operator">=</span> <span class="token function">preg_replace</span><span class="token punctuation">(</span> <span class="token double-quoted-string string">&quot;@&lt;script(.*?)&lt;/script&gt;\\n@is&quot;</span><span class="token punctuation">,</span> <span class="token double-quoted-string string">&quot;&quot;</span><span class="token punctuation">,</span> <span class="token variable">$content</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$content</span> <span class="token operator">=</span> <span class="token function">preg_replace</span><span class="token punctuation">(</span> <span class="token double-quoted-string string">&quot;@&lt;iframe(.*?)&lt;/iframe&gt;\\n@is&quot;</span><span class="token punctuation">,</span> <span class="token double-quoted-string string">&quot;&quot;</span><span class="token punctuation">,</span> <span class="token variable">$content</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$content</span> <span class="token operator">=</span> <span class="token function">preg_replace</span><span class="token punctuation">(</span> <span class="token double-quoted-string string">&quot;@&lt;style(.*?)&lt;/style&gt;\\n@is&quot;</span><span class="token punctuation">,</span> <span class="token double-quoted-string string">&quot;&quot;</span><span class="token punctuation">,</span> <span class="token variable">$content</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$content</span> <span class="token operator">=</span> <span class="token function">preg_replace</span><span class="token punctuation">(</span> <span class="token double-quoted-string string">&quot;@&lt;(.*?)&gt;@is&quot;</span><span class="token punctuation">,</span> <span class="token double-quoted-string string">&quot;&quot;</span><span class="token punctuation">,</span> <span class="token variable">$content</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//# 代表换行</span>
+        <span class="token variable">$content</span> <span class="token operator">=</span><span class="token function">str_replace</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;#&quot;</span><span class="token punctuation">,</span><span class="token double-quoted-string string">&quot;&lt;br&gt;&quot;</span><span class="token punctuation">,</span><span class="token variable">$content</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token variable">$content</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h1 id="函数工具"><a href="#函数工具" class="header-anchor">#</a> 函数工具</h1> <h2 id="check"><a href="#check" class="header-anchor">#</a> Check</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+    
+ <span class="token keyword">trait</span> Check<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * 检查手机号格式
+     * @param string $phone
+     * @return bool|string[]
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">phone</span><span class="token punctuation">(</span>string <span class="token variable">$phone</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token variable">$check</span> <span class="token operator">=</span> <span class="token single-quoted-string string">'/^(1(([35789][0-9])|(47)))\d{8}$/'</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token variable">$check</span><span class="token punctuation">,</span> <span class="token variable">$phone</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean constant">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token double-quoted-string string">&quot;msg&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token double-quoted-string string">&quot;手机号码格式不对！&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></code></pre></div><h2 id="【php】代码规范检查工具phpcs"><a href="#【php】代码规范检查工具phpcs" class="header-anchor">#</a> 【PHP】代码规范检查工具PHPCS</h2> <ul><li><p>PHP代码规范有<a href="http://www.php-fig.org/psr/" target="_blank" rel="noopener noreferrer">PSRs<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，为了能做到代码规范的自动化检查和修复，就需要用到PHPCS了。</p></li> <li><p>项目官网：https://github.com/squizlabs/PHP_CodeSniffer</p></li> <li><p>PHPCS安装</p></li> <li><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">curl</span> -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+php phpcs.phar -h
+<span class="token function">curl</span> -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
+php phpcbf.phar -h
+// 也许需要 <span class="token function">sudo</span>
+<span class="token function">sudo</span> <span class="token function">mv</span> phpcs.phar /usr/bin/phpcs
+<span class="token function">sudo</span> <span class="token function">mv</span> phpcbf.phar /usr/bin/phpcbf
+<span class="token function">sudo</span> <span class="token function">chmod</span> +x /usr/bin/phpcs
+<span class="token function">sudo</span> <span class="token function">chmod</span> +x /usr/bin/phpcbf
+</code></pre></div></li> <li></li> <li><p>常用命令</p></li> <li><ul><li>检查单个文件：phpcs /path/to/code</li> <li>检查目录下的文件：phpcs /path/to/code/</li> <li>查看已经安装的标准：phpcs -i</li> <li>设置默认检查标准：phpcs --config-set default_standard /path/to/standard_file</li> <li>查看配置：phpcs --config-show</li> <li>指定报告格式：phpcs --report=summary /path/to/code ；可用的报告格式有full, xml, checkstyle, csv, json, emacs, source, summary, diff, svnblame, gitblame, hgblame, notifysend，默认为full</li> <li>查看帮助：phpcs -h</li> <li>自动修复：phpcbf /path/to/code</li> <li>详细的使用说明见<a href="https://github.com/squizlabs/PHP_CodeSniffer/wiki" target="_blank" rel="noopener noreferrer">官方wiki<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul> <h1 id="进制转换"><a href="#进制转换" class="header-anchor">#</a> 进制转换</h1> <h2 id="二进制转十六进制"><a href="#二进制转十六进制" class="header-anchor">#</a> 二进制转十六进制</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token variable">$str</span> <span class="token operator">=</span> <span class="token function">bin2hex</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'orangbus.cn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h1 id="随机字符串"><a href="#随机字符串" class="header-anchor">#</a> 随机字符串</h1> <div class="language-php extra-class"><pre class="language-php"><code><span class="token comment">/**
+* 随机字符换
+*/</span>
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">randStr</span><span class="token punctuation">(</span><span class="token variable">$length</span><span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//字符组合</span>
+    <span class="token variable">$str</span> <span class="token operator">=</span> <span class="token single-quoted-string string">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'</span><span class="token punctuation">;</span>
+    <span class="token variable">$len</span> <span class="token operator">=</span> <span class="token function">strlen</span><span class="token punctuation">(</span><span class="token variable">$str</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token variable">$randstr</span> <span class="token operator">=</span> <span class="token single-quoted-string string">''</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$i</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token variable">$i</span><span class="token operator">&lt;</span><span class="token variable">$length</span><span class="token punctuation">;</span><span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$num</span><span class="token operator">=</span><span class="token function">mt_rand</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token variable">$len</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$randstr</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token variable">$str</span><span class="token punctuation">[</span><span class="token variable">$num</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token variable">$randstr</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h1 id="文件操作"><a href="#文件操作" class="header-anchor">#</a> 文件操作</h1> <h2 id="复制文件：copy"><a href="#复制文件：copy" class="header-anchor">#</a> 复制文件：copy</h2> <blockquote><p>copy(源文件，目标文件);</p></blockquote> <div class="language-php extra-class"><pre class="language-php"><code><span class="token function">copy</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;/temp/avatar.png&quot;</span><span class="token punctuation">,</span><span class="token double-quoted-string string">&quot;/home/code/avatar.png&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>tip: 若是不存在，则写入；目标路径下的文件若是存在，则覆盖写入</p> <h1 id="m3u8文件制作"><a href="#m3u8文件制作" class="header-anchor">#</a> m3u8文件制作</h1> <p>格式</p> <div class="language-m3u extra-class"><pre class="language-text"><code>#EXTM3U (固定格式)
+#EXTINF:-1,频道名称
+频道直播地址.m3u8
+
+#EXTINF:-1,频道名称
+频道直播地址.m3u8
+</code></pre></div><h1 id="php设计模式"><a href="#php设计模式" class="header-anchor">#</a> php设计模式</h1> <blockquote><p>https://learnku.com/docs/php-design-patterns/2018</p></blockquote> <h2 id="单例模式"><a href="#单例模式" class="header-anchor">#</a> 单例模式</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token comment">/**
+ * Created by OrangBus
+ * User email: orangbus40400@gmail.com
+ * website: orangbus.cn
+ * blog: doc.orangbus.cn
+ * github: github.com/orangbus
+ */</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserService</span>
+<span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token variable">$instance</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * @return UserService
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>self<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token variable">$instance</span> <span class="token keyword">instanceof</span> <span class="token class-name">self</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">self</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token variable">$instance</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token variable">$instance</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">private</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        
+    <span class="token punctuation">}</span>
+    <span class="token keyword">private</span> <span class="token keyword">function</span> <span class="token function">__clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getUserById</span><span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> \<span class="token package">App<span class="token punctuation">\</span>Models<span class="token punctuation">\</span>User</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</span></code></pre></div><div class="language-php extra-class"><pre class="language-php"><code><span class="token variable">$user</span> <span class="token operator">=</span> UserService<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getUserById</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="观察者模式"><a href="#观察者模式" class="header-anchor">#</a> 观察者模式</h2></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/orangbus/vuepress-blog/edit/master/docs/Code/Php.md" target="_blank" rel="noopener noreferrer">帮助我们改善此页面！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">3/20/2023, 11:31:12 AM</span></div></footer> <!----> </main></div><div class="global-ui"><!----><div class="reading-progress top" data-v-21b39eda><div class="progress" data-v-21b39eda></div></div></div></div>
+    <script src="/assets/js/app.ea451ed9.js" defer></script><script src="/assets/js/3.6c5e3284.js" defer></script><script src="/assets/js/35.cb9c230e.js" defer></script>
+  </body>
+</html>

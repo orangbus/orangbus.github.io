@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>PXC课程脚本 | OrangBus</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="shortcut icon" href="/orangbus.ico" type="image/jpg">
+    <script><script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?75a195c58b50e00357efe9066f49f8b0";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+			</script>
+			</script>
+    <meta name="description" content="分享生活高效技能,保持勇敢，坚持有趣，生命不息，折腾不止！">
+    <meta property="og:site_name" content="OrangBus">
+    <meta property="og:title" content="PXC课程脚本">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/mysql/PXC-course.html">
+    <meta name="twitter:title" content="PXC课程脚本">
+    <meta name="twitter:url" content="/mysql/PXC-course.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords" content="html,css,jquery,thinkphp,laravel,docker,linux,manjaro">
+    <meta name="auther" content="OrangBus">
+    <link rel="preload" href="/assets/css/0.styles.8405cd42.css" as="style"><link rel="preload" href="/assets/js/app.ea451ed9.js" as="script"><link rel="preload" href="/assets/js/3.6c5e3284.js" as="script"><link rel="preload" href="/assets/js/156.c0e99fa3.js" as="script"><link rel="prefetch" href="/assets/js/10.36e3baf2.js"><link rel="prefetch" href="/assets/js/100.c62c728f.js"><link rel="prefetch" href="/assets/js/101.ae1ee2be.js"><link rel="prefetch" href="/assets/js/102.9cbe442f.js"><link rel="prefetch" href="/assets/js/103.865c8704.js"><link rel="prefetch" href="/assets/js/104.f2a95690.js"><link rel="prefetch" href="/assets/js/105.d1b44fe7.js"><link rel="prefetch" href="/assets/js/106.23035218.js"><link rel="prefetch" href="/assets/js/107.278448f9.js"><link rel="prefetch" href="/assets/js/108.a0ae7f91.js"><link rel="prefetch" href="/assets/js/109.cf958a7f.js"><link rel="prefetch" href="/assets/js/11.6e113d65.js"><link rel="prefetch" href="/assets/js/110.4abe4a81.js"><link rel="prefetch" href="/assets/js/111.d14fcb85.js"><link rel="prefetch" href="/assets/js/112.548bcab9.js"><link rel="prefetch" href="/assets/js/113.175d2143.js"><link rel="prefetch" href="/assets/js/114.ea5534cc.js"><link rel="prefetch" href="/assets/js/115.8fde4729.js"><link rel="prefetch" href="/assets/js/116.892c24fc.js"><link rel="prefetch" href="/assets/js/117.b6407011.js"><link rel="prefetch" href="/assets/js/118.e6b176a0.js"><link rel="prefetch" href="/assets/js/119.f5f2daa6.js"><link rel="prefetch" href="/assets/js/12.4a156561.js"><link rel="prefetch" href="/assets/js/120.9665106a.js"><link rel="prefetch" href="/assets/js/121.9796f87f.js"><link rel="prefetch" href="/assets/js/122.99ed8d50.js"><link rel="prefetch" href="/assets/js/123.178c8139.js"><link rel="prefetch" href="/assets/js/124.c5da5022.js"><link rel="prefetch" href="/assets/js/125.a471379a.js"><link rel="prefetch" href="/assets/js/126.b023af6d.js"><link rel="prefetch" href="/assets/js/127.1881be96.js"><link rel="prefetch" href="/assets/js/128.dc0cb30c.js"><link rel="prefetch" href="/assets/js/129.49a46e09.js"><link rel="prefetch" href="/assets/js/13.ffe35305.js"><link rel="prefetch" href="/assets/js/130.eb431321.js"><link rel="prefetch" href="/assets/js/131.d2e4e355.js"><link rel="prefetch" href="/assets/js/132.e06be357.js"><link rel="prefetch" href="/assets/js/133.a301aae1.js"><link rel="prefetch" href="/assets/js/134.d4f8d457.js"><link rel="prefetch" href="/assets/js/135.44b350c1.js"><link rel="prefetch" href="/assets/js/136.8c7e2989.js"><link rel="prefetch" href="/assets/js/137.1f1c660c.js"><link rel="prefetch" href="/assets/js/138.8cb25d26.js"><link rel="prefetch" href="/assets/js/139.f522c59c.js"><link rel="prefetch" href="/assets/js/14.d36de9de.js"><link rel="prefetch" href="/assets/js/140.017da4d3.js"><link rel="prefetch" href="/assets/js/141.e9e1855f.js"><link rel="prefetch" href="/assets/js/142.c45accfd.js"><link rel="prefetch" href="/assets/js/143.9ada7c7e.js"><link rel="prefetch" href="/assets/js/144.08072e47.js"><link rel="prefetch" href="/assets/js/145.c5e578ae.js"><link rel="prefetch" href="/assets/js/146.f7dd1b72.js"><link rel="prefetch" href="/assets/js/147.4b80c07c.js"><link rel="prefetch" href="/assets/js/148.f40aeae9.js"><link rel="prefetch" href="/assets/js/149.7643921b.js"><link rel="prefetch" href="/assets/js/15.62ba96c3.js"><link rel="prefetch" href="/assets/js/150.a9088b08.js"><link rel="prefetch" href="/assets/js/151.855b11a5.js"><link rel="prefetch" href="/assets/js/152.d513c64a.js"><link rel="prefetch" href="/assets/js/153.612f9549.js"><link rel="prefetch" href="/assets/js/154.54322c84.js"><link rel="prefetch" href="/assets/js/155.c612edbd.js"><link rel="prefetch" href="/assets/js/157.66027807.js"><link rel="prefetch" href="/assets/js/158.3b7ef7c0.js"><link rel="prefetch" href="/assets/js/159.2129b9f4.js"><link rel="prefetch" href="/assets/js/16.b3d1377d.js"><link rel="prefetch" href="/assets/js/160.81804cfd.js"><link rel="prefetch" href="/assets/js/161.b3f6a037.js"><link rel="prefetch" href="/assets/js/162.b50f19cf.js"><link rel="prefetch" href="/assets/js/17.5897ff24.js"><link rel="prefetch" href="/assets/js/18.bdf46b90.js"><link rel="prefetch" href="/assets/js/19.7abc88da.js"><link rel="prefetch" href="/assets/js/2.86f796bf.js"><link rel="prefetch" href="/assets/js/20.30b9f95b.js"><link rel="prefetch" href="/assets/js/21.86a8aad5.js"><link rel="prefetch" href="/assets/js/22.b4f5a61f.js"><link rel="prefetch" href="/assets/js/23.e5b7871f.js"><link rel="prefetch" href="/assets/js/24.861737df.js"><link rel="prefetch" href="/assets/js/25.461bdc07.js"><link rel="prefetch" href="/assets/js/26.1d1a614d.js"><link rel="prefetch" href="/assets/js/27.475c6b8a.js"><link rel="prefetch" href="/assets/js/28.ab8849ef.js"><link rel="prefetch" href="/assets/js/29.d1b58c6c.js"><link rel="prefetch" href="/assets/js/30.d2c71ed7.js"><link rel="prefetch" href="/assets/js/31.805bcd3c.js"><link rel="prefetch" href="/assets/js/32.4226174c.js"><link rel="prefetch" href="/assets/js/33.37be6a15.js"><link rel="prefetch" href="/assets/js/34.466ebcf5.js"><link rel="prefetch" href="/assets/js/35.cb9c230e.js"><link rel="prefetch" href="/assets/js/36.771f66ea.js"><link rel="prefetch" href="/assets/js/37.e443a86a.js"><link rel="prefetch" href="/assets/js/38.2af0dbd3.js"><link rel="prefetch" href="/assets/js/39.0c54ac88.js"><link rel="prefetch" href="/assets/js/4.e55e7d6c.js"><link rel="prefetch" href="/assets/js/40.e349bc43.js"><link rel="prefetch" href="/assets/js/41.2c82d80b.js"><link rel="prefetch" href="/assets/js/42.09865f77.js"><link rel="prefetch" href="/assets/js/43.d1a1945d.js"><link rel="prefetch" href="/assets/js/44.44056441.js"><link rel="prefetch" href="/assets/js/45.23f4bcb1.js"><link rel="prefetch" href="/assets/js/46.523377ed.js"><link rel="prefetch" href="/assets/js/47.39c2ac9b.js"><link rel="prefetch" href="/assets/js/48.446932bc.js"><link rel="prefetch" href="/assets/js/49.47b2cdc5.js"><link rel="prefetch" href="/assets/js/5.73b6d780.js"><link rel="prefetch" href="/assets/js/50.9cb1d170.js"><link rel="prefetch" href="/assets/js/51.4b7a3e4f.js"><link rel="prefetch" href="/assets/js/52.2310dbde.js"><link rel="prefetch" href="/assets/js/53.70514c3c.js"><link rel="prefetch" href="/assets/js/54.316cdc49.js"><link rel="prefetch" href="/assets/js/55.db4816c8.js"><link rel="prefetch" href="/assets/js/56.7241b38e.js"><link rel="prefetch" href="/assets/js/57.f947ebe6.js"><link rel="prefetch" href="/assets/js/58.3e277572.js"><link rel="prefetch" href="/assets/js/59.3476f0cf.js"><link rel="prefetch" href="/assets/js/6.49bd8bb9.js"><link rel="prefetch" href="/assets/js/60.6589e146.js"><link rel="prefetch" href="/assets/js/61.22492af7.js"><link rel="prefetch" href="/assets/js/62.1fc6799a.js"><link rel="prefetch" href="/assets/js/63.e3f9a2ca.js"><link rel="prefetch" href="/assets/js/64.1d1d0763.js"><link rel="prefetch" href="/assets/js/65.470a3295.js"><link rel="prefetch" href="/assets/js/66.4c1b39ef.js"><link rel="prefetch" href="/assets/js/67.882578f3.js"><link rel="prefetch" href="/assets/js/68.e37c1840.js"><link rel="prefetch" href="/assets/js/69.74668543.js"><link rel="prefetch" href="/assets/js/7.a146e8b1.js"><link rel="prefetch" href="/assets/js/70.3f357a01.js"><link rel="prefetch" href="/assets/js/71.1639510a.js"><link rel="prefetch" href="/assets/js/72.235a2ff5.js"><link rel="prefetch" href="/assets/js/73.b6403efb.js"><link rel="prefetch" href="/assets/js/74.8028105e.js"><link rel="prefetch" href="/assets/js/75.8317d79b.js"><link rel="prefetch" href="/assets/js/76.2bcfe34f.js"><link rel="prefetch" href="/assets/js/77.8a0fa722.js"><link rel="prefetch" href="/assets/js/78.dfb11693.js"><link rel="prefetch" href="/assets/js/79.4c573711.js"><link rel="prefetch" href="/assets/js/8.361bf975.js"><link rel="prefetch" href="/assets/js/80.ae55b008.js"><link rel="prefetch" href="/assets/js/81.fcf62caf.js"><link rel="prefetch" href="/assets/js/82.c75bff49.js"><link rel="prefetch" href="/assets/js/83.bc4cf04e.js"><link rel="prefetch" href="/assets/js/84.6e7b5e11.js"><link rel="prefetch" href="/assets/js/85.6b48a9e4.js"><link rel="prefetch" href="/assets/js/86.7a637af9.js"><link rel="prefetch" href="/assets/js/87.92ca344e.js"><link rel="prefetch" href="/assets/js/88.31ecec95.js"><link rel="prefetch" href="/assets/js/89.c5bde116.js"><link rel="prefetch" href="/assets/js/9.17b1e357.js"><link rel="prefetch" href="/assets/js/90.a41fd3df.js"><link rel="prefetch" href="/assets/js/91.46a2cc9e.js"><link rel="prefetch" href="/assets/js/92.761117f0.js"><link rel="prefetch" href="/assets/js/93.40eecc87.js"><link rel="prefetch" href="/assets/js/94.7de38523.js"><link rel="prefetch" href="/assets/js/95.372f7ca9.js"><link rel="prefetch" href="/assets/js/96.850a8aca.js"><link rel="prefetch" href="/assets/js/97.d3f7516f.js"><link rel="prefetch" href="/assets/js/98.b00ac6e4.js"><link rel="prefetch" href="/assets/js/99.aa632710.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8405cd42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/orangbus.png" alt="OrangBus" class="logo"> <span class="site-name can-hide">OrangBus</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>mysql</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/mysql/PXC-course.html" aria-current="page" class="active sidebar-link">PXC课程脚本</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_1-离线安装percona" class="sidebar-link">1. 离线安装Percona</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_2-在线安装percona" class="sidebar-link">2. 在线安装Percona</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_3-开放防火墙端口" class="sidebar-link">3. 开放防火墙端口</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_4-修改mysql配置文件" class="sidebar-link">4. 修改MySQL配置文件</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_5-禁止开机启动mysql" class="sidebar-link">5. 禁止开机启动MySQL</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_6-初始化mysql数据库" class="sidebar-link">6. 初始化MySQL数据库</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_1-删除mariadb程序包" class="sidebar-link">1. 删除MariaDB程序包</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_2-开放防火墙端口" class="sidebar-link">2. 开放防火墙端口</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_3-关闭selinux" class="sidebar-link">3. 关闭SELINUX</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_4-离线安装pxc" class="sidebar-link">4. 离线安装PXC</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_5-创建pxc集群" class="sidebar-link">5. 创建PXC集群</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_6-pxc节点启动与关闭" class="sidebar-link">6. PXC节点启动与关闭</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_1-jdk安装与配置" class="sidebar-link">1. JDK安装与配置</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_2-创建数据表" class="sidebar-link">2. 创建数据表</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_3-mycat安装与配置" class="sidebar-link">3. MyCat安装与配置</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_4-配置父子表" class="sidebar-link">4. 配置父子表</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_5-创建双机热备的mycat集群" class="sidebar-link">5. 创建双机热备的MyCat集群</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_1-安装sysbench" class="sidebar-link">1. 安装Sysbench</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_2-执行测试" class="sidebar-link">2. 执行测试</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_1-准备工作" class="sidebar-link">1. 准备工作</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_2-安装tpcc-mysql" class="sidebar-link">2. 安装tpcc-mysql</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_1-生成1000万条数据" class="sidebar-link">1. 生成1000万条数据</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_2-执行文件切分" class="sidebar-link">2. 执行文件切分</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_3-准备数据库" class="sidebar-link">3. 准备数据库</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_4-执行java程序，多线程导入数据" class="sidebar-link">4. 执行Java程序，多线程导入数据</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_1-安装tokudb" class="sidebar-link">1. 安装TokuDB</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_2-配置replication集群" class="sidebar-link">2. 配置Replication集群</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_3-创建归档表" class="sidebar-link">3. 创建归档表</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_4-配置haproxy-keepalived双机热备" class="sidebar-link">4. 配置Haproxy+Keepalived双机热备</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_5-准备归档数据" class="sidebar-link">5. 准备归档数据</a></li><li class="sidebar-sub-header"><a href="/mysql/PXC-course.html#_6-执行数据归档" class="sidebar-link">6. 执行数据归档</a></li></ul></li><li><a href="/mysql/" aria-current="page" class="sidebar-link">mysql学习笔记</a></li><li><a href="/mysql/haproxy.html" class="sidebar-link">haproxy</a></li><li><a href="/mysql/master-slave.html" class="sidebar-link">mysql主从复制</a></li><li><a href="/mysql/mycat.html" class="sidebar-link">Mycat</a></li><li><a href="/mysql/pxc.html" class="sidebar-link">pxc集群</a></li><li><a href="/mysql/redis.html" class="sidebar-link">redis集群</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="一、安装percona数据库"><a href="#一、安装percona数据库" class="header-anchor">#</a> 一、安装Percona数据库</h1> <h2 id="_1-离线安装percona"><a href="#_1-离线安装percona" class="header-anchor">#</a> 1. 离线安装Percona</h2> <ul><li><p>进入RPM安装文件目录，执行下面的脚本</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum localinstall *.rpm
+</code></pre></div></li> <li><p>管理MySQL服务</p> <div class="language-shell extra-class"><pre class="language-shell"><code>systemctl start mysqld
+systemctl stop mysqld
+systemctl restart mysqld
+</code></pre></div></li></ul> <h2 id="_2-在线安装percona"><a href="#_2-在线安装percona" class="header-anchor">#</a> 2. 在线安装Percona</h2> <ul><li><p>使用yum命令安装</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum <span class="token function">install</span> http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
+yum  <span class="token function">install</span>  Percona-Server-server-57
+</code></pre></div></li> <li><p>管理MySQL服务</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">service</span> mysql start
+<span class="token function">service</span> mysql stop
+<span class="token function">service</span> mysql restart
+</code></pre></div></li></ul> <h2 id="_3-开放防火墙端口"><a href="#_3-开放防火墙端口" class="header-anchor">#</a> 3. 开放防火墙端口</h2> <div class="language-shell extra-class"><pre class="language-shell"><code>firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">3306</span>/tcp --permanent
+firewall-cmd --reload
+</code></pre></div><h2 id="_4-修改mysql配置文件"><a href="#_4-修改mysql配置文件" class="header-anchor">#</a> 4. 修改MySQL配置文件</h2> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">vi</span> /etc/my.cnf
+</code></pre></div><div class="language-ini extra-class"><pre class="language-ini"><code><span class="token selector">[mysqld]</span>
+<span class="token constant">character_set_server</span> <span class="token attr-value"><span class="token punctuation">=</span> utf8</span>
+<span class="token constant">bind-address</span> <span class="token attr-value"><span class="token punctuation">=</span> 0.0.0.0</span>
+<span class="token comment">#跳过DNS解析</span>
+skip-name-resolve
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">service</span> mysql restart 
+</code></pre></div><h2 id="_5-禁止开机启动mysql"><a href="#_5-禁止开机启动mysql" class="header-anchor">#</a> 5. 禁止开机启动MySQL</h2> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">chkconfig</span> mysqld off
+</code></pre></div><h2 id="_6-初始化mysql数据库"><a href="#_6-初始化mysql数据库" class="header-anchor">#</a> 6. 初始化MySQL数据库</h2> <ul><li><p>查看MySQL初始密码</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">cat</span> /var/log/mysqld.log <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">&quot;A temporary password&quot;</span>
+</code></pre></div></li> <li><p>修改MySQL密码</p> <div class="language-shell extra-class"><pre class="language-shell"><code>mysql_secure_installation
+</code></pre></div></li> <li><p>创建远程管理员账户</p> <div class="language-shell extra-class"><pre class="language-shell"><code>mysql -u root -p
+</code></pre></div><div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">CREATE</span> <span class="token keyword">USER</span> <span class="token string">'admin'</span><span class="token variable">@'%'</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">'Abc_123456'</span><span class="token punctuation">;</span>
+<span class="token keyword">GRANT</span> <span class="token keyword">all</span> <span class="token keyword">privileges</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'admin'</span><span class="token variable">@'%'</span><span class="token punctuation">;</span>
+FLUSH <span class="token keyword">PRIVILEGES</span><span class="token punctuation">;</span>
+</code></pre></div></li></ul> <h1 id="二、创建pxc集群"><a href="#二、创建pxc集群" class="header-anchor">#</a> 二、创建PXC集群</h1> <h2 id="_1-删除mariadb程序包"><a href="#_1-删除mariadb程序包" class="header-anchor">#</a> 1. 删除MariaDB程序包</h2> <div class="language-shell extra-class"><pre class="language-shell"><code>yum -y remove mari*
+</code></pre></div><h2 id="_2-开放防火墙端口"><a href="#_2-开放防火墙端口" class="header-anchor">#</a> 2. 开放防火墙端口</h2> <div class="language-shell extra-class"><pre class="language-shell"><code>firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">3306</span>/tcp --permanent
+firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">4444</span>/tcp --permanent
+firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">4567</span>/tcp --permanent
+firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">4568</span>/tcp --permanent
+</code></pre></div><h2 id="_3-关闭selinux"><a href="#_3-关闭selinux" class="header-anchor">#</a> 3. 关闭SELINUX</h2> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">vi</span> /etc/selinux/config
+</code></pre></div><p>把SELINUX属性值设置成disabled</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">reboot</span>
+</code></pre></div><h2 id="_4-离线安装pxc"><a href="#_4-离线安装pxc" class="header-anchor">#</a> 4. 离线安装PXC</h2> <ul><li><p>进入RPM文件目录，执行安装命令</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum localinstall *.rpm
+</code></pre></div></li> <li><p>参考第一章内容，修改MySQL配置文件、创建账户等操作</p></li></ul> <h2 id="_5-创建pxc集群"><a href="#_5-创建pxc集群" class="header-anchor">#</a> 5. 创建PXC集群</h2> <ul><li><p>停止MySQL服务</p></li> <li><p>修改每个PXC节点的/etc/my.cnf文件（在不同节点上，注意调整文件内容）</p> <div class="language-ini extra-class"><pre class="language-ini"><code><span class="token constant">server-id</span><span class="token attr-value"><span class="token punctuation">=</span>1  #PXC集群中MySQL实例的唯一ID，不能重复，必须是数字</span>
+<span class="token constant">wsrep_provider</span><span class="token attr-value"><span class="token punctuation">=</span>/usr/lib64/galera3/libgalera_smm.so</span>
+<span class="token constant">wsrep_cluster_name</span><span class="token attr-value"><span class="token punctuation">=</span>pxc-cluster  #PXC集群的名称</span>
+<span class="token constant">wsrep_cluster_address</span><span class="token attr-value"><span class="token punctuation">=</span>gcomm://192.168.99.151,192.168.99.159,192.168.99.215</span>
+<span class="token constant">wsrep_node_name</span><span class="token attr-value"><span class="token punctuation">=</span>pxc1  #当前节点的名称</span>
+<span class="token constant">wsrep_node_address</span><span class="token attr-value"><span class="token punctuation">=</span>192.168.99.151  #当前节点的IP</span>
+<span class="token constant">wsrep_sst_method</span><span class="token attr-value"><span class="token punctuation">=</span>xtrabackup-v2  #同步方法（mysqldump、rsync、xtrabackup）</span>
+<span class="token constant">wsrep_sst_auth</span><span class="token attr-value"><span class="token punctuation">=</span> admin:Abc_123456  #同步使用的帐户</span>
+<span class="token constant">pxc_strict_mode</span><span class="token attr-value"><span class="token punctuation">=</span>ENFORCING  #同步严厉模式</span>
+<span class="token constant">binlog_format</span><span class="token attr-value"><span class="token punctuation">=</span>ROW  #基于ROW复制（安全可靠）</span>
+<span class="token constant">default_storage_engine</span><span class="token attr-value"><span class="token punctuation">=</span>InnoDB  #默认引擎</span>
+<span class="token constant">innodb_autoinc_lock_mode</span><span class="token attr-value"><span class="token punctuation">=</span>2  #主键自增长不锁表</span>
+</code></pre></div></li> <li><p>主节点的管理命令（第一个启动的PXC节点）</p> <div class="language-shell extra-class"><pre class="language-shell"><code>systemctl start mysql@bootstrap.service
+systemctl stop mysql@bootstrap.service
+systemctl restart mysql@bootstrap.service
+</code></pre></div></li> <li><p>非主节点的管理命令（非第一个启动的PXC节点）</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">service</span> start mysql
+<span class="token function">service</span> stop mysql
+<span class="token function">service</span> restart mysql
+</code></pre></div></li> <li><p>查看PXC集群状态信息</p> <div class="language-mysql extra-class"><pre class="language-text"><code>show status like 'wsrep_cluster%' ;
+</code></pre></div></li> <li><p><strong>按照上述配置方法，创建两组PXC集群</strong></p></li></ul> <h2 id="_6-pxc节点启动与关闭"><a href="#_6-pxc节点启动与关闭" class="header-anchor">#</a> 6. PXC节点启动与关闭</h2> <ul><li>如果最后关闭的PXC节点是安全退出的，那么下次启动要最先启动这个节点，而且要以主节点启动</li> <li>如果最后关闭的PXC节点不是安全退出的，那么要先修改<code>/var/lib/mysql/grastate.dat</code> 文件，把其中的<code>safe_to_bootstrap</code>属性值设置为1，再安装主节点启动</li></ul> <h1 id="三、安装mycat"><a href="#三、安装mycat" class="header-anchor">#</a> 三、安装MyCat</h1> <h2 id="_1-jdk安装与配置"><a href="#_1-jdk安装与配置" class="header-anchor">#</a> 1. JDK安装与配置</h2> <ul><li><p>安装JDK</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#搜索JDK版本</span>
+yum search jdk 
+<span class="token comment">#安装JDK1.8开发版</span>
+yum <span class="token function">install</span> java-1.8.0-openjdk-devel.x86_64
+</code></pre></div></li> <li><p>配置环境变量</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#查看JDK安装路径</span>
+<span class="token function">ls</span> -lrt /etc/alternatives/java
+<span class="token function">vi</span> /etc/profile
+<span class="token comment">#在文件结尾加上JDK路径，例如export  JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.171-8.b10.el7_5.x86_64/</span>
+<span class="token builtin class-name">source</span>  /etc/profile 
+</code></pre></div></li></ul> <h2 id="_2-创建数据表"><a href="#_2-创建数据表" class="header-anchor">#</a> 2. 创建数据表</h2> <ul><li><p>在两组PXC集群中分别创建t_user数据表</p> <div class="language-mysql extra-class"><pre class="language-text"><code>CREATE TABLE t_user(
+	id INT UNSIGNED PRIMARY KEY,
+    username VARCHAR(200) NOT NULL,
+    password VARCHAR(2000) NOT NULL,
+    tel CHAR(11) NOT NULL,
+    locked TINYINT(1) UNSIGNED NOT NULL DEFAULT 0,
+    INDEX idx_username(username) USING BTREE,
+    UNIQUE INDEX unq_username(username) USING BTREE
+);
+</code></pre></div></li></ul> <h2 id="_3-mycat安装与配置"><a href="#_3-mycat安装与配置" class="header-anchor">#</a> 3. MyCat安装与配置</h2> <ol><li><p>下载MyCat</p> <p><a href="http://dl.mycat.io/1.6.5/Mycat-server-1.6.5-release-20180122220033-linux.tar.gz" target="_blank" rel="noopener noreferrer">http://dl.mycat.io/1.6.5/Mycat-server-1.6.5-release-20180122220033-linux.tar.<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a><a href="http://dl.mycat.io/1.6.5/Mycat-server-1.6.5-release-20180122220033-linux.tar.gz" target="_blank" rel="noopener noreferrer">gz<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></li> <li><p>上传MyCat压缩包到虚拟机</p></li> <li><p>安装unzip程序包，解压缩MyCat</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum <span class="token function">install</span> <span class="token function">unzip</span>
+<span class="token function">unzip</span> MyCAT压缩包名称
+</code></pre></div></li> <li><p>开放防火墙8066和9066端口，关闭SELINUX</p></li> <li><p>修改MyCat的bin目录中所有.sh文件的权限</p> <div class="language- extra-class"><pre class="language-text"><code>chmod -R 777 ./*.sh
+</code></pre></div></li> <li><p>MyCat启动与关闭</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#cd MyCat的bin目录</span>
+./startup_nowrap.sh <span class="token comment">#启动MyCat</span>
+<span class="token function">ps</span> -aux <span class="token comment">#查看系统进程</span>
+<span class="token function">kill</span> -9 MyCat进程编号
+</code></pre></div></li> <li><p>修改server.xml文件，设置MyCat帐户和虚拟逻辑库</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token operator">&lt;</span>?xml <span class="token assign-left variable">version</span><span class="token operator">=</span><span class="token string">&quot;1.0&quot;</span> <span class="token assign-left variable">encoding</span><span class="token operator">=</span><span class="token string">&quot;UTF-8&quot;</span>?<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE mycat:server SYSTEM <span class="token string">&quot;server.dtd&quot;</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>mycat:server xmlns:mycat<span class="token operator">=</span><span class="token string">&quot;http://io.mycat/&quot;</span><span class="token operator">&gt;</span>
+  	<span class="token operator">&lt;</span>system<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;nonePasswordLogin&quot;</span><span class="token operator">&gt;</span><span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>/property<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;useHandshakeV10&quot;</span><span class="token operator">&gt;</span><span class="token operator"><span class="token file-descriptor important">1</span>&lt;</span>/property<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;useSqlStat&quot;</span><span class="token operator">&gt;</span><span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>/property<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;useGlobleTableCheck&quot;</span><span class="token operator">&gt;</span><span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>/property<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;sequnceHandlerType&quot;</span><span class="token operator">&gt;</span><span class="token operator"><span class="token file-descriptor important">2</span>&lt;</span>/property<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;subqueryRelationshipCheck&quot;</span><span class="token operator">&gt;</span>false<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;processorBufferPoolType&quot;</span><span class="token operator">&gt;</span><span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>/property<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;handleDistributedTransactions&quot;</span><span class="token operator">&gt;</span><span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>/property<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;useOffHeapForMerge&quot;</span><span class="token operator">&gt;</span><span class="token operator"><span class="token file-descriptor important">1</span>&lt;</span>/property<span class="token operator">&gt;</span>
+      	<span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;memoryPageSize&quot;</span><span class="token operator">&gt;</span>64k<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;spillsFileBufferSize&quot;</span><span class="token operator">&gt;</span>1k<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;useStreamOutput&quot;</span><span class="token operator">&gt;</span><span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>/property<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;systemReserveMemorySize&quot;</span><span class="token operator">&gt;</span>384m<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;useZKSwitch&quot;</span><span class="token operator">&gt;</span>false<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
+  	<span class="token operator">&lt;</span>/system<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span>--这里是设置的admin用户和虚拟逻辑库--<span class="token operator">&gt;</span>
+  	<span class="token operator">&lt;</span>user <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;admin&quot;</span> <span class="token assign-left variable">defaultAccount</span><span class="token operator">=</span><span class="token string">&quot;true&quot;</span><span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;password&quot;</span><span class="token operator">&gt;</span>Abc_12345<span class="token operator"><span class="token file-descriptor important">6</span>&lt;</span>/property<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;schemas&quot;</span><span class="token operator">&gt;</span>test<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
+  	<span class="token operator">&lt;</span>/user<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/mycat:server<span class="token operator">&gt;</span>
+</code></pre></div></li> <li><p>修改schema.xml文件，设置数据库连接和虚拟数据表</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token operator">&lt;</span>?xml <span class="token assign-left variable">version</span><span class="token operator">=</span><span class="token string">&quot;1.0&quot;</span>?<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE mycat:schema SYSTEM <span class="token string">&quot;schema.dtd&quot;</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>mycat:schema xmlns:mycat<span class="token operator">=</span><span class="token string">&quot;http://io.mycat/&quot;</span><span class="token operator">&gt;</span>
+  	<span class="token operator">&lt;</span><span class="token operator">!</span>--配置数据表--<span class="token operator">&gt;</span>
+  	<span class="token operator">&lt;</span>schema <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;test&quot;</span> <span class="token assign-left variable">checkSQLschema</span><span class="token operator">=</span><span class="token string">&quot;false&quot;</span> <span class="token assign-left variable">sqlMaxLimit</span><span class="token operator">=</span><span class="token string">&quot;100&quot;</span><span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>table <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;t_user&quot;</span> <span class="token assign-left variable">dataNode</span><span class="token operator">=</span><span class="token string">&quot;dn1,dn2&quot;</span> <span class="token assign-left variable">rule</span><span class="token operator">=</span><span class="token string">&quot;mod-long&quot;</span> /<span class="token operator">&gt;</span>
+  	<span class="token operator">&lt;</span>/schema<span class="token operator">&gt;</span>
+  	<span class="token operator">&lt;</span><span class="token operator">!</span>--配置分片关系--<span class="token operator">&gt;</span>
+  	<span class="token operator">&lt;</span>dataNode <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;dn1&quot;</span> <span class="token assign-left variable">dataHost</span><span class="token operator">=</span><span class="token string">&quot;cluster1&quot;</span> <span class="token assign-left variable">database</span><span class="token operator">=</span><span class="token string">&quot;test&quot;</span> /<span class="token operator">&gt;</span>
+  	<span class="token operator">&lt;</span>dataNode <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;dn2&quot;</span> <span class="token assign-left variable">dataHost</span><span class="token operator">=</span><span class="token string">&quot;cluster2&quot;</span> <span class="token assign-left variable">database</span><span class="token operator">=</span><span class="token string">&quot;test&quot;</span> /<span class="token operator">&gt;</span>
+  	<span class="token operator">&lt;</span><span class="token operator">!</span>--配置连接信息--<span class="token operator">&gt;</span>
+  	<span class="token operator">&lt;</span>dataHost <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;cluster1&quot;</span> <span class="token assign-left variable">maxCon</span><span class="token operator">=</span><span class="token string">&quot;1000&quot;</span> <span class="token assign-left variable">minCon</span><span class="token operator">=</span><span class="token string">&quot;10&quot;</span> <span class="token assign-left variable">balance</span><span class="token operator">=</span><span class="token string">&quot;2&quot;</span> 
+                <span class="token assign-left variable">writeType</span><span class="token operator">=</span><span class="token string">&quot;1&quot;</span> <span class="token assign-left variable">dbType</span><span class="token operator">=</span><span class="token string">&quot;mysql&quot;</span> <span class="token assign-left variable">dbDriver</span><span class="token operator">=</span><span class="token string">&quot;native&quot;</span> <span class="token assign-left variable">switchType</span><span class="token operator">=</span><span class="token string">&quot;1&quot;</span>  
+                <span class="token assign-left variable">slaveThreshold</span><span class="token operator">=</span><span class="token string">&quot;100&quot;</span><span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>heartbeat<span class="token operator">&gt;</span>select user<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;</span>/heartbeat<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>writeHost <span class="token assign-left variable">host</span><span class="token operator">=</span><span class="token string">&quot;W1&quot;</span> <span class="token assign-left variable">url</span><span class="token operator">=</span><span class="token string">&quot;192.168.99.151:3306&quot;</span> <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">&quot;admin&quot;</span> 
+                     <span class="token assign-left variable">password</span><span class="token operator">=</span><span class="token string">&quot;Abc_123456&quot;</span><span class="token operator">&gt;</span>
+  			<span class="token operator">&lt;</span>readHost <span class="token assign-left variable">host</span><span class="token operator">=</span><span class="token string">&quot;W1R1&quot;</span> <span class="token assign-left variable">url</span><span class="token operator">=</span><span class="token string">&quot;192.168.99.159:3306&quot;</span> <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">&quot;admin&quot;</span> 
+                        <span class="token assign-left variable">password</span><span class="token operator">=</span><span class="token string">&quot;Abc_123456&quot;</span> /<span class="token operator">&gt;</span>
+  			<span class="token operator">&lt;</span>readHost <span class="token assign-left variable">host</span><span class="token operator">=</span><span class="token string">&quot;W1R2&quot;</span> <span class="token assign-left variable">url</span><span class="token operator">=</span><span class="token string">&quot;192.168.99.215:3306&quot;</span> <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">&quot;admin&quot;</span> 
+                        <span class="token assign-left variable">password</span><span class="token operator">=</span><span class="token string">&quot;Abc_123456&quot;</span> /<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>/writeHost<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>writeHost <span class="token assign-left variable">host</span><span class="token operator">=</span><span class="token string">&quot;W2&quot;</span> <span class="token assign-left variable">url</span><span class="token operator">=</span><span class="token string">&quot;192.168.99.159:3306&quot;</span> <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">&quot;admin&quot;</span> 
+                     <span class="token assign-left variable">password</span><span class="token operator">=</span><span class="token string">&quot;Abc_123456&quot;</span><span class="token operator">&gt;</span>
+  			<span class="token operator">&lt;</span>readHost <span class="token assign-left variable">host</span><span class="token operator">=</span><span class="token string">&quot;W2R1&quot;</span> <span class="token assign-left variable">url</span><span class="token operator">=</span><span class="token string">&quot;192.168.99.151:3306&quot;</span> <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">&quot;admin&quot;</span> 
+                        <span class="token assign-left variable">password</span><span class="token operator">=</span><span class="token string">&quot;Abc_123456&quot;</span> /<span class="token operator">&gt;</span>
+  			<span class="token operator">&lt;</span>readHost <span class="token assign-left variable">host</span><span class="token operator">=</span><span class="token string">&quot;W2R2&quot;</span> <span class="token assign-left variable">url</span><span class="token operator">=</span><span class="token string">&quot;192.168.99.215:3306&quot;</span> <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">&quot;admin&quot;</span> 
+                        <span class="token assign-left variable">password</span><span class="token operator">=</span><span class="token string">&quot;Abc_123456&quot;</span> /<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>/writeHost<span class="token operator">&gt;</span>
+  	<span class="token operator">&lt;</span>/dataHost<span class="token operator">&gt;</span>
+  	<span class="token operator">&lt;</span>dataHost <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;cluster2&quot;</span> <span class="token assign-left variable">maxCon</span><span class="token operator">=</span><span class="token string">&quot;1000&quot;</span> <span class="token assign-left variable">minCon</span><span class="token operator">=</span><span class="token string">&quot;10&quot;</span> <span class="token assign-left variable">balance</span><span class="token operator">=</span><span class="token string">&quot;2&quot;</span> 
+                <span class="token assign-left variable">writeType</span><span class="token operator">=</span><span class="token string">&quot;1&quot;</span> <span class="token assign-left variable">dbType</span><span class="token operator">=</span><span class="token string">&quot;mysql&quot;</span> <span class="token assign-left variable">dbDriver</span><span class="token operator">=</span><span class="token string">&quot;native&quot;</span> <span class="token assign-left variable">switchType</span><span class="token operator">=</span><span class="token string">&quot;1&quot;</span>  
+                <span class="token assign-left variable">slaveThreshold</span><span class="token operator">=</span><span class="token string">&quot;100&quot;</span><span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>heartbeat<span class="token operator">&gt;</span>select user<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;</span>/heartbeat<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>writeHost <span class="token assign-left variable">host</span><span class="token operator">=</span><span class="token string">&quot;W1&quot;</span> <span class="token assign-left variable">url</span><span class="token operator">=</span><span class="token string">&quot;192.168.99.121:3306&quot;</span> <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">&quot;admin&quot;</span>
+  				   <span class="token assign-left variable">password</span><span class="token operator">=</span><span class="token string">&quot;Abc_123456&quot;</span><span class="token operator">&gt;</span>
+  			<span class="token operator">&lt;</span>readHost <span class="token assign-left variable">host</span><span class="token operator">=</span><span class="token string">&quot;W1R1&quot;</span> <span class="token assign-left variable">url</span><span class="token operator">=</span><span class="token string">&quot;192.168.99.122:3306&quot;</span> <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">&quot;admin&quot;</span> 
+                        <span class="token assign-left variable">password</span><span class="token operator">=</span><span class="token string">&quot;Abc_123456&quot;</span> /<span class="token operator">&gt;</span>
+  			<span class="token operator">&lt;</span>readHost <span class="token assign-left variable">host</span><span class="token operator">=</span><span class="token string">&quot;W1R2&quot;</span> <span class="token assign-left variable">url</span><span class="token operator">=</span><span class="token string">&quot;192.168.99.123:3306&quot;</span> <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">&quot;admin&quot;</span> 
+                        <span class="token assign-left variable">password</span><span class="token operator">=</span><span class="token string">&quot;Abc_123456&quot;</span> /<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>/writeHost<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>writeHost <span class="token assign-left variable">host</span><span class="token operator">=</span><span class="token string">&quot;W2&quot;</span> <span class="token assign-left variable">url</span><span class="token operator">=</span><span class="token string">&quot;192.168.99.122:3306&quot;</span> <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">&quot;admin&quot;</span>
+  				   <span class="token assign-left variable">password</span><span class="token operator">=</span><span class="token string">&quot;Abc_123456&quot;</span><span class="token operator">&gt;</span>
+  			<span class="token operator">&lt;</span>readHost <span class="token assign-left variable">host</span><span class="token operator">=</span><span class="token string">&quot;W2R1&quot;</span> <span class="token assign-left variable">url</span><span class="token operator">=</span><span class="token string">&quot;192.168.99.121:3306&quot;</span> <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">&quot;admin&quot;</span> 
+                        <span class="token assign-left variable">password</span><span class="token operator">=</span><span class="token string">&quot;Abc_123456&quot;</span> /<span class="token operator">&gt;</span>
+  			<span class="token operator">&lt;</span>readHost <span class="token assign-left variable">host</span><span class="token operator">=</span><span class="token string">&quot;W2R2&quot;</span> <span class="token assign-left variable">url</span><span class="token operator">=</span><span class="token string">&quot;192.168.99.123:3306&quot;</span> <span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token string">&quot;admin&quot;</span> 
+                        <span class="token assign-left variable">password</span><span class="token operator">=</span><span class="token string">&quot;Abc_123456&quot;</span> /<span class="token operator">&gt;</span>
+  		<span class="token operator">&lt;</span>/writeHost<span class="token operator">&gt;</span>
+  	<span class="token operator">&lt;</span>/dataHost<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/mycat:schema<span class="token operator">&gt;</span>
+</code></pre></div></li> <li><p>修改rule.xml文件，把mod-long的count值修改成2</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token operator">&lt;</span>function <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;mod-long&quot;</span> <span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">&quot;io.mycat.route.function.PartitionByMod&quot;</span><span class="token operator">&gt;</span>
+	<span class="token operator">&lt;</span>property <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">&quot;count&quot;</span><span class="token operator">&gt;</span><span class="token operator"><span class="token file-descriptor important">2</span>&lt;</span>/property<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/function<span class="token operator">&gt;</span>
+</code></pre></div></li> <li><p>重启MyCat</p></li> <li><p>向t_user表写入数据，感受数据的切分</p> <div class="language-mysql extra-class"><pre class="language-text"><code>USE test;
+#第一条记录被切分到第二个分片
+INSERT INTO t_user(id,username,password,tel,locked) VALUES(1,&quot;A&quot;,HEX(AES_ENCRYPT('123456','HelloWorld')));
+#第二条记录被切分到第一个分片
+INSERT INTO t_user(id,username,password,tel,locked) VALUES(2,&quot;B&quot;,HEX(AES_ENCRYPT('123456','HelloWorld')));
+</code></pre></div></li></ol> <h2 id="_4-配置父子表"><a href="#_4-配置父子表" class="header-anchor">#</a> 4. 配置父子表</h2> <ol><li><p>在conf目录下创建<code>customer-hash-int</code>文件，内容如下：</p> <div class="language-ini extra-class"><pre class="language-ini"><code><span class="token constant">101</span><span class="token attr-value"><span class="token punctuation">=</span>0</span>
+<span class="token constant">102</span><span class="token attr-value"><span class="token punctuation">=</span>0</span>
+<span class="token constant">103</span><span class="token attr-value"><span class="token punctuation">=</span>0</span>
+<span class="token constant">104</span><span class="token attr-value"><span class="token punctuation">=</span>1</span>
+<span class="token constant">105</span><span class="token attr-value"><span class="token punctuation">=</span>1</span>
+<span class="token constant">106</span><span class="token attr-value"><span class="token punctuation">=</span>1</span>
+</code></pre></div></li> <li><p>在rule.xml文件中加入自定义<code>&lt;function&gt;</code>和<code>&lt;tableRule&gt;</code></p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>function</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>customer-hash-int<span class="token punctuation">&quot;</span></span>
+		<span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>io.mycat.route.function.PartitionByFileMap<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>mapFile<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>customer-hash-int.txt<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>function</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tableRule</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>sharding-customer<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rule</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>columns</span><span class="token punctuation">&gt;</span></span>sharding_id<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>columns</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>algorithm</span><span class="token punctuation">&gt;</span></span>customer-hash-int<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>algorithm</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rule</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tableRule</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></li> <li><p>修改schema.xml文件，添加父子表定义</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>t_customer<span class="token punctuation">&quot;</span></span> <span class="token attr-name">dataNode</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>dn1,dn2<span class="token punctuation">&quot;</span></span> <span class="token attr-name">rule</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>sharding-customer<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>childTable</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>t_orders<span class="token punctuation">&quot;</span></span> <span class="token attr-name">primaryKey</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>ID<span class="token punctuation">&quot;</span></span> <span class="token attr-name">joinKey</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>customer_id<span class="token punctuation">&quot;</span></span> 	
+                <span class="token attr-name">parentKey</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>id<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></li> <li><p>在MyCat上执行如下SQL：</p> <div class="language-mysql extra-class"><pre class="language-text"><code>USE test;
+CREATE TABLE t_customer(
+	id INT UNSIGNED PRIMARY KEY,
+    username VARCHAR(200) NOT NULL,
+    sharding_id INT NOT NULL
+);
+CREATE TABLE t_orders(
+	id INT UNSIGNED PRIMARY KEY,
+    customer_id INT NOT NULL,
+    datetime TIMESTAMP DEFAULT CURRENT_TIMSTAMP
+);
+</code></pre></div></li> <li><p>向t_customer表和t_orders表写入数据，查看字表数据跟随父表切分到同一个分片</p></li></ol> <h2 id="_5-创建双机热备的mycat集群"><a href="#_5-创建双机热备的mycat集群" class="header-anchor">#</a> 5. 创建双机热备的MyCat集群</h2> <ol><li><p>用两个虚拟机实例，各自部署MyCat</p></li> <li><p>用一个虚拟机实例部署Haproxy</p> <ul><li><p>安装Haproxy</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum <span class="token function">install</span> -y haproxy
+</code></pre></div></li> <li><p>编辑配置文件</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">vi</span> /etc/haproxy/haproxy.cfg
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>global
+    log         127.0.0.1 local2
+    chroot      /var/lib/haproxy
+    pidfile     /var/run/haproxy.pid
+    maxconn     4000
+    user        haproxy
+    group       haproxy
+    daemon
+    # turn on stats unix socket
+    stats socket /var/lib/haproxy/stats
+
+defaults
+    mode                    http
+    log                     global
+    option                  httplog
+    option                  dontlognull
+    option http-server-close
+    option forwardfor       except 127.0.0.0/8
+    option                  redispatch
+    retries                 3
+    timeout http-request    10s
+    timeout queue           1m
+    timeout connect         10s
+    timeout client          1m
+    timeout server          1m
+    timeout http-keep-alive 10s
+    timeout check           10s
+    maxconn                 3000
+
+listen   admin_stats  
+    bind    0.0.0.0:4001
+    mode  http
+    stats uri       /dbs
+    stats realm  Global\ statistics
+    stats auth    admin:abc123456
+listen   proxy-mysql
+    bind    0.0.0.0:3306  
+    mode  tcp 
+    balance  roundrobin
+    option  tcplog       #日志格式
+    server   mycat_1  192.168.99.131:3306  check  port  8066  maxconn  2000  
+    server   mycat_2  192.168.99.132:3306  check  port  8066  maxconn  2000  
+    option  tcpka        #使用keepalive检测死链
+</code></pre></div></li> <li><p>启动Haproxy</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">service</span> haproxy start
+</code></pre></div></li> <li><p>访问Haproxy监控画面</p> <p>http://192.168.99.131:4001/dbs</p></li></ul></li> <li><p>用另外一个虚拟机同样按照上述操作安装Haproxy</p></li> <li><p>在某个Haproxy虚拟机实例上部署Keepalived</p> <ul><li><p>开启防火墙的VRRP协议</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#开启VRRP</span>
+firewall-cmd --direct --permanent --add-rule ipv4 filter INPUT <span class="token number">0</span> --protocol  vrrp -j ACCEPT
+<span class="token comment">#应用设置</span>
+firewall-cmd --reload
+</code></pre></div></li> <li><p>安装Keepalived</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum <span class="token function">install</span> -y keepalived
+</code></pre></div></li> <li><p>编辑配置文件</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">vim</span> /etc/keepalived/keepalived.conf
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>vrrp_instance  VI_1 {
+    state  MASTER
+    interface  ens33
+    virtual_router_id  51
+    priority  100
+    advert_int  1
+    authentication {
+        auth_type  PASS
+        auth_pass  123456
+    }
+    virtual_ipaddress {
+        192.168.99.133
+    }
+}
+</code></pre></div></li> <li><p>启动Keepalived</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">service</span> keepalived start
+</code></pre></div></li> <li><p>ping 192.168.99.133</p></li></ul></li> <li><p>在另外一个Haproxy虚拟机上，按照上述方法部署Keepalived</p></li> <li><p>使用MySQL客户端连接192.168.99.133，执行增删改查数据</p></li></ol> <h1 id="四、sysbench基准测试"><a href="#四、sysbench基准测试" class="header-anchor">#</a> 四、Sysbench基准测试</h1> <h2 id="_1-安装sysbench"><a href="#_1-安装sysbench" class="header-anchor">#</a> 1. 安装Sysbench</h2> <ul><li><p>在线安装</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">curl</span> -s https://packagecloud.io/install/
+repositories/akopytov/sysbench/script.rpm.sh <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">bash</span> 
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code>yum -y <span class="token function">install</span> sysbench
+</code></pre></div></li> <li><p>本地安装</p> <ul><li><p>下载压缩文件</p> <p><a href="https://codeload.github.com/akopytov/sysbench/zip/1.0" target="_blank" rel="noopener noreferrer">https://<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a><a href="https://codeload.github.com/akopytov/sysbench/zip/1.0" target="_blank" rel="noopener noreferrer">codeload.github.com/akopytov/sysbench/zip/1.0<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></li> <li><p>安装依赖包</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum <span class="token function">install</span> -y automake libtool
+yum <span class="token function">install</span> -y mysql-devel
+</code></pre></div></li> <li><p>执行安装</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#cd sysbench</span>
+./autogen.sh 
+./configure 
+<span class="token function">make</span>
+<span class="token function">make</span> <span class="token function">install</span>
+sysbench --version
+</code></pre></div></li></ul></li></ul> <h2 id="_2-执行测试"><a href="#_2-执行测试" class="header-anchor">#</a> 2. 执行测试</h2> <ul><li><p>准备测试库</p> <div class="language-shell extra-class"><pre class="language-shell"><code>sysbench  /usr/share/sysbench/tests/include/oltp_legacy/oltp.lua --mysql-host<span class="token operator">=</span><span class="token number">192.168</span>.99.131 --mysql-port<span class="token operator">=</span><span class="token number">3306</span> --mysql-user<span class="token operator">=</span>admin --mysql-password<span class="token operator">=</span>Abc_123456 --oltp-tables-count<span class="token operator">=</span><span class="token number">10</span> --oltp-table-size<span class="token operator">=</span><span class="token number">100000</span> prepare
+</code></pre></div></li> <li><p>执行测试</p> <div class="language-shell extra-class"><pre class="language-shell"><code>sysbench  /usr/share/sysbench/tests/include/oltp_legacy/oltp.lua --mysql-host<span class="token operator">=</span><span class="token number">192.168</span>.99.131 --mysql-port<span class="token operator">=</span><span class="token number">3306</span> --mysql-user<span class="token operator">=</span>admin --mysql-password<span class="token operator">=</span>Abc_123456 --oltp-test-mode<span class="token operator">=</span>complex --threads<span class="token operator">=</span><span class="token number">10</span> --time<span class="token operator">=</span><span class="token number">300</span> --report-interval<span class="token operator">=</span><span class="token number">10</span> run <span class="token operator">&gt;&gt;</span> /home/mysysbench.log
+</code></pre></div></li> <li><p>清理数据</p> <div class="language-shell extra-class"><pre class="language-shell"><code>sysbench /usr/share/sysbench/tests/include/oltp_legacy/oltp.lua --mysql-host<span class="token operator">=</span><span class="token number">192.168</span>.99.131 --mysql-port<span class="token operator">=</span><span class="token number">3306</span> --mysql-user<span class="token operator">=</span>admin --mysql-password<span class="token operator">=</span>Abc_123456 --oltp-tables-count<span class="token operator">=</span><span class="token number">10</span> cleanup
+</code></pre></div></li></ul> <h1 id="五、tpcc-mysql-压力测试"><a href="#五、tpcc-mysql-压力测试" class="header-anchor">#</a> 五、tpcc-mysql 压力测试</h1> <h2 id="_1-准备工作"><a href="#_1-准备工作" class="header-anchor">#</a> 1. 准备工作</h2> <ul><li><p>修改my.cnf配置文件</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">vi</span> /etc/my.cnf
+</code></pre></div><p>pxc_strict_mode=DISABLED</p></li> <li><p>修改某个Haproxy的配置文件</p> <div class="language- extra-class"><pre class="language-text"><code>server   mysql_1  192.168.99.151:3306  check  port  3306  weight  1  maxconn  2000
+server   mysql_2  192.168.99.159:3306  check  port  3306  weight  1  maxconn  2000
+server   mysql_3  192.168.99.215:3306  check  port  3306  weight  1  maxconn  2000
+</code></pre></div></li> <li><p>重新启动Haproxy</p></li> <li><p>安装依赖程序包</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum <span class="token function">install</span> -y gcc
+yum <span class="token function">install</span> -y mysql-devel
+</code></pre></div></li></ul> <h2 id="_2-安装tpcc-mysql"><a href="#_2-安装tpcc-mysql" class="header-anchor">#</a> 2. 安装tpcc-mysql</h2> <ul><li><p>下载压缩包</p> <p><a href="https://codeload.github.com/Percona-Lab/tpcc-mysql/zip/master" target="_blank" rel="noopener noreferrer">https://codeload.github.com/Percona-Lab/tpcc-mysql/zip/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a><a href="https://codeload.github.com/Percona-Lab/tpcc-mysql/zip/master" target="_blank" rel="noopener noreferrer">master<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></li> <li><p>执行安装</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#cd tpcc的src目录</span>
+<span class="token function">make</span>
+</code></pre></div></li> <li><p>执行<code>create_table.sql</code>和<code>add_fkey_idx.sql</code>两个文件</p></li> <li><p>执行数据初始化</p> <div class="language-shell extra-class"><pre class="language-shell"><code>./tpcc_load -h <span class="token number">192.168</span>.99.131 -d tpcc -u admin -p Abc_123456 -w
+</code></pre></div></li> <li><p>执行压力测试</p> <div class="language-shell extra-class"><pre class="language-shell"><code>./tpcc_start -h <span class="token number">192.168</span>.99.131 -d tpcc -u admin -p Abc_123456 -w <span class="token number">1</span> -c <span class="token number">5</span> -r <span class="token number">300</span> -l <span class="token number">600</span> -<span class="token operator">&gt;</span>tpcc-output-log
+</code></pre></div></li></ul> <h1 id="六、导入数据"><a href="#六、导入数据" class="header-anchor">#</a> 六、导入数据</h1> <h2 id="_1-生成1000万条数据"><a href="#_1-生成1000万条数据" class="header-anchor">#</a> 1. 生成1000万条数据</h2> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io</span><span class="token punctuation">.</span><span class="token class-name">FileWriter</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io</span><span class="token punctuation">.</span><span class="token class-name">BufferedWriter</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
+	def <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">var</span> writer<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">FileWriter</span><span class="token punctuation">(</span><span class="token string">&quot;D:/data.txt&quot;</span><span class="token punctuation">)</span>
+		<span class="token keyword">var</span> buff<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">BufferedWriter</span><span class="token punctuation">(</span>writer<span class="token punctuation">)</span>
+		<span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">:</span><span class="token number">1.</span><span class="token number">.10000000</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			buff<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token string">&quot;,测试数据\n&quot;</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+		buff<span class="token punctuation">.</span>close
+		writer<span class="token punctuation">.</span>close
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_2-执行文件切分"><a href="#_2-执行文件切分" class="header-anchor">#</a> 2. 执行文件切分</h2> <ul><li><p>上传data.txt文件到linux</p></li> <li><p>执行文件切分</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">split</span> -l <span class="token number">1000000</span> -d data.txt
+</code></pre></div></li></ul> <h2 id="_3-准备数据库"><a href="#_3-准备数据库" class="header-anchor">#</a> 3. 准备数据库</h2> <ul><li><p>每个PXC分片只开启一个节点</p></li> <li><p>修改PXC节点文件，然后重启PXC服务</p> <div class="language-ini extra-class"><pre class="language-ini"><code><span class="token constant">innodb_flush_log_at_trx_commit</span> <span class="token attr-value"><span class="token punctuation">=</span> 0</span>
+<span class="token constant">innodb_flush_method</span> <span class="token attr-value"><span class="token punctuation">=</span> O_DIRECT</span>
+<span class="token constant">innodb_buffer_pool_size</span> <span class="token attr-value"><span class="token punctuation">=</span> 200M</span>
+</code></pre></div></li> <li><p>创建t_test数据表</p> <div class="language-mysql extra-class"><pre class="language-text"><code>CREATE TABLE t_test(
+	id INT UNSIGNED PRIMARY KEY,
+    name VARCHAR(200) NOT NULL
+);
+</code></pre></div></li> <li><p>配置MyCat</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>t_test<span class="token punctuation">&quot;</span></span> <span class="token attr-name">dataNode</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>dn1,dn2<span class="token punctuation">&quot;</span></span> <span class="token attr-name">rule</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>mod-long<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+</code></pre></div><div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dataHost</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>cluster1<span class="token punctuation">&quot;</span></span> <span class="token attr-name">maxCon</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>1000<span class="token punctuation">&quot;</span></span> <span class="token attr-name">minCon</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>10<span class="token punctuation">&quot;</span></span> <span class="token attr-name">balance</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span> <span class="token attr-name">writeType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>1<span class="token punctuation">&quot;</span></span> 
+          <span class="token attr-name">dbType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>mysql<span class="token punctuation">&quot;</span></span> <span class="token attr-name">dbDriver</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>native<span class="token punctuation">&quot;</span></span> <span class="token attr-name">switchType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>1<span class="token punctuation">&quot;</span></span> <span class="token attr-name">slaveThreshold</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>100<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>heartbeat</span><span class="token punctuation">&gt;</span></span>select user()<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>heartbeat</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>writeHost</span> <span class="token attr-name">host</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>W1<span class="token punctuation">&quot;</span></span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>192.168.99.151:3306<span class="token punctuation">&quot;</span></span> <span class="token attr-name">user</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>admin<span class="token punctuation">&quot;</span></span> 
+               <span class="token attr-name">password</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>Abc_123456<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dataHost</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dataHost</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>cluster2<span class="token punctuation">&quot;</span></span> <span class="token attr-name">maxCon</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>1000<span class="token punctuation">&quot;</span></span> <span class="token attr-name">minCon</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>10<span class="token punctuation">&quot;</span></span> <span class="token attr-name">balance</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span> <span class="token attr-name">writeType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>1<span class="token punctuation">&quot;</span></span> 
+          <span class="token attr-name">dbType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>mysql<span class="token punctuation">&quot;</span></span> <span class="token attr-name">dbDriver</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>native<span class="token punctuation">&quot;</span></span> <span class="token attr-name">switchType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>1<span class="token punctuation">&quot;</span></span> <span class="token attr-name">slaveThreshold</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>100<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>heartbeat</span><span class="token punctuation">&gt;</span></span>select user()<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>heartbeat</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>writeHost</span> <span class="token attr-name">host</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>W1<span class="token punctuation">&quot;</span></span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>192.168.99.121:3306<span class="token punctuation">&quot;</span></span> <span class="token attr-name">user</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>admin<span class="token punctuation">&quot;</span></span> 
+               <span class="token attr-name">password</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>Abc_123456<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dataHost</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></li></ul> <h2 id="_4-执行java程序，多线程导入数据"><a href="#_4-执行java程序，多线程导入数据" class="header-anchor">#</a> 4. 执行Java程序，多线程导入数据</h2> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>eclipse<span class="token punctuation">.</span>xtend<span class="token punctuation">.</span>lib<span class="token punctuation">.</span>annotations</span><span class="token punctuation">.</span><span class="token class-name">Accessors</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io</span><span class="token punctuation">.</span><span class="token class-name">File</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>sql</span><span class="token punctuation">.</span><span class="token class-name">DriverManager</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Task</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">{</span>
+	<span class="token annotation punctuation">@Accessors</span>
+	<span class="token class-name">File</span> file<span class="token punctuation">;</span>
+	
+	override <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">var</span> url<span class="token operator">=</span><span class="token string">&quot;jdbc:mysql://192.168.99.131:8066/test&quot;</span>
+		<span class="token keyword">var</span> username<span class="token operator">=</span><span class="token string">&quot;admin&quot;</span>
+		<span class="token keyword">var</span> password<span class="token operator">=</span><span class="token string">&quot;Abc_123456&quot;</span>
+		<span class="token keyword">var</span> con<span class="token operator">=</span><span class="token class-name">DriverManager</span><span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span>username<span class="token punctuation">,</span>password<span class="token punctuation">)</span>
+		<span class="token keyword">var</span> sql<span class="token operator">=</span><span class="token string">''</span>'
+			load data local intfile <span class="token string">'/home/data/«file.name»'</span> ignore into table t_test 
+			character set <span class="token string">'utf8'</span> 
+			fields terminated by <span class="token string">','</span> optionally enclosed by <span class="token string">'\&quot;'</span> 
+			lines terminated by <span class="token string">'\n'</span> <span class="token punctuation">(</span>id<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token string">''</span>'
+		<span class="token keyword">var</span> pst<span class="token operator">=</span>con<span class="token punctuation">.</span><span class="token function">prepareStatement</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		pst<span class="token punctuation">.</span>execute
+		con<span class="token punctuation">.</span>close
+		<span class="token class-name">LoadData</span><span class="token punctuation">.</span><span class="token function">updateNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>mysql<span class="token punctuation">.</span>jdbc</span><span class="token punctuation">.</span><span class="token class-name">Driver</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>sql</span><span class="token punctuation">.</span><span class="token class-name">DriverManager</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent</span><span class="token punctuation">.</span><span class="token class-name">LinkedBlockingQueue</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent</span><span class="token punctuation">.</span><span class="token class-name">ThreadPoolExecutor</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent</span><span class="token punctuation">.</span><span class="token class-name">TimeUnit</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io</span><span class="token punctuation">.</span><span class="token class-name">File</span>
+
+<span class="token keyword">class</span> <span class="token class-name">LoadData</span> <span class="token punctuation">{</span>
+	<span class="token keyword">var</span> <span class="token keyword">static</span> <span class="token keyword">int</span> num<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">var</span> <span class="token keyword">static</span> <span class="token keyword">int</span> end<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">var</span> <span class="token keyword">static</span> pool<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ThreadPoolExecutor</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">60</span><span class="token punctuation">,</span><span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>SECONDS<span class="token punctuation">,</span><span class="token keyword">new</span> <span class="token class-name">LinkedBlockingQueue</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	def <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token class-name">DriverManager</span><span class="token punctuation">.</span><span class="token function">registerDriver</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Driver</span><span class="token punctuation">)</span>
+		<span class="token keyword">var</span> folder<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">&quot;/home/data&quot;</span><span class="token punctuation">)</span>
+		<span class="token keyword">var</span> files<span class="token operator">=</span>folder<span class="token punctuation">.</span>listFiles
+		end<span class="token operator">=</span>files<span class="token punctuation">.</span>length <span class="token comment">//线程池结束条件</span>
+		files<span class="token punctuation">.</span>forEach<span class="token punctuation">[</span>one<span class="token operator">|</span>
+			<span class="token keyword">var</span> task<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Task</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			task<span class="token punctuation">.</span>file<span class="token operator">=</span>one<span class="token punctuation">;</span>
+			pool<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span>
+		<span class="token punctuation">]</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">synchronized</span> def <span class="token keyword">static</span> <span class="token function">updateNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		num<span class="token operator">++</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>num<span class="token operator">==</span>end<span class="token punctuation">)</span><span class="token punctuation">{</span>
+			pool<span class="token punctuation">.</span><span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;执行结束&quot;</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h1 id="七、大数据归档"><a href="#七、大数据归档" class="header-anchor">#</a> 七、大数据归档</h1> <h2 id="_1-安装tokudb"><a href="#_1-安装tokudb" class="header-anchor">#</a> 1. 安装TokuDB</h2> <ul><li><p>安装jemlloc</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum <span class="token function">install</span> -y jemalloc 
+</code></pre></div></li> <li><p>编辑配置文件</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">vi</span> /etc/my.cnf
+</code></pre></div><div class="language-ini extra-class"><pre class="language-ini"><code>……
+<span class="token selector">[mysqld_safe]</span>
+<span class="token constant">malloc-lib</span><span class="token attr-value"><span class="token punctuation">=</span>/usr/lib64/libjemalloc.so.1</span>
+……
+</code></pre></div></li> <li><p>重启MySQL</p></li> <li><p>开启Linux大页内存</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">echo</span> never <span class="token operator">&gt;</span> /sys/kernel/mm/transparent_hugepage/enabled
+<span class="token builtin class-name">echo</span> never <span class="token operator">&gt;</span> /sys/kernel/mm/transparent_hugepage/defrag
+</code></pre></div></li> <li><p>安装TokuDB</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum <span class="token function">install</span> -y Percona-Server-tokudb-57.x86_64
+ps-admin --enable -uroot -p
+<span class="token function">service</span> mysql restart
+ps-admin --enable -uroot -p
+</code></pre></div></li> <li><p>查看安装结果</p> <div class="language-mysql extra-class"><pre class="language-text"><code>show engines ;
+</code></pre></div></li></ul> <h2 id="_2-配置replication集群"><a href="#_2-配置replication集群" class="header-anchor">#</a> 2. 配置Replication集群</h2> <ul><li><p>在两个TokuDB数据库上创建用户</p> <div class="language-mysql extra-class"><pre class="language-text"><code>CREATE USER 'backup'@'%' IDENTIFIED BY 'Abc_123456' ;
+</code></pre></div><div class="language-mysql extra-class"><pre class="language-text"><code>GRANT super, reload, replication slave ON *.* TO 'backup'@'%' ;
+</code></pre></div><div class="language-mysql extra-class"><pre class="language-text"><code>FLUSH  PRIVILEGES ;
+</code></pre></div></li> <li><p>修改两个TokuDB的配置文件，如下：</p> <div class="language-ini extra-class"><pre class="language-ini"><code><span class="token selector">[mysqld]</span>
+<span class="token constant">server_id</span> <span class="token attr-value"><span class="token punctuation">=</span> 101</span>
+<span class="token constant">log_bin</span> <span class="token attr-value"><span class="token punctuation">=</span> mysql_bin</span>
+<span class="token constant">relay_log</span> <span class="token attr-value"><span class="token punctuation">=</span> relay_bin</span>
+……
+</code></pre></div><div class="language-ini extra-class"><pre class="language-ini"><code><span class="token selector">[mysqld]</span>
+<span class="token constant">server_id</span> <span class="token attr-value"><span class="token punctuation">=</span> 102</span>
+<span class="token constant">log_bin</span> <span class="token attr-value"><span class="token punctuation">=</span> mysql_bin</span>
+<span class="token constant">relay_log</span> <span class="token attr-value"><span class="token punctuation">=</span> relay_bin</span>
+</code></pre></div></li> <li><p>重新启动两个TokuDB节点</p></li> <li><p>分别在两个TokuDB上执行下面4句SQL</p> <div class="language-mysql extra-class"><pre class="language-text"><code>#关闭同步服务
+stop slave;
+#设置同步的Master节点
+change master to master_host=&quot;192.168.99.155&quot;,master_port=3306,master_user=&quot;backup&quot;,
+master_password=&quot;Abc_123456&quot;;
+#启动同步服务
+start slave;
+#查看同步状态
+show slave status;
+</code></pre></div><div class="language-mysql extra-class"><pre class="language-text"><code>#关闭同步服务
+stop slave;
+#设置同步的Master节点
+change master to master_host=&quot;192.168.99.102&quot;,master_port=3306,master_user=&quot;backup&quot;,
+master_password=&quot;Abc_123456&quot;;
+#启动同步服务
+start slave;
+#查看同步状态
+show slave status;
+</code></pre></div></li></ul> <h2 id="_3-创建归档表"><a href="#_3-创建归档表" class="header-anchor">#</a> 3. 创建归档表</h2> <div class="language-mysql extra-class"><pre class="language-text"><code>CREATE TABLE t_purchase (
+	id INT UNSIGNED PRIMARY KEY,
+	purchase_price DECIMAL(10,2) NOT NULL,
+	purchase_num INT UNSIGNED NOT NULL,
+	purchase_sum DECIMAL (10,2) NOT NULL,
+	purchase_buyer INT UNSIGNED NOT NULL,
+	purchase_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	company_id INT UNSIGNED NOT NULL,
+	goods_id INT UNSIGNED NOT NULL,
+	KEY idx_company_id(company_id),
+	KEY idx_goods_id(goods_id)
+)engine=TokuDB;
+</code></pre></div><h2 id="_4-配置haproxy-keepalived双机热备"><a href="#_4-配置haproxy-keepalived双机热备" class="header-anchor">#</a> 4. 配置Haproxy+Keepalived双机热备</h2> <ul><li><p>在两个节点上安装Haproxy</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum <span class="token function">install</span> -y haproxy
+</code></pre></div></li> <li><p>修改配置文件</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">vi</span> /etc/haproxy/haproxy.cfg
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code>global
+    log         <span class="token number">127.0</span>.0.1 local2
+    <span class="token function">chroot</span>      /var/lib/haproxy
+    pidfile     /var/run/haproxy.pid
+    maxconn     <span class="token number">4000</span>
+    user        haproxy
+    group       haproxy
+    daemon
+    <span class="token comment"># turn on stats unix socket</span>
+    stats socket /var/lib/haproxy/stats
+
+defaults
+    mode                    http
+    log                     global
+    option                  httplog
+    option                  dontlognull
+    option http-server-close
+    option forwardfor       except <span class="token number">127.0</span>.0.0/8
+    option                  redispatch
+    retries                 <span class="token number">3</span>
+    <span class="token function">timeout</span> http-request    10s
+    <span class="token function">timeout</span> queue           1m
+    <span class="token function">timeout</span> connect         10s
+    <span class="token function">timeout</span> client          1m
+    <span class="token function">timeout</span> server          1m
+    <span class="token function">timeout</span> http-keep-alive 10s
+    <span class="token function">timeout</span> check           10s
+    maxconn                 <span class="token number">3000</span>
+
+listen   admin_stats  
+    <span class="token builtin class-name">bind</span>    <span class="token number">0.0</span>.0.0:4001
+    mode  http
+    stats uri       /dbs
+    stats realm  Global<span class="token punctuation">\</span> statistics
+    stats auth    admin:abc123456
+listen   proxy-mysql
+    <span class="token builtin class-name">bind</span>    <span class="token number">0.0</span>.0.0:4002  
+    mode  tcp 
+    balance  roundrobin
+    option  tcplog       <span class="token comment">#日志格式</span>
+    server   backup_1  <span class="token number">192.168</span>.99.102:3306  check  port  <span class="token number">3306</span>  maxconn  <span class="token number">2000</span>  
+    server   backup_2  <span class="token number">192.168</span>.99.155:3306  check  port  <span class="token number">3306</span>  maxconn  <span class="token number">2000</span>  
+    option  tcpka        <span class="token comment">#使用keepalive检测死链</span>
+</code></pre></div></li> <li><p>重启Haproxy</p></li> <li><p>开启防火墙的VRRP协议</p> <div class="language-shell extra-class"><pre class="language-shell"><code>firewall-cmd --direct --permanent --add-rule ipv4 filter INPUT <span class="token number">0</span> --protocol vrrp -j ACCEPT
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code>firewall-cmd --reload
+</code></pre></div></li> <li><p>在两个节点上安装Keepalived</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum <span class="token function">install</span> -y keepalived
+</code></pre></div></li> <li><p>编辑Keepalived配置文件</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">vim</span> /etc/keepalived/keepalived.conf
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>vrrp_instance  VI_1 {
+    state  MASTER
+    interface  ens33
+    virtual_router_id  51
+    priority  100
+    advert_int  1
+    authentication {
+        auth_type  PASS
+        auth_pass  123456
+    }
+    virtual_ipaddress {
+        192.168.99.211
+    }
+}
+</code></pre></div></li> <li><p>重启Keepalived</p></li></ul> <h2 id="_5-准备归档数据"><a href="#_5-准备归档数据" class="header-anchor">#</a> 5. 准备归档数据</h2> <ul><li><p>在两个PXC分片上创建进货表</p> <div class="language-mysql extra-class"><pre class="language-text"><code>CREATE TABLE t_purchase (
+	id INT UNSIGNED PRIMARY KEY,
+	purchase_price DECIMAL(10,2) NOT NULL,
+	purchase_num INT UNSIGNED NOT NULL,
+	purchase_sum DECIMAL (10,2) NOT NULL,
+	purchase_buyer INT UNSIGNED NOT NULL,
+	purchase_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	company_id INT UNSIGNED NOT NULL,
+	goods_id INT UNSIGNED NOT NULL,
+	KEY idx_company_id(company_id),
+	KEY idx_goods_id(goods_id)
+)
+</code></pre></div></li> <li><p>配置MyCat的schema.xml文件，并重启MyCat</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>t_purchase<span class="token punctuation">&quot;</span></span> <span class="token attr-name">dataNode</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>dn1,dn2<span class="token punctuation">&quot;</span></span> <span class="token attr-name">rule</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>mod-long<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+</code></pre></div></li></ul> <h2 id="_6-执行数据归档"><a href="#_6-执行数据归档" class="header-anchor">#</a> 6. 执行数据归档</h2> <ul><li><p>安装pt-archiver</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum <span class="token function">install</span> percona-toolkit
+pt-archiver --version
+pt-archiver --help
+</code></pre></div></li> <li><p>执行数据归档</p> <div class="language-shell extra-class"><pre class="language-shell"><code>pt-archiver --source <span class="token assign-left variable">h</span><span class="token operator">=</span><span class="token number">192.168</span>.99.102,P<span class="token operator">=</span><span class="token number">8066</span>,u<span class="token operator">=</span>admin,p<span class="token operator">=</span>Abc_123456,D<span class="token operator">=</span>test,t<span class="token operator">=</span>t_purchase --dest <span class="token assign-left variable">h</span><span class="token operator">=</span><span class="token number">192.168</span>.99.102,P<span class="token operator">=</span><span class="token number">3306</span>,u<span class="token operator">=</span>admin,p<span class="token operator">=</span>Abc_123456,D<span class="token operator">=</span>test,t<span class="token operator">=</span>t_purchase --no-check-charset --where <span class="token string">'purchase_date&lt;&quot;2018-09&quot;'</span> --progress <span class="token number">5000</span> --bulk-delete --bulk-insert --limit<span class="token operator">=</span><span class="token number">10000</span> --statistics
+</code></pre></div></li></ul></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/orangbus/vuepress-blog/edit/master/docs/mysql/PXC-course.md" target="_blank" rel="noopener noreferrer">帮助我们改善此页面！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/mysql/" class="router-link-active">
+        mysql学习笔记
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><div class="reading-progress top" data-v-21b39eda><div class="progress" data-v-21b39eda></div></div></div></div>
+    <script src="/assets/js/app.ea451ed9.js" defer></script><script src="/assets/js/3.6c5e3284.js" defer></script><script src="/assets/js/156.c0e99fa3.js" defer></script>
+  </body>
+</html>

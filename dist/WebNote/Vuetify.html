@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vuetify – 色彩，主题与基础样式 | OrangBus</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="shortcut icon" href="/orangbus.ico" type="image/jpg">
+    <script><script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?75a195c58b50e00357efe9066f49f8b0";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+			</script>
+			</script>
+    <meta name="description" content="分享生活高效技能,保持勇敢，坚持有趣，生命不息，折腾不止！">
+    <meta property="article:modified_time" content="2023-03-20T03:31:12.000Z">
+    <meta property="og:site_name" content="OrangBus">
+    <meta property="og:title" content="Vuetify – 色彩，主题与基础样式">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/WebNote/Vuetify.html">
+    <meta name="twitter:title" content="Vuetify – 色彩，主题与基础样式">
+    <meta name="twitter:url" content="/WebNote/Vuetify.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords" content="html,css,jquery,thinkphp,laravel,docker,linux,manjaro">
+    <meta name="auther" content="OrangBus">
+    <link rel="preload" href="/assets/css/0.styles.8405cd42.css" as="style"><link rel="preload" href="/assets/js/app.ea451ed9.js" as="script"><link rel="preload" href="/assets/js/3.6c5e3284.js" as="script"><link rel="preload" href="/assets/js/135.44b350c1.js" as="script"><link rel="prefetch" href="/assets/js/10.36e3baf2.js"><link rel="prefetch" href="/assets/js/100.c62c728f.js"><link rel="prefetch" href="/assets/js/101.ae1ee2be.js"><link rel="prefetch" href="/assets/js/102.9cbe442f.js"><link rel="prefetch" href="/assets/js/103.865c8704.js"><link rel="prefetch" href="/assets/js/104.f2a95690.js"><link rel="prefetch" href="/assets/js/105.d1b44fe7.js"><link rel="prefetch" href="/assets/js/106.23035218.js"><link rel="prefetch" href="/assets/js/107.278448f9.js"><link rel="prefetch" href="/assets/js/108.a0ae7f91.js"><link rel="prefetch" href="/assets/js/109.cf958a7f.js"><link rel="prefetch" href="/assets/js/11.6e113d65.js"><link rel="prefetch" href="/assets/js/110.4abe4a81.js"><link rel="prefetch" href="/assets/js/111.d14fcb85.js"><link rel="prefetch" href="/assets/js/112.548bcab9.js"><link rel="prefetch" href="/assets/js/113.175d2143.js"><link rel="prefetch" href="/assets/js/114.ea5534cc.js"><link rel="prefetch" href="/assets/js/115.8fde4729.js"><link rel="prefetch" href="/assets/js/116.892c24fc.js"><link rel="prefetch" href="/assets/js/117.b6407011.js"><link rel="prefetch" href="/assets/js/118.e6b176a0.js"><link rel="prefetch" href="/assets/js/119.f5f2daa6.js"><link rel="prefetch" href="/assets/js/12.4a156561.js"><link rel="prefetch" href="/assets/js/120.9665106a.js"><link rel="prefetch" href="/assets/js/121.9796f87f.js"><link rel="prefetch" href="/assets/js/122.99ed8d50.js"><link rel="prefetch" href="/assets/js/123.178c8139.js"><link rel="prefetch" href="/assets/js/124.c5da5022.js"><link rel="prefetch" href="/assets/js/125.a471379a.js"><link rel="prefetch" href="/assets/js/126.b023af6d.js"><link rel="prefetch" href="/assets/js/127.1881be96.js"><link rel="prefetch" href="/assets/js/128.dc0cb30c.js"><link rel="prefetch" href="/assets/js/129.49a46e09.js"><link rel="prefetch" href="/assets/js/13.ffe35305.js"><link rel="prefetch" href="/assets/js/130.eb431321.js"><link rel="prefetch" href="/assets/js/131.d2e4e355.js"><link rel="prefetch" href="/assets/js/132.e06be357.js"><link rel="prefetch" href="/assets/js/133.a301aae1.js"><link rel="prefetch" href="/assets/js/134.d4f8d457.js"><link rel="prefetch" href="/assets/js/136.8c7e2989.js"><link rel="prefetch" href="/assets/js/137.1f1c660c.js"><link rel="prefetch" href="/assets/js/138.8cb25d26.js"><link rel="prefetch" href="/assets/js/139.f522c59c.js"><link rel="prefetch" href="/assets/js/14.d36de9de.js"><link rel="prefetch" href="/assets/js/140.017da4d3.js"><link rel="prefetch" href="/assets/js/141.e9e1855f.js"><link rel="prefetch" href="/assets/js/142.c45accfd.js"><link rel="prefetch" href="/assets/js/143.9ada7c7e.js"><link rel="prefetch" href="/assets/js/144.08072e47.js"><link rel="prefetch" href="/assets/js/145.c5e578ae.js"><link rel="prefetch" href="/assets/js/146.f7dd1b72.js"><link rel="prefetch" href="/assets/js/147.4b80c07c.js"><link rel="prefetch" href="/assets/js/148.f40aeae9.js"><link rel="prefetch" href="/assets/js/149.7643921b.js"><link rel="prefetch" href="/assets/js/15.62ba96c3.js"><link rel="prefetch" href="/assets/js/150.a9088b08.js"><link rel="prefetch" href="/assets/js/151.855b11a5.js"><link rel="prefetch" href="/assets/js/152.d513c64a.js"><link rel="prefetch" href="/assets/js/153.612f9549.js"><link rel="prefetch" href="/assets/js/154.54322c84.js"><link rel="prefetch" href="/assets/js/155.c612edbd.js"><link rel="prefetch" href="/assets/js/156.c0e99fa3.js"><link rel="prefetch" href="/assets/js/157.66027807.js"><link rel="prefetch" href="/assets/js/158.3b7ef7c0.js"><link rel="prefetch" href="/assets/js/159.2129b9f4.js"><link rel="prefetch" href="/assets/js/16.b3d1377d.js"><link rel="prefetch" href="/assets/js/160.81804cfd.js"><link rel="prefetch" href="/assets/js/161.b3f6a037.js"><link rel="prefetch" href="/assets/js/162.b50f19cf.js"><link rel="prefetch" href="/assets/js/17.5897ff24.js"><link rel="prefetch" href="/assets/js/18.bdf46b90.js"><link rel="prefetch" href="/assets/js/19.7abc88da.js"><link rel="prefetch" href="/assets/js/2.86f796bf.js"><link rel="prefetch" href="/assets/js/20.30b9f95b.js"><link rel="prefetch" href="/assets/js/21.86a8aad5.js"><link rel="prefetch" href="/assets/js/22.b4f5a61f.js"><link rel="prefetch" href="/assets/js/23.e5b7871f.js"><link rel="prefetch" href="/assets/js/24.861737df.js"><link rel="prefetch" href="/assets/js/25.461bdc07.js"><link rel="prefetch" href="/assets/js/26.1d1a614d.js"><link rel="prefetch" href="/assets/js/27.475c6b8a.js"><link rel="prefetch" href="/assets/js/28.ab8849ef.js"><link rel="prefetch" href="/assets/js/29.d1b58c6c.js"><link rel="prefetch" href="/assets/js/30.d2c71ed7.js"><link rel="prefetch" href="/assets/js/31.805bcd3c.js"><link rel="prefetch" href="/assets/js/32.4226174c.js"><link rel="prefetch" href="/assets/js/33.37be6a15.js"><link rel="prefetch" href="/assets/js/34.466ebcf5.js"><link rel="prefetch" href="/assets/js/35.cb9c230e.js"><link rel="prefetch" href="/assets/js/36.771f66ea.js"><link rel="prefetch" href="/assets/js/37.e443a86a.js"><link rel="prefetch" href="/assets/js/38.2af0dbd3.js"><link rel="prefetch" href="/assets/js/39.0c54ac88.js"><link rel="prefetch" href="/assets/js/4.e55e7d6c.js"><link rel="prefetch" href="/assets/js/40.e349bc43.js"><link rel="prefetch" href="/assets/js/41.2c82d80b.js"><link rel="prefetch" href="/assets/js/42.09865f77.js"><link rel="prefetch" href="/assets/js/43.d1a1945d.js"><link rel="prefetch" href="/assets/js/44.44056441.js"><link rel="prefetch" href="/assets/js/45.23f4bcb1.js"><link rel="prefetch" href="/assets/js/46.523377ed.js"><link rel="prefetch" href="/assets/js/47.39c2ac9b.js"><link rel="prefetch" href="/assets/js/48.446932bc.js"><link rel="prefetch" href="/assets/js/49.47b2cdc5.js"><link rel="prefetch" href="/assets/js/5.73b6d780.js"><link rel="prefetch" href="/assets/js/50.9cb1d170.js"><link rel="prefetch" href="/assets/js/51.4b7a3e4f.js"><link rel="prefetch" href="/assets/js/52.2310dbde.js"><link rel="prefetch" href="/assets/js/53.70514c3c.js"><link rel="prefetch" href="/assets/js/54.316cdc49.js"><link rel="prefetch" href="/assets/js/55.db4816c8.js"><link rel="prefetch" href="/assets/js/56.7241b38e.js"><link rel="prefetch" href="/assets/js/57.f947ebe6.js"><link rel="prefetch" href="/assets/js/58.3e277572.js"><link rel="prefetch" href="/assets/js/59.3476f0cf.js"><link rel="prefetch" href="/assets/js/6.49bd8bb9.js"><link rel="prefetch" href="/assets/js/60.6589e146.js"><link rel="prefetch" href="/assets/js/61.22492af7.js"><link rel="prefetch" href="/assets/js/62.1fc6799a.js"><link rel="prefetch" href="/assets/js/63.e3f9a2ca.js"><link rel="prefetch" href="/assets/js/64.1d1d0763.js"><link rel="prefetch" href="/assets/js/65.470a3295.js"><link rel="prefetch" href="/assets/js/66.4c1b39ef.js"><link rel="prefetch" href="/assets/js/67.882578f3.js"><link rel="prefetch" href="/assets/js/68.e37c1840.js"><link rel="prefetch" href="/assets/js/69.74668543.js"><link rel="prefetch" href="/assets/js/7.a146e8b1.js"><link rel="prefetch" href="/assets/js/70.3f357a01.js"><link rel="prefetch" href="/assets/js/71.1639510a.js"><link rel="prefetch" href="/assets/js/72.235a2ff5.js"><link rel="prefetch" href="/assets/js/73.b6403efb.js"><link rel="prefetch" href="/assets/js/74.8028105e.js"><link rel="prefetch" href="/assets/js/75.8317d79b.js"><link rel="prefetch" href="/assets/js/76.2bcfe34f.js"><link rel="prefetch" href="/assets/js/77.8a0fa722.js"><link rel="prefetch" href="/assets/js/78.dfb11693.js"><link rel="prefetch" href="/assets/js/79.4c573711.js"><link rel="prefetch" href="/assets/js/8.361bf975.js"><link rel="prefetch" href="/assets/js/80.ae55b008.js"><link rel="prefetch" href="/assets/js/81.fcf62caf.js"><link rel="prefetch" href="/assets/js/82.c75bff49.js"><link rel="prefetch" href="/assets/js/83.bc4cf04e.js"><link rel="prefetch" href="/assets/js/84.6e7b5e11.js"><link rel="prefetch" href="/assets/js/85.6b48a9e4.js"><link rel="prefetch" href="/assets/js/86.7a637af9.js"><link rel="prefetch" href="/assets/js/87.92ca344e.js"><link rel="prefetch" href="/assets/js/88.31ecec95.js"><link rel="prefetch" href="/assets/js/89.c5bde116.js"><link rel="prefetch" href="/assets/js/9.17b1e357.js"><link rel="prefetch" href="/assets/js/90.a41fd3df.js"><link rel="prefetch" href="/assets/js/91.46a2cc9e.js"><link rel="prefetch" href="/assets/js/92.761117f0.js"><link rel="prefetch" href="/assets/js/93.40eecc87.js"><link rel="prefetch" href="/assets/js/94.7de38523.js"><link rel="prefetch" href="/assets/js/95.372f7ca9.js"><link rel="prefetch" href="/assets/js/96.850a8aca.js"><link rel="prefetch" href="/assets/js/97.d3f7516f.js"><link rel="prefetch" href="/assets/js/98.b00ac6e4.js"><link rel="prefetch" href="/assets/js/99.aa632710.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8405cd42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/orangbus.png" alt="OrangBus" class="logo"> <span class="site-name can-hide">OrangBus</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link router-link-active">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link router-link-active">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>WebNote</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/WebNote/BeautifulSoup修改文档树.html" class="sidebar-link">BeautifulSoup修改文档树</a></li><li><a href="/WebNote/Docker Compose 配置文件详解 .html" class="sidebar-link">Docker Compose 配置文件详解</a></li><li><a href="/WebNote/Docker Dockerfile.html" class="sidebar-link">Dockerfile</a></li><li><a href="/WebNote/Docker的镜像制作与整套项目一键打包部署.html" class="sidebar-link">Docker的镜像制作与整套项目一键打包部署</a></li><li><a href="/WebNote/Filebeat模块与配置.html" class="sidebar-link">Filebeat模块与配置</a></li><li><a href="/WebNote/Git webhook 实现自动部署教程.html" class="sidebar-link">Git webhook 实现自动部署教程</a></li><li><a href="/WebNote/Go语言搬砖 操作MeiliSearch.html" class="sidebar-link">/WebNote/Go语言搬砖 操作MeiliSearch.html</a></li><li><a href="/WebNote/Linux命令之Crontab——定时任务.html" class="sidebar-link">Linux命令之Crontab——定时任务</a></li><li><a href="/WebNote/Linux环境下MySQL8.0安装.html" class="sidebar-link">Linux环境下MySQL8.0安装</a></li><li><a href="/WebNote/MySQL性能优化详解.html" class="sidebar-link">MySQL性能优化详解【精华篇】</a></li><li><a href="/WebNote/" aria-current="page" class="sidebar-link">十个催泪虐心的小故事</a></li><li><a href="/WebNote/Redis 几种数据类型及应用场景.html" class="sidebar-link">Redis 几种数据类型及应用场景</a></li><li><a href="/WebNote/SH Key 突然失效问题解答及处理办法.html" class="sidebar-link">SSH Key 突然失效问题解答及处理办法</a></li><li><a href="/WebNote/UserAgent.html" class="sidebar-link">UserAgent</a></li><li><a href="/WebNote/Vue-cli -axios 跨域.html" class="sidebar-link">Vue-cli -axios 跨域</a></li><li><a href="/WebNote/Vue-cli 引入各种静态资源.html" class="sidebar-link">Vue-cli 引入各种静态资源</a></li><li><a href="/WebNote/Vuetify.html" aria-current="page" class="active sidebar-link">Vuetify – 色彩，主题与基础样式</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/WebNote/docker-compose 搭建 minio 分布式对象存储 最新版(使用教程).html" class="sidebar-link">docker-compose 搭建 minio 分布式对象存储</a></li><li><a href="/WebNote/docker安装Syncthing，并配置数据同步备份.html" class="sidebar-link">docker安装Syncthing备份数据</a></li><li><a href="/WebNote/mysql order by 原理及优化详解.html" class="sidebar-link">mysql order by 原理及优化详解</a></li><li><a href="/WebNote/nginx 黑名单和白名单.html" class="sidebar-link">nginx 黑名单和白名单</a></li><li><a href="/WebNote/php 生成随机数 生成随机字符串的 5 种方法.html" class="sidebar-link">php 生成随机数 生成随机字符串的 5 种方法</a></li><li><a href="/WebNote/php中call_user_func 与 call_user_func_array的使用 .html" class="sidebar-link">php-calluserfunc使用</a></li><li><a href="/WebNote/x-ui面板+宝塔+伪装网站+CDN节点.html" class="sidebar-link">/WebNote/x-ui面板+宝塔+伪装网站+CDN节点.html</a></li><li><a href="/WebNote/一篇文章教你顺利入门和开发 chrome 扩展程序.html" class="sidebar-link">一篇文章教你顺利入门和开发 chrome 扩展程序</a></li><li><a href="/WebNote/使用Certbot自动配置LetsEncrypt证书.html" class="sidebar-link">使用Certbot自动配置LetsEncrypt证书</a></li><li><a href="/WebNote/关于 Laravel项目多进程队列配置的使用.html" class="sidebar-link">/WebNote/关于 Laravel项目多进程队列配置的使用.html</a></li><li><a href="/WebNote/切换国内源及讯飞输入法安装.html" class="sidebar-link">切换国内源及讯飞输入法安装</a></li><li><a href="/WebNote/刻意练习 Elasticsearch 10000 个小时，鬼知道经历了什么？.html" class="sidebar-link">/WebNote/刻意练习 Elasticsearch 10000 个小时，鬼知道经历了什么？.html</a></li><li><a href="/WebNote/向 GitHub 提交代码时触发 Jenkins 自动构建.html" class="sidebar-link">向 GitHub 提交代码时触发 Jenkins 自动构建</a></li><li><a href="/WebNote/如何在局域网用一台服务器配置多站点？.html" class="sidebar-link">如何在局域网用一台服务器配置多站点？</a></li><li><a href="/WebNote/如何快速清理 docker 资源.html" class="sidebar-link">如何快速清理 docker 资源</a></li><li><a href="/WebNote/如何解决Docker 搭建pxc集群后，节点宕机，启动闪退.html" class="sidebar-link">pxc宕机重启场景还原及正确的启动方式</a></li><li><a href="/WebNote/打包压缩命令.html" class="sidebar-link">linux常用打包压缩格式</a></li><li><a href="/WebNote/课程脚本.html" class="sidebar-link">《Docker环境下的前后端分离部署与运维》课程脚本</a></li><li><a href="/WebNote/面试，看这一篇就够了.html" class="sidebar-link">mysql优化建议</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p>Vuetify的自定义色彩和更换色彩主题非常方便。</p> <ol><li><a href="#con1">1 色彩</a></li> <li><a href="#con11">1.1 JS代码控制主题颜色</a></li> <li><a href="#con12">1.2 StylusCSS预处理器自定义颜色</a></li> <li><a href="#con2">2 主题</a></li> <li><a href="#con21">2.1 Light and Dark风格</a></li> <li><a href="#con22">2.2 主题颜色对象</a></li> <li><a href="#con23">2.3 动态更换主题颜色</a></li> <li><a href="#con3">3 基础样式</a></li> <li><a href="#con31">3.1 内容样式</a></li> <li><a href="#con32">3.2 文字样式</a></li> <li><a href="#con4">4 辅助样式</a></li> <li><a href="#con41">4.1 display相关样式</a></li> <li><a href="#con42">4.2 z轴特效</a></li> <li><a href="#con43">4.3 外边距和内边距控制</a></li> <li><a href="#con44">4.4 文字对齐</a></li> <li><a href="#con5">5 滚动 scroll</a></li></ol> <h1 id="_1-色彩"><a href="#_1-色彩" class="header-anchor">#</a> 1 色彩</h1> <p>Vuetify使用了<a href="https://material.io/design/color/#color-usage-palettes" target="_blank" rel="noopener noreferrer">扁平化设计指导色彩<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>中的2014 Material Design color palettes版本的色彩。</p> <p>按照<a href="https://vuetifyjs.com/en/framework/colors#material-colors" target="_blank" rel="noopener noreferrer">官方文档中的Material colors<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，Vuetify中一共可以直接使用的色彩有：</p> <ol><li><code>red lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>pink lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>purple lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>deep-purple lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>indigo lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>blue lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>light-blue lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>cyan lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>teal lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>green lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>light-green lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>lime lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>yellow lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>amber lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>orange lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>deep-orange lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>brown lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>blue-grey lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>grey lighten-{1 to 5} darken-{1 to 4} accent-{1 to 4}</code></li> <li><code>shades black white transparent</code></li></ol> <p>一共有19套扁平化风格的色系。每一种颜色有一个主色，然后有浅色调五种颜色，深色调四种颜色和四种额外颜色的扩展，即每一系颜色有14种供选择，非常方便。</p> <p>最后的<code>shades</code>系列是基础的纯黑，纯白和透明颜色三种。</p> <p>预定义的这些颜色通过同名的CSS类就可以直接使用：</p> <ol><li><code>&lt;div class=&quot;red&quot;&gt;</code>，定义背景颜色为主色彩</li> <li><code>&lt;span class=&quot;red--text&quot;&gt;</code>，定义文字颜色为主色彩</li> <li><code>&lt;span class=&quot;red--lighten-2&quot;&gt;</code>，定义背景颜色为扩展颜色</li> <li><code>&lt;span class=&quot;red--text text--accent-2&quot;&gt;</code>，定义文字颜色为扩展颜色</li></ol> <p>在选择的颜色的时候，每种颜色的主色调对应<a href="https://material.io/design/color/#color-usage-palettes" target="_blank" rel="noopener noreferrer">扁平化设计指导色彩<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>中的500号颜色，浅色对应50-400号颜色，深色对应600-900号颜色。<br> <code>accent</code>系列颜色是100，200，400，700号颜色的变体，主要用于一些副标题或者色块区域。在设计网页的时候，基本上还是从50-900号颜色中来挑选主题色彩所需要的颜色。</p> <h3 id="_1-1-js代码控制主题颜色"><a href="#_1-1-js代码控制主题颜色" class="header-anchor">#</a> 1.1 JS代码控制主题颜色</h3> <p>这里就要稍微接触一下主题色彩了，如果用过其他的前端UI库比如Bootstrap4，里边的色彩通常会写成<code>xxx-primary</code>，其中的<code>primary</code>就是主题色彩变量。</p> <p>主题色彩变量的好处是可以到处复用，然后通过更改主题颜色的变量值，可以方便的更换整个应用的颜色风格。</p> <p>Vuetify能够在加载插件的时候，手工直接指定主题颜色：</p> <div class="language- extra-class"><pre class="language-text"><code>import Vue from 'vue'
+import Vuetify from 'vuetify'
+
+import colors from 'vuetify/es5/util/colors'
+
+Vue.use(Vuetify, {
+  theme: {
+    primary: colors.orange.darken2,
+    secondary: colors.lightGreen.lighten4,
+    accent: colors.indigo.base
+  }
+})
+
+</code></pre></div><p><code>primary</code>等基础颜色变量的使用方法和具体颜色一样，比如<code>class=&quot;accent--text text--lighten-2&quot;</code></p> <h3 id="_1-2-styluscss预处理器控制主题颜色"><a href="#_1-2-styluscss预处理器控制主题颜色" class="header-anchor">#</a> 1.2 StylusCSS预处理器控制主题颜色</h3> <p>Stylus就和SASS之类都是预处理器。在前边的JS代码中，如果导入colors对象，会让整个JS文件的体积增大30Kb左右。如果只是想使用一些特定的颜色，可以通过修改Vuetify的stylus文件来关闭导入颜色对象。这需要手工关闭，然后在导入主stylus文件。</p> <p>由于使用stylus预处理器不是重点，而且对于我们不是非常专业的前端，没有必要在颜色方面自定义太多东西，这里就看<a href="https://vuetifyjs.com/en/framework/colors#stylus-color-pack" target="_blank" rel="noopener noreferrer">官方文档<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>吧。</p> <h1 id="_2-主题色彩"><a href="#_2-主题色彩" class="header-anchor">#</a> 2 主题色彩</h1> <p>上一节已经看过了主题色彩，其实就是一套固定名称的色彩变量。Vuetify提供了如下几个方面可以快速改变应用的主题色彩。</p> <h3 id="_2-1-light-and-dark风格"><a href="#_2-1-light-and-dark风格" class="header-anchor">#</a> 2.1 Light and Dark风格</h3> <p>直接在<code>v-app</code>上设置<code>dark</code>属性可以让大部分应用组件的底色都变成黑色。不设置则默认是亮色主题。</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;v-app dark&gt;
+...
+&lt;/v-app&gt;
+
+</code></pre></div><h3 id="_2-2-主题颜色对象"><a href="#_2-2-主题颜色对象" class="header-anchor">#</a> 2.2 主题颜色对象</h3> <p>在上一节中，引入Vuetify插件的时候传入的配置对象中的<code>theme</code>对象，就是主题颜色对象。Vuetify提供了一个<a href="https://theme-generator.vuetifyjs.com/" target="_blank" rel="noopener noreferrer">主题色彩生成器<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，进去选好需要的七种色彩，就可以生成直接可供导入的对象或者对应color对象的代码：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+    primary: #3f51b5,
+    secondary: #673ab7,
+    accent: #e91e63,
+    error: #f44336,
+    warning: #ff5722,
+    info: #4caf50,
+    success: #607d8b
+}
+
+</code></pre></div><p>或者：</p> <div class="language- extra-class"><pre class="language-text"><code>import colors from 'vuetify/es5/util/colors'
+
+{
+    primary: colors.indigo.base,
+    secondary: colors.deep-purple.base,
+    accent: colors.pink.base,
+    error: colors.red.base,
+    warning: colors.deep-orange.base,
+    info: colors.green.base,
+    success: colors.blue-grey.base
+}
+
+</code></pre></div><p>有了这个对象就可以方便的更换颜色风格。</p> <p>在传入对象的时候，也可以只传部分颜色名称，没有传入的颜色会使用默认颜色。</p> <h3 id="_2-3-动态更换主题颜色"><a href="#_2-3-动态更换主题颜色" class="header-anchor">#</a> 2.3 动态更换主题颜色</h3> <p>刚才的对象都是在App启动的时候传入的。Vuetify通过<code>this.$vuetify.theme</code>对象可以直接访问和设置色彩变量的名称。</p> <p>比如给之前在学习Grid系统的时候写的导航栏增加一个改变文字颜色的按钮：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;button @click=&quot;changeColor&quot;&gt;改变颜色&lt;/button&gt;
+&lt;script&gt;
+    new Vue({
+        el: '#app',
+        // ...此处省略...
+        methods: {
+            changeColor : function () {
+                this.$vuetify.theme.primary = '#FF9800'
+            }
+        }
+    })
+&lt;/script&gt;
+
+</code></pre></div><p>按了这个按钮，就会把所有文字的颜色变成橙色（A标签的文字默认使用<code>primary</code>颜色）。</p> <p>主题的内容除了上述这些之外，还有一些可以在传入<code>theme</code>对象的时候自定义类似<code>primary.base</code>或者<code>primary.darken1</code>的方法，就是使用嵌套的对象。</p> <p>此外还有服务端渲染的内容，以及自定义颜色变量等内容，有兴趣的可以看<a href="https://vuetifyjs.com/en/framework/theme#options" target="_blank" rel="noopener noreferrer">官方文档<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p> <h1 id="_3-基础样式"><a href="#_3-基础样式" class="header-anchor">#</a> 3 基础样式</h1> <p>Vuetify对一些HTML标签应用了一些特殊样式，此外还提供了一些CSS类用于控制文字展示。</p> <h3 id="_3-1-内容样式"><a href="#_3-1-内容样式" class="header-anchor">#</a> 3.1 内容样式</h3> <p>已经定义了预置样式的HTML元素有：</p> <ol><li><code>blockquote</code>，blockquote元素，其中的内容会自动应用样式，字体大小为18px，带有上下padding</li> <li><code>p</code>，标准P元素，字体大小为14px，带有下margin</li> <li><code>var</code>，表示变量，会自动应用斜体，14px</li> <li><code>code</code>，会自动应用样式，等宽字体，13px</li> <li><code>kbd</code>，13px，背景为浅黑色，等宽字体</li></ol> <p>这些样式直接使用对应的标签包围内容即可。无需额外在标签上定义CSS类。</p> <h3 id="_3-2-文字样式"><a href="#_3-2-文字样式" class="header-anchor">#</a> 3.2 文字样式</h3> <p>Vuetify提供了一系列类，用于将文字规范到扁平化设计的文字规范，主要有是四个方面的内容：字体大小，字体重量，字体转换，字体包裹。</p> <p>字体大小提供了一系列CSS类用于将指定的文字转换成符合扁平化设计的文字大小，这些字体大小的CSS类可以用于任何文字对象上，但最好还是和语义化的HTML标签一起使用：</p> <ol><li><code>.display-4</code>，设置文字为112px，通常搭配<code>h1</code>元素使用</li> <li><code>.display-3</code>，设置文字为56px，通常搭配<code>h2</code>元素使用</li> <li><code>.display-2</code>，设置文字为45px，通常搭配<code>h3</code>元素使用</li> <li><code>.display-1</code>，设置文字为34px，通常搭配<code>h4</code>元素使用</li> <li><code>.headline</code>，设置文字为24px，通常搭配<code>h5</code>元素使用</li> <li><code>.title</code>，设置文字为20px，通常搭配<code>h6</code>元素使用</li> <li><code>.subheading</code>，设置文字为16px，通常在标题作为副标题使用</li> <li><code>.body-2</code>，设置文字为14px，字重500，通常作为正文使用</li> <li><code>.body-1</code>，设置文字为14px，通常作为正文使用</li> <li><code>.caption</code>，设置文字为12px，通常作为辅助文字使用</li></ol> <p>除了<code>.body-2</code>，都是普通字重。</p> <p>Vuetify支持的字重对应关系是：</p> <ol><li><code>.font-weight-thin</code>，对应100</li> <li><code>.font-weight-light</code>，对应300</li> <li><code>.font-weight-regular</code>，对应400</li> <li><code>.font-weight-medium</code>，对应500</li> <li><code>.font-weight-bold</code>，对应700</li> <li><code>.font-weight-black</code>，对应900</li></ol> <p>字重选择的支持也得益于Vuetify默认的Roboto字体支持的字重种类比较多。</p> <p><code>.font-italic</code>类用于斜体。</p> <p>文本转换也有几个类，用于转换大小写：</p> <ol><li><code>.text-capitalize</code>，设置首字母大写</li> <li><code>.text-lowercase</code>，设置英文为小写</li> <li><code>.text-none</code>，不进行转换</li> <li><code>.text-uppercase</code>，设置大写</li> <li><code>.font-weight-bold</code>，对应700</li> <li><code>.font-weight-black</code>，对应900</li></ol> <p>最后是外边容器是否截断文字的两个类：</p> <ol><li><code>.text-no-wrap</code>，设置whitespace属性为nowrap</li> <li><code>.text-truncate</code>，截断超出的文字</li></ol> <h1 id="_4-辅助样式"><a href="#_4-辅助样式" class="header-anchor">#</a> 4 辅助样式</h1> <p>除了基础的预置样式和文字样式之外，Vuetify也提供了很多辅助类用于微调样式。</p> <h3 id="_4-1-display相关样式"><a href="#_4-1-display相关样式" class="header-anchor">#</a> 4.1 display相关样式</h3> <p>这里的样式主要是与<code>display</code>属性相关，用于控制可见性，溢出和元素的显示框类型。</p> <p>可见性的写法是：<code>hidden-{breakpoint}-{condition}</code>。</p> <p>其中的<code>breakpoint</code>是断点的代码，<code>{condition}</code>部分是条件，有三个选项：</p> <ol><li><code>only</code>，仅在断点对应的屏幕宽度范围内生效</li> <li><code>and-down</code>，断点和更小的屏幕宽度</li> <li><code>and-up</code>，断点和更大的屏幕宽度</li></ol> <p>此外还可以使用媒体类型，控制元素在不同的情况下可见，比如<code>hidden-screen-only</code>控制仅在屏幕上不可见，<code>hidden-print-only</code>控制仅在打印时不可见。</p> <p>溢出的处理有三个类：</p> <ol><li><code>overflow-hidden</code>，不显示所有溢出部分</li> <li><code>overflow-y-hidden</code>，不显示竖直方向的溢出</li> <li><code>overflow-x-hidden</code>，不显示水平方向的溢出</li></ol> <p>最后是控制元素的显示框类型，在Grid部分的几个排版元素的API中已经见过这种类型的CSS样式类。这些类如下：</p> <ol><li><code>d-inline-flex</code></li> <li><code>d-flex</code></li> <li><code>d-inline-block</code></li> <li><code>d-block</code></li> <li><code>d-inline</code></li> <li><code>d-none</code></li></ol> <p>类名一看就知道效果是什么。利用<code>display</code>相关样式，很容易就可以做出一个随着屏幕宽度减少，导航条内容不断减少的效果：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;div id=&quot;app&quot;&gt;
+    &lt;v-app&gt;
+        &lt;v-container&gt;
+            &lt;v-layout wrap :class=&quot;classObject&quot; &gt;
+                &lt;v-flex xs1 class=&quot;hidden-xs-only&quot;&gt;
+                    &lt;div style=&quot;text-align: center;&quot;&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/div&gt;
+                &lt;/v-flex&gt;
+                &lt;v-flex xs1 class=&quot;hidden-sm-and-down&quot;&gt;
+                    &lt;div style=&quot;text-align: center;&quot;&gt;&lt;a href=&quot;#&quot;&gt;Products&lt;/a&gt;&lt;/div&gt;
+                &lt;/v-flex&gt;
+                &lt;v-flex xs1 class=&quot;hidden-md-and-down&quot;&gt;
+                    &lt;div style=&quot;text-align: center;&quot;&gt;&lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt;&lt;/div&gt;
+                &lt;/v-flex&gt;
+                &lt;v-flex xs1 class=&quot;hidden-lg-and-down&quot;&gt;
+                    &lt;div style=&quot;text-align: center;&quot;&gt;&lt;a href=&quot;#&quot;&gt;About&lt;/a&gt;&lt;/div&gt;
+                &lt;/v-flex&gt;
+            &lt;/v-layout&gt;
+        &lt;/v-container&gt;
+    &lt;/v-app&gt;
+&lt;/div&gt;
+
+</code></pre></div><h3 id="_4-2-z轴特效"><a href="#_4-2-z轴特效" class="header-anchor">#</a> 4.2 z轴特效</h3> <p>Vuetify中对于标准CSS中的<code>z-index</code>属性进行重新设计，使用elevation-{n}标识z轴的层级，并且自动设置对应的样式。</p> <p>层级一共有25种，用0-24表示，所以这个CSS类就是从<code>elevation-0</code>到<code>elevation-24</code>。</p> <p>每一个层级都会设置不同的样式，看上去就像是离页面越来越远。可以看官网的<a href="https://vuetifyjs.com/en/framework/elevation#playground" target="_blank" rel="noopener noreferrer">例子<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p> <h3 id="_4-3-外边距和内边距控制"><a href="#_4-3-外边距和内边距控制" class="header-anchor">#</a> 4.3 外边距和内边距控制</h3> <p>Vuetify的文档还是很细致的，我记得Bootstrap4可能也有类似的类，但是都没在文档里仔细提过。</p> <p>控制外边距和内边距的CSS类是<code>{property}{direction}-{size}</code>。来分别看看其中的三个内容：</p> <ol><li><code>property</code>，可以设置为<code>m</code>和<code>p</code>，分别表示外边距<code>margin</code>和内边距<code>padding</code>。</li> <li><code>direction</code>设置如下：
+<ol><li><code>t</code>表示<code>top</code></li> <li><code>b</code>表示<code>bottom</code></li> <li><code>l</code>表示<code>left</code></li> <li><code>r</code>表示<code>right</code></li> <li><code>x</code>表示同时<code>right</code>和<code>left</code></li> <li><code>y</code>表示同时<code>top</code>和<code>bottom</code></li> <li><code>a</code>表示所有方向</li></ol></li> <li><code>size</code>设置如下：
+<ol><li><code>auto</code>表示<code>auto</code></li> <li><code>0</code>表示<code>0</code></li> <li><code>1</code>表示<code>$spacer</code>代表的宽度*0.25，默认是4px</li> <li><code>2</code>表示<code>$spacer</code>代表的宽度*0.5，默认是8px</li> <li><code>3</code>表示<code>$spacer</code>代表的宽度，默认是16px</li> <li><code>4</code>表示<code>$spacer</code>代表的宽度*1.5，默认是24px</li> <li><code>5</code>表示<code>$spacer</code>代表的宽度*3，默认是48px</li></ol></li></ol> <p>掌握了原始的CSS样式的话，使用这个类很容易。</p> <h3 id="_4-4-文字对齐"><a href="#_4-4-文字对齐" class="header-anchor">#</a> 4.4 文字对齐</h3> <p>控制文字对齐的CSS样式类是<code>text-{breakpoint}-{position}</code>。</p> <p><code>{position}</code>可以选择的是<code>right</code>，<code>left</code>和<code>center</code>。</p> <p>需要说明的是这个样式类的工作特点和断点是一样的，即如果想让一个元素的文字在所有情况下都居中，需要设置成<code>text-xs-center</code>，会自动覆盖掉所有更大宽度的屏幕。</p> <h1 id="_5-滚动-scroll"><a href="#_5-滚动-scroll" class="header-anchor">#</a> 5 滚动 scroll</h1> <p>Vuetify提供了<code>$vuetify.goto(target, options)</code>这样一个方法用于控制滚动。</p> <p>其中<code>target</code>可以是一个数字，表示距离页面顶端的像素距离；还可以是一个CSS选择器字符串或者一个元素的引用，用来滚动到指定的元素处。</p> <p>其中<code>options</code>则是一个配置对象，其中的属性有<code>duration</code>表示时间，<code>easing</code>表示缓和曲线效果，<code>offset</code>表示上下偏移量，<code>container</code>暂时不知道表示什么。</p> <p><code>$vuetify.goto(target, options)</code>是在任意Vue组件中都可以访问的，极大的提高了灵活性。</p> <p>光说不练假把式，官网的<a href="https://vuetifyjs.com/en/framework/scroll#usage" target="_blank" rel="noopener noreferrer">例子<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>其实很不错，但是没有明确的看到传入的参数。</p> <p>可以做一个页面来简单的看一下效果：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;div id=&quot;app&quot;&gt;
+    &lt;v-app id=&quot;inspire&quot;&gt;
+        &lt;v-container&gt;
+            &lt;v-layout&gt;
+                &lt;v-btn color=&quot;primary&quot; @click=&quot;scroll1&quot;&gt;滚动到1000像素&lt;/v-btn&gt;
+                &lt;v-btn color=&quot;primary&quot; class=&quot;text-none&quot; @click=&quot;scroll2&quot;&gt;滚动到id=&quot;p2&quot;的元素处&lt;/v-btn&gt;
+                &lt;v-btn color=&quot;primary&quot; @click=&quot;scroll3&quot; class=&quot;text-none&quot;&gt;滚动到ref=&quot;saner&quot;的元素处&lt;/v-btn&gt;
+            &lt;/v-layout&gt;
+            &lt;v-layout row wrap&gt;
+                &lt;v-flex xs12&gt;
+                    &lt;p style=&quot;height: 1500px&quot; id=&quot;p1&quot;&gt;1st consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?&lt;/p&gt;
+                &lt;/v-flex&gt;
+                &lt;v-flex  xs12&gt;
+                    &lt;p style=&quot;height: 1500px&quot; id=&quot;p2&quot;&gt;1st consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?&lt;/p&gt;
+                &lt;/v-flex&gt;
+                &lt;v-flex xs12&gt;
+                    &lt;p style=&quot;height: 1500px&quot; ref=&quot;saner&quot; id=&quot;p3&quot;&gt;1st consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?&lt;/p&gt;
+                &lt;/v-flex&gt;
+            &lt;/v-layout&gt;
+
+        &lt;/v-container&gt;
+    &lt;/v-app&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    new Vue({
+        el: '#app',
+        methods:{
+            scroll1:function () {
+                this.$vuetify.goTo(1000, {
+                    duration: 300,
+                    easing: &quot;easeInOutCubic&quot;,
+                    offset: 700});
+            },
+            scroll2:function () {
+                this.$vuetify.goTo('#p2', {});
+            },
+            scroll3:function () {
+                this.$vuetify.goTo(this.$refs.saner, {});
+            },
+
+        }
+    })
+&lt;/script&gt;
+
+</code></pre></div><p>这个页面里有三个按钮，然后是三个高1500像素的段落。</p> <p>第一个按钮是滚动到距离页面顶部1000像素的位置，然后加上了配置参数，<code>duration: 300</code>我感觉了一下应该是0.3秒左右；<code>easing</code>属性直接传入字符串即可。<code>offset</code>数值为正数的时候，表示从1000像素的位置，往页面上方偏移700像素，也就是实际上只会移动到距离页面顶部300像素的位置。如果是负数就是往页面下方偏移了。</p> <p>第二个按钮采用CSS选择器，选中的是<code>id=&quot;p2&quot;</code>的元素，会直接滚动到对应元素的地方。</p> <p>第二个按钮采用一个DOM对象的方式，使用了Vue的<code>ref</code>属性的特性，通过<code>this.$refs.saner</code>选中第三个段落元素，会直接滚动到该元素处。</p> <p><code>easing</code>属性可以使用的字符串有如下：</p> <div class="language- extra-class"><pre class="language-text"><code>linear
+easeInQuad
+easeOutQuad
+easeInOutQuad
+easeInCubic
+easeOutCubic
+easeInOutCubic
+easeInQuart
+easeOutQuart
+easeInOutQuart
+easeInQuint
+easeOutQuint
+easeInOutQuint
+
+</code></pre></div><p>现在VuetifyGrid系统和基础的样式都学习完了，官网文档里<a href="https://vuetifyjs.com/en/framework/transitions#motion" target="_blank" rel="noopener noreferrer">过渡<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>的部分由于Vue里过渡基本没怎么用过，暂且先放一放。经过一些初步的使用，发现Vuetify相比原来的纯CSS库，在HTML结构方面确实简明了很多。</p> <p>下边就来看看各个组件的使用了。</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/orangbus/vuepress-blog/edit/master/docs/WebNote/Vuetify.md" target="_blank" rel="noopener noreferrer">帮助我们改善此页面！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">3/20/2023, 11:31:12 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/WebNote/Vue-cli 引入各种静态资源.html" class="prev">
+        Vue-cli 引入各种静态资源
+      </a></span> <span class="next"><a href="/WebNote/docker-compose 搭建 minio 分布式对象存储 最新版(使用教程).html">
+        docker-compose 搭建 minio 分布式对象存储
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><div class="reading-progress top" data-v-21b39eda><div class="progress" data-v-21b39eda></div></div></div></div>
+    <script src="/assets/js/app.ea451ed9.js" defer></script><script src="/assets/js/3.6c5e3284.js" defer></script><script src="/assets/js/135.44b350c1.js" defer></script>
+  </body>
+</html>

