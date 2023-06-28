@@ -224,7 +224,7 @@ ps aux | grep "php artisan queue:work" | awk '{print $2}' | xargs kill -9
 # 文件查询
 
 ```bash
-grep -n "查询字符串" 文件ming.txt
+grep -n "查询字符串" 文件名.txt
 ```
 
 # 文件删除

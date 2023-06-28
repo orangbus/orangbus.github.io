@@ -114,6 +114,10 @@ PPTOK : <http://www.pptok.com>
 
 图虫网：<https://tuchong.com>
 
+# 微信开发者工具
+
+[https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html](https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html) 
+
 ## Windows Terminal默认打开路径
 
 ```json
@@ -202,3 +206,27 @@ start "" "D:\Program Files (x86)\Tencent\WeChat\WeChat.exe"
 接着把 `C:\Users\$USER$\AppData` 复制到你自定义为位置，重启电脑即可
 
 对于c盘的文件，你可以查看你改动过的目录，把对应的目录文件删除即可，其他没有改动的文件就保持原来的。
+
+# window重装系统需要注意点
+
+1、host文件备份
+
+2、nginx文件备份
+
+3、数据库备份 
+
+```
+mysqldump -u 用户名 -p密码 数据库名 > 备份文件路径.sql
+```
+
+```
+mysqldump -u 用户名 -p 数据库名 > 备份文件路径.sql
+Enter password:  （系统会提示您输入密码，然后按Enter键）
+```
+
+4、php版本备份
+
+6、笔记备份
+
+7、常用软件备份
+

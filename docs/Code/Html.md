@@ -271,5 +271,69 @@ https://github.com/sofish/Typo.css
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 
-
+
+为了保护页面内容，或者是诱导用户注册，网站经常需要实现禁止用户复制剪切页面内容的操作，或者是登录之后才允许进行复制剪切操作的功能。我们分别从 JavaScript、CSS、HTML 标签属性三个方面来看看如何实现网页禁止复制的效果。
+
+## 通过 JavaScript 实现
+
+禁止网页复制，最直接的思路是将页面的复制事件跟剪切事件进行重写。除此之外，我们还能通过禁用鼠标右键菜单事件、禁止用户选中内容的方式去实现。相关代码如下所示：
+
+```js
+// 禁止右键菜单
+document.oncontextmenu = function(){ return false; };
+// 禁止文字选择
+document.onselectstart = function(){ return false; };
+// 禁止复制
+document.oncopy = function(){ return false; };
+// 禁止剪切
+document.oncut = function(){ return false; };
+复制代码
+```
+
+## 通过 HTML 标签属性实现
+
+上述提到的解决思路，除了通过 JS 代码实现外，也可以通过设置标签属性的方式直接禁用页面复制剪切操作，如下所示：
+
+```html
+<body oncopy="return false" oncut="return false;" onselectstart="return false" oncontextmenu="return false">
+<!--……-->
+</body>
+复制代码
+```
+
+该方法本质上与 JS 实现方式相同。当需要恢复页面的复制功能时（比如判断用户已经注册登录后），需要通过 JS 代码将页面复制、剪切及内容选中功能进行恢复，代码如下所示：
+
+```js
+document.body.oncopy = null;
+document.body.oncut = null;
+document.body.onselectstart = null;
+document.body.oncontextmenu = null;
+复制代码
+```
+
+## 通过 CSS 实现
+
+我们也可以通过 CSS 样式，禁止页面内容被选中，从而达到限制复制操作的目的。相关样式代码如下：
+
+```css
+body {
+  -moz-user-select:none; /* Firefox私有属性 */
+  -webkit-user-select:none; /* WebKit内核私有属性 */
+  -ms-user-select:none; /* IE私有属性(IE10及以后) */
+  -khtml-user-select:none; /* KHTML内核私有属性 */
+  -o-user-select:none; /* Opera私有属性 */
+  user-select:none; /* CSS3属性 */
+}
+复制代码
+```
+
+而恢复页面内容选中功能，则需要通过 JS 代码标签样式进行修改实现，代码如下：
+
+```js
+document.body.style.webkitUserSelect = 'auto'; // Firefox
+document.body.style.userSelect = 'auto'; // Chrome
+//......
+```
+
+
 

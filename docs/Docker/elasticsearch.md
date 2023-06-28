@@ -96,6 +96,22 @@ su es
 
 ```
 
+## docker运行
+
+```
+docker run -d \
+    --name elasticsearch \
+    -p 9200:9200 \
+    --restart=always \
+    -e "discovery.type=single-node" \
+    -e "ES_JAVA_OPTS=-Xmx512m -Xms512m" \
+    -v /root/Docker/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro \
+    -v /root/Docker/elasticsearch/plugins:/usr/share/elasticsearch/plugins \
+docker.elastic.co/elasticsearch/elasticsearch:8.7.0
+```
+
+
+
 
 
 # docker-composer 

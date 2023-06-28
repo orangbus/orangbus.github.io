@@ -470,3 +470,16 @@ order by
   data_length desc, index_length desc;
 ```
 
+# 查询技巧
+
+## 经纬度范围查询
+
+```sql
+SELECT qymc,lng,lat,
+(st_distance(point(lat,lng),point(116.452404,39.947689))*111195) AS distance
+FROM fxxf_tsgs 
+HAVING distance<100
+ORDER BY distance 
+limit 100
+```
+

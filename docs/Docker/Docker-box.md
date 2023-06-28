@@ -235,6 +235,26 @@ docker run -d \
 docker run -d --restart=always --privileged --network=host --name v2raya -e V2RAYA_LOG_FILE=/tmp/v2raya.log -v /lib/modules:/lib/modules:ro -v /etc/resolv.conf:/etc/resolv.conf -v /etc/v2raya:/etc/v2raya mzz2017/v2raya
 ```
 
+# gpt国内镜像
+
+```bash
+docker run  -e PANDORA_CLOUD=cloud -e PANDORA_SERVER=0.0.0.0:8899 -p 8899:8899 -d pengzhile/pandora
+```
+
+```yaml
+version: "3"
+services:
+  pandora:
+    image: pengzhile/pandora
+    container_name: pandora
+    environment:
+      - PANDORA_CLOUD=cloud
+      - PANDORA_SERVER=0.0.0.0:8899
+    restart: always
+    ports:
+      - "8899:8899"
+```
+
 
 
 

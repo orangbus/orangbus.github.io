@@ -15,6 +15,7 @@ npm install --save axios vue-axios
 ## vite
 
 ```bash
+npm install --save vite
 ```
 
 ## pain
@@ -94,12 +95,40 @@ npm install vue-router@4
 
 ## vuetify
 
+```bash
+yarn add vuetify@^3.3.2
+```
+
+配置
+
+```javascript
+import { createApp } from 'vue'
+import App from './App.vue'
+
+// Vuetify
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
+
+const vuetify = createVuetify({
+  components,
+  directives,
+})
+
+createApp(App).use(vuetify).mount('#app')
+```
 
 
-图标
+
+## 图标
 
 ```bash
 npm install @mdi/font
+```
+
+```javascript
+import "@mdi/font/css/materialdesignicons.min.css";
 ```
 
 

@@ -120,3 +120,11 @@ mc admin info local
 mc config host add audio-s3 http://127.0.0.1:90
 ```
 
+# cpolar
+
+配置文件路径
+
+```
+/usr/local/etc/cpolar/cpolar.yml
+```
+

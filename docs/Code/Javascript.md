@@ -636,3 +636,71 @@ function goBack() {
     }
 ```
 
+# 腾讯云openai云函数
+
+```javascript
+const express = require('express')
+const {
+    createProxyMiddleware
+} = require('http-proxy-middleware');
+const app = express()
+const port = 9000
+
+app.use('/', createProxyMiddleware({
+    target: 'https://api.openai.com',
+    changeOrigin: true,
+    onProxyRes: function (proxyRes, req, res) {
+        proxyRes.headers['Access-Control-Allow-Origin'] = '*';
+    }
+}));
+
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+})
+```
+
+![image-20230604123834081](Javascript.assets/image-20230604123834081.png) 
+
+# 网站禁止右键复制代码
+
+```javascript
+<!-- 禁止右键代码开始 -->
+<script language="javascript">
+function disableRightClick(e)
+{
+var message = "孩子想干嘛馁！如果要收藏本站请按CTRL+D哦！如果你是在试图偷取本站代码、那么别费劲了，你右键怎么按都是这个窗口！"
+if(!document.rightClickDisabled) // initialize
+{
+if(document.layers) 
+{
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown = disableRightClick;
+}
+else document.oncontextmenu = disableRightClick;
+return document.rightClickDisabled = true;
+}
+if(document.layers || (document.getElementById && !document.all))
+{
+if (e.which==2||e.which==3)
+{
+alert(message);
+return false;
+}
+}
+else
+{
+alert(message);
+return false;
+}
+}
+disableRightClick();
+</script>
+<!-- 禁止右键代码结束 -->
+```
+
+# 禁止复制
+
+```html
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+```
+
