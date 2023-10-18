@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>elasticsearch | OrangBus</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="shortcut icon" href="/orangbus.ico" type="image/jpg">
+    <script><script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?75a195c58b50e00357efe9066f49f8b0";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+			</script>
+			</script>
+    <meta name="description" content="分享生活高效技能,保持勇敢，坚持有趣，生命不息，折腾不止！">
+    <meta property="article:modified_time" content="2022-06-30T03:37:31.000Z">
+    <meta property="og:site_name" content="OrangBus">
+    <meta property="og:title" content="elasticsearch">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/Java/elasticsearch.html">
+    <meta name="twitter:title" content="elasticsearch">
+    <meta name="twitter:url" content="/Java/elasticsearch.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords" content="html,css,jquery,thinkphp,laravel,docker,linux,manjaro">
+    <meta name="author" content="OrangBus">
+    <meta name="baidu-site-verification" content="codeva-WJuxvfEOwn">
+    <link rel="preload" href="/assets/css/0.styles.8405cd42.css" as="style"><link rel="preload" href="/assets/js/app.d0e64cfc.js" as="script"><link rel="preload" href="/assets/js/3.c394ea60.js" as="script"><link rel="preload" href="/assets/js/87.dbbb0fa7.js" as="script"><link rel="prefetch" href="/assets/js/10.80fa7f8c.js"><link rel="prefetch" href="/assets/js/100.50385f03.js"><link rel="prefetch" href="/assets/js/101.698b7727.js"><link rel="prefetch" href="/assets/js/102.ecbe0a4e.js"><link rel="prefetch" href="/assets/js/103.8138b32a.js"><link rel="prefetch" href="/assets/js/104.2d449ea0.js"><link rel="prefetch" href="/assets/js/105.30de147f.js"><link rel="prefetch" href="/assets/js/106.6d3fa8aa.js"><link rel="prefetch" href="/assets/js/107.aa63ed8b.js"><link rel="prefetch" href="/assets/js/108.ac55ea8b.js"><link rel="prefetch" href="/assets/js/109.1b2aadb0.js"><link rel="prefetch" href="/assets/js/11.432af780.js"><link rel="prefetch" href="/assets/js/110.df2cdeb1.js"><link rel="prefetch" href="/assets/js/111.5b511c8c.js"><link rel="prefetch" href="/assets/js/112.dacad57b.js"><link rel="prefetch" href="/assets/js/113.fb7dbfba.js"><link rel="prefetch" href="/assets/js/114.d09c5acb.js"><link rel="prefetch" href="/assets/js/115.a988bd2b.js"><link rel="prefetch" href="/assets/js/116.c0500263.js"><link rel="prefetch" href="/assets/js/117.2b359e04.js"><link rel="prefetch" href="/assets/js/118.7cfe289b.js"><link rel="prefetch" href="/assets/js/119.c506cf19.js"><link rel="prefetch" href="/assets/js/12.2b504033.js"><link rel="prefetch" href="/assets/js/120.6c0e4bb0.js"><link rel="prefetch" href="/assets/js/121.b3a9641d.js"><link rel="prefetch" href="/assets/js/122.436a18d1.js"><link rel="prefetch" href="/assets/js/123.38fd585b.js"><link rel="prefetch" href="/assets/js/124.aa03bc2d.js"><link rel="prefetch" href="/assets/js/125.3c51e174.js"><link rel="prefetch" href="/assets/js/126.f5951135.js"><link rel="prefetch" href="/assets/js/127.a126ff64.js"><link rel="prefetch" href="/assets/js/128.4970fada.js"><link rel="prefetch" href="/assets/js/129.ee81b464.js"><link rel="prefetch" href="/assets/js/13.4fc2b842.js"><link rel="prefetch" href="/assets/js/130.7eee2659.js"><link rel="prefetch" href="/assets/js/131.694743d6.js"><link rel="prefetch" href="/assets/js/132.b5589c5e.js"><link rel="prefetch" href="/assets/js/133.46a6c763.js"><link rel="prefetch" href="/assets/js/134.a8daaf00.js"><link rel="prefetch" href="/assets/js/135.1f10789c.js"><link rel="prefetch" href="/assets/js/136.8b617784.js"><link rel="prefetch" href="/assets/js/137.2106ed27.js"><link rel="prefetch" href="/assets/js/138.9a586b6f.js"><link rel="prefetch" href="/assets/js/139.d5357924.js"><link rel="prefetch" href="/assets/js/14.63b1bbd4.js"><link rel="prefetch" href="/assets/js/140.d1e4e0fe.js"><link rel="prefetch" href="/assets/js/141.47694c88.js"><link rel="prefetch" href="/assets/js/142.137392e8.js"><link rel="prefetch" href="/assets/js/143.6c18d0c6.js"><link rel="prefetch" href="/assets/js/144.68583712.js"><link rel="prefetch" href="/assets/js/145.acfcf4c7.js"><link rel="prefetch" href="/assets/js/146.5b672040.js"><link rel="prefetch" href="/assets/js/147.d533514f.js"><link rel="prefetch" href="/assets/js/148.cd738bb1.js"><link rel="prefetch" href="/assets/js/149.2d52bc40.js"><link rel="prefetch" href="/assets/js/15.06ade03e.js"><link rel="prefetch" href="/assets/js/150.1242c970.js"><link rel="prefetch" href="/assets/js/151.303a1e7c.js"><link rel="prefetch" href="/assets/js/152.3f80ddeb.js"><link rel="prefetch" href="/assets/js/153.fdc80245.js"><link rel="prefetch" href="/assets/js/154.9f82de99.js"><link rel="prefetch" href="/assets/js/155.35f89cfe.js"><link rel="prefetch" href="/assets/js/156.9404fe56.js"><link rel="prefetch" href="/assets/js/157.0edb926c.js"><link rel="prefetch" href="/assets/js/158.f4c7cd1f.js"><link rel="prefetch" href="/assets/js/159.77ec9b6e.js"><link rel="prefetch" href="/assets/js/16.492a3e04.js"><link rel="prefetch" href="/assets/js/160.ff2c8cf8.js"><link rel="prefetch" href="/assets/js/161.d07c5cf0.js"><link rel="prefetch" href="/assets/js/162.7eb28561.js"><link rel="prefetch" href="/assets/js/163.0516a709.js"><link rel="prefetch" href="/assets/js/164.e3e59ee3.js"><link rel="prefetch" href="/assets/js/165.6c91e5f3.js"><link rel="prefetch" href="/assets/js/166.99c34b8e.js"><link rel="prefetch" href="/assets/js/167.c5b47579.js"><link rel="prefetch" href="/assets/js/168.feeee617.js"><link rel="prefetch" href="/assets/js/169.57dd3536.js"><link rel="prefetch" href="/assets/js/17.f631d003.js"><link rel="prefetch" href="/assets/js/170.ec9d18e4.js"><link rel="prefetch" href="/assets/js/171.3dfd6d59.js"><link rel="prefetch" href="/assets/js/172.83c2c4c2.js"><link rel="prefetch" href="/assets/js/173.c6e726a4.js"><link rel="prefetch" href="/assets/js/18.4a9f58e4.js"><link rel="prefetch" href="/assets/js/19.a6716a12.js"><link rel="prefetch" href="/assets/js/2.8fb35049.js"><link rel="prefetch" href="/assets/js/20.aff82c49.js"><link rel="prefetch" href="/assets/js/21.a1fd826f.js"><link rel="prefetch" href="/assets/js/22.2b673c42.js"><link rel="prefetch" href="/assets/js/23.10ff2169.js"><link rel="prefetch" href="/assets/js/24.0236205d.js"><link rel="prefetch" href="/assets/js/25.25d1cc6f.js"><link rel="prefetch" href="/assets/js/26.248c5b7c.js"><link rel="prefetch" href="/assets/js/27.a9bd0d43.js"><link rel="prefetch" href="/assets/js/28.8f67d698.js"><link rel="prefetch" href="/assets/js/29.201bbf76.js"><link rel="prefetch" href="/assets/js/30.85fdb80d.js"><link rel="prefetch" href="/assets/js/31.0b0d0e1c.js"><link rel="prefetch" href="/assets/js/32.2c9effe5.js"><link rel="prefetch" href="/assets/js/33.92fc3612.js"><link rel="prefetch" href="/assets/js/34.e35c5be2.js"><link rel="prefetch" href="/assets/js/35.48afad48.js"><link rel="prefetch" href="/assets/js/36.fff7ba86.js"><link rel="prefetch" href="/assets/js/37.cf287dfb.js"><link rel="prefetch" href="/assets/js/38.1e2f16a3.js"><link rel="prefetch" href="/assets/js/39.6ca432b1.js"><link rel="prefetch" href="/assets/js/4.3a7e9b70.js"><link rel="prefetch" href="/assets/js/40.48a0118c.js"><link rel="prefetch" href="/assets/js/41.41393a13.js"><link rel="prefetch" href="/assets/js/42.d44d5e84.js"><link rel="prefetch" href="/assets/js/43.56348b87.js"><link rel="prefetch" href="/assets/js/44.f31a3a55.js"><link rel="prefetch" href="/assets/js/45.0c5141f5.js"><link rel="prefetch" href="/assets/js/46.ed76944d.js"><link rel="prefetch" href="/assets/js/47.e316f07f.js"><link rel="prefetch" href="/assets/js/48.66ff2948.js"><link rel="prefetch" href="/assets/js/49.a0858143.js"><link rel="prefetch" href="/assets/js/5.bfe2b380.js"><link rel="prefetch" href="/assets/js/50.a1c7399a.js"><link rel="prefetch" href="/assets/js/51.66c3e70a.js"><link rel="prefetch" href="/assets/js/52.a09ae200.js"><link rel="prefetch" href="/assets/js/53.dbbe022c.js"><link rel="prefetch" href="/assets/js/54.cc828a97.js"><link rel="prefetch" href="/assets/js/55.82eed5b7.js"><link rel="prefetch" href="/assets/js/56.f81e5032.js"><link rel="prefetch" href="/assets/js/57.42d78c52.js"><link rel="prefetch" href="/assets/js/58.ae5df450.js"><link rel="prefetch" href="/assets/js/59.663d39a3.js"><link rel="prefetch" href="/assets/js/6.52eb9a12.js"><link rel="prefetch" href="/assets/js/60.03c21d0e.js"><link rel="prefetch" href="/assets/js/61.5a18d425.js"><link rel="prefetch" href="/assets/js/62.e37aef49.js"><link rel="prefetch" href="/assets/js/63.cca674e9.js"><link rel="prefetch" href="/assets/js/64.f4cb43fc.js"><link rel="prefetch" href="/assets/js/65.387bbaf1.js"><link rel="prefetch" href="/assets/js/66.e9b6b510.js"><link rel="prefetch" href="/assets/js/67.2ae441cf.js"><link rel="prefetch" href="/assets/js/68.036e032c.js"><link rel="prefetch" href="/assets/js/69.a56b1a95.js"><link rel="prefetch" href="/assets/js/7.37f298a4.js"><link rel="prefetch" href="/assets/js/70.e36df831.js"><link rel="prefetch" href="/assets/js/71.f0065042.js"><link rel="prefetch" href="/assets/js/72.97b56a60.js"><link rel="prefetch" href="/assets/js/73.d1b511c7.js"><link rel="prefetch" href="/assets/js/74.afe4f0be.js"><link rel="prefetch" href="/assets/js/75.659a316f.js"><link rel="prefetch" href="/assets/js/76.a516ec07.js"><link rel="prefetch" href="/assets/js/77.d877ea5f.js"><link rel="prefetch" href="/assets/js/78.c2d33578.js"><link rel="prefetch" href="/assets/js/79.97e2f44e.js"><link rel="prefetch" href="/assets/js/8.50950320.js"><link rel="prefetch" href="/assets/js/80.49545cb0.js"><link rel="prefetch" href="/assets/js/81.eed16f63.js"><link rel="prefetch" href="/assets/js/82.95639ac6.js"><link rel="prefetch" href="/assets/js/83.6f591354.js"><link rel="prefetch" href="/assets/js/84.24400f8f.js"><link rel="prefetch" href="/assets/js/85.c60528d5.js"><link rel="prefetch" href="/assets/js/86.27ee9337.js"><link rel="prefetch" href="/assets/js/88.02cc8de0.js"><link rel="prefetch" href="/assets/js/89.266636d0.js"><link rel="prefetch" href="/assets/js/9.ee5dcd77.js"><link rel="prefetch" href="/assets/js/90.1a5e2984.js"><link rel="prefetch" href="/assets/js/91.eb6662cf.js"><link rel="prefetch" href="/assets/js/92.eccbaa55.js"><link rel="prefetch" href="/assets/js/93.f3b4d026.js"><link rel="prefetch" href="/assets/js/94.d75a7bc8.js"><link rel="prefetch" href="/assets/js/95.9da1a8e4.js"><link rel="prefetch" href="/assets/js/96.c02c276b.js"><link rel="prefetch" href="/assets/js/97.a84a59b7.js"><link rel="prefetch" href="/assets/js/98.d81fed7a.js"><link rel="prefetch" href="/assets/js/99.1c8c4256.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8405cd42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/orangbus.png" alt="OrangBus" class="logo"> <span class="site-name can-hide">OrangBus</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Java</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Java/Config.html" class="sidebar-link">Springboot 配置文件</a></li><li><a href="/Java/Mybatis.html" class="sidebar-link">Mybatis 配置</a></li><li><a href="/Java/" aria-current="page" class="sidebar-link">Java学习笔记</a></li><li><a href="/Java/Redis.html" class="sidebar-link">springboot redis</a></li><li><a href="/Java/Security.html" class="sidebar-link">Springboot Security oauth+jwt</a></li><li><a href="/Java/SpringSecurity.html" class="sidebar-link">SpringSecurity</a></li><li><a href="/Java/develop.html" class="sidebar-link">开发工具的使用</a></li><li><a href="/Java/elasticsearch.html" aria-current="page" class="active sidebar-link">elasticsearch</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Java/elasticsearch.html#单节点docker安装" class="sidebar-link">单节点docker安装</a></li><li class="sidebar-sub-header"><a href="/Java/elasticsearch.html#插件安装" class="sidebar-link">插件安装</a></li><li class="sidebar-sub-header"><a href="/Java/elasticsearch.html#mysql-jdbc" class="sidebar-link">mysql-jdbc</a></li><li class="sidebar-sub-header"><a href="/Java/elasticsearch.html#集群安装" class="sidebar-link">集群安装</a></li><li class="sidebar-sub-header"><a href="/Java/elasticsearch.html#mysql配置文件" class="sidebar-link">mysql配置文件</a></li><li class="sidebar-sub-header"><a href="/Java/elasticsearch.html#错误汇总" class="sidebar-link">错误汇总</a></li><li class="sidebar-sub-header"><a href="/Java/elasticsearch.html#基本操作" class="sidebar-link">基本操作</a></li><li class="sidebar-sub-header"><a href="/Java/elasticsearch.html#索引（数据库）" class="sidebar-link">索引（数据库）</a></li><li class="sidebar-sub-header"><a href="/Java/elasticsearch.html#文档操作（表）" class="sidebar-link">文档操作（表）</a></li><li class="sidebar-sub-header"><a href="/Java/elasticsearch.html#查询" class="sidebar-link">查询</a></li><li class="sidebar-sub-header"><a href="/Java/elasticsearch.html#ik分词器" class="sidebar-link">ik分词器</a></li><li class="sidebar-sub-header"><a href="/Java/elasticsearch.html#elasticsearch集成" class="sidebar-link">elasticsearch集成</a></li></ul></li><li><a href="/Java/log4j配置文件.html" class="sidebar-link">log4j配置详解</a></li><li><a href="/Java/maven.html" class="sidebar-link">maven 配置</a></li><li><a href="/Java/springMvc.html" class="sidebar-link">Spring mvc</a></li><li><a href="/Java/springboot.html" class="sidebar-link">Spring boot 学习笔记</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><blockquote><p>当使用<code>httpclient</code> 和 <code>elasticsearch</code> 的时候，他们两个的版本需要保持一致</p></blockquote> <p>index：database</p> <p>type: table</p> <p>doc:  一行记录</p> <p>版本选择：</p> <p>跨域处理</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token comment"># vim /elasticsearch/config/elasticsearch.yml</span>
+
+<span class="token key atrule">http.cors.enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span class="token key atrule">http.cors.allow-origin</span><span class="token punctuation">:</span> <span class="token string">&quot;*&quot;</span>
+
+<span class="token comment"># https 访问关闭</span>
+<span class="token key atrule">xpack.security.enabled</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+</code></pre></div><h2 id="单节点docker安装"><a href="#单节点docker安装" class="header-anchor">#</a> 单节点docker安装</h2> <h2 id="插件安装"><a href="#插件安装" class="header-anchor">#</a> 插件安装</h2> <div class="language- extra-class"><pre class="language-text"><code>./bin/elasticsearch-plugin install https://github.91chi.fun/https://github.com//medcl/elasticsearch-analysis-ik/releases/download/v8.1.0/elasticsearch-analysis-ik-8.1.0.zip
+</code></pre></div><h2 id="mysql-jdbc"><a href="#mysql-jdbc" class="header-anchor">#</a> mysql-jdbc</h2> <blockquote><p>https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.17</p></blockquote> <p>cerebro</p> <h2 id="集群安装"><a href="#集群安装" class="header-anchor">#</a> 集群安装</h2> <p>master</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">cluster.name</span><span class="token punctuation">:</span> orangbus
+<span class="token key atrule">node.name</span><span class="token punctuation">:</span> master
+<span class="token key atrule">node.master</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span class="token key atrule">network.host</span><span class="token punctuation">:</span> 0.0.0.0 <span class="token comment"># 指定ip</span>
+</code></pre></div><p>node1</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">cluster.name</span><span class="token punctuation">:</span> orangbus <span class="token comment"># 主节点保持一致</span>
+<span class="token key atrule">http.port</span><span class="token punctuation">:</span> <span class="token number">8200</span>
+<span class="token key atrule">discovery.zen.ping.unicast.host</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;127.0.0.1&quot;</span><span class="token punctuation">]</span>
+</code></pre></div><p>node2</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">cluster.name</span><span class="token punctuation">:</span> orangbus <span class="token comment"># 主节点保持一致</span>
+<span class="token key atrule">http.port</span><span class="token punctuation">:</span> <span class="token number">8300</span>
+<span class="token key atrule">discovery.zen.ping.unicast.host</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;127.0.0.1&quot;</span><span class="token punctuation">]</span>
+</code></pre></div><h2 id="mysql配置文件"><a href="#mysql配置文件" class="header-anchor">#</a> mysql配置文件</h2> <div class="language-yaml extra-class"><pre class="language-yaml"><code>input <span class="token punctuation">{</span>
+  jdbc<span class="token punctuation">{</span>
+    jdbc_driver_library =<span class="token punctuation">&gt;</span> &quot;D<span class="token punctuation">:</span>\\laragon\\www\\Java\\elk\\mysql<span class="token punctuation">-</span>connector<span class="token punctuation">-</span>java<span class="token punctuation">-</span>8.0.16.jar&quot;
+    jdbc_driver_class =<span class="token punctuation">&gt;</span> &quot;com.mysql.cj.jdbc.Driver&quot;
+    jdbc_connection_string =<span class="token punctuation">&gt;</span> &quot;jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//127.0.0.1<span class="token punctuation">:</span>3306/laravel_web<span class="token punctuation">?</span>characterEncoding=utf8<span class="token important">&amp;useSSL=false&amp;serverTimezone=UTC&amp;rewriteBatchedStatements=true&quot;</span>
+    jdbc_validate_connection =<span class="token punctuation">&gt;</span> true
+    jdbc_user =<span class="token punctuation">&gt;</span> &quot;root&quot;
+    jdbc_password =<span class="token punctuation">&gt;</span> &quot;root&quot;
+    schedule =<span class="token punctuation">&gt;</span> &quot;* * * * <span class="token important">*&quot;</span>
+    clean_run =<span class="token punctuation">&gt;</span> true
+    statement =<span class="token punctuation">&gt;</span> &quot;SELECT * FROM jokes WHERE updated_at <span class="token punctuation">&gt;</span>= <span class="token punctuation">:</span>sql_last_value&quot;
+    jdbc_paging_enabled =<span class="token punctuation">&gt;</span> &quot;true&quot;
+    jdbc_page_size =<span class="token punctuation">&gt;</span> &quot;1000&quot;  <span class="token comment"># 每页1000条数据</span>
+    jdbc_default_timezone =<span class="token punctuation">&gt;</span>&quot;Asia/Shanghai&quot;
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+output <span class="token punctuation">{</span>
+  elasticsearch <span class="token punctuation">{</span>
+    hosts =<span class="token punctuation">&gt;</span> <span class="token punctuation">[</span><span class="token string">&quot;http://162.14.72.65:9200&quot;</span><span class="token punctuation">]</span>
+    index =<span class="token punctuation">&gt;</span> &quot;jokes&quot;
+    document_id =<span class="token punctuation">&gt;</span> &quot;%<span class="token punctuation">{</span>id<span class="token punctuation">}</span>&quot;
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>创建配置文件logstash_mysql.conf</p> <div class="language-bash extra-class"><pre class="language-bash"><code>input<span class="token punctuation">{</span>
+     jdbc <span class="token punctuation">{</span>  <span class="token comment"># java数据库访问的API接口</span>
+         jdbc_driver_library <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;/home/python/mysql-connector-java-8.0.13/mysql-connector-java-8.0.13.jar&quot;</span>
+         jdbc_driver_class <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;com.mysql.jdbc.Driver&quot;</span>
+         jdbc_connection_string <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;jdbc:mysql://127.0.0.1:3306/toutiao?tinyInt1isBit=false&quot;</span>
+         jdbc_user <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;root&quot;</span>
+         jdbc_password <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;mysql&quot;</span>
+         jdbc_paging_enabled <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;true&quot;</span>  <span class="token comment"># 数据分页, 一共14W数据</span>
+         jdbc_page_size <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;1000&quot;</span>  <span class="token comment"># 每页1000条数据</span>
+         jdbc_default_timezone <span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">&quot;Asia/Shanghai&quot;</span>
+         statement <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;select a.article_id as article_id,a.user_id as user_id, a.title as title, a.status as status, a.create_time as create_time,  b.content as content from news_article_basic as a inner join news_article_content as b on a.article_id=b.article_id&quot;</span>  <span class="token comment"># 联表查询, 尽量起别名,否则ES的字段名称会变为a.xx, 这样和mysql的字段名称会出现差异</span>
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+output<span class="token punctuation">{</span>
+      elasticsearch <span class="token punctuation">{</span>
+         hosts <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;127.0.0.1:9200&quot;</span>
+         index <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;articles&quot;</span>
+         document_id <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;%{article_id}&quot;</span>  <span class="token comment"># 让文档id记录文章id, 方便进行数据库查询</span>
+         document_type <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;article&quot;</span>
+      <span class="token punctuation">}</span>
+      stdout <span class="token punctuation">{</span>  <span class="token comment"># 导入过程中以json形式显式的输出导入的内容</span>
+         codec <span class="token operator">=</span><span class="token operator">&gt;</span> json_lines  
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>增量更新的配置</li></ul> <div class="language- extra-class"><pre class="language-text"><code>input{
+  record_last_run =&gt; &quot;true&quot;  	# 记录最后一次运行时的数据点, 默认为最后一次更新的时间
+	use_column_value =&gt; &quot;true&quot;  # 不再记录最后一次更新的时间, 而是记录最后一次更新时, 数据库某个字段的值(字段的值要求是递增的)
+  tracking_column =&gt; &quot;article_id&quot;  # 设置记录的字段
+last_run_metadata_path =&gt; &quot;/xx/data&quot;    # 数据点的存储位置
+  clean_run =&gt; &quot;false&quot;    # 从存储位置开始继续读取, 如果设置为true, 则清除数据点, 从头开始读取
+}
+</code></pre></div><h2 id="错误汇总"><a href="#错误汇总" class="header-anchor">#</a> 错误汇总</h2> <h3 id="数据库链接失败"><a href="#数据库链接失败" class="header-anchor">#</a> 数据库链接失败</h3> <p>把<code>mysql-connector-java-8.0.16.jar</code>复制到<code>logstash-7.1.0\logstash-core\lib\jars</code></p> <h3 id="驱动加载失败"><a href="#驱动加载失败" class="header-anchor">#</a> 驱动加载失败</h3> <h2 id="基本操作"><a href="#基本操作" class="header-anchor">#</a> 基本操作</h2> <table><thead><tr><th>method</th> <th>api</th> <th>案例</th> <th>描述</th></tr></thead> <tbody><tr><td>PUT</td> <td>/index/_doc/id</td> <td>/joke/_doc/1</td> <td>创建索引（指定id）</td></tr> <tr><td>POST</td> <td>/index/_doc</td> <td>/joke/_doc</td> <td>创建索引 （随机id）</td></tr> <tr><td>POST</td> <td>/index/_doc/_update</td> <td>/joke/_doc/_update</td> <td>修改文档</td></tr> <tr><td>DELETE</td> <td>/index/_doc/id</td> <td>/joke/_doc/1</td> <td>删除文档</td></tr> <tr><td>GET</td> <td>/index/_doc/id</td> <td>/joke/_doc/1</td> <td>通过id查询文档</td></tr> <tr><td>POST</td> <td>/index/_doc/_search</td> <td>/joke/_doc/_search</td> <td>搜索文档</td></tr></tbody></table> <h2 id="索引（数据库）"><a href="#索引（数据库）" class="header-anchor">#</a> 索引（数据库）</h2> <p>创建索引</p> <div class="language- extra-class"><pre class="language-text"><code>PUT /indexName
+</code></pre></div><p>编辑</p> <div class="language- extra-class"><pre class="language-text"><code>
+</code></pre></div><p>删除</p> <div class="language- extra-class"><pre class="language-text"><code>DELETE /indexname
+</code></pre></div><p>分词测试</p> <div class="language- extra-class"><pre class="language-text"><code>GET /jokes/_analyze
+{
+  &quot;analyzer&quot;: &quot;standard&quot;,
+  &quot;text&quot;: &quot;搞笑&quot;
+}
+</code></pre></div><p>查询索引状态</p> <div class="language- extra-class"><pre class="language-text"><code>GET /jokes/_stats
+</code></pre></div><h2 id="文档操作（表）"><a href="#文档操作（表）" class="header-anchor">#</a> 文档操作（表）</h2> <p>添加文档</p> <div class="language- extra-class"><pre class="language-text"><code>PUT /index/_doc/id
+
+PUT /videos/_doc/id
+{
+	&quot;title&quot;:&quot;mysql从select到delete&quot;,
+	&quot;url&quot;:&quot;http://doc.orangbus.cn&quot;
+}
+</code></pre></div><p>编辑文档</p> <div class="language- extra-class"><pre class="language-text"><code></code></pre></div><p>删除文档</p> <div class="language- extra-class"><pre class="language-text"><code></code></pre></div><p>docker镜像加速</p> <div class="language- extra-class"><pre class="language-text"><code>sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
+{
+  &quot;registry-mirrors&quot;: [&quot;https://0czkbjwu.mirror.aliyuncs.com&quot;]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>logstash -f mysql.conf
+</code></pre></div><h2 id="查询"><a href="#查询" class="header-anchor">#</a> 查询</h2> <p>text: 会使用分词器解析</p> <p>keyword: 不会使用分词器解析</p> <div class="language-json extra-class"><pre class="language-json"><code>GET _analyze
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;analyzer&quot;</span><span class="token operator">:</span> <span class="token string">&quot;standard&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;text&quot;</span><span class="token operator">:</span> <span class="token string">&quot;老司机&quot;</span>
+<span class="token punctuation">}</span>
+
+GET _analyze
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;analyzer&quot;</span><span class="token operator">:</span> <span class="token string">&quot;keyword&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;text&quot;</span><span class="token operator">:</span> <span class="token string">&quot;老司机&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="全部匹配"><a href="#全部匹配" class="header-anchor">#</a> 全部匹配</h3> <p>match: 会使用分词器</p> <p>profile: true  显示查询语句</p> <p>opearator: and 同时包含查询</p> <p>match_phrase: 有顺序要求</p> <p>term : 不对关键词进行分词处理</p> <div class="language-json extra-class"><pre class="language-json"><code>GET /jokes/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;match&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;title&quot;</span> <span class="token operator">:</span><span class="token string">&quot;搞笑&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+</code></pre></div><h3 id="分页查询"><a href="#分页查询" class="header-anchor">#</a> 分页查询</h3> <div class="language-json extra-class"><pre class="language-json"><code>GET /jokes/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;match&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;title&quot;</span> <span class="token operator">:</span><span class="token string">&quot;搞笑&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;form&quot;</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;size&quot;</span><span class="token operator">:</span><span class="token number">10</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="bool查询"><a href="#bool查询" class="header-anchor">#</a> bool查询</h3> <p>msut ( and )</p> <p>shoud ( or )</p> <div class="language-json extra-class"><pre class="language-json"><code>GET /jokes/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;bool&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;must&quot;</span> <span class="token operator">:</span><span class="token punctuation">[</span>
+      	<span class="token punctuation">{</span>
+      		<span class="token property">&quot;match&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+      		<span class="token property">&quot;title&quot;</span><span class="token operator">:</span><span class="token string">&quot;搞笑&quot;</span>
+      		<span class="token punctuation">}</span>
+      	<span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="查询-id-10"><a href="#查询-id-10" class="header-anchor">#</a> 查询 id&lt;10</h3> <div class="language-json extra-class"><pre class="language-json"><code>GET /jokes/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;bool&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;must&quot;</span> <span class="token operator">:</span><span class="token punctuation">[</span>
+      	<span class="token punctuation">{</span>
+      		<span class="token property">&quot;match&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+      		<span class="token property">&quot;title&quot;</span><span class="token operator">:</span><span class="token string">&quot;搞笑&quot;</span>
+      		<span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;filter&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;range&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">&quot;lte&quot;</span><span class="token operator">:</span> <span class="token number">10</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>多条件查询</p> <h3 id="空格分页"><a href="#空格分页" class="header-anchor">#</a> 空格分页</h3> <div class="language-json extra-class"><pre class="language-json"><code>GET /jokes/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;match&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;author&quot;</span><span class="token operator">:</span> <span class="token string">&quot;笑话 搞笑&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;_source&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;title&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;author&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>精确查询-term</p> <div class="language-json extra-class"><pre class="language-json"><code>GET /jokes/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;term&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;笑话大全 爆笑短笑话,听话&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;_source&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;title&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;author&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="排序-没有分值"><a href="#排序-没有分值" class="header-anchor">#</a> 排序:没有分值</h3> <div class="language-json extra-class"><pre class="language-json"><code>GET /jokes/_search
+<span class="token punctuation">{</span>
+    <span class="token property">&quot;from&quot;</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;size&quot;</span><span class="token operator">:</span><span class="token number">100</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;query&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        <span class="token property">&quot;match&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+            <span class="token property">&quot;title&quot;</span><span class="token operator">:</span><span class="token string">&quot;搞笑&quot;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;_source&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;title&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;author&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;form_url&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;created_at&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;updated_at&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;sort&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;updated_at&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;order&quot;</span><span class="token operator">:</span> <span class="token string">&quot;desc&quot;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="字段限制"><a href="#字段限制" class="header-anchor">#</a> 字段限制</h3> <div class="language-json extra-class"><pre class="language-json"><code>GET /jokes/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;match&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;title&quot;</span> <span class="token operator">:</span><span class="token string">&quot;搞笑&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;_source&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;title&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;author&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="高亮查询"><a href="#高亮查询" class="header-anchor">#</a> 高亮查询</h3> <div class="language-json extra-class"><pre class="language-json"><code>GET /test/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;match&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;orangbus&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;highlight&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;pre_tags&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;span style='color:red'&gt;&quot;</span><span class="token punctuation">,</span> 
+    <span class="token property">&quot;post_tags&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;/p&gt;&quot;</span><span class="token punctuation">,</span> 
+    <span class="token property">&quot;fields&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="ik分词器"><a href="#ik分词器" class="header-anchor">#</a> ik分词器</h2> <p>ik_smart: 最少切分</p> <p>ik_max_word: 最细颗粒</p> <h2 id="elasticsearch集成"><a href="#elasticsearch集成" class="header-anchor">#</a> elasticsearch集成</h2> <p>集成的版本要和当前连接的 elasticsearch的版本保持一致</p> <h1 id="错误汇总-2"><a href="#错误汇总-2" class="header-anchor">#</a> 错误汇总</h1> <blockquote><p>OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x00000005c2800000, 8547991552, 0) failed; error='???????С?????????????' (DOS error/errno=1455)</p></blockquote> <p>内存不足：</p> <p>修改<code>elasticsearch-8.1.0\config\jvm.options</code></p> <div class="language- extra-class"><pre class="language-text"><code>-Xms1g
+-Xmx1g
+</code></pre></div><blockquote><p>Elasticsearch无法访问</p></blockquote> <p>修改<code>elasticsearch-8.1.0\config\elasticsearch.yaml</code></p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">http.port</span><span class="token punctuation">:</span> <span class="token number">9200</span>
+<span class="token key atrule">network.host</span><span class="token punctuation">:</span> 0.0.0.0
+</code></pre></div><p><strong>设计需求</strong></p> <p>超级管理员</p> <p>普通管理员</p> <p>调拨人员</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/orangbus/vuepress-blog/edit/master/docs/Java/elasticsearch.md" target="_blank" rel="noopener noreferrer">帮助我们改善此页面！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">6/30/2022, 11:37:31 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Java/develop.html" class="prev">
+        开发工具的使用
+      </a></span> <span class="next"><a href="/Java/log4j配置文件.html">
+        log4j配置详解
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><div class="reading-progress top" data-v-21b39eda><div class="progress" data-v-21b39eda></div></div></div></div>
+    <script src="/assets/js/app.d0e64cfc.js" defer></script><script src="/assets/js/3.c394ea60.js" defer></script><script src="/assets/js/87.dbbb0fa7.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>log4j配置详解 | OrangBus</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="shortcut icon" href="/orangbus.ico" type="image/jpg">
+    <script><script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?75a195c58b50e00357efe9066f49f8b0";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+			</script>
+			</script>
+    <meta name="description" content="分享生活高效技能,保持勇敢，坚持有趣，生命不息，折腾不止！">
+    <meta property="article:modified_time" content="2021-10-28T03:24:03.000Z">
+    <meta property="og:site_name" content="OrangBus">
+    <meta property="og:title" content="log4j配置详解">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/Java/log4j%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.html">
+    <meta name="twitter:title" content="log4j配置详解">
+    <meta name="twitter:url" content="/Java/log4j%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords" content="html,css,jquery,thinkphp,laravel,docker,linux,manjaro">
+    <meta name="author" content="OrangBus">
+    <meta name="baidu-site-verification" content="codeva-WJuxvfEOwn">
+    <link rel="preload" href="/assets/css/0.styles.8405cd42.css" as="style"><link rel="preload" href="/assets/js/app.d0e64cfc.js" as="script"><link rel="preload" href="/assets/js/3.c394ea60.js" as="script"><link rel="preload" href="/assets/js/88.02cc8de0.js" as="script"><link rel="prefetch" href="/assets/js/10.80fa7f8c.js"><link rel="prefetch" href="/assets/js/100.50385f03.js"><link rel="prefetch" href="/assets/js/101.698b7727.js"><link rel="prefetch" href="/assets/js/102.ecbe0a4e.js"><link rel="prefetch" href="/assets/js/103.8138b32a.js"><link rel="prefetch" href="/assets/js/104.2d449ea0.js"><link rel="prefetch" href="/assets/js/105.30de147f.js"><link rel="prefetch" href="/assets/js/106.6d3fa8aa.js"><link rel="prefetch" href="/assets/js/107.aa63ed8b.js"><link rel="prefetch" href="/assets/js/108.ac55ea8b.js"><link rel="prefetch" href="/assets/js/109.1b2aadb0.js"><link rel="prefetch" href="/assets/js/11.432af780.js"><link rel="prefetch" href="/assets/js/110.df2cdeb1.js"><link rel="prefetch" href="/assets/js/111.5b511c8c.js"><link rel="prefetch" href="/assets/js/112.dacad57b.js"><link rel="prefetch" href="/assets/js/113.fb7dbfba.js"><link rel="prefetch" href="/assets/js/114.d09c5acb.js"><link rel="prefetch" href="/assets/js/115.a988bd2b.js"><link rel="prefetch" href="/assets/js/116.c0500263.js"><link rel="prefetch" href="/assets/js/117.2b359e04.js"><link rel="prefetch" href="/assets/js/118.7cfe289b.js"><link rel="prefetch" href="/assets/js/119.c506cf19.js"><link rel="prefetch" href="/assets/js/12.2b504033.js"><link rel="prefetch" href="/assets/js/120.6c0e4bb0.js"><link rel="prefetch" href="/assets/js/121.b3a9641d.js"><link rel="prefetch" href="/assets/js/122.436a18d1.js"><link rel="prefetch" href="/assets/js/123.38fd585b.js"><link rel="prefetch" href="/assets/js/124.aa03bc2d.js"><link rel="prefetch" href="/assets/js/125.3c51e174.js"><link rel="prefetch" href="/assets/js/126.f5951135.js"><link rel="prefetch" href="/assets/js/127.a126ff64.js"><link rel="prefetch" href="/assets/js/128.4970fada.js"><link rel="prefetch" href="/assets/js/129.ee81b464.js"><link rel="prefetch" href="/assets/js/13.4fc2b842.js"><link rel="prefetch" href="/assets/js/130.7eee2659.js"><link rel="prefetch" href="/assets/js/131.694743d6.js"><link rel="prefetch" href="/assets/js/132.b5589c5e.js"><link rel="prefetch" href="/assets/js/133.46a6c763.js"><link rel="prefetch" href="/assets/js/134.a8daaf00.js"><link rel="prefetch" href="/assets/js/135.1f10789c.js"><link rel="prefetch" href="/assets/js/136.8b617784.js"><link rel="prefetch" href="/assets/js/137.2106ed27.js"><link rel="prefetch" href="/assets/js/138.9a586b6f.js"><link rel="prefetch" href="/assets/js/139.d5357924.js"><link rel="prefetch" href="/assets/js/14.63b1bbd4.js"><link rel="prefetch" href="/assets/js/140.d1e4e0fe.js"><link rel="prefetch" href="/assets/js/141.47694c88.js"><link rel="prefetch" href="/assets/js/142.137392e8.js"><link rel="prefetch" href="/assets/js/143.6c18d0c6.js"><link rel="prefetch" href="/assets/js/144.68583712.js"><link rel="prefetch" href="/assets/js/145.acfcf4c7.js"><link rel="prefetch" href="/assets/js/146.5b672040.js"><link rel="prefetch" href="/assets/js/147.d533514f.js"><link rel="prefetch" href="/assets/js/148.cd738bb1.js"><link rel="prefetch" href="/assets/js/149.2d52bc40.js"><link rel="prefetch" href="/assets/js/15.06ade03e.js"><link rel="prefetch" href="/assets/js/150.1242c970.js"><link rel="prefetch" href="/assets/js/151.303a1e7c.js"><link rel="prefetch" href="/assets/js/152.3f80ddeb.js"><link rel="prefetch" href="/assets/js/153.fdc80245.js"><link rel="prefetch" href="/assets/js/154.9f82de99.js"><link rel="prefetch" href="/assets/js/155.35f89cfe.js"><link rel="prefetch" href="/assets/js/156.9404fe56.js"><link rel="prefetch" href="/assets/js/157.0edb926c.js"><link rel="prefetch" href="/assets/js/158.f4c7cd1f.js"><link rel="prefetch" href="/assets/js/159.77ec9b6e.js"><link rel="prefetch" href="/assets/js/16.492a3e04.js"><link rel="prefetch" href="/assets/js/160.ff2c8cf8.js"><link rel="prefetch" href="/assets/js/161.d07c5cf0.js"><link rel="prefetch" href="/assets/js/162.7eb28561.js"><link rel="prefetch" href="/assets/js/163.0516a709.js"><link rel="prefetch" href="/assets/js/164.e3e59ee3.js"><link rel="prefetch" href="/assets/js/165.6c91e5f3.js"><link rel="prefetch" href="/assets/js/166.99c34b8e.js"><link rel="prefetch" href="/assets/js/167.c5b47579.js"><link rel="prefetch" href="/assets/js/168.feeee617.js"><link rel="prefetch" href="/assets/js/169.57dd3536.js"><link rel="prefetch" href="/assets/js/17.f631d003.js"><link rel="prefetch" href="/assets/js/170.ec9d18e4.js"><link rel="prefetch" href="/assets/js/171.3dfd6d59.js"><link rel="prefetch" href="/assets/js/172.83c2c4c2.js"><link rel="prefetch" href="/assets/js/173.c6e726a4.js"><link rel="prefetch" href="/assets/js/18.4a9f58e4.js"><link rel="prefetch" href="/assets/js/19.a6716a12.js"><link rel="prefetch" href="/assets/js/2.8fb35049.js"><link rel="prefetch" href="/assets/js/20.aff82c49.js"><link rel="prefetch" href="/assets/js/21.a1fd826f.js"><link rel="prefetch" href="/assets/js/22.2b673c42.js"><link rel="prefetch" href="/assets/js/23.10ff2169.js"><link rel="prefetch" href="/assets/js/24.0236205d.js"><link rel="prefetch" href="/assets/js/25.25d1cc6f.js"><link rel="prefetch" href="/assets/js/26.248c5b7c.js"><link rel="prefetch" href="/assets/js/27.a9bd0d43.js"><link rel="prefetch" href="/assets/js/28.8f67d698.js"><link rel="prefetch" href="/assets/js/29.201bbf76.js"><link rel="prefetch" href="/assets/js/30.85fdb80d.js"><link rel="prefetch" href="/assets/js/31.0b0d0e1c.js"><link rel="prefetch" href="/assets/js/32.2c9effe5.js"><link rel="prefetch" href="/assets/js/33.92fc3612.js"><link rel="prefetch" href="/assets/js/34.e35c5be2.js"><link rel="prefetch" href="/assets/js/35.48afad48.js"><link rel="prefetch" href="/assets/js/36.fff7ba86.js"><link rel="prefetch" href="/assets/js/37.cf287dfb.js"><link rel="prefetch" href="/assets/js/38.1e2f16a3.js"><link rel="prefetch" href="/assets/js/39.6ca432b1.js"><link rel="prefetch" href="/assets/js/4.3a7e9b70.js"><link rel="prefetch" href="/assets/js/40.48a0118c.js"><link rel="prefetch" href="/assets/js/41.41393a13.js"><link rel="prefetch" href="/assets/js/42.d44d5e84.js"><link rel="prefetch" href="/assets/js/43.56348b87.js"><link rel="prefetch" href="/assets/js/44.f31a3a55.js"><link rel="prefetch" href="/assets/js/45.0c5141f5.js"><link rel="prefetch" href="/assets/js/46.ed76944d.js"><link rel="prefetch" href="/assets/js/47.e316f07f.js"><link rel="prefetch" href="/assets/js/48.66ff2948.js"><link rel="prefetch" href="/assets/js/49.a0858143.js"><link rel="prefetch" href="/assets/js/5.bfe2b380.js"><link rel="prefetch" href="/assets/js/50.a1c7399a.js"><link rel="prefetch" href="/assets/js/51.66c3e70a.js"><link rel="prefetch" href="/assets/js/52.a09ae200.js"><link rel="prefetch" href="/assets/js/53.dbbe022c.js"><link rel="prefetch" href="/assets/js/54.cc828a97.js"><link rel="prefetch" href="/assets/js/55.82eed5b7.js"><link rel="prefetch" href="/assets/js/56.f81e5032.js"><link rel="prefetch" href="/assets/js/57.42d78c52.js"><link rel="prefetch" href="/assets/js/58.ae5df450.js"><link rel="prefetch" href="/assets/js/59.663d39a3.js"><link rel="prefetch" href="/assets/js/6.52eb9a12.js"><link rel="prefetch" href="/assets/js/60.03c21d0e.js"><link rel="prefetch" href="/assets/js/61.5a18d425.js"><link rel="prefetch" href="/assets/js/62.e37aef49.js"><link rel="prefetch" href="/assets/js/63.cca674e9.js"><link rel="prefetch" href="/assets/js/64.f4cb43fc.js"><link rel="prefetch" href="/assets/js/65.387bbaf1.js"><link rel="prefetch" href="/assets/js/66.e9b6b510.js"><link rel="prefetch" href="/assets/js/67.2ae441cf.js"><link rel="prefetch" href="/assets/js/68.036e032c.js"><link rel="prefetch" href="/assets/js/69.a56b1a95.js"><link rel="prefetch" href="/assets/js/7.37f298a4.js"><link rel="prefetch" href="/assets/js/70.e36df831.js"><link rel="prefetch" href="/assets/js/71.f0065042.js"><link rel="prefetch" href="/assets/js/72.97b56a60.js"><link rel="prefetch" href="/assets/js/73.d1b511c7.js"><link rel="prefetch" href="/assets/js/74.afe4f0be.js"><link rel="prefetch" href="/assets/js/75.659a316f.js"><link rel="prefetch" href="/assets/js/76.a516ec07.js"><link rel="prefetch" href="/assets/js/77.d877ea5f.js"><link rel="prefetch" href="/assets/js/78.c2d33578.js"><link rel="prefetch" href="/assets/js/79.97e2f44e.js"><link rel="prefetch" href="/assets/js/8.50950320.js"><link rel="prefetch" href="/assets/js/80.49545cb0.js"><link rel="prefetch" href="/assets/js/81.eed16f63.js"><link rel="prefetch" href="/assets/js/82.95639ac6.js"><link rel="prefetch" href="/assets/js/83.6f591354.js"><link rel="prefetch" href="/assets/js/84.24400f8f.js"><link rel="prefetch" href="/assets/js/85.c60528d5.js"><link rel="prefetch" href="/assets/js/86.27ee9337.js"><link rel="prefetch" href="/assets/js/87.dbbb0fa7.js"><link rel="prefetch" href="/assets/js/89.266636d0.js"><link rel="prefetch" href="/assets/js/9.ee5dcd77.js"><link rel="prefetch" href="/assets/js/90.1a5e2984.js"><link rel="prefetch" href="/assets/js/91.eb6662cf.js"><link rel="prefetch" href="/assets/js/92.eccbaa55.js"><link rel="prefetch" href="/assets/js/93.f3b4d026.js"><link rel="prefetch" href="/assets/js/94.d75a7bc8.js"><link rel="prefetch" href="/assets/js/95.9da1a8e4.js"><link rel="prefetch" href="/assets/js/96.c02c276b.js"><link rel="prefetch" href="/assets/js/97.a84a59b7.js"><link rel="prefetch" href="/assets/js/98.d81fed7a.js"><link rel="prefetch" href="/assets/js/99.1c8c4256.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8405cd42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/orangbus.png" alt="OrangBus" class="logo"> <span class="site-name can-hide">OrangBus</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Java</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Java/Config.html" class="sidebar-link">Springboot 配置文件</a></li><li><a href="/Java/Mybatis.html" class="sidebar-link">Mybatis 配置</a></li><li><a href="/Java/" aria-current="page" class="sidebar-link">Java学习笔记</a></li><li><a href="/Java/Redis.html" class="sidebar-link">springboot redis</a></li><li><a href="/Java/Security.html" class="sidebar-link">Springboot Security oauth+jwt</a></li><li><a href="/Java/SpringSecurity.html" class="sidebar-link">SpringSecurity</a></li><li><a href="/Java/develop.html" class="sidebar-link">开发工具的使用</a></li><li><a href="/Java/elasticsearch.html" class="sidebar-link">elasticsearch</a></li><li><a href="/Java/log4j配置文件.html" class="active sidebar-link">log4j配置详解</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Java/log4j配置文件.html#版权声明" class="sidebar-link">版权声明</a></li><li class="sidebar-sub-header"><a href="/Java/log4j配置文件.html#log4j概述" class="sidebar-link">log4j概述</a></li><li class="sidebar-sub-header"><a href="/Java/log4j配置文件.html#log4j-properties配置文件" class="sidebar-link">log4j.properties配置文件</a></li><li class="sidebar-sub-header"><a href="/Java/log4j配置文件.html#log4j使用示例" class="sidebar-link">log4j使用示例</a></li></ul></li><li><a href="/Java/maven.html" class="sidebar-link">maven 配置</a></li><li><a href="/Java/springMvc.html" class="sidebar-link">Spring mvc</a></li><li><a href="/Java/springboot.html" class="sidebar-link">Spring boot 学习笔记</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><blockquote><p>本文由 <a href="http://ksria.com/simpread/" target="_blank" rel="noopener noreferrer">简悦 SimpRead<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 转码， 原文地址 <a href="https://it9527.blog.csdn.net/article/details/99982965" target="_blank" rel="noopener noreferrer">it9527.blog.csdn.net<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></blockquote> <h2 id="版权声明"><a href="#版权声明" class="header-anchor">#</a> <strong>版权声明</strong></h2> <ul><li>本文原创作者：<a href="http://blog.csdn.net/lfdfhl" target="_blank" rel="noopener noreferrer">谷哥的小弟<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li>作者博客地址：<a href="http://blog.csdn.net/lfdfhl" target="_blank" rel="noopener noreferrer">http://blog.csdn.net/lfdfhl<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul> <h2 id="log4j概述"><a href="#log4j概述" class="header-anchor">#</a> <strong>log4j概述</strong></h2> <p>log4j是Apache提供的的开源的日志组件，提供强大而且方便的日志记录功能。开发者可在其<a href="https://logging.apache.org/" target="_blank" rel="noopener noreferrer">官方网站<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>免费下载Log4j最新版本的软件包。</p> <p>在log4j中，定义了多种日志级别；但是，Log4j建议只使用其中四个级别，它们的优先级从低到高分别是DEBUG、INFO、WARN、ERROR 。假若设定日志输入的级别为INFO，则只处理等于或高于该级别的日志。</p> <h2 id="log4j-properties配置文件"><a href="#log4j-properties配置文件" class="header-anchor">#</a> <strong>log4j.properties配置文件</strong></h2> <p>在log4j.properties配置文件中主要配置三大组件：</p> <p><strong>Logger</strong><br>
+指定日志类别和级别</p> <p><strong>appender</strong><br>
+指定日志输出的位置</p> <p><strong>layout</strong><br>
+指定日志以何种形式输出</p> <p>现对其分别介绍，详情如下。</p> <h3 id="logger"><a href="#logger" class="header-anchor">#</a> <strong>logger</strong></h3> <p>Logger中，最常用的为rootLogger，其语法如下：</p> <div class="language- extra-class"><pre class="language-text"><code>`log4j.rootLogger = level,appenderName1,appenderName2, .....` 
+</code></pre></div><p>level用于设定日志的优先级；appenderName为appender的名字，用于设定日志的输出位置，log4j中可设置多个appenderName。</p> <h3 id="appender"><a href="#appender" class="header-anchor">#</a> <strong>appender</strong></h3> <p>在Log4j中提供以下5种appender用于对日志信息进行不同的处理：</p> <div class="language- extra-class"><pre class="language-text"><code>`org.apache.log4j.ConsoleAppender  
+表示将信息输出到控制台
+
+org.apache.log4j.FileAppender
+表示将信息输出到文件
+
+org.apache.log4j.DailyRollingFileAppender
+表示每天产生一个日志文件
+
+org.apache.log4j.RollingFileAppender
+表示当日志文件到达指定大小时产生一个新的文件
+
+org.apache.log4j.WriterAppender
+表示将日志信息以流格式发送到任意指定的地方` 
+</code></pre></div><p>每种appender的配置格式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>`log4j.appender.appenderName = Log4j提供的appender类
+log4j.appender.appenderName.属性名 = 属性值
+.....
+log4j.appender.appenderName.属性名 = 属性值` 
+</code></pre></div><p>各appender常见配置示例如下：</p> <p><strong>ConsoleAppender</strong></p> <p>Threshold = DEBUG<br>
+指定日志消息的输出最低层次<br>
+ImmediateFlush = TRUE<br>
+默认值是true,所有的消息都会被立即输出<br>
+Target = System.err<br>
+默认值System.out,输出到控制台(err为红色,out为黑色)</p> <p><strong>FileAppender</strong></p> <p>Threshold = INFO<br>
+指定日志消息的输出最低层次<br>
+ImmediateFlush = TRUE<br>
+默认值是true,所有的消息都会被立即输出<br>
+File = C:\log4j.log<br>
+指定消息输出到C:\log4j.log文件<br>
+Append = FALSE<br>
+将消息追加到指定文件中，false指将消息覆盖指定的文件内容 ；默认值true<br>
+Encoding = UTF-8<br>
+可以指定文件编码格式</p> <p><strong>DailyRollingFileAppender</strong></p> <p>Threshold = WARN<br>
+指定日志消息的输出最低层次<br>
+ImmediateFlush = TRUE<br>
+默认值是true,所有的消息都会被立即输出<br>
+File =C:\log4j.log<br>
+指定消息输出到C:\log4j.log文件<br>
+Append= FALSE<br>
+默认值true,将消息追加到指定文件中，false指将消息覆盖指定的文件内容<br>
+DatePattern=’.'yyyy-ww<br>
+每周滚动一次文件,即每周产生一个新的文件。<br>
+还可以按用以下参数:<br>
+'.'yyyy-MM:每月<br>
+'.'yyyy-ww:每周<br>
+'.'yyyy-MM-dd:每天<br>
+'.'yyyy-MM-dd-a:每天两次<br>
+'.'yyyy-MM-dd-HH:每小时<br>
+'.'yyyy-MM-dd-HH-mm:每分钟<br>
+Encoding = UTF-8:可以指定文件编码格式</p> <p><strong>RollingFileAppender</strong></p> <p>Threshold = ERROR<br>
+指定日志消息的输出最低层次<br>
+ImmediateFlush = TRUE<br>
+默认值是true,所有的消息都会被立即输出<br>
+File =C:/log4j.log<br>
+指定消息输出到C:/log4j.log文件<br>
+Append= FALSE<br>
+默认值true,将消息追加到指定文件中，false指将消息覆盖指定的文件内容<br>
+MaxFileSize = 100KB<br>
+后缀可以是KB,MB,GB.在日志文件到达该大小时,将会自动滚动.如:log4j.log.1<br>
+MaxBackupIndex = 2<br>
+指定可以产生的滚动文件的最大数<br>
+Encoding = UTF-8<br>
+可以指定文件编码格式</p> <h3 id="layout"><a href="#layout" class="header-anchor">#</a> <strong>layout</strong></h3> <p>Log4j常用layout如下：</p> <div class="language- extra-class"><pre class="language-text"><code>`org.apache.log4j.HTMLLayout
+以HTML表格形式布局
+
+org.apache.log4j.PatternLayout
+可以灵活地指定布局模式
+
+org.apache.log4j.SimpleLayout
+包含日志信息的级别和信息字符串
+
+org.apache.log4j.TTCCLayout
+包含日志产生的时间、线程、类别等等信息` 
+</code></pre></div><h2 id="log4j使用示例"><a href="#log4j使用示例" class="header-anchor">#</a> <strong>log4j使用示例</strong></h2> <p><strong>第一步</strong></p> <p>在其官网下载jar包并导入项目</p> <p><strong>第二步</strong></p> <p>在项目src文件夹下建立log4j.properties文件并对log4j进行配置，代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>`log4j.rootLogger=DEBUG,console,dailyFile,im
+log4j.additivity.org.apache=true
+# 控制台(console)
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+log4j.appender.console.Threshold=DEBUG
+log4j.appender.console.ImmediateFlush=true
+log4j.appender.console.Target=System.err
+log4j.appender.console.layout=org.apache.log4j.PatternLayout
+log4j.appender.console.layout.ConversionPattern=[%-5p] %d(%r) --&gt; [%t] %l: %m %x %n
+# 日志文件(logFile)
+log4j.appender.logFile=org.apache.log4j.FileAppender
+log4j.appender.logFile.Threshold=DEBUG
+log4j.appender.logFile.ImmediateFlush=true
+log4j.appender.logFile.Append=true
+log4j.appender.logFile.File=D:/logs/log.log4j
+log4j.appender.logFile.layout=org.apache.log4j.PatternLayout
+log4j.appender.logFile.layout.ConversionPattern=[%-5p] %d(%r) --&gt; [%t] %l: %m %x %n
+# 回滚文件(rollingFile)
+log4j.appender.rollingFile=org.apache.log4j.RollingFileAppender
+log4j.appender.rollingFile.Threshold=DEBUG
+log4j.appender.rollingFile.ImmediateFlush=true
+log4j.appender.rollingFile.Append=true
+log4j.appender.rollingFile.File=D:/logs/log.log4j
+log4j.appender.rollingFile.MaxFileSize=200KB
+log4j.appender.rollingFile.MaxBackupIndex=50
+log4j.appender.rollingFile.layout=org.apache.log4j.PatternLayout
+log4j.appender.rollingFile.layout.ConversionPattern=[%-5p] %d(%r) --&gt; [%t] %l: %m %x %n
+# 定期回滚日志文件(dailyFile)
+log4j.appender.dailyFile=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.dailyFile.Threshold=DEBUG
+log4j.appender.dailyFile.ImmediateFlush=true
+log4j.appender.dailyFile.Append=true
+log4j.appender.dailyFile.File=D:/logs/log.log4j
+log4j.appender.dailyFile.DatePattern='.'yyyy-MM-dd
+log4j.appender.dailyFile.layout=org.apache.log4j.PatternLayout
+log4j.appender.dailyFile.layout.ConversionPattern=[%-5p] %d(%r) --&gt; [%t] %l: %m %x %n
+# 应用于socket
+log4j.appender.socket=org.apache.log4j.RollingFileAppender
+log4j.appender.socket.RemoteHost=localhost
+log4j.appender.socket.Port=5001
+log4j.appender.socket.LocationInfo=true
+# Set up for Log Factor 5
+log4j.appender.socket.layout=org.apache.log4j.PatternLayout
+log4j.appender.socket.layout.ConversionPattern=[%-5p] %d(%r) --&gt; [%t] %l: %m %x %n
+# Log Factor 5 Appender
+log4j.appender.LF5_APPENDER=org.apache.log4j.lf5.LF5Appender
+log4j.appender.LF5_APPENDER.MaxNumberOfRecords=2000
+# 发送日志到指定邮件
+log4j.appender.mail=org.apache.log4j.net.SMTPAppender
+log4j.appender.mail.Threshold=FATAL
+log4j.appender.mail.BufferSize=10
+log4j.appender.mail.From = xxx@mail.com
+log4j.appender.mail.SMTPHost=mail.com
+log4j.appender.mail.Subject=Log4J Message
+log4j.appender.mail.To= xxx@mail.com
+log4j.appender.mail.layout=org.apache.log4j.PatternLayout
+log4j.appender.mail.layout.ConversionPattern=[%-5p] %d(%r) --&gt; [%t] %l: %m %x %n
+# 应用于数据库
+log4j.appender.database=org.apache.log4j.jdbc.JDBCAppender
+log4j.appender.database.URL=jdbc:mysql://localhost:3306/test
+log4j.appender.database.driver=com.mysql.jdbc.Driver
+log4j.appender.database.user=root
+log4j.appender.database.password=
+log4j.appender.database.sql=INSERT INTO LOG4J (Message) VALUES('=[%-5p] %d(%r) --&gt; [%t] %l: %m %x %n')
+log4j.appender.database.layout=org.apache.log4j.PatternLayout
+log4j.appender.database.layout.ConversionPattern=[%-5p] %d(%r) --&gt; [%t] %l: %m %x %n
+
+# 自定义Appender
+log4j.appender.im = net.cybercorlin.util.logger.appender.IMAppender
+log4j.appender.im.host = mail.cybercorlin.net
+log4j.appender.im.username = username
+log4j.appender.im.password = password
+log4j.appender.im.recipient = corlin@cybercorlin.net
+log4j.appender.im.layout=org.apache.log4j.PatternLayout
+log4j.appender.im.layout.ConversionPattern=[%-5p] %d(%r) --&gt; [%t] %l: %m %x %n` 
+</code></pre></div><p>项目结构如下：<br> <img src="https://img-blog.csdnimg.cn/201908212022514.png" alt="在这里插入图片描述"></p> <p><strong>第三步</strong></p> <p>在Java代码中使用log4j记录项目日志，示例如下：</p> <div class="language- extra-class"><pre class="language-text"><code>import org.apache.log4j.Logger;
+/*
+ * 本文作者：谷哥的小弟
+ * 博客地址：https://blog.csdn.net/lfdfhl
+ */
+public class TestLog4j {
+
+	public static void main(String[] args) {
+		Logger logger=Logger.getLogger(TestLog4j.class);
+		try {
+			logger.info(&quot;程序开始执行&quot;);
+			int a=5;
+			int b=3;
+			int c=a+b;
+			System.out.println(&quot;c=&quot;+c);
+			int d=a/0;
+			System.out.println(&quot;d=&quot;+d);
+		} catch (Exception e) {
+			logger.error(e.toString());
+		}
+	}
+
+}
+</code></pre></div><p><strong>第四步</strong></p> <p>在指定目录查看日志，图示如下：<br> <img src="https://img-blog.csdnimg.cn/20190821202838583.jpg" alt="在这里插入图片描述"></p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/orangbus/vuepress-blog/edit/master/docs/Java/log4j配置文件.md" target="_blank" rel="noopener noreferrer">帮助我们改善此页面！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">10/28/2021, 11:24:03 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Java/elasticsearch.html" class="prev">
+        elasticsearch
+      </a></span> <span class="next"><a href="/Java/maven.html">
+        maven 配置
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><div class="reading-progress top" data-v-21b39eda><div class="progress" data-v-21b39eda></div></div></div></div>
+    <script src="/assets/js/app.d0e64cfc.js" defer></script><script src="/assets/js/3.c394ea60.js" defer></script><script src="/assets/js/88.02cc8de0.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Docker Compose 配置文件详解 | OrangBus</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="shortcut icon" href="/orangbus.ico" type="image/jpg">
+    <script><script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?75a195c58b50e00357efe9066f49f8b0";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+			</script>
+			</script>
+    <meta name="description" content="分享生活高效技能,保持勇敢，坚持有趣，生命不息，折腾不止！">
+    <meta property="article:modified_time" content="2021-08-09T09:00:50.000Z">
+    <meta property="og:site_name" content="OrangBus">
+    <meta property="og:title" content="Docker Compose 配置文件详解">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/WebNote/Docker%20Compose%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3%20.html">
+    <meta name="twitter:title" content="Docker Compose 配置文件详解">
+    <meta name="twitter:url" content="/WebNote/Docker%20Compose%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3%20.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords" content="html,css,jquery,thinkphp,laravel,docker,linux,manjaro">
+    <meta name="author" content="OrangBus">
+    <meta name="baidu-site-verification" content="codeva-WJuxvfEOwn">
+    <link rel="preload" href="/assets/css/0.styles.8405cd42.css" as="style"><link rel="preload" href="/assets/js/app.d0e64cfc.js" as="script"><link rel="preload" href="/assets/js/3.c394ea60.js" as="script"><link rel="preload" href="/assets/js/136.8b617784.js" as="script"><link rel="prefetch" href="/assets/js/10.80fa7f8c.js"><link rel="prefetch" href="/assets/js/100.50385f03.js"><link rel="prefetch" href="/assets/js/101.698b7727.js"><link rel="prefetch" href="/assets/js/102.ecbe0a4e.js"><link rel="prefetch" href="/assets/js/103.8138b32a.js"><link rel="prefetch" href="/assets/js/104.2d449ea0.js"><link rel="prefetch" href="/assets/js/105.30de147f.js"><link rel="prefetch" href="/assets/js/106.6d3fa8aa.js"><link rel="prefetch" href="/assets/js/107.aa63ed8b.js"><link rel="prefetch" href="/assets/js/108.ac55ea8b.js"><link rel="prefetch" href="/assets/js/109.1b2aadb0.js"><link rel="prefetch" href="/assets/js/11.432af780.js"><link rel="prefetch" href="/assets/js/110.df2cdeb1.js"><link rel="prefetch" href="/assets/js/111.5b511c8c.js"><link rel="prefetch" href="/assets/js/112.dacad57b.js"><link rel="prefetch" href="/assets/js/113.fb7dbfba.js"><link rel="prefetch" href="/assets/js/114.d09c5acb.js"><link rel="prefetch" href="/assets/js/115.a988bd2b.js"><link rel="prefetch" href="/assets/js/116.c0500263.js"><link rel="prefetch" href="/assets/js/117.2b359e04.js"><link rel="prefetch" href="/assets/js/118.7cfe289b.js"><link rel="prefetch" href="/assets/js/119.c506cf19.js"><link rel="prefetch" href="/assets/js/12.2b504033.js"><link rel="prefetch" href="/assets/js/120.6c0e4bb0.js"><link rel="prefetch" href="/assets/js/121.b3a9641d.js"><link rel="prefetch" href="/assets/js/122.436a18d1.js"><link rel="prefetch" href="/assets/js/123.38fd585b.js"><link rel="prefetch" href="/assets/js/124.aa03bc2d.js"><link rel="prefetch" href="/assets/js/125.3c51e174.js"><link rel="prefetch" href="/assets/js/126.f5951135.js"><link rel="prefetch" href="/assets/js/127.a126ff64.js"><link rel="prefetch" href="/assets/js/128.4970fada.js"><link rel="prefetch" href="/assets/js/129.ee81b464.js"><link rel="prefetch" href="/assets/js/13.4fc2b842.js"><link rel="prefetch" href="/assets/js/130.7eee2659.js"><link rel="prefetch" href="/assets/js/131.694743d6.js"><link rel="prefetch" href="/assets/js/132.b5589c5e.js"><link rel="prefetch" href="/assets/js/133.46a6c763.js"><link rel="prefetch" href="/assets/js/134.a8daaf00.js"><link rel="prefetch" href="/assets/js/135.1f10789c.js"><link rel="prefetch" href="/assets/js/137.2106ed27.js"><link rel="prefetch" href="/assets/js/138.9a586b6f.js"><link rel="prefetch" href="/assets/js/139.d5357924.js"><link rel="prefetch" href="/assets/js/14.63b1bbd4.js"><link rel="prefetch" href="/assets/js/140.d1e4e0fe.js"><link rel="prefetch" href="/assets/js/141.47694c88.js"><link rel="prefetch" href="/assets/js/142.137392e8.js"><link rel="prefetch" href="/assets/js/143.6c18d0c6.js"><link rel="prefetch" href="/assets/js/144.68583712.js"><link rel="prefetch" href="/assets/js/145.acfcf4c7.js"><link rel="prefetch" href="/assets/js/146.5b672040.js"><link rel="prefetch" href="/assets/js/147.d533514f.js"><link rel="prefetch" href="/assets/js/148.cd738bb1.js"><link rel="prefetch" href="/assets/js/149.2d52bc40.js"><link rel="prefetch" href="/assets/js/15.06ade03e.js"><link rel="prefetch" href="/assets/js/150.1242c970.js"><link rel="prefetch" href="/assets/js/151.303a1e7c.js"><link rel="prefetch" href="/assets/js/152.3f80ddeb.js"><link rel="prefetch" href="/assets/js/153.fdc80245.js"><link rel="prefetch" href="/assets/js/154.9f82de99.js"><link rel="prefetch" href="/assets/js/155.35f89cfe.js"><link rel="prefetch" href="/assets/js/156.9404fe56.js"><link rel="prefetch" href="/assets/js/157.0edb926c.js"><link rel="prefetch" href="/assets/js/158.f4c7cd1f.js"><link rel="prefetch" href="/assets/js/159.77ec9b6e.js"><link rel="prefetch" href="/assets/js/16.492a3e04.js"><link rel="prefetch" href="/assets/js/160.ff2c8cf8.js"><link rel="prefetch" href="/assets/js/161.d07c5cf0.js"><link rel="prefetch" href="/assets/js/162.7eb28561.js"><link rel="prefetch" href="/assets/js/163.0516a709.js"><link rel="prefetch" href="/assets/js/164.e3e59ee3.js"><link rel="prefetch" href="/assets/js/165.6c91e5f3.js"><link rel="prefetch" href="/assets/js/166.99c34b8e.js"><link rel="prefetch" href="/assets/js/167.c5b47579.js"><link rel="prefetch" href="/assets/js/168.feeee617.js"><link rel="prefetch" href="/assets/js/169.57dd3536.js"><link rel="prefetch" href="/assets/js/17.f631d003.js"><link rel="prefetch" href="/assets/js/170.ec9d18e4.js"><link rel="prefetch" href="/assets/js/171.3dfd6d59.js"><link rel="prefetch" href="/assets/js/172.83c2c4c2.js"><link rel="prefetch" href="/assets/js/173.c6e726a4.js"><link rel="prefetch" href="/assets/js/18.4a9f58e4.js"><link rel="prefetch" href="/assets/js/19.a6716a12.js"><link rel="prefetch" href="/assets/js/2.8fb35049.js"><link rel="prefetch" href="/assets/js/20.aff82c49.js"><link rel="prefetch" href="/assets/js/21.a1fd826f.js"><link rel="prefetch" href="/assets/js/22.2b673c42.js"><link rel="prefetch" href="/assets/js/23.10ff2169.js"><link rel="prefetch" href="/assets/js/24.0236205d.js"><link rel="prefetch" href="/assets/js/25.25d1cc6f.js"><link rel="prefetch" href="/assets/js/26.248c5b7c.js"><link rel="prefetch" href="/assets/js/27.a9bd0d43.js"><link rel="prefetch" href="/assets/js/28.8f67d698.js"><link rel="prefetch" href="/assets/js/29.201bbf76.js"><link rel="prefetch" href="/assets/js/30.85fdb80d.js"><link rel="prefetch" href="/assets/js/31.0b0d0e1c.js"><link rel="prefetch" href="/assets/js/32.2c9effe5.js"><link rel="prefetch" href="/assets/js/33.92fc3612.js"><link rel="prefetch" href="/assets/js/34.e35c5be2.js"><link rel="prefetch" href="/assets/js/35.48afad48.js"><link rel="prefetch" href="/assets/js/36.fff7ba86.js"><link rel="prefetch" href="/assets/js/37.cf287dfb.js"><link rel="prefetch" href="/assets/js/38.1e2f16a3.js"><link rel="prefetch" href="/assets/js/39.6ca432b1.js"><link rel="prefetch" href="/assets/js/4.3a7e9b70.js"><link rel="prefetch" href="/assets/js/40.48a0118c.js"><link rel="prefetch" href="/assets/js/41.41393a13.js"><link rel="prefetch" href="/assets/js/42.d44d5e84.js"><link rel="prefetch" href="/assets/js/43.56348b87.js"><link rel="prefetch" href="/assets/js/44.f31a3a55.js"><link rel="prefetch" href="/assets/js/45.0c5141f5.js"><link rel="prefetch" href="/assets/js/46.ed76944d.js"><link rel="prefetch" href="/assets/js/47.e316f07f.js"><link rel="prefetch" href="/assets/js/48.66ff2948.js"><link rel="prefetch" href="/assets/js/49.a0858143.js"><link rel="prefetch" href="/assets/js/5.bfe2b380.js"><link rel="prefetch" href="/assets/js/50.a1c7399a.js"><link rel="prefetch" href="/assets/js/51.66c3e70a.js"><link rel="prefetch" href="/assets/js/52.a09ae200.js"><link rel="prefetch" href="/assets/js/53.dbbe022c.js"><link rel="prefetch" href="/assets/js/54.cc828a97.js"><link rel="prefetch" href="/assets/js/55.82eed5b7.js"><link rel="prefetch" href="/assets/js/56.f81e5032.js"><link rel="prefetch" href="/assets/js/57.42d78c52.js"><link rel="prefetch" href="/assets/js/58.ae5df450.js"><link rel="prefetch" href="/assets/js/59.663d39a3.js"><link rel="prefetch" href="/assets/js/6.52eb9a12.js"><link rel="prefetch" href="/assets/js/60.03c21d0e.js"><link rel="prefetch" href="/assets/js/61.5a18d425.js"><link rel="prefetch" href="/assets/js/62.e37aef49.js"><link rel="prefetch" href="/assets/js/63.cca674e9.js"><link rel="prefetch" href="/assets/js/64.f4cb43fc.js"><link rel="prefetch" href="/assets/js/65.387bbaf1.js"><link rel="prefetch" href="/assets/js/66.e9b6b510.js"><link rel="prefetch" href="/assets/js/67.2ae441cf.js"><link rel="prefetch" href="/assets/js/68.036e032c.js"><link rel="prefetch" href="/assets/js/69.a56b1a95.js"><link rel="prefetch" href="/assets/js/7.37f298a4.js"><link rel="prefetch" href="/assets/js/70.e36df831.js"><link rel="prefetch" href="/assets/js/71.f0065042.js"><link rel="prefetch" href="/assets/js/72.97b56a60.js"><link rel="prefetch" href="/assets/js/73.d1b511c7.js"><link rel="prefetch" href="/assets/js/74.afe4f0be.js"><link rel="prefetch" href="/assets/js/75.659a316f.js"><link rel="prefetch" href="/assets/js/76.a516ec07.js"><link rel="prefetch" href="/assets/js/77.d877ea5f.js"><link rel="prefetch" href="/assets/js/78.c2d33578.js"><link rel="prefetch" href="/assets/js/79.97e2f44e.js"><link rel="prefetch" href="/assets/js/8.50950320.js"><link rel="prefetch" href="/assets/js/80.49545cb0.js"><link rel="prefetch" href="/assets/js/81.eed16f63.js"><link rel="prefetch" href="/assets/js/82.95639ac6.js"><link rel="prefetch" href="/assets/js/83.6f591354.js"><link rel="prefetch" href="/assets/js/84.24400f8f.js"><link rel="prefetch" href="/assets/js/85.c60528d5.js"><link rel="prefetch" href="/assets/js/86.27ee9337.js"><link rel="prefetch" href="/assets/js/87.dbbb0fa7.js"><link rel="prefetch" href="/assets/js/88.02cc8de0.js"><link rel="prefetch" href="/assets/js/89.266636d0.js"><link rel="prefetch" href="/assets/js/9.ee5dcd77.js"><link rel="prefetch" href="/assets/js/90.1a5e2984.js"><link rel="prefetch" href="/assets/js/91.eb6662cf.js"><link rel="prefetch" href="/assets/js/92.eccbaa55.js"><link rel="prefetch" href="/assets/js/93.f3b4d026.js"><link rel="prefetch" href="/assets/js/94.d75a7bc8.js"><link rel="prefetch" href="/assets/js/95.9da1a8e4.js"><link rel="prefetch" href="/assets/js/96.c02c276b.js"><link rel="prefetch" href="/assets/js/97.a84a59b7.js"><link rel="prefetch" href="/assets/js/98.d81fed7a.js"><link rel="prefetch" href="/assets/js/99.1c8c4256.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8405cd42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/orangbus.png" alt="OrangBus" class="logo"> <span class="site-name can-hide">OrangBus</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link router-link-active">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link router-link-active">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>WebNote</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/WebNote/BeautifulSoup修改文档树.html" class="sidebar-link">BeautifulSoup修改文档树</a></li><li><a href="/WebNote/Docker Compose 配置文件详解 .html" class="active sidebar-link">Docker Compose 配置文件详解</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/WebNote/Docker Compose 配置文件详解 .html#_1-image" class="sidebar-link">1.image</a></li><li class="sidebar-sub-header"><a href="/WebNote/Docker Compose 配置文件详解 .html#_2-build" class="sidebar-link">2.build</a></li><li class="sidebar-sub-header"><a href="/WebNote/Docker Compose 配置文件详解 .html#_3-command" class="sidebar-link">3.command</a></li><li class="sidebar-sub-header"><a href="/WebNote/Docker Compose 配置文件详解 .html#_4-container-name" class="sidebar-link">4.container_name</a></li><li class="sidebar-sub-header"><a href="/WebNote/Docker Compose 配置文件详解 .html#_5-depends-on" class="sidebar-link">5.depends_on</a></li><li class="sidebar-sub-header"><a href="/WebNote/Docker Compose 配置文件详解 .html#_6-dns" class="sidebar-link">6.dns</a></li><li class="sidebar-sub-header"><a href="/WebNote/Docker Compose 配置文件详解 .html#_9-env-file" class="sidebar-link">9.env_file</a></li></ul></li><li><a href="/WebNote/Docker Dockerfile.html" class="sidebar-link">Dockerfile</a></li><li><a href="/WebNote/Docker的镜像制作与整套项目一键打包部署.html" class="sidebar-link">Docker的镜像制作与整套项目一键打包部署</a></li><li><a href="/WebNote/Filebeat模块与配置.html" class="sidebar-link">Filebeat模块与配置</a></li><li><a href="/WebNote/Git webhook 实现自动部署教程.html" class="sidebar-link">Git webhook 实现自动部署教程</a></li><li><a href="/WebNote/Go语言搬砖 操作MeiliSearch.html" class="sidebar-link">/WebNote/Go语言搬砖 操作MeiliSearch.html</a></li><li><a href="/WebNote/Linux命令之Crontab——定时任务.html" class="sidebar-link">Linux命令之Crontab——定时任务</a></li><li><a href="/WebNote/Linux环境下MySQL8.0安装.html" class="sidebar-link">Linux环境下MySQL8.0安装</a></li><li><a href="/WebNote/MySQL性能优化详解.html" class="sidebar-link">MySQL性能优化详解【精华篇】</a></li><li><a href="/WebNote/" aria-current="page" class="sidebar-link">十个催泪虐心的小故事</a></li><li><a href="/WebNote/Redis 几种数据类型及应用场景.html" class="sidebar-link">Redis 几种数据类型及应用场景</a></li><li><a href="/WebNote/SH Key 突然失效问题解答及处理办法.html" class="sidebar-link">SSH Key 突然失效问题解答及处理办法</a></li><li><a href="/WebNote/UserAgent.html" class="sidebar-link">UserAgent</a></li><li><a href="/WebNote/Vue-cli -axios 跨域.html" class="sidebar-link">Vue-cli -axios 跨域</a></li><li><a href="/WebNote/Vue-cli 引入各种静态资源.html" class="sidebar-link">Vue-cli 引入各种静态资源</a></li><li><a href="/WebNote/Vuetify.html" class="sidebar-link">Vuetify – 色彩，主题与基础样式</a></li><li><a href="/WebNote/docker-compose 搭建 minio 分布式对象存储 最新版(使用教程).html" class="sidebar-link">docker-compose 搭建 minio 分布式对象存储</a></li><li><a href="/WebNote/docker安装Syncthing，并配置数据同步备份.html" class="sidebar-link">docker安装Syncthing备份数据</a></li><li><a href="/WebNote/mysql order by 原理及优化详解.html" class="sidebar-link">mysql order by 原理及优化详解</a></li><li><a href="/WebNote/nginx 黑名单和白名单.html" class="sidebar-link">nginx 黑名单和白名单</a></li><li><a href="/WebNote/php 生成随机数 生成随机字符串的 5 种方法.html" class="sidebar-link">php 生成随机数 生成随机字符串的 5 种方法</a></li><li><a href="/WebNote/php中call_user_func 与 call_user_func_array的使用 .html" class="sidebar-link">php-calluserfunc使用</a></li><li><a href="/WebNote/x-ui面板+宝塔+伪装网站+CDN节点.html" class="sidebar-link">/WebNote/x-ui面板+宝塔+伪装网站+CDN节点.html</a></li><li><a href="/WebNote/一篇文章教你顺利入门和开发 chrome 扩展程序.html" class="sidebar-link">一篇文章教你顺利入门和开发 chrome 扩展程序</a></li><li><a href="/WebNote/使用Certbot自动配置LetsEncrypt证书.html" class="sidebar-link">使用Certbot自动配置LetsEncrypt证书</a></li><li><a href="/WebNote/关于 Laravel项目多进程队列配置的使用.html" class="sidebar-link">/WebNote/关于 Laravel项目多进程队列配置的使用.html</a></li><li><a href="/WebNote/切换国内源及讯飞输入法安装.html" class="sidebar-link">切换国内源及讯飞输入法安装</a></li><li><a href="/WebNote/刻意练习 Elasticsearch 10000 个小时，鬼知道经历了什么？.html" class="sidebar-link">/WebNote/刻意练习 Elasticsearch 10000 个小时，鬼知道经历了什么？.html</a></li><li><a href="/WebNote/向 GitHub 提交代码时触发 Jenkins 自动构建.html" class="sidebar-link">向 GitHub 提交代码时触发 Jenkins 自动构建</a></li><li><a href="/WebNote/如何在局域网用一台服务器配置多站点？.html" class="sidebar-link">如何在局域网用一台服务器配置多站点？</a></li><li><a href="/WebNote/如何快速清理 docker 资源.html" class="sidebar-link">如何快速清理 docker 资源</a></li><li><a href="/WebNote/如何解决Docker 搭建pxc集群后，节点宕机，启动闪退.html" class="sidebar-link">pxc宕机重启场景还原及正确的启动方式</a></li><li><a href="/WebNote/打包压缩命令.html" class="sidebar-link">linux常用打包压缩格式</a></li><li><a href="/WebNote/课程脚本.html" class="sidebar-link">《Docker环境下的前后端分离部署与运维》课程脚本</a></li><li><a href="/WebNote/面试，看这一篇就够了.html" class="sidebar-link">mysql优化建议</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><blockquote><p>本文由 <a href="http://ksria.com/simpread/" target="_blank" rel="noopener noreferrer">简悦 SimpRead<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 转码， 原文地址 <a href="https://www.jianshu.com/p/2217cfed29d7" target="_blank" rel="noopener noreferrer">www.jianshu.com<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></blockquote> <p>先来看一份 docker-compose.yml 文件，不用管这是干嘛的，只是有个格式方便后文解说：</p> <div class="language- extra-class"><pre class="language-text"><code>version: '2'
+services:
+  web:
+    image: dockercloud/hello-world
+    ports:
+      - 8080
+    networks:
+      - front-tier
+      - back-tier
+
+  redis:
+    image: redis
+    links:
+      - web
+    networks:
+      - back-tier
+
+  lb:
+    image: dockercloud/haproxy
+    ports:
+      - 80:80
+    links:
+      - web
+    networks:
+      - front-tier
+      - back-tier
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock 
+
+networks:
+  front-tier:
+    driver: bridge
+  back-tier:
+driver: bridge 
+</code></pre></div><p>可以看到一份标准配置文件应该包含 version、services、networks 三大部分，其中最关键的就是 services 和 networks 两个部分，下面先来看 services 的书写规则。</p> <h2 id="_1-image"><a href="#_1-image" class="header-anchor">#</a> 1.image</h2> <div class="language- extra-class"><pre class="language-text"><code>services:
+  web:
+    image: hello-world 
+</code></pre></div><p>在 services 标签下的第二级标签是 web，这个名字是用户自己自定义，它就是服务名称。<br>
+image 则是指定服务的镜像名称或镜像 ID。如果镜像在本地不存在，Compose 将会尝试拉取这个镜像。<br>
+例如下面这些格式都是可以的：</p> <div class="language- extra-class"><pre class="language-text"><code>image: redis
+image: ubuntu:14.04
+image: tutum/influxdb
+image: example-registry.com:4000/postgresql
+image: a4bc65fd 
+</code></pre></div><h2 id="_2-build"><a href="#_2-build" class="header-anchor">#</a> 2.build</h2> <p>服务除了可以基于指定的镜像，还可以基于一份 Dockerfile，在使用 up 启动之时执行构建任务，这个构建标签就是 build，它可以指定 Dockerfile 所在文件夹的路径。Compose 将会利用它自动构建这个镜像，然后使用这个镜像启动服务容器。</p> <div class="language- extra-class"><pre class="language-text"><code>build: /path/to/build/dir 
+</code></pre></div><p>也可以是相对路径，只要上下文确定就可以读取到 Dockerfile。</p> <div class="language- extra-class"><pre class="language-text"><code>build: ./dir 
+</code></pre></div><p>设定上下文根目录，然后以该目录为准指定 Dockerfile。</p> <div class="language- extra-class"><pre class="language-text"><code>build:
+  context: ../
+  dockerfile: path/of/Dockerfile 
+</code></pre></div><p>注意 build 都是一个目录，如果你要指定 Dockerfile 文件需要在 build 标签的子级标签中使用 dockerfile 标签指定，如上面的例子。<br>
+如果你同时指定了 image 和 build 两个标签，那么 Compose 会构建镜像并且把镜像命名为 image 后面的那个名字。</p> <div class="language- extra-class"><pre class="language-text"><code>build: ./dir
+image: webapp:tag 
+</code></pre></div><p>既然可以在 docker-compose.yml 中定义构建任务，那么一定少不了 arg 这个标签，就像 Dockerfile 中的 ARG 指令，它可以在构建过程中指定环境变量，但是在构建成功后取消，在 docker-compose.yml 文件中也支持这样的写法：</p> <div class="language- extra-class"><pre class="language-text"><code>build:
+  context: .
+  args:
+    buildno: 1
+    password: secret 
+</code></pre></div><p>下面这种写法也是支持的，一般来说下面的写法更适合阅读。</p> <div class="language- extra-class"><pre class="language-text"><code>build:
+  context: .
+  args:
+    - buildno=1
+    - password=secret 
+</code></pre></div><p>与 ENV 不同的是，ARG 是允许空值的。例如：</p> <div class="language- extra-class"><pre class="language-text"><code>args:
+  - buildno
+  - password 
+</code></pre></div><p>这样构建过程可以向它们赋值。</p> <blockquote><p>注意：YAML 的布尔值（true, false, yes, no, on, off）必须要使用引号引起来（单引号、双引号均可），否则会当成字符串解析。</p></blockquote> <h2 id="_3-command"><a href="#_3-command" class="header-anchor">#</a> 3.command</h2> <hr> <p>使用 command 可以覆盖容器启动后默认执行的命令。</p> <div class="language- extra-class"><pre class="language-text"><code>command: bundle exec thin -p 3000 
+</code></pre></div><p>也可以写成类似 Dockerfile 中的格式：</p> <div class="language- extra-class"><pre class="language-text"><code>command: [bundle, exec, thin, -p, 3000] 
+</code></pre></div><h2 id="_4-container-name"><a href="#_4-container-name" class="header-anchor">#</a> 4.container_name</h2> <p>前面说过 Compose 的容器名称格式是：&lt;项目名称&gt;<em>&lt;服务名称&gt;</em>&lt;序号&gt;<br>
+虽然可以自定义项目名称、服务名称，但是如果你想完全控制容器的命名，可以使用这个标签指定：</p> <div class="language- extra-class"><pre class="language-text"><code>container_name: app 
+</code></pre></div><p>这样容器的名字就指定为 app 了。</p> <h2 id="_5-depends-on"><a href="#_5-depends-on" class="header-anchor">#</a> 5.depends_on</h2> <p>在使用 Compose 时，最大的好处就是少打启动命令，但是一般项目容器启动的顺序是有要求的，如果直接从上到下启动容器，必然会因为容器依赖问题而启动失败。<br>
+例如在没启动数据库容器的时候启动了应用容器，这时候应用容器会因为找不到数据库而退出，为了避免这种情况我们需要加入一个标签，就是 depends_on，这个标签解决了容器的依赖、启动先后的问题。<br>
+例如下面容器会先启动 redis 和 db 两个服务，最后才启动 web 服务：</p> <div class="language- extra-class"><pre class="language-text"><code>version: '2'
+services:
+  web:
+    build: .
+    depends_on:
+      - db
+      - redis
+  redis:
+    image: redis
+  db:
+    image: postgres 
+</code></pre></div><p>注意的是，默认情况下使用 docker-compose up web 这样的方式启动 web 服务时，也会启动 redis 和 db 两个服务，因为在配置文件中定义了依赖关系。</p> <h2 id="_6-dns"><a href="#_6-dns" class="header-anchor">#</a> 6.dns</h2> <p>和 --dns 参数一样用途，格式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>dns: 8.8.8.8 
+</code></pre></div><p>也可以是一个列表：</p> <div class="language- extra-class"><pre class="language-text"><code>dns:
+  - 8.8.8.8
+  - 9.9.9.9 
+</code></pre></div><p>此外 dns_search 的配置也类似：</p> <div class="language- extra-class"><pre class="language-text"><code>dns_search: example.com
+dns_search:
+  - dc1.example.com
+  - dc2.example.com 
+</code></pre></div><ol start="7"><li>tmpfs</li></ol> <hr> <p>挂载临时目录到容器内部，与 run 的参数一样效果：</p> <div class="language- extra-class"><pre class="language-text"><code>tmpfs: /run
+tmpfs:
+  - /run
+  - /tmp 
+</code></pre></div><ol start="8"><li>entrypoint</li></ol> <hr> <p>在 Dockerfile 中有一个指令叫做 ENTRYPOINT 指令，用于指定接入点，第四章有对比过与 CMD 的区别。<br>
+在 docker-compose.yml 中可以定义接入点，覆盖 Dockerfile 中的定义：</p> <div class="language- extra-class"><pre class="language-text"><code>entrypoint: /code/entrypoint.sh 
+</code></pre></div><p>格式和 Docker 类似，不过还可以写成这样：</p> <div class="language- extra-class"><pre class="language-text"><code>entrypoint:
+    - php
+    - -d
+    - zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20100525/xdebug.so
+    - -d
+    - memory_limit=-1
+    - vendor/bin/phpunit 
+</code></pre></div><h2 id="_9-env-file"><a href="#_9-env-file" class="header-anchor">#</a> 9.env_file</h2> <p>还记得前面提到的 .env 文件吧，这个文件可以设置 Compose 的变量。而在 docker-compose.yml 中可以定义一个专门存放变量的文件。<br>
+如果通过 docker-compose -f FILE 指定了配置文件，则 env_file 中路径会使用配置文件路径。</p> <p>如果有变量名称与 environment 指令冲突，则以后者为准。格式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>env_file: .env 
+</code></pre></div><p>或者根据 docker-compose.yml 设置多个：</p> <div class="language- extra-class"><pre class="language-text"><code>env_file:
+  - ./common.env
+  - ./apps/web.env
+  - /opt/secrets.env 
+</code></pre></div><p>注意的是这里所说的环境变量是对宿主机的 Compose 而言的，如果在配置文件中有 build 操作，这些变量并不会进入构建过程中，如果要在构建中使用变量还是首选前面刚讲的 arg 标签。</p> <ol start="10"><li>environment</li></ol> <hr> <p>与上面的 env_file 标签完全不同，反而和 arg 有几分类似，这个标签的作用是设置镜像变量，它可以保存变量到镜像里面，也就是说启动的容器也会包含这些变量设置，这是与 arg 最大的不同。<br>
+一般 arg 标签的变量仅用在构建过程中。而 environment 和 Dockerfile 中的 ENV 指令一样会把变量一直保存在镜像、容器中，类似 docker run -e 的效果。</p> <div class="language- extra-class"><pre class="language-text"><code>environment:
+  RACK_ENV: development
+  SHOW: 'true'
+  SESSION_SECRET:
+
+environment:
+  - RACK_ENV=development
+  - SHOW=true
+  - SESSION_SECRET 
+</code></pre></div><ol start="11"><li>expose</li></ol> <hr> <p>这个标签与Dockerfile中的EXPOSE指令一样，用于指定暴露的端口，但是只是作为一种参考，实际上docker-compose.yml的端口映射还得ports这样的标签。</p> <div class="language- extra-class"><pre class="language-text"><code>expose:
+ - &quot;3000&quot;
+ - &quot;8000&quot; 
+</code></pre></div><ol start="12"><li>external_links</li></ol> <hr> <p>在使用Docker过程中，我们会有许多单独使用docker run启动的容器，为了使Compose能够连接这些不在docker-compose.yml中定义的容器，我们需要一个特殊的标签，就是external_links，它可以让Compose项目里面的容器连接到那些项目配置外部的容器（前提是外部容器中必须至少有一个容器是连接到与项目内的服务的同一个网络里面）。<br>
+格式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>external_links:
+ - redis_1
+ - project_db_1:mysql
+ - project_db_1:postgresql 
+</code></pre></div><ol start="13"><li>extra_hosts</li></ol> <hr> <p>添加主机名的标签，就是往/etc/hosts文件中添加一些记录，与Docker client的--add-host类似：</p> <div class="language- extra-class"><pre class="language-text"><code>extra_hosts:
+ - &quot;somehost:162.242.195.82&quot;
+ - &quot;otherhost:50.31.209.229&quot; 
+</code></pre></div><p>启动之后查看容器内部hosts：</p> <div class="language- extra-class"><pre class="language-text"><code>162.242.195.82  somehost
+50.31.209.229   otherhost 
+</code></pre></div><ol start="14"><li>labels</li></ol> <hr> <p>向容器添加元数据，和Dockerfile的LABEL指令一个意思，格式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>labels:
+  com.example.description: &quot;Accounting webapp&quot;
+  com.example.department: &quot;Finance&quot;
+  com.example.label-with-empty-value: &quot;&quot;
+labels:
+  - &quot;com.example.description=Accounting webapp&quot;
+  - &quot;com.example.department=Finance&quot;
+  - &quot;com.example.label-with-empty-value&quot; 
+</code></pre></div><ol start="15"><li>links</li></ol> <hr> <p>还记得上面的depends_on吧，那个标签解决的是启动顺序问题，这个标签解决的是容器连接问题，与Docker client的--link一样效果，会连接到其它服务中的容器。<br>
+格式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>links:
+ - db
+ - db:database
+ - redis 
+</code></pre></div><p>使用的别名将会自动在服务容器中的/etc/hosts里创建。例如：</p> <div class="language- extra-class"><pre class="language-text"><code>172.12.2.186  db
+172.12.2.186  database
+172.12.2.187  redis 
+</code></pre></div><p>相应的环境变量也将被创建。</p> <ol start="16"><li>logging</li></ol> <hr> <p>这个标签用于配置日志服务。格式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>logging:
+  driver: syslog
+  options:
+    syslog-address: &quot;tcp://192.168.0.42:123&quot; 
+</code></pre></div><p>默认的driver是json-file。只有json-file和journald可以通过docker-compose logs显示日志，其他方式有其他日志查看方式，但目前Compose不支持。对于可选值可以使用options指定。<br>
+有关更多这方面的信息可以阅读官方文档：<br> <a href="https://link.jianshu.com?t=https://docs.docker.com/engine/admin/logging/overview/" target="_blank" rel="noopener noreferrer">https://docs.docker.com/engine/admin/logging/overview/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <ol start="17"><li>pid</li></ol> <hr> <div class="language- extra-class"><pre class="language-text"><code>pid: &quot;host&quot; 
+</code></pre></div><p>将PID模式设置为主机PID模式，跟主机系统共享进程命名空间。容器使用这个标签将能够访问和操纵其他容器和宿主机的名称空间。</p> <ol start="18"><li>ports</li></ol> <hr> <p>映射端口的标签。<br>
+使用HOST:CONTAINER格式或者只是指定容器的端口，宿主机会随机映射端口。</p> <div class="language- extra-class"><pre class="language-text"><code>ports:
+ - &quot;3000&quot;
+ - &quot;8000:8000&quot;
+ - &quot;49100:22&quot;
+ - &quot;127.0.0.1:8001:8001&quot; 
+</code></pre></div><blockquote><p>注意：当使用HOST:CONTAINER格式来映射端口时，如果你使用的容器端口小于60你可能会得到错误得结果，因为YAML将会解析xx:yy这种数字格式为60进制。所以建议采用字符串格式。</p></blockquote> <ol start="19"><li>security_opt</li></ol> <hr> <p>为每个容器覆盖默认的标签。简单说来就是管理全部服务的标签。比如设置全部服务的user标签值为USER。</p> <div class="language- extra-class"><pre class="language-text"><code>security_opt:
+  - label:user:USER
+  - label:role:ROLE 
+</code></pre></div><ol start="20"><li>stop_signal</li></ol> <hr> <p>设置另一个信号来停止容器。在默认情况下使用的是SIGTERM停止容器。设置另一个信号可以使用stop_signal标签。</p> <div class="language- extra-class"><pre class="language-text"><code>stop_signal: SIGUSR1 
+</code></pre></div><ol start="21"><li>volumes</li></ol> <hr> <p>挂载一个目录或者一个已存在的数据卷容器，可以直接使用 [HOST:CONTAINER] 这样的格式，或者使用 [HOST:CONTAINER:ro] 这样的格式，后者对于容器来说，数据卷是只读的，这样可以有效保护宿主机的文件系统。<br>
+Compose的数据卷指定路径可以是相对路径，使用 . 或者 .. 来指定相对目录。<br>
+数据卷的格式可以是下面多种形式：</p> <div class="language- extra-class"><pre class="language-text"><code>volumes:
+  // 只是指定一个路径，Docker 会自动在创建一个数据卷（这个路径是容器内部的）。
+  - /var/lib/mysql
+
+  // 使用绝对路径挂载数据卷
+  - /opt/data:/var/lib/mysql
+
+  // 以 Compose 配置文件为中心的相对路径作为数据卷挂载到容器。
+  - ./cache:/tmp/cache
+
+  // 使用用户的相对路径（~/ 表示的目录是 /home/&lt;用户目录&gt;/ 或者 /root/）。
+  - ~/configs:/etc/configs/:ro
+
+  // 已经存在的命名的数据卷。
+  - datavolume:/var/lib/mysql 
+</code></pre></div><p>如果你不使用宿主机的路径，你可以指定一个volume_driver。</p> <div class="language- extra-class"><pre class="language-text"><code>volume_driver: mydriver 
+</code></pre></div><ol start="22"><li>volumes_from</li></ol> <hr> <p>从其它容器或者服务挂载数据卷，可选的参数是 :ro或者 :rw，前者表示容器只读，后者表示容器对数据卷是可读可写的。默认情况下是可读可写的。</p> <div class="language- extra-class"><pre class="language-text"><code>volumes_from:
+  - service_name
+  - service_name:ro
+  - container:container_name
+  - container:container_name:rw 
+</code></pre></div><ol start="23"><li>cap_add, cap_drop</li></ol> <hr> <p>添加或删除容器的内核功能。详细信息在前面容器章节有讲解，此处不再赘述。</p> <div class="language- extra-class"><pre class="language-text"><code>cap_add:
+  - ALL
+
+cap_drop:
+  - NET_ADMIN
+  - SYS_ADMIN 
+</code></pre></div><ol start="24"><li>cgroup_parent</li></ol> <hr> <p>指定一个容器的父级cgroup。</p> <div class="language- extra-class"><pre class="language-text"><code>cgroup_parent: m-executor-abcd 
+</code></pre></div><ol start="25"><li>devices</li></ol> <hr> <p>设备映射列表。与Docker client的--device参数类似。</p> <div class="language- extra-class"><pre class="language-text"><code>devices:
+  - &quot;/dev/ttyUSB0:/dev/ttyUSB0&quot; 
+</code></pre></div><ol start="26"><li>extends</li></ol> <hr> <p>这个标签可以扩展另一个服务，扩展内容可以是来自在当前文件，也可以是来自其他文件，相同服务的情况下，后来者会有选择地覆盖原有配置。</p> <div class="language- extra-class"><pre class="language-text"><code>extends:
+  file: common.yml
+  service: webapp 
+</code></pre></div><p>用户可以在任何地方使用这个标签，只要标签内容包含file和service两个值就可以了。file的值可以是相对或者绝对路径，如果不指定file的值，那么Compose会读取当前YML文件的信息。<br>
+更多的操作细节在后面的12.3.4小节有介绍。</p> <ol start="27"><li>network_mode</li></ol> <hr> <p>网络模式，与Docker client的--net参数类似，只是相对多了一个service:[service name] 的格式。<br>
+例如：</p> <div class="language- extra-class"><pre class="language-text"><code>network_mode: &quot;bridge&quot;
+network_mode: &quot;host&quot;
+network_mode: &quot;none&quot;
+network_mode: &quot;service:[service name]&quot;
+network_mode: &quot;container:[container name/id]&quot; 
+</code></pre></div><p>可以指定使用服务或者容器的网络。</p> <ol start="28"><li>networks</li></ol> <hr> <p>加入指定网络，格式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>services:
+  some-service:
+    networks:
+     - some-network
+     - other-network 
+</code></pre></div><p>关于这个标签还有一个特别的子标签aliases，这是一个用来设置服务别名的标签，例如：</p> <div class="language- extra-class"><pre class="language-text"><code>services:
+  some-service:
+    networks:
+      some-network:
+        aliases:
+         - alias1
+         - alias3
+      other-network:
+        aliases:
+         - alias2 
+</code></pre></div><p>相同的服务可以在不同的网络有不同的别名。</p> <ol start="29"><li>其它</li></ol> <hr> <p>还有这些标签：cpu_shares, cpu_quota, cpuset, domainname, hostname, ipc, mac_address, mem_limit, memswap_limit, privileged, read_only, restart, shm_size, stdin_open, tty, user, working_dir<br>
+上面这些都是一个单值的标签，类似于使用docker run的效果。</p> <div class="language- extra-class"><pre class="language-text"><code>cpu_shares: 73
+cpu_quota: 50000
+cpuset: 0,1
+
+user: postgresql
+working_dir: /code
+
+domainname: foo.com
+hostname: foo
+ipc: host
+mac_address: 02:42:ac:11:65:43
+
+mem_limit: 1000000000
+memswap_limit: 2000000000
+privileged: true
+
+restart: always
+
+read_only: true
+shm_size: 64M
+stdin_open: true
+tty: true 
+</code></pre></div><p>关于配置文件的扩展写法会在有空的时候补上，写得太长了。<code>_(xз」∠)_</code></p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/orangbus/vuepress-blog/edit/master/docs/WebNote/Docker Compose 配置文件详解 .md" target="_blank" rel="noopener noreferrer">帮助我们改善此页面！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">8/9/2021, 5:00:50 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/WebNote/BeautifulSoup修改文档树.html" class="prev">
+        BeautifulSoup修改文档树
+      </a></span> <span class="next"><a href="/WebNote/Docker Dockerfile.html">
+        Dockerfile
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><div class="reading-progress top" data-v-21b39eda><div class="progress" data-v-21b39eda></div></div></div></div>
+    <script src="/assets/js/app.d0e64cfc.js" defer></script><script src="/assets/js/3.c394ea60.js" defer></script><script src="/assets/js/136.8b617784.js" defer></script>
+  </body>
+</html>

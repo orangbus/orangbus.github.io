@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Spring mvc | OrangBus</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="shortcut icon" href="/orangbus.ico" type="image/jpg">
+    <script><script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?75a195c58b50e00357efe9066f49f8b0";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+			</script>
+			</script>
+    <meta name="description" content="分享生活高效技能,保持勇敢，坚持有趣，生命不息，折腾不止！">
+    <meta property="article:modified_time" content="2023-04-27T02:37:25.000Z">
+    <meta property="og:site_name" content="OrangBus">
+    <meta property="og:title" content="Spring mvc">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/Java/springMvc.html">
+    <meta name="twitter:title" content="Spring mvc">
+    <meta name="twitter:url" content="/Java/springMvc.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords" content="html,css,jquery,thinkphp,laravel,docker,linux,manjaro">
+    <meta name="author" content="OrangBus">
+    <meta name="baidu-site-verification" content="codeva-WJuxvfEOwn">
+    <link rel="preload" href="/assets/css/0.styles.8405cd42.css" as="style"><link rel="preload" href="/assets/js/app.d0e64cfc.js" as="script"><link rel="preload" href="/assets/js/3.c394ea60.js" as="script"><link rel="preload" href="/assets/js/15.06ade03e.js" as="script"><link rel="prefetch" href="/assets/js/10.80fa7f8c.js"><link rel="prefetch" href="/assets/js/100.50385f03.js"><link rel="prefetch" href="/assets/js/101.698b7727.js"><link rel="prefetch" href="/assets/js/102.ecbe0a4e.js"><link rel="prefetch" href="/assets/js/103.8138b32a.js"><link rel="prefetch" href="/assets/js/104.2d449ea0.js"><link rel="prefetch" href="/assets/js/105.30de147f.js"><link rel="prefetch" href="/assets/js/106.6d3fa8aa.js"><link rel="prefetch" href="/assets/js/107.aa63ed8b.js"><link rel="prefetch" href="/assets/js/108.ac55ea8b.js"><link rel="prefetch" href="/assets/js/109.1b2aadb0.js"><link rel="prefetch" href="/assets/js/11.432af780.js"><link rel="prefetch" href="/assets/js/110.df2cdeb1.js"><link rel="prefetch" href="/assets/js/111.5b511c8c.js"><link rel="prefetch" href="/assets/js/112.dacad57b.js"><link rel="prefetch" href="/assets/js/113.fb7dbfba.js"><link rel="prefetch" href="/assets/js/114.d09c5acb.js"><link rel="prefetch" href="/assets/js/115.a988bd2b.js"><link rel="prefetch" href="/assets/js/116.c0500263.js"><link rel="prefetch" href="/assets/js/117.2b359e04.js"><link rel="prefetch" href="/assets/js/118.7cfe289b.js"><link rel="prefetch" href="/assets/js/119.c506cf19.js"><link rel="prefetch" href="/assets/js/12.2b504033.js"><link rel="prefetch" href="/assets/js/120.6c0e4bb0.js"><link rel="prefetch" href="/assets/js/121.b3a9641d.js"><link rel="prefetch" href="/assets/js/122.436a18d1.js"><link rel="prefetch" href="/assets/js/123.38fd585b.js"><link rel="prefetch" href="/assets/js/124.aa03bc2d.js"><link rel="prefetch" href="/assets/js/125.3c51e174.js"><link rel="prefetch" href="/assets/js/126.f5951135.js"><link rel="prefetch" href="/assets/js/127.a126ff64.js"><link rel="prefetch" href="/assets/js/128.4970fada.js"><link rel="prefetch" href="/assets/js/129.ee81b464.js"><link rel="prefetch" href="/assets/js/13.4fc2b842.js"><link rel="prefetch" href="/assets/js/130.7eee2659.js"><link rel="prefetch" href="/assets/js/131.694743d6.js"><link rel="prefetch" href="/assets/js/132.b5589c5e.js"><link rel="prefetch" href="/assets/js/133.46a6c763.js"><link rel="prefetch" href="/assets/js/134.a8daaf00.js"><link rel="prefetch" href="/assets/js/135.1f10789c.js"><link rel="prefetch" href="/assets/js/136.8b617784.js"><link rel="prefetch" href="/assets/js/137.2106ed27.js"><link rel="prefetch" href="/assets/js/138.9a586b6f.js"><link rel="prefetch" href="/assets/js/139.d5357924.js"><link rel="prefetch" href="/assets/js/14.63b1bbd4.js"><link rel="prefetch" href="/assets/js/140.d1e4e0fe.js"><link rel="prefetch" href="/assets/js/141.47694c88.js"><link rel="prefetch" href="/assets/js/142.137392e8.js"><link rel="prefetch" href="/assets/js/143.6c18d0c6.js"><link rel="prefetch" href="/assets/js/144.68583712.js"><link rel="prefetch" href="/assets/js/145.acfcf4c7.js"><link rel="prefetch" href="/assets/js/146.5b672040.js"><link rel="prefetch" href="/assets/js/147.d533514f.js"><link rel="prefetch" href="/assets/js/148.cd738bb1.js"><link rel="prefetch" href="/assets/js/149.2d52bc40.js"><link rel="prefetch" href="/assets/js/150.1242c970.js"><link rel="prefetch" href="/assets/js/151.303a1e7c.js"><link rel="prefetch" href="/assets/js/152.3f80ddeb.js"><link rel="prefetch" href="/assets/js/153.fdc80245.js"><link rel="prefetch" href="/assets/js/154.9f82de99.js"><link rel="prefetch" href="/assets/js/155.35f89cfe.js"><link rel="prefetch" href="/assets/js/156.9404fe56.js"><link rel="prefetch" href="/assets/js/157.0edb926c.js"><link rel="prefetch" href="/assets/js/158.f4c7cd1f.js"><link rel="prefetch" href="/assets/js/159.77ec9b6e.js"><link rel="prefetch" href="/assets/js/16.492a3e04.js"><link rel="prefetch" href="/assets/js/160.ff2c8cf8.js"><link rel="prefetch" href="/assets/js/161.d07c5cf0.js"><link rel="prefetch" href="/assets/js/162.7eb28561.js"><link rel="prefetch" href="/assets/js/163.0516a709.js"><link rel="prefetch" href="/assets/js/164.e3e59ee3.js"><link rel="prefetch" href="/assets/js/165.6c91e5f3.js"><link rel="prefetch" href="/assets/js/166.99c34b8e.js"><link rel="prefetch" href="/assets/js/167.c5b47579.js"><link rel="prefetch" href="/assets/js/168.feeee617.js"><link rel="prefetch" href="/assets/js/169.57dd3536.js"><link rel="prefetch" href="/assets/js/17.f631d003.js"><link rel="prefetch" href="/assets/js/170.ec9d18e4.js"><link rel="prefetch" href="/assets/js/171.3dfd6d59.js"><link rel="prefetch" href="/assets/js/172.83c2c4c2.js"><link rel="prefetch" href="/assets/js/173.c6e726a4.js"><link rel="prefetch" href="/assets/js/18.4a9f58e4.js"><link rel="prefetch" href="/assets/js/19.a6716a12.js"><link rel="prefetch" href="/assets/js/2.8fb35049.js"><link rel="prefetch" href="/assets/js/20.aff82c49.js"><link rel="prefetch" href="/assets/js/21.a1fd826f.js"><link rel="prefetch" href="/assets/js/22.2b673c42.js"><link rel="prefetch" href="/assets/js/23.10ff2169.js"><link rel="prefetch" href="/assets/js/24.0236205d.js"><link rel="prefetch" href="/assets/js/25.25d1cc6f.js"><link rel="prefetch" href="/assets/js/26.248c5b7c.js"><link rel="prefetch" href="/assets/js/27.a9bd0d43.js"><link rel="prefetch" href="/assets/js/28.8f67d698.js"><link rel="prefetch" href="/assets/js/29.201bbf76.js"><link rel="prefetch" href="/assets/js/30.85fdb80d.js"><link rel="prefetch" href="/assets/js/31.0b0d0e1c.js"><link rel="prefetch" href="/assets/js/32.2c9effe5.js"><link rel="prefetch" href="/assets/js/33.92fc3612.js"><link rel="prefetch" href="/assets/js/34.e35c5be2.js"><link rel="prefetch" href="/assets/js/35.48afad48.js"><link rel="prefetch" href="/assets/js/36.fff7ba86.js"><link rel="prefetch" href="/assets/js/37.cf287dfb.js"><link rel="prefetch" href="/assets/js/38.1e2f16a3.js"><link rel="prefetch" href="/assets/js/39.6ca432b1.js"><link rel="prefetch" href="/assets/js/4.3a7e9b70.js"><link rel="prefetch" href="/assets/js/40.48a0118c.js"><link rel="prefetch" href="/assets/js/41.41393a13.js"><link rel="prefetch" href="/assets/js/42.d44d5e84.js"><link rel="prefetch" href="/assets/js/43.56348b87.js"><link rel="prefetch" href="/assets/js/44.f31a3a55.js"><link rel="prefetch" href="/assets/js/45.0c5141f5.js"><link rel="prefetch" href="/assets/js/46.ed76944d.js"><link rel="prefetch" href="/assets/js/47.e316f07f.js"><link rel="prefetch" href="/assets/js/48.66ff2948.js"><link rel="prefetch" href="/assets/js/49.a0858143.js"><link rel="prefetch" href="/assets/js/5.bfe2b380.js"><link rel="prefetch" href="/assets/js/50.a1c7399a.js"><link rel="prefetch" href="/assets/js/51.66c3e70a.js"><link rel="prefetch" href="/assets/js/52.a09ae200.js"><link rel="prefetch" href="/assets/js/53.dbbe022c.js"><link rel="prefetch" href="/assets/js/54.cc828a97.js"><link rel="prefetch" href="/assets/js/55.82eed5b7.js"><link rel="prefetch" href="/assets/js/56.f81e5032.js"><link rel="prefetch" href="/assets/js/57.42d78c52.js"><link rel="prefetch" href="/assets/js/58.ae5df450.js"><link rel="prefetch" href="/assets/js/59.663d39a3.js"><link rel="prefetch" href="/assets/js/6.52eb9a12.js"><link rel="prefetch" href="/assets/js/60.03c21d0e.js"><link rel="prefetch" href="/assets/js/61.5a18d425.js"><link rel="prefetch" href="/assets/js/62.e37aef49.js"><link rel="prefetch" href="/assets/js/63.cca674e9.js"><link rel="prefetch" href="/assets/js/64.f4cb43fc.js"><link rel="prefetch" href="/assets/js/65.387bbaf1.js"><link rel="prefetch" href="/assets/js/66.e9b6b510.js"><link rel="prefetch" href="/assets/js/67.2ae441cf.js"><link rel="prefetch" href="/assets/js/68.036e032c.js"><link rel="prefetch" href="/assets/js/69.a56b1a95.js"><link rel="prefetch" href="/assets/js/7.37f298a4.js"><link rel="prefetch" href="/assets/js/70.e36df831.js"><link rel="prefetch" href="/assets/js/71.f0065042.js"><link rel="prefetch" href="/assets/js/72.97b56a60.js"><link rel="prefetch" href="/assets/js/73.d1b511c7.js"><link rel="prefetch" href="/assets/js/74.afe4f0be.js"><link rel="prefetch" href="/assets/js/75.659a316f.js"><link rel="prefetch" href="/assets/js/76.a516ec07.js"><link rel="prefetch" href="/assets/js/77.d877ea5f.js"><link rel="prefetch" href="/assets/js/78.c2d33578.js"><link rel="prefetch" href="/assets/js/79.97e2f44e.js"><link rel="prefetch" href="/assets/js/8.50950320.js"><link rel="prefetch" href="/assets/js/80.49545cb0.js"><link rel="prefetch" href="/assets/js/81.eed16f63.js"><link rel="prefetch" href="/assets/js/82.95639ac6.js"><link rel="prefetch" href="/assets/js/83.6f591354.js"><link rel="prefetch" href="/assets/js/84.24400f8f.js"><link rel="prefetch" href="/assets/js/85.c60528d5.js"><link rel="prefetch" href="/assets/js/86.27ee9337.js"><link rel="prefetch" href="/assets/js/87.dbbb0fa7.js"><link rel="prefetch" href="/assets/js/88.02cc8de0.js"><link rel="prefetch" href="/assets/js/89.266636d0.js"><link rel="prefetch" href="/assets/js/9.ee5dcd77.js"><link rel="prefetch" href="/assets/js/90.1a5e2984.js"><link rel="prefetch" href="/assets/js/91.eb6662cf.js"><link rel="prefetch" href="/assets/js/92.eccbaa55.js"><link rel="prefetch" href="/assets/js/93.f3b4d026.js"><link rel="prefetch" href="/assets/js/94.d75a7bc8.js"><link rel="prefetch" href="/assets/js/95.9da1a8e4.js"><link rel="prefetch" href="/assets/js/96.c02c276b.js"><link rel="prefetch" href="/assets/js/97.a84a59b7.js"><link rel="prefetch" href="/assets/js/98.d81fed7a.js"><link rel="prefetch" href="/assets/js/99.1c8c4256.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8405cd42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/orangbus.png" alt="OrangBus" class="logo"> <span class="site-name can-hide">OrangBus</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Java</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Java/Config.html" class="sidebar-link">Springboot 配置文件</a></li><li><a href="/Java/Mybatis.html" class="sidebar-link">Mybatis 配置</a></li><li><a href="/Java/" aria-current="page" class="sidebar-link">Java学习笔记</a></li><li><a href="/Java/Redis.html" class="sidebar-link">springboot redis</a></li><li><a href="/Java/Security.html" class="sidebar-link">Springboot Security oauth+jwt</a></li><li><a href="/Java/SpringSecurity.html" class="sidebar-link">SpringSecurity</a></li><li><a href="/Java/develop.html" class="sidebar-link">开发工具的使用</a></li><li><a href="/Java/elasticsearch.html" class="sidebar-link">elasticsearch</a></li><li><a href="/Java/log4j配置文件.html" class="sidebar-link">log4j配置详解</a></li><li><a href="/Java/maven.html" class="sidebar-link">maven 配置</a></li><li><a href="/Java/springMvc.html" aria-current="page" class="active sidebar-link">Spring mvc</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Java/springMvc.html#复杂表单赋值" class="sidebar-link">复杂表单赋值</a></li><li class="sidebar-sub-header"><a href="/Java/springMvc.html#时间转化" class="sidebar-link">时间转化</a></li><li class="sidebar-sub-header"><a href="/Java/springMvc.html#中文乱码" class="sidebar-link">中文乱码</a></li><li class="sidebar-sub-header"><a href="/Java/springMvc.html#响应-modelandview" class="sidebar-link">响应 ModelAndView</a></li><li class="sidebar-sub-header"><a href="/Java/springMvc.html#freemarker模板引擎" class="sidebar-link">freemarker模板引擎</a></li><li class="sidebar-sub-header"><a href="/Java/springMvc.html#json序列化" class="sidebar-link">json序列化</a></li></ul></li><li><a href="/Java/springboot.html" class="sidebar-link">Spring boot 学习笔记</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="安装java"><a href="#安装java" class="header-anchor">#</a> 安装java</h1> <blockquote><p>下载地址：https://www.oracle.com/java/technologies/javase-downloads.html</p></blockquote> <p>下载之前你得先注册一个账号</p> <p>找到 <code>Java SE 8</code> 下载对应的版本</p> <p>将下载的文件解压到 <code>/usr/local/java</code> （这个位置你可以随便放）</p> <p>配置java环境变量</p> <div class="language- extra-class"><pre class="language-text"><code>vim ~/.bashrc
+=====
+export JAVA_HOME=/usr/local/java
+export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$PATH:$JAVA_HOME/bin
+</code></pre></div><p>重载配置</p> <div class="language- extra-class"><pre class="language-text"><code>source ~/.bashrc
+</code></pre></div><p>验证</p> <div class="language-bash extra-class"><pre class="language-bash"><code>java -version
+</code></pre></div><h1 id="tomcat本地安装"><a href="#tomcat本地安装" class="header-anchor">#</a> tomcat本地安装</h1> <p>不要使用新版本</p> <blockquote><p>https://tomcat.apache.org/download-10.cgi#10.0.10</p></blockquote> <p>1、下载 <code>core</code> ，解压</p> <p>2、启动，进入解压的<code>tomcat</code> 文件夹</p> <ul><li><p>授权</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">cd</span> path/to/tomcat
+
+<span class="token builtin class-name">cd</span> bin
+
+<span class="token comment"># 授权</span>
+<span class="token function">sudo</span> <span class="token function">chmod</span> a+x startup.sh catalina.sh catalina.sh
+</code></pre></div></li> <li><p>启动</p> <div class="language-bash extra-class"><pre class="language-bash"><code>./startup.sh <span class="token comment"># </span>
+<span class="token comment"># or</span>
+./catalina.sh run <span class="token comment"># 控制台打印的方式</span>
+</code></pre></div></li> <li><p>关闭</p> <div class="language-bash extra-class"><pre class="language-bash"><code>./shutdown.sh
+</code></pre></div></li></ul> <p>3、浏览器输入：<code>localhost:8080</code>验证是否启动成功</p> <h1 id="docker方式安装tomcat"><a href="#docker方式安装tomcat" class="header-anchor">#</a> docker方式安装tomcat</h1> <h1 id="配置"><a href="#配置" class="header-anchor">#</a> 配置</h1> <p>pom.xml</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>repositories</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>repository</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">&gt;</span></span>aliyun<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>aliyun<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">&gt;</span></span>https://maven.aliyun.com/repository/public<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>repository</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>repositories</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-webmvc<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>5.2.16.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h1 id="_2、配置web-xml"><a href="#_2、配置web-xml" class="header-anchor">#</a> 2、配置web.xml</h1> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token prolog">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-app</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://xmlns.jcp.org/xml/ns/javaee<span class="token punctuation">&quot;</span></span>
+         <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">&quot;</span></span>
+         <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd<span class="token punctuation">&quot;</span></span>
+         <span class="token attr-name">version</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>4.0<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">&gt;</span></span>springmvc<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-class</span><span class="token punctuation">&gt;</span></span>org.springframework.web.servlet.DispatcherServlet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-class</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>load-on-startup</span><span class="token punctuation">&gt;</span></span>0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>load-on-startup</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>init-param</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-name</span><span class="token punctuation">&gt;</span></span>contextConfigLocation<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-name</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-value</span><span class="token punctuation">&gt;</span></span>classpath:applicationContext.xml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-value</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>init-param</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-mapping</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">&gt;</span></span>springmvc<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url-pattern</span><span class="token punctuation">&gt;</span></span>/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url-pattern</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-mapping</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-app</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>添加 <code>applicationContext.xml</code></p> <div class="language-xml-dtd extra-class"><pre class="language-text"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+       xmlns:task=&quot;http://www.springframework.org/schema/task&quot;
+       xsi:schemaLocation=&quot;
+                 http://www.springframework.org/schema/beans
+                 http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+                 http://www.springframework.org/schema/context
+                 http://www.springframework.org/schema/context/spring-context-4.2.xsd
+                http://www.springframework.org/schema/mvc
+                 http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+                 http://www.springframework.org/schema/task
+                http://www.springframework.org/schema/task/spring-task-4.2.xsd&quot;&gt;
+
+    &lt;!--
+    扫描包
+    拥有一下对象
+    @Repository
+    @Service
+    @Controller
+    @Component
+    --&gt;
+    &lt;context:component-scan base-package=&quot;com.orangbus.springmvc&quot; /&gt;
+&lt;!--   启动spring mvc 的注解开发模式 --&gt;
+    &lt;mvc:annotation-driven/&gt;
+&lt;!--   排除静态资源 --&gt;
+    &lt;mvc:default-servlet-handler/&gt;
+
+    
+    
+&lt;/beans&gt;
+
+
+</code></pre></div><h1 id="请求"><a href="#请求" class="header-anchor">#</a> 请求</h1> <h2 id="复杂表单赋值"><a href="#复杂表单赋值" class="header-anchor">#</a> 复杂表单赋值</h2> <p><img src="/assets/img/image-20210829171642153.8bc93a15.png" alt="image-20210829171642153"></p> <p>通过表单新增加一个属性的方式添加，同时实例化对象的实体类</p> <h2 id="时间转化"><a href="#时间转化" class="header-anchor">#</a> 时间转化</h2> <p>controller</p> <div class="language- extra-class"><pre class="language-text"><code>1996-10-24
+
+@GetMapping(&quot;/date&quot;)
+@ResponseBody
+public String todate(@DateTimeFormat(pattern=&quot;yyyy-MM-dd&quot;) Date create_time){
+System.out.println(create_time);
+return &quot;success&quot;;
+}
+</code></pre></div><p>emtity</p> <div class="language- extra-class"><pre class="language-text"><code>@DateTimeFormat(pattern='yyyy-MM-dd')
+pricate Date create_time;
+</code></pre></div><p>全局时间转化,新建一个类</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>orangbus<span class="token punctuation">.</span>springmvc<span class="token punctuation">.</span>converter</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>core<span class="token punctuation">.</span>convert<span class="token punctuation">.</span>converter</span><span class="token punctuation">.</span><span class="token class-name">Converter</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>text</span><span class="token punctuation">.</span><span class="token class-name">ParseException</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>text</span><span class="token punctuation">.</span><span class="token class-name">SimpleDateFormat</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util</span><span class="token punctuation">.</span><span class="token class-name">Date</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DateConserter</span> <span class="token keyword">implements</span> <span class="token class-name">Converter</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Date</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Date</span> <span class="token function">convert</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">SimpleDateFormat</span> sdf <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">&quot;yyyy-MM-dd&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Date</span> date <span class="token operator">=</span> sdf<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> date<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">ParseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token comment">//            e.printStackTrace();</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><div class="language-xml extra-class"><pre class="language-xml"><code> <span class="token comment">&lt;!--   启动spring mvc 的注解开发模式 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mvc:</span>annotation-driven</span> <span class="token attr-name">conversion-service</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>converionService<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token comment">&lt;!--    时间转换类--&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>converionService<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>org.springframework.format.support.FormattingConversionServiceFactoryBean<span class="token punctuation">&quot;</span></span> <span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>converters<span class="token punctuation">&quot;</span></span> <span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>set</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>com.orangbus.springmvc.converter.DateConserter<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>set</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="中文乱码"><a href="#中文乱码" class="header-anchor">#</a> 中文乱码</h2> <p>get请求： 修改tomcat<code>server.xml</code> 增加 <code>URLEncoding</code> 属性</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Connector</span> <span class="token attr-name">port</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>8080<span class="token punctuation">&quot;</span></span> <span class="token attr-name">protocol</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>HTTP/1.1<span class="token punctuation">&quot;</span></span>
+               <span class="token attr-name">connectionTimeout</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>20000<span class="token punctuation">&quot;</span></span>
+               <span class="token attr-name">URIEncoding</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span>
+               <span class="token attr-name">redirectPort</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>8443<span class="token punctuation">&quot;</span></span>  <span class="token punctuation">/&gt;</span></span>
+</code></pre></div><p>Post请求：webApp <code>web.xml</code> 配置 <code>CharacterEncodingFilter</code></p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter-name</span><span class="token punctuation">&gt;</span></span>character<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter-name</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter-class</span><span class="token punctuation">&gt;</span></span>org.springframework.web.filter.CharacterEncodingFilter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter-class</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>init-param</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-name</span><span class="token punctuation">&gt;</span></span>encoding<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-value</span><span class="token punctuation">&gt;</span></span>UTF-8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>init-param</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter-mapping</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter-name</span><span class="token punctuation">&gt;</span></span>character<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter-name</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url-pattern</span><span class="token punctuation">&gt;</span></span>/*<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url-pattern</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter-mapping</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>Response响应： <code>applicationContext.xml</code>配置 <code>StringHttpMessageConverter</code></p> <div class="language-xml extra-class"><pre class="language-xml"><code> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mvc:</span>annotation-driven</span> <span class="token attr-name">conversion-service</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>converionService<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mvc:</span>message-converters</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>org.springframework.http.converter.StringHttpMessageConverter<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>supportedMediaTypes<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>list</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>text/html;charset=utf-8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>list</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">mvc:</span>message-converters</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">mvc:</span>annotation-driven</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="响应-modelandview"><a href="#响应-modelandview" class="header-anchor">#</a> 响应 ModelAndView</h2> <div class="language-java extra-class"><pre class="language-java"><code> <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">&quot;/view&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">ModelAndView</span> <span class="token function">view</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">ModelAndView</span> view <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ModelAndView</span><span class="token punctuation">(</span><span class="token string">&quot;view.jsp&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        com<span class="token punctuation">.</span>orangbus<span class="token punctuation">.</span>springmvc<span class="token punctuation">.</span>emtity<span class="token punctuation">.</span><span class="token class-name">User</span> user <span class="token operator">=</span> <span class="token keyword">new</span> com<span class="token punctuation">.</span>orangbus<span class="token punctuation">.</span>springmvc<span class="token punctuation">.</span>emtity<span class="token punctuation">.</span><span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        user<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">&quot;orangbus&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        view<span class="token punctuation">.</span><span class="token function">addObject</span><span class="token punctuation">(</span><span class="token string">&quot;user&quot;</span><span class="token punctuation">,</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> view<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h2 id="freemarker模板引擎"><a href="#freemarker模板引擎" class="header-anchor">#</a> freemarker模板引擎</h2> <p>pom.xml</p> <div class="language-xml extra-class"><pre class="language-xml"><code></code></pre></div><h2 id="json序列化"><a href="#json序列化" class="header-anchor">#</a> json序列化</h2> <p>pom.xml</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.fasterxml.jackson.core<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>jackson-core<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.12.5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.fasterxml.jackson.core<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>jackson-databind<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.12.4<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.fasterxml.jackson.core<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>jackson-annotations<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.12.4<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>返回数据会自动序列化</p> <h1 id="时间输出"><a href="#时间输出" class="header-anchor">#</a> 时间输出</h1> <div class="language-java extra-class"><pre class="language-java"><code> <span class="token annotation punctuation">@JsonFormat</span><span class="token punctuation">(</span>pattern <span class="token operator">=</span> <span class="token string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="token punctuation">,</span>timezone <span class="token operator">=</span> <span class="token string">&quot;GMT+8&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">private</span> <span class="token class-name">Date</span> create_time<span class="token punctuation">;</span>
+</code></pre></div><h1 id="跨域处理"><a href="#跨域处理" class="header-anchor">#</a> 跨域处理</h1> <p>controller类上添加注解</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token annotation punctuation">@CrossOrigin</span>（origins<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'http://orangbus.cn'</span><span class="token punctuation">}</span>）
+<span class="token annotation punctuation">@CrossOrigin</span>（origins<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'*'</span><span class="token punctuation">}</span>）
+</code></pre></div><p>全局配置</p> <p>applicationContext.xml</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token comment">&lt;!--跨域访问配置--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mvc:</span>cors</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mvc:</span>mapping</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>/restful/**<span class="token punctuation">&quot;</span></span> <span class="token attr-name">allowed-origins</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://localhost,http://orangbus.com<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">mvc:</span>cors</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h1 id="拦截器-interceptor"><a href="#拦截器-interceptor" class="header-anchor">#</a> 拦截器 - interceptor</h1> <ul><li><p>拦截器也会拦截静态资源</p></li> <li><p>多个拦截器处理流程</p> <p><img src="/assets/img/image-20210829214951550.a6c444a5.png" alt="image-20210829214951550"></p></li></ul> <p>对请求进行前置后后置的过滤</p> <p>1、依赖</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>javax.servlet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>servlet-api<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>2、实现 <code>HandlerInterceptor</code> 接口</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>orangbus<span class="token punctuation">.</span>springmvc<span class="token punctuation">.</span>interceptor</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet</span><span class="token punctuation">.</span><span class="token class-name">HandlerInterceptor</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet</span><span class="token punctuation">.</span><span class="token class-name">ModelAndView</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http</span><span class="token punctuation">.</span><span class="token class-name">HttpServletRequest</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http</span><span class="token punctuation">.</span><span class="token class-name">HttpServletResponse</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyInterceptor</span> <span class="token keyword">implements</span> <span class="token class-name">HandlerInterceptor</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">/**
+     * 前置处理，还没有到controller
+     * @param request
+     * @param response
+     * @param handler
+     * @return
+     * @throws Exception
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">preHandle</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">,</span> <span class="token class-name">Object</span> handler<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">getRequestURI</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">&quot;准备执行&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token class-name">HandlerInterceptor</span><span class="token punctuation">.</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">preHandle</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> response<span class="token punctuation">,</span> handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 资源已被处理
+     * @param request
+     * @param response
+     * @param handler
+     * @param modelAndView
+     * @throws Exception
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">postHandle</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">,</span> <span class="token class-name">Object</span> handler<span class="token punctuation">,</span> <span class="token class-name">ModelAndView</span> modelAndView<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">getRequestURI</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;还没有产生响应之前执行&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">HandlerInterceptor</span><span class="token punctuation">.</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">postHandle</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> response<span class="token punctuation">,</span> handler<span class="token punctuation">,</span> modelAndView<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 产生响应
+     * @param request
+     * @param response
+     * @param handler
+     * @param ex
+     * @throws Exception
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">afterCompletion</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">,</span> <span class="token class-name">Object</span> handler<span class="token punctuation">,</span> <span class="token class-name">Exception</span> ex<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">getRequestURI</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;产生响应之后执行&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">HandlerInterceptor</span><span class="token punctuation">.</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">afterCompletion</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> response<span class="token punctuation">,</span> handler<span class="token punctuation">,</span> ex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>3、配置过滤地址</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mvc:</span>interceptors</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mvc:</span>interceptor</span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!--        拦截规则--&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mvc:</span>mapping</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>/**<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token comment">&lt;!--        排除不需要拦截的内容--&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mvc:</span>exclude-mapping</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>/**.css<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mvc:</span>exclude-mapping</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>/**.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token comment">&lt;!--        加载拦截器--&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>com.orangbus.springmvc.interceptor.MyInterceptor<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">mvc:</span>interceptor</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">mvc:</span>interceptors</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>案例一:请求日志记录</p> <div class="language-xml extra-class"><pre class="language-xml"><code> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>ch.qos.logback<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>logback-classic<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>1.2.5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/orangbus/vuepress-blog/edit/master/docs/Java/springMvc.md" target="_blank" rel="noopener noreferrer">帮助我们改善此页面！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">4/27/2023, 10:37:25 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Java/maven.html" class="prev">
+        maven 配置
+      </a></span> <span class="next"><a href="/Java/springboot.html">
+        Spring boot 学习笔记
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><div class="reading-progress top" data-v-21b39eda><div class="progress" data-v-21b39eda></div></div></div></div>
+    <script src="/assets/js/app.d0e64cfc.js" defer></script><script src="/assets/js/3.c394ea60.js" defer></script><script src="/assets/js/15.06ade03e.js" defer></script>
+  </body>
+</html>

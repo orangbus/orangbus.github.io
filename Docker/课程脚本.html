@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Docker环境下的前后端分离部署与运维 | OrangBus</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="shortcut icon" href="/orangbus.ico" type="image/jpg">
+    <script><script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?75a195c58b50e00357efe9066f49f8b0";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+			</script>
+			</script>
+    <meta name="description" content="分享生活高效技能,保持勇敢，坚持有趣，生命不息，折腾不止！">
+    <meta property="article:modified_time" content="2021-07-28T08:12:19.000Z">
+    <meta property="og:site_name" content="OrangBus">
+    <meta property="og:title" content="Docker环境下的前后端分离部署与运维">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/Docker/%E8%AF%BE%E7%A8%8B%E8%84%9A%E6%9C%AC.html">
+    <meta name="twitter:title" content="Docker环境下的前后端分离部署与运维">
+    <meta name="twitter:url" content="/Docker/%E8%AF%BE%E7%A8%8B%E8%84%9A%E6%9C%AC.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords" content="html,css,jquery,thinkphp,laravel,docker,linux,manjaro">
+    <meta name="author" content="OrangBus">
+    <meta name="baidu-site-verification" content="codeva-WJuxvfEOwn">
+    <link rel="preload" href="/assets/css/0.styles.8405cd42.css" as="style"><link rel="preload" href="/assets/js/app.d0e64cfc.js" as="script"><link rel="preload" href="/assets/js/3.c394ea60.js" as="script"><link rel="preload" href="/assets/js/56.f81e5032.js" as="script"><link rel="prefetch" href="/assets/js/10.80fa7f8c.js"><link rel="prefetch" href="/assets/js/100.50385f03.js"><link rel="prefetch" href="/assets/js/101.698b7727.js"><link rel="prefetch" href="/assets/js/102.ecbe0a4e.js"><link rel="prefetch" href="/assets/js/103.8138b32a.js"><link rel="prefetch" href="/assets/js/104.2d449ea0.js"><link rel="prefetch" href="/assets/js/105.30de147f.js"><link rel="prefetch" href="/assets/js/106.6d3fa8aa.js"><link rel="prefetch" href="/assets/js/107.aa63ed8b.js"><link rel="prefetch" href="/assets/js/108.ac55ea8b.js"><link rel="prefetch" href="/assets/js/109.1b2aadb0.js"><link rel="prefetch" href="/assets/js/11.432af780.js"><link rel="prefetch" href="/assets/js/110.df2cdeb1.js"><link rel="prefetch" href="/assets/js/111.5b511c8c.js"><link rel="prefetch" href="/assets/js/112.dacad57b.js"><link rel="prefetch" href="/assets/js/113.fb7dbfba.js"><link rel="prefetch" href="/assets/js/114.d09c5acb.js"><link rel="prefetch" href="/assets/js/115.a988bd2b.js"><link rel="prefetch" href="/assets/js/116.c0500263.js"><link rel="prefetch" href="/assets/js/117.2b359e04.js"><link rel="prefetch" href="/assets/js/118.7cfe289b.js"><link rel="prefetch" href="/assets/js/119.c506cf19.js"><link rel="prefetch" href="/assets/js/12.2b504033.js"><link rel="prefetch" href="/assets/js/120.6c0e4bb0.js"><link rel="prefetch" href="/assets/js/121.b3a9641d.js"><link rel="prefetch" href="/assets/js/122.436a18d1.js"><link rel="prefetch" href="/assets/js/123.38fd585b.js"><link rel="prefetch" href="/assets/js/124.aa03bc2d.js"><link rel="prefetch" href="/assets/js/125.3c51e174.js"><link rel="prefetch" href="/assets/js/126.f5951135.js"><link rel="prefetch" href="/assets/js/127.a126ff64.js"><link rel="prefetch" href="/assets/js/128.4970fada.js"><link rel="prefetch" href="/assets/js/129.ee81b464.js"><link rel="prefetch" href="/assets/js/13.4fc2b842.js"><link rel="prefetch" href="/assets/js/130.7eee2659.js"><link rel="prefetch" href="/assets/js/131.694743d6.js"><link rel="prefetch" href="/assets/js/132.b5589c5e.js"><link rel="prefetch" href="/assets/js/133.46a6c763.js"><link rel="prefetch" href="/assets/js/134.a8daaf00.js"><link rel="prefetch" href="/assets/js/135.1f10789c.js"><link rel="prefetch" href="/assets/js/136.8b617784.js"><link rel="prefetch" href="/assets/js/137.2106ed27.js"><link rel="prefetch" href="/assets/js/138.9a586b6f.js"><link rel="prefetch" href="/assets/js/139.d5357924.js"><link rel="prefetch" href="/assets/js/14.63b1bbd4.js"><link rel="prefetch" href="/assets/js/140.d1e4e0fe.js"><link rel="prefetch" href="/assets/js/141.47694c88.js"><link rel="prefetch" href="/assets/js/142.137392e8.js"><link rel="prefetch" href="/assets/js/143.6c18d0c6.js"><link rel="prefetch" href="/assets/js/144.68583712.js"><link rel="prefetch" href="/assets/js/145.acfcf4c7.js"><link rel="prefetch" href="/assets/js/146.5b672040.js"><link rel="prefetch" href="/assets/js/147.d533514f.js"><link rel="prefetch" href="/assets/js/148.cd738bb1.js"><link rel="prefetch" href="/assets/js/149.2d52bc40.js"><link rel="prefetch" href="/assets/js/15.06ade03e.js"><link rel="prefetch" href="/assets/js/150.1242c970.js"><link rel="prefetch" href="/assets/js/151.303a1e7c.js"><link rel="prefetch" href="/assets/js/152.3f80ddeb.js"><link rel="prefetch" href="/assets/js/153.fdc80245.js"><link rel="prefetch" href="/assets/js/154.9f82de99.js"><link rel="prefetch" href="/assets/js/155.35f89cfe.js"><link rel="prefetch" href="/assets/js/156.9404fe56.js"><link rel="prefetch" href="/assets/js/157.0edb926c.js"><link rel="prefetch" href="/assets/js/158.f4c7cd1f.js"><link rel="prefetch" href="/assets/js/159.77ec9b6e.js"><link rel="prefetch" href="/assets/js/16.492a3e04.js"><link rel="prefetch" href="/assets/js/160.ff2c8cf8.js"><link rel="prefetch" href="/assets/js/161.d07c5cf0.js"><link rel="prefetch" href="/assets/js/162.7eb28561.js"><link rel="prefetch" href="/assets/js/163.0516a709.js"><link rel="prefetch" href="/assets/js/164.e3e59ee3.js"><link rel="prefetch" href="/assets/js/165.6c91e5f3.js"><link rel="prefetch" href="/assets/js/166.99c34b8e.js"><link rel="prefetch" href="/assets/js/167.c5b47579.js"><link rel="prefetch" href="/assets/js/168.feeee617.js"><link rel="prefetch" href="/assets/js/169.57dd3536.js"><link rel="prefetch" href="/assets/js/17.f631d003.js"><link rel="prefetch" href="/assets/js/170.ec9d18e4.js"><link rel="prefetch" href="/assets/js/171.3dfd6d59.js"><link rel="prefetch" href="/assets/js/172.83c2c4c2.js"><link rel="prefetch" href="/assets/js/173.c6e726a4.js"><link rel="prefetch" href="/assets/js/18.4a9f58e4.js"><link rel="prefetch" href="/assets/js/19.a6716a12.js"><link rel="prefetch" href="/assets/js/2.8fb35049.js"><link rel="prefetch" href="/assets/js/20.aff82c49.js"><link rel="prefetch" href="/assets/js/21.a1fd826f.js"><link rel="prefetch" href="/assets/js/22.2b673c42.js"><link rel="prefetch" href="/assets/js/23.10ff2169.js"><link rel="prefetch" href="/assets/js/24.0236205d.js"><link rel="prefetch" href="/assets/js/25.25d1cc6f.js"><link rel="prefetch" href="/assets/js/26.248c5b7c.js"><link rel="prefetch" href="/assets/js/27.a9bd0d43.js"><link rel="prefetch" href="/assets/js/28.8f67d698.js"><link rel="prefetch" href="/assets/js/29.201bbf76.js"><link rel="prefetch" href="/assets/js/30.85fdb80d.js"><link rel="prefetch" href="/assets/js/31.0b0d0e1c.js"><link rel="prefetch" href="/assets/js/32.2c9effe5.js"><link rel="prefetch" href="/assets/js/33.92fc3612.js"><link rel="prefetch" href="/assets/js/34.e35c5be2.js"><link rel="prefetch" href="/assets/js/35.48afad48.js"><link rel="prefetch" href="/assets/js/36.fff7ba86.js"><link rel="prefetch" href="/assets/js/37.cf287dfb.js"><link rel="prefetch" href="/assets/js/38.1e2f16a3.js"><link rel="prefetch" href="/assets/js/39.6ca432b1.js"><link rel="prefetch" href="/assets/js/4.3a7e9b70.js"><link rel="prefetch" href="/assets/js/40.48a0118c.js"><link rel="prefetch" href="/assets/js/41.41393a13.js"><link rel="prefetch" href="/assets/js/42.d44d5e84.js"><link rel="prefetch" href="/assets/js/43.56348b87.js"><link rel="prefetch" href="/assets/js/44.f31a3a55.js"><link rel="prefetch" href="/assets/js/45.0c5141f5.js"><link rel="prefetch" href="/assets/js/46.ed76944d.js"><link rel="prefetch" href="/assets/js/47.e316f07f.js"><link rel="prefetch" href="/assets/js/48.66ff2948.js"><link rel="prefetch" href="/assets/js/49.a0858143.js"><link rel="prefetch" href="/assets/js/5.bfe2b380.js"><link rel="prefetch" href="/assets/js/50.a1c7399a.js"><link rel="prefetch" href="/assets/js/51.66c3e70a.js"><link rel="prefetch" href="/assets/js/52.a09ae200.js"><link rel="prefetch" href="/assets/js/53.dbbe022c.js"><link rel="prefetch" href="/assets/js/54.cc828a97.js"><link rel="prefetch" href="/assets/js/55.82eed5b7.js"><link rel="prefetch" href="/assets/js/57.42d78c52.js"><link rel="prefetch" href="/assets/js/58.ae5df450.js"><link rel="prefetch" href="/assets/js/59.663d39a3.js"><link rel="prefetch" href="/assets/js/6.52eb9a12.js"><link rel="prefetch" href="/assets/js/60.03c21d0e.js"><link rel="prefetch" href="/assets/js/61.5a18d425.js"><link rel="prefetch" href="/assets/js/62.e37aef49.js"><link rel="prefetch" href="/assets/js/63.cca674e9.js"><link rel="prefetch" href="/assets/js/64.f4cb43fc.js"><link rel="prefetch" href="/assets/js/65.387bbaf1.js"><link rel="prefetch" href="/assets/js/66.e9b6b510.js"><link rel="prefetch" href="/assets/js/67.2ae441cf.js"><link rel="prefetch" href="/assets/js/68.036e032c.js"><link rel="prefetch" href="/assets/js/69.a56b1a95.js"><link rel="prefetch" href="/assets/js/7.37f298a4.js"><link rel="prefetch" href="/assets/js/70.e36df831.js"><link rel="prefetch" href="/assets/js/71.f0065042.js"><link rel="prefetch" href="/assets/js/72.97b56a60.js"><link rel="prefetch" href="/assets/js/73.d1b511c7.js"><link rel="prefetch" href="/assets/js/74.afe4f0be.js"><link rel="prefetch" href="/assets/js/75.659a316f.js"><link rel="prefetch" href="/assets/js/76.a516ec07.js"><link rel="prefetch" href="/assets/js/77.d877ea5f.js"><link rel="prefetch" href="/assets/js/78.c2d33578.js"><link rel="prefetch" href="/assets/js/79.97e2f44e.js"><link rel="prefetch" href="/assets/js/8.50950320.js"><link rel="prefetch" href="/assets/js/80.49545cb0.js"><link rel="prefetch" href="/assets/js/81.eed16f63.js"><link rel="prefetch" href="/assets/js/82.95639ac6.js"><link rel="prefetch" href="/assets/js/83.6f591354.js"><link rel="prefetch" href="/assets/js/84.24400f8f.js"><link rel="prefetch" href="/assets/js/85.c60528d5.js"><link rel="prefetch" href="/assets/js/86.27ee9337.js"><link rel="prefetch" href="/assets/js/87.dbbb0fa7.js"><link rel="prefetch" href="/assets/js/88.02cc8de0.js"><link rel="prefetch" href="/assets/js/89.266636d0.js"><link rel="prefetch" href="/assets/js/9.ee5dcd77.js"><link rel="prefetch" href="/assets/js/90.1a5e2984.js"><link rel="prefetch" href="/assets/js/91.eb6662cf.js"><link rel="prefetch" href="/assets/js/92.eccbaa55.js"><link rel="prefetch" href="/assets/js/93.f3b4d026.js"><link rel="prefetch" href="/assets/js/94.d75a7bc8.js"><link rel="prefetch" href="/assets/js/95.9da1a8e4.js"><link rel="prefetch" href="/assets/js/96.c02c276b.js"><link rel="prefetch" href="/assets/js/97.a84a59b7.js"><link rel="prefetch" href="/assets/js/98.d81fed7a.js"><link rel="prefetch" href="/assets/js/99.1c8c4256.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8405cd42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/orangbus.png" alt="OrangBus" class="logo"> <span class="site-name can-hide">OrangBus</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link router-link-active">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link router-link-active">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Docker</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Docker/Docker-box.html" class="sidebar-link">docker 集合箱</a></li><li><a href="/Docker/Dockerfile.html" class="sidebar-link">Dockerfile</a></li><li><a href="/Docker/K8s.html" class="sidebar-link">k8s入门学习笔记</a></li><li><a href="/Docker/Kibana.html" class="sidebar-link">Kibana</a></li><li><a href="/Docker/Laradock.html" class="sidebar-link">Laravel配置注意事项及技巧</a></li><li><a href="/Docker/Minikube.html" class="sidebar-link">Minikube入门教程</a></li><li><a href="/Docker/" aria-current="page" class="sidebar-link">Laradock入门</a></li><li><a href="/Docker/docker-swarm.html" class="sidebar-link">docker-swarm</a></li><li><a href="/Docker/elasticsearch.html" class="sidebar-link">elasticsearch</a></li><li><a href="/Docker/elk.html" class="sidebar-link">elk 安装使用</a></li><li><a href="/Docker/nginx-php.html" class="sidebar-link">构建一个简单nginx+php环境</a></li><li><a href="/Docker/traefik.html" class="sidebar-link">traefik入门</a></li><li><a href="/Docker/课程脚本.html" class="active sidebar-link">Docker环境下的前后端分离部署与运维</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Docker/课程脚本.html#docker虚拟机常用命令" class="sidebar-link">Docker虚拟机常用命令</a></li><li class="sidebar-sub-header"><a href="/Docker/课程脚本.html#安装pxc集群，负载均衡，双机热备" class="sidebar-link">安装PXC集群，负载均衡，双机热备</a></li><li class="sidebar-sub-header"><a href="/Docker/课程脚本.html#安装redis，配置rediscluster集群" class="sidebar-link">安装Redis，配置RedisCluster集群</a></li><li class="sidebar-sub-header"><a href="/Docker/课程脚本.html#打包部署后端项目" class="sidebar-link">打包部署后端项目</a></li><li class="sidebar-sub-header"><a href="/Docker/课程脚本.html#打包部署后端项目-2" class="sidebar-link">打包部署后端项目</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="docker虚拟机常用命令"><a href="#docker虚拟机常用命令" class="header-anchor">#</a> Docker虚拟机常用命令</h2> <ol><li><p>先更新软件包</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum -y update
+</code></pre></div></li> <li><p>安装Docker虚拟机</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum <span class="token function">install</span> -y docker
+</code></pre></div></li> <li><p>运行、重启、关闭Docker虚拟机</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">service</span> docker start
+<span class="token function">service</span> docker start
+<span class="token function">service</span> docker stop
+</code></pre></div></li> <li><p>搜索镜像</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker search 镜像名称
+</code></pre></div></li> <li><p>下载镜像</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker pull 镜像名称
+</code></pre></div></li> <li><p>查看镜像</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker images
+</code></pre></div></li> <li><p>删除镜像</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker rmi 镜像名称
+</code></pre></div></li> <li><p>运行容器</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker run 启动参数  镜像名称
+</code></pre></div></li> <li><p>查看容器列表</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker <span class="token function">ps</span> -a
+</code></pre></div></li> <li><p>停止、挂起、恢复容器</p></li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code>docker stop 容器ID
+docker pause 容器ID
+docker unpase 容器ID
+</code></pre></div><ol start="11"><li><p>查看容器信息</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker inspect 容器ID
+</code></pre></div></li> <li><p>删除容器</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker <span class="token function">rm</span> 容器ID
+</code></pre></div></li> <li><p>数据卷管理</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker volume create 数据卷名称  <span class="token comment">#创建数据卷</span>
+docker volume <span class="token function">rm</span> 数据卷名称  <span class="token comment">#删除数据卷</span>
+docker volume inspect 数据卷名称  <span class="token comment">#查看数据卷</span>
+</code></pre></div></li> <li><p>网络管理</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker network <span class="token function">ls</span> 查看网络信息
+docker network create --subnet<span class="token operator">=</span>网段 网络名称
+docker network <span class="token function">rm</span> 网络名称
+</code></pre></div></li> <li><p>避免VM虚拟机挂起恢复之后，Docker虚拟机断网</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">vi</span> /etc/sysctl.conf
+</code></pre></div><p>文件中添加<code>net.ipv4.ip_forward=1</code>这个配置</p> <p>​<code>shell #重启网络服务 systemctl restart network ​</code></p></li></ol> <h2 id="安装pxc集群，负载均衡，双机热备"><a href="#安装pxc集群，负载均衡，双机热备" class="header-anchor">#</a> 安装PXC集群，负载均衡，双机热备</h2> <ol><li><p>安装PXC镜像</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker pull percona/percona-xtradb-cluster
+</code></pre></div></li> <li><p>为PXC镜像改名</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker tag percona/percona-xtradb-cluster pxc
+</code></pre></div></li> <li><p>创建net1网段</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker network create --subnet<span class="token operator">=</span><span class="token number">172.18</span>.0.0/16 net1
+</code></pre></div></li> <li><p>创建5个数据卷</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker volume create --name v1
+docker volume create --name v2
+docker volume create --name v3
+docker volume create --name v4
+docker volume create --name v5
+</code></pre></div></li> <li><p>创建备份数据卷（用于热备份数据）</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker volume create --name backup
+</code></pre></div></li> <li><p>创建5节点的PXC集群</p> <p>注意，每个MySQL容器创建之后，因为要执行PXC的初始化和加入集群等工作，耐心等待1分钟左右再用客户端连接MySQL。另外，必须第1个MySQL节点启动成功，用MySQL客户端能连接上之后，再去创建其他MySQL节点。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#创建第1个MySQL节点</span>
+docker run -d -p <span class="token number">3306</span>:3306 -e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>abc123456 -e <span class="token assign-left variable">CLUSTER_NAME</span><span class="token operator">=</span>PXC -e <span class="token assign-left variable">XTRABACKUP_PASSWORD</span><span class="token operator">=</span>abc123456 -v v1:/var/lib/mysql -v backup:/data --privileged --name<span class="token operator">=</span>node1 --net<span class="token operator">=</span>net1 --ip <span class="token number">172.18</span>.0.2 pxc
+<span class="token comment">#创建第2个MySQL节点</span>
+docker run -d -p <span class="token number">3307</span>:3306 -e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>abc123456 -e <span class="token assign-left variable">CLUSTER_NAME</span><span class="token operator">=</span>PXC -e <span class="token assign-left variable">XTRABACKUP_PASSWORD</span><span class="token operator">=</span>abc123456 -e <span class="token assign-left variable">CLUSTER_JOIN</span><span class="token operator">=</span>node1 -v v2:/var/lib/mysql -v backup:/data --privileged --name<span class="token operator">=</span>node2 --net<span class="token operator">=</span>net1 --ip <span class="token number">172.18</span>.0.3 pxc
+<span class="token comment">#创建第3个MySQL节点</span>
+docker run -d -p <span class="token number">3308</span>:3306 -e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>abc123456 -e <span class="token assign-left variable">CLUSTER_NAME</span><span class="token operator">=</span>PXC -e <span class="token assign-left variable">XTRABACKUP_PASSWORD</span><span class="token operator">=</span>abc123456 -e <span class="token assign-left variable">CLUSTER_JOIN</span><span class="token operator">=</span>node1 -v v3:/var/lib/mysql --privileged --name<span class="token operator">=</span>node3 --net<span class="token operator">=</span>net1 --ip <span class="token number">172.18</span>.0.4 pxc
+<span class="token comment">#创建第4个MySQL节点</span>
+docker run -d -p <span class="token number">3309</span>:3306 -e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>abc123456 -e <span class="token assign-left variable">CLUSTER_NAME</span><span class="token operator">=</span>PXC -e <span class="token assign-left variable">XTRABACKUP_PASSWORD</span><span class="token operator">=</span>abc123456 -e <span class="token assign-left variable">CLUSTER_JOIN</span><span class="token operator">=</span>node1 -v v4:/var/lib/mysql --privileged --name<span class="token operator">=</span>node4 --net<span class="token operator">=</span>net1 --ip <span class="token number">172.18</span>.0.5 pxc
+<span class="token comment">#创建第5个MySQL节点</span>
+docker run -d -p <span class="token number">3310</span>:3306 -e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>abc123456 -e <span class="token assign-left variable">CLUSTER_NAME</span><span class="token operator">=</span>PXC -e <span class="token assign-left variable">XTRABACKUP_PASSWORD</span><span class="token operator">=</span>abc123456 -e <span class="token assign-left variable">CLUSTER_JOIN</span><span class="token operator">=</span>node1 -v v5:/var/lib/mysql -v backup:/data --privileged --name<span class="token operator">=</span>node5 --net<span class="token operator">=</span>net1 --ip <span class="token number">172.18</span>.0.6 pxc
+</code></pre></div></li> <li><p>安装Haproxy镜像</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker pull haproxy
+</code></pre></div></li> <li><p>宿主机上编写Haproxy配置文件</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">vi</span> /home/soft/haproxy.cfg
+</code></pre></div><p>配置文件如下：</p> <div class="language-properties extra-class"><pre class="language-properties"><code>global
+<span class="token comment">	#工作目录</span>
+<span class="token attr-name">	chroot</span> <span class="token attr-value">/usr/local/etc/haproxy</span>
+<span class="token comment">	#日志文件，使用rsyslog服务中local5日志设备（/var/log/local5），等级info</span>
+<span class="token attr-name">	log</span> <span class="token attr-value">127.0.0.1 local5 info</span>
+<span class="token comment">	#守护进程运行</span>
+	daemon
+
+defaults
+	log	global
+	mode	http
+<span class="token comment">	#日志格式</span>
+	option	httplog
+<span class="token comment">	#日志中不记录负载均衡的心跳检测记录</span>
+	option	dontlognull
+<span class="token comment">    #连接超时（毫秒）</span>
+<span class="token attr-name">	timeout</span> <span class="token attr-value">connect 5000</span>
+<span class="token comment">    #客户端超时（毫秒）</span>
+<span class="token attr-name">	timeout</span> <span class="token attr-value">client  50000</span>
+<span class="token comment">	#服务器超时（毫秒）</span>
+<span class="token attr-name">    timeout</span> <span class="token attr-value">server  50000</span>
+
+<span class="token comment">#监控界面	</span>
+<span class="token attr-name">listen</span> <span class="token attr-value"> admin_stats</span>
+<span class="token comment">	#监控界面的访问的IP和端口</span>
+<span class="token attr-name">	bind</span> <span class="token attr-value"> 0.0.0.0:8888</span>
+<span class="token comment">	#访问协议</span>
+<span class="token attr-name">    mode</span> <span class="token attr-value">       http</span>
+<span class="token comment">	#URI相对地址</span>
+<span class="token attr-name">    stats</span> <span class="token attr-value">uri   /dbs</span>
+<span class="token comment">	#统计报告格式</span>
+<span class="token attr-name">    stats</span> <span class="token attr-value">realm     Global\ statistics</span>
+<span class="token comment">	#登陆帐户信息</span>
+<span class="token attr-name">    stats</span> <span class="token attr-value">auth  admin:abc123456</span>
+<span class="token comment">#数据库负载均衡</span>
+<span class="token attr-name">listen</span> <span class="token attr-value"> proxy-mysql</span>
+<span class="token comment">	#访问的IP和端口</span>
+<span class="token attr-name">	bind</span> <span class="token attr-value"> 0.0.0.0:3306  </span>
+<span class="token comment">    #网络协议</span>
+<span class="token attr-name">	mode</span> <span class="token attr-value"> tcp</span>
+<span class="token comment">	#负载均衡算法（轮询算法）</span>
+<span class="token comment">	#轮询算法：roundrobin</span>
+<span class="token comment">	#权重算法：static-rr</span>
+<span class="token comment">	#最少连接算法：leastconn</span>
+<span class="token comment">	#请求源IP算法：source </span>
+<span class="token attr-name">    balance</span> <span class="token attr-value"> roundrobin</span>
+<span class="token comment">	#日志格式</span>
+<span class="token attr-name">    option</span> <span class="token attr-value"> tcplog</span>
+<span class="token comment">	#在MySQL中创建一个没有权限的haproxy用户，密码为空。Haproxy使用这个账户对MySQL数据库心跳检测</span>
+<span class="token attr-name">    option</span> <span class="token attr-value"> mysql-check user haproxy</span>
+<span class="token attr-name">    server</span> <span class="token attr-value"> MySQL_1 172.18.0.2:3306 check weight 1 maxconn 2000  </span>
+<span class="token attr-name">    server</span> <span class="token attr-value"> MySQL_2 172.18.0.3:3306 check weight 1 maxconn 2000  </span>
+<span class="token attr-name">	server</span> <span class="token attr-value"> MySQL_3 172.18.0.4:3306 check weight 1 maxconn 2000 </span>
+<span class="token attr-name">	server</span> <span class="token attr-value"> MySQL_4 172.18.0.5:3306 check weight 1 maxconn 2000</span>
+<span class="token attr-name">	server</span> <span class="token attr-value"> MySQL_5 172.18.0.6:3306 check weight 1 maxconn 2000</span>
+<span class="token comment">	#使用keepalive检测死链</span>
+<span class="token attr-name">    option</span> <span class="token attr-value"> tcpka  </span>
+</code></pre></div></li> <li><p>创建两个Haproxy容器</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#创建第1个Haproxy负载均衡服务器</span>
+docker run -it -d -p <span class="token number">4001</span>:8888 -p <span class="token number">4002</span>:3306 -v /home/soft/haproxy:/usr/local/etc/haproxy --name h1 --privileged --net<span class="token operator">=</span>net1 --ip <span class="token number">172.18</span>.0.7 haproxy
+<span class="token comment">#进入h1容器，启动Haproxy</span>
+docker <span class="token builtin class-name">exec</span> -it h1 <span class="token function">bash</span>
+haproxy -f /usr/local/etc/haproxy/haproxy.cfg
+<span class="token comment">#创建第2个Haproxy负载均衡服务器</span>
+docker run -it -d -p <span class="token number">4003</span>:8888 -p <span class="token number">4004</span>:3306 -v /home/soft/haproxy:/usr/local/etc/haproxy --name h2 --privileged --net<span class="token operator">=</span>net1 --ip <span class="token number">172.18</span>.0.8 haproxy
+<span class="token comment">#进入h2容器，启动Haproxy</span>
+docker <span class="token builtin class-name">exec</span> -it h2 <span class="token function">bash</span>
+haproxy -f /usr/local/etc/haproxy/haproxy.cfg
+</code></pre></div></li> <li><p>Haproxy容器内安装Keepalived，设置虚拟IP</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#进入h1容器</span>
+docker <span class="token builtin class-name">exec</span> -it h1 <span class="token function">bash</span>
+<span class="token comment">#更新软件包</span>
+<span class="token function">apt-get</span> update
+<span class="token comment">#安装VIM</span>
+<span class="token function">apt-get</span> <span class="token function">install</span> <span class="token function">vim</span>
+<span class="token comment">#安装Keepalived</span>
+<span class="token function">apt-get</span> <span class="token function">install</span> keepalived
+<span class="token comment">#编辑Keepalived配置文件（参考下方配置文件）</span>
+<span class="token function">vim</span> /etc/keepalived/keepalived.conf
+<span class="token comment">#启动Keepalived</span>
+<span class="token function">service</span> keepalived start
+<span class="token comment">#宿主机执行ping命令</span>
+<span class="token function">ping</span> <span class="token number">172.18</span>.0.201
+</code></pre></div><p>配置文件内容如下：</p> <div class="language- extra-class"><pre class="language-text"><code>vrrp_instance  VI_1 {
+    state  MASTER
+    interface  eth0
+    virtual_router_id  51
+    priority  100
+    advert_int  1
+    authentication {
+        auth_type  PASS
+        auth_pass  123456
+    }
+    virtual_ipaddress {
+        172.18.0.201
+    }
+}
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#进入h2容器</span>
+docker <span class="token builtin class-name">exec</span> -it h2 <span class="token function">bash</span>
+<span class="token comment">#更新软件包</span>
+<span class="token function">apt-get</span> update
+<span class="token comment">#安装VIM</span>
+<span class="token function">apt-get</span> <span class="token function">install</span> <span class="token function">vim</span>
+<span class="token comment">#安装Keepalived</span>
+<span class="token function">apt-get</span> <span class="token function">install</span> keepalived
+<span class="token comment">#编辑Keepalived配置文件</span>
+<span class="token function">vim</span> /etc/keepalived/keepalived.conf
+<span class="token comment">#启动Keepalived</span>
+<span class="token function">service</span> keepalived start
+<span class="token comment">#宿主机执行ping命令</span>
+<span class="token function">ping</span> <span class="token number">172.18</span>.0.201
+</code></pre></div><p>配置文件内容如下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>vrrp_instance  VI_1 <span class="token punctuation">{</span>
+    state  MASTER
+    interface  eth0
+    virtual_router_id  <span class="token number">51</span>
+    priority  <span class="token number">100</span>
+    advert_int  <span class="token number">1</span>
+    authentication <span class="token punctuation">{</span>
+        auth_type  PASS
+        auth_pass  <span class="token number">123456</span>
+    <span class="token punctuation">}</span>
+    virtual_ipaddress <span class="token punctuation">{</span>
+        <span class="token number">172.18</span>.0.201
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>宿主机安装Keepalived，实现双击热备</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#宿主机执行安装Keepalived</span>
+yum -y <span class="token function">install</span> keepalived
+<span class="token comment">#修改Keepalived配置文件</span>
+<span class="token function">vi</span> /etc/keepalived/keepalived.conf
+<span class="token comment">#启动Keepalived</span>
+<span class="token function">service</span> keepalived start
+</code></pre></div><p>Keepalived配置文件如下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>vrrp_instance VI_1 <span class="token punctuation">{</span>
+    state MASTER
+    interface ens33
+    virtual_router_id <span class="token number">51</span>
+    priority <span class="token number">100</span>
+    advert_int <span class="token number">1</span>
+    authentication <span class="token punctuation">{</span>
+        auth_type PASS
+        auth_pass <span class="token number">1111</span>
+    <span class="token punctuation">}</span>
+    virtual_ipaddress <span class="token punctuation">{</span>
+       	<span class="token number">192.168</span>.99.150
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+virtual_server <span class="token number">192.168</span>.99.150 <span class="token number">8888</span> <span class="token punctuation">{</span>
+    delay_loop <span class="token number">3</span>
+    lb_algo rr 
+    lb_kind NAT
+    persistence_timeout <span class="token number">50</span>
+    protocol TCP
+
+    real_server <span class="token number">172.18</span>.0.201 <span class="token number">8888</span> <span class="token punctuation">{</span>
+        weight <span class="token number">1</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+virtual_server <span class="token number">192.168</span>.99.150 <span class="token number">3306</span> <span class="token punctuation">{</span>
+    delay_loop <span class="token number">3</span>
+    lb_algo rr 
+    lb_kind NAT
+    persistence_timeout <span class="token number">50</span>
+    protocol TCP
+
+    real_server <span class="token number">172.18</span>.0.201 <span class="token number">3306</span> <span class="token punctuation">{</span>
+        weight <span class="token number">1</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>热备份数据</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#进入node1容器</span>
+docker <span class="token builtin class-name">exec</span> -it node1 <span class="token function">bash</span>
+<span class="token comment">#更新软件包</span>
+<span class="token function">apt-get</span> update
+<span class="token comment">#安装热备工具</span>
+<span class="token function">apt-get</span> <span class="token function">install</span> percona-xtrabackup-24
+<span class="token comment">#全量热备</span>
+innobackupex --user<span class="token operator">=</span>root --password<span class="token operator">=</span>abc123456 /data/backup/full
+</code></pre></div></li> <li><p>冷还原数据
+停止其余4个节点，并删除节点</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker stop node2
+docker stop node3
+docker stop node4
+docker stop node5
+docker <span class="token function">rm</span> node2
+docker <span class="token function">rm</span> node3
+docker <span class="token function">rm</span> node4
+docker <span class="token function">rm</span> node5
+</code></pre></div><p>node1容器中删除MySQL的数据</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#删除数据</span>
+<span class="token function">rm</span> -rf /var/lib/mysql/*
+<span class="token comment">#清空事务</span>
+innobackupex --user<span class="token operator">=</span>root --password<span class="token operator">=</span>abc123456 --apply-back /data/backup/full/2018-04-15_05-09-07/
+<span class="token comment">#还原数据</span>
+innobackupex --user<span class="token operator">=</span>root --password<span class="token operator">=</span>abc123456 --copy-back  /data/backup/full/2018-04-15_05-09-07/
+</code></pre></div><p>重新创建其余4个节点，组件PXC集群</p></li></ol> <h2 id="安装redis，配置rediscluster集群"><a href="#安装redis，配置rediscluster集群" class="header-anchor">#</a> 安装Redis，配置RedisCluster集群</h2> <ol><li><p>安装Redis镜像</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker pull yyyyttttwwww/redis
+</code></pre></div></li> <li><p>创建net2网段</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker network create --subnet<span class="token operator">=</span><span class="token number">172.19</span>.0.0/16 net2
+</code></pre></div></li> <li><p>创建6节点Redis容器</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker run -it -d --name r1 -p <span class="token number">5001</span>:6379 --net<span class="token operator">=</span>net2 --ip <span class="token number">172.19</span>.0.2 redis <span class="token function">bash</span>
+docker run -it -d --name r2 -p <span class="token number">5002</span>:6379 --net<span class="token operator">=</span>net2 --ip <span class="token number">172.19</span>.0.3 redis <span class="token function">bash</span>
+docker run -it -d --name r3 -p <span class="token number">5003</span>:6379 --net<span class="token operator">=</span>net2 --ip <span class="token number">172.19</span>.0.4 redis <span class="token function">bash</span>
+docker run -it -d --name r4 -p <span class="token number">5004</span>:6379 --net<span class="token operator">=</span>net2 --ip <span class="token number">172.19</span>.0.5 redis <span class="token function">bash</span>
+docker run -it -d --name r5 -p <span class="token number">5005</span>:6379 --net<span class="token operator">=</span>net2 --ip <span class="token number">172.19</span>.0.6 redis <span class="token function">bash</span>
+</code></pre></div></li> <li><p>启动6节点Redis服务器</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#进入r1节点</span>
+docker <span class="token builtin class-name">exec</span> -it r1 <span class="token function">bash</span>
+<span class="token function">cp</span> /home/redis/redis.conf /usr/redis/redis.conf
+<span class="token builtin class-name">cd</span> /usr/redis/src
+./redis-server <span class="token punctuation">..</span>/redis.conf
+<span class="token comment">#进入r2节点</span>
+docker <span class="token builtin class-name">exec</span> -it r2 <span class="token function">bash</span>
+<span class="token function">cp</span> /home/redis/redis.conf /usr/redis/redis.conf
+<span class="token builtin class-name">cd</span> /usr/redis/src
+./redis-server <span class="token punctuation">..</span>/redis.conf
+<span class="token comment">#进入r3节点</span>
+docker <span class="token builtin class-name">exec</span> -it r3 <span class="token function">bash</span>
+<span class="token function">cp</span> /home/redis/redis.conf /usr/redis/redis.conf
+<span class="token builtin class-name">cd</span> /usr/redis/src
+./redis-server <span class="token punctuation">..</span>/redis.conf
+<span class="token comment">#进入r4节点</span>
+docker <span class="token builtin class-name">exec</span> -it r4 <span class="token function">bash</span>
+<span class="token function">cp</span> /home/redis/redis.conf /usr/redis/redis.conf
+<span class="token builtin class-name">cd</span> /usr/redis/src
+./redis-server <span class="token punctuation">..</span>/redis.conf
+<span class="token comment">#进入r5节点</span>
+docker <span class="token builtin class-name">exec</span> -it r5 <span class="token function">bash</span>
+<span class="token function">cp</span> /home/redis/redis.conf /usr/redis/redis.conf
+<span class="token builtin class-name">cd</span> /usr/redis/src
+./redis-server <span class="token punctuation">..</span>/redis.conf
+<span class="token comment">#进入r6节点</span>
+docker <span class="token builtin class-name">exec</span> -it r6 <span class="token function">bash</span>
+<span class="token function">cp</span> /home/redis/redis.conf /usr/redis/redis.conf
+<span class="token builtin class-name">cd</span> /usr/redis/src
+./redis-server <span class="token punctuation">..</span>/redis.conf
+</code></pre></div></li> <li><p>创建Cluster集群</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#在r1节点上执行下面的指令</span>
+<span class="token builtin class-name">cd</span> /usr/redis/src
+<span class="token function">mkdir</span> -p <span class="token punctuation">..</span>/cluster
+<span class="token function">cp</span> redis-trib.rb <span class="token punctuation">..</span>/cluster/
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>/cluster
+<span class="token comment">#创建Cluster集群</span>
+./redis-trib.rb create --replicas <span class="token number">1</span> <span class="token number">172.19</span>.0.2:6379 <span class="token number">172.19</span>.0.3:6379 <span class="token number">172.19</span>.0.4:6379 <span class="token number">172.19</span>.0.5:6379 <span class="token number">172.19</span>.0.6:6379 <span class="token number">172.19</span>.0.7:6379
+</code></pre></div></li></ol> <h2 id="打包部署后端项目"><a href="#打包部署后端项目" class="header-anchor">#</a> 打包部署后端项目</h2> <ol><li><p>进入人人开源后端项目，执行打包（修改配置文件，更改端口，打包三次生成三个JAR文件）</p> <div class="language-shell extra-class"><pre class="language-shell"><code>mvn clean <span class="token function">install</span> -Dmaven.test.skip<span class="token operator">=</span>true
+</code></pre></div></li> <li><p>安装Java镜像</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker pull java
+</code></pre></div></li> <li><p>创建3节点Java容器</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#创建数据卷，上传JAR文件</span>
+docker volume create j1
+<span class="token comment">#启动容器</span>
+docker run -it -d --name j1 -v j1:/home/soft --net<span class="token operator">=</span>host java
+<span class="token comment">#进入j1容器</span>
+docker <span class="token builtin class-name">exec</span> -it j1 <span class="token function">bash</span>
+<span class="token comment">#启动Java项目</span>
+<span class="token function">nohup</span> java -jar /home/soft/renren-fast.jar
+
+<span class="token comment">#创建数据卷，上传JAR文件</span>
+docker volume create j2
+<span class="token comment">#启动容器</span>
+docker run -it -d --name j2 -v j2:/home/soft --net<span class="token operator">=</span>host java
+<span class="token comment">#进入j1容器</span>
+docker <span class="token builtin class-name">exec</span> -it j2 <span class="token function">bash</span>
+<span class="token comment">#启动Java项目</span>
+<span class="token function">nohup</span> java -jar /home/soft/renren-fast.jar
+
+<span class="token comment">#创建数据卷，上传JAR文件</span>
+docker volume create j3
+<span class="token comment">#启动容器</span>
+docker run -it -d --name j3 -v j3:/home/soft --net<span class="token operator">=</span>host java
+<span class="token comment">#进入j1容器</span>
+docker <span class="token builtin class-name">exec</span> -it j3 <span class="token function">bash</span>
+<span class="token comment">#启动Java项目</span>
+<span class="token function">nohup</span> java -jar /home/soft/renren-fast.jar
+</code></pre></div></li> <li><p>安装Nginx镜像</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker pull nginx
+</code></pre></div></li> <li><p>创建Nginx容器，配置负载均衡</p> <p>宿主机上/home/n1/nginx.conf配置文件内容如下：</p> <div class="language-properties extra-class"><pre class="language-properties"><code><span class="token attr-name">user</span> <span class="token attr-value"> nginx;</span>
+<span class="token attr-name">worker_processes</span> <span class="token attr-value"> 1;</span>
+<span class="token attr-name">error_log</span> <span class="token attr-value"> /var/log/nginx/error.log warn;</span>
+<span class="token attr-name">pid</span> <span class="token attr-value">       /var/run/nginx.pid;</span>
+
+<span class="token attr-name">events</span> <span class="token attr-value">{</span>
+<span class="token attr-name">    worker_connections</span> <span class="token attr-value"> 1024;</span>
+}
+
+<span class="token attr-name">http</span> <span class="token attr-value">{</span>
+<span class="token attr-name">    include</span> <span class="token attr-value">      /etc/nginx/mime.types;</span>
+<span class="token attr-name">    default_type</span> <span class="token attr-value"> application/octet-stream;</span>
+
+<span class="token attr-name">    log_format</span> <span class="token attr-value"> main  '$remote_addr - $remote_user [$time_local] &quot;$request&quot; '</span>
+<span class="token attr-name">                      '$status</span> <span class="token attr-value">$body_bytes_sent &quot;$http_referer&quot; '</span>
+<span class="token attr-name">                      '&quot;$http_user_agent&quot;</span> <span class="token attr-value">&quot;$http_x_forwarded_for&quot;';</span>
+
+<span class="token attr-name">    access_log</span> <span class="token attr-value"> /var/log/nginx/access.log  main;</span>
+
+<span class="token attr-name">    sendfile</span> <span class="token attr-value">       on;</span>
+<span class="token comment">    #tcp_nopush     on;</span>
+
+<span class="token attr-name">    keepalive_timeout</span> <span class="token attr-value"> 65;</span>
+
+<span class="token comment">    #gzip  on;</span>
+	
+<span class="token attr-name">	proxy_redirect</span> <span class="token attr-value">         off;</span>
+<span class="token attr-name">	proxy_set_header</span> <span class="token attr-value">       Host $host;</span>
+<span class="token attr-name">	proxy_set_header</span> <span class="token attr-value">       X-Real-IP $remote_addr;</span>
+<span class="token attr-name">	proxy_set_header</span> <span class="token attr-value">       X-Forwarded-For $proxy_add_x_forwarded_for;</span>
+<span class="token attr-name">	client_max_body_size</span> <span class="token attr-value">   10m;</span>
+<span class="token attr-name">	client_body_buffer_size</span> <span class="token attr-value">  128k;</span>
+<span class="token attr-name">	proxy_connect_timeout</span> <span class="token attr-value">  5s;</span>
+<span class="token attr-name">	proxy_send_timeout</span> <span class="token attr-value">     5s;</span>
+<span class="token attr-name">	proxy_read_timeout</span> <span class="token attr-value">     5s;</span>
+<span class="token attr-name">	proxy_buffer_size</span> <span class="token attr-value">       4k;</span>
+<span class="token attr-name">	proxy_buffers</span> <span class="token attr-value">          4 32k;</span>
+<span class="token attr-name">	proxy_busy_buffers_size</span> <span class="token attr-value"> 64k;</span>
+<span class="token attr-name">	proxy_temp_file_write_size</span> <span class="token attr-value">64k;</span>
+	
+<span class="token attr-name">	upstream</span> <span class="token attr-value">tomcat {</span>
+<span class="token attr-name">		server</span> <span class="token attr-value">192.168.99.104:6001;</span>
+<span class="token attr-name">		server</span> <span class="token attr-value">192.168.99.104:6002;</span>
+<span class="token attr-name">		server</span> <span class="token attr-value">192.168.99.104:6003;</span>
+	}
+<span class="token attr-name">	server</span> <span class="token attr-value">{</span>
+<span class="token attr-name">        listen</span> <span class="token attr-value">      6101;</span>
+<span class="token attr-name">        server_name</span> <span class="token attr-value"> 192.168.99.104; </span>
+<span class="token attr-name">        location</span> <span class="token attr-value">/ {  </span>
+<span class="token attr-name">            proxy_pass</span> <span class="token attr-value">  http://tomcat;</span>
+<span class="token attr-name">            index</span> <span class="token attr-value"> index.html index.htm;  </span>
+<span class="token attr-name">        }</span> <span class="token attr-value"> </span>
+    }
+}
+</code></pre></div><p>创建第1个Nginx节点</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker run -it -d --name n1 -v /home/n1/nginx.conf:/etc/nginx/nginx.conf --net<span class="token operator">=</span>host --privileged nginx
+
+</code></pre></div><p>宿主机上/home/n2/nginx.conf配置文件内容如下：</p> <div class="language-properties extra-class"><pre class="language-properties"><code><span class="token attr-name">user</span> <span class="token attr-value"> nginx;</span>
+<span class="token attr-name">worker_processes</span> <span class="token attr-value"> 1;</span>
+<span class="token attr-name">error_log</span> <span class="token attr-value"> /var/log/nginx/error.log warn;</span>
+<span class="token attr-name">pid</span> <span class="token attr-value">       /var/run/nginx.pid;</span>
+
+<span class="token attr-name">events</span> <span class="token attr-value">{</span>
+<span class="token attr-name">    worker_connections</span> <span class="token attr-value"> 1024;</span>
+}
+
+<span class="token attr-name">http</span> <span class="token attr-value">{</span>
+<span class="token attr-name">    include</span> <span class="token attr-value">      /etc/nginx/mime.types;</span>
+<span class="token attr-name">    default_type</span> <span class="token attr-value"> application/octet-stream;</span>
+
+<span class="token attr-name">    log_format</span> <span class="token attr-value"> main  '$remote_addr - $remote_user [$time_local] &quot;$request&quot; '</span>
+<span class="token attr-name">                      '$status</span> <span class="token attr-value">$body_bytes_sent &quot;$http_referer&quot; '</span>
+<span class="token attr-name">                      '&quot;$http_user_agent&quot;</span> <span class="token attr-value">&quot;$http_x_forwarded_for&quot;';</span>
+
+<span class="token attr-name">    access_log</span> <span class="token attr-value"> /var/log/nginx/access.log  main;</span>
+
+<span class="token attr-name">    sendfile</span> <span class="token attr-value">       on;</span>
+<span class="token comment">    #tcp_nopush     on;</span>
+
+<span class="token attr-name">    keepalive_timeout</span> <span class="token attr-value"> 65;</span>
+
+<span class="token comment">    #gzip  on;</span>
+	
+<span class="token attr-name">	proxy_redirect</span> <span class="token attr-value">         off;</span>
+<span class="token attr-name">	proxy_set_header</span> <span class="token attr-value">       Host $host;</span>
+<span class="token attr-name">	proxy_set_header</span> <span class="token attr-value">       X-Real-IP $remote_addr;</span>
+<span class="token attr-name">	proxy_set_header</span> <span class="token attr-value">       X-Forwarded-For $proxy_add_x_forwarded_for;</span>
+<span class="token attr-name">	client_max_body_size</span> <span class="token attr-value">   10m;</span>
+<span class="token attr-name">	client_body_buffer_size</span> <span class="token attr-value">  128k;</span>
+<span class="token attr-name">	proxy_connect_timeout</span> <span class="token attr-value">  5s;</span>
+<span class="token attr-name">	proxy_send_timeout</span> <span class="token attr-value">     5s;</span>
+<span class="token attr-name">	proxy_read_timeout</span> <span class="token attr-value">     5s;</span>
+<span class="token attr-name">	proxy_buffer_size</span> <span class="token attr-value">       4k;</span>
+<span class="token attr-name">	proxy_buffers</span> <span class="token attr-value">          4 32k;</span>
+<span class="token attr-name">	proxy_busy_buffers_size</span> <span class="token attr-value"> 64k;</span>
+<span class="token attr-name">	proxy_temp_file_write_size</span> <span class="token attr-value">64k;</span>
+	
+<span class="token attr-name">	upstream</span> <span class="token attr-value">tomcat {</span>
+<span class="token attr-name">		server</span> <span class="token attr-value">192.168.99.104:6001;</span>
+<span class="token attr-name">		server</span> <span class="token attr-value">192.168.99.104:6002;</span>
+<span class="token attr-name">		server</span> <span class="token attr-value">192.168.99.104:6003;</span>
+	}
+<span class="token attr-name">	server</span> <span class="token attr-value">{</span>
+<span class="token attr-name">        listen</span> <span class="token attr-value">      6102;</span>
+<span class="token attr-name">        server_name</span> <span class="token attr-value"> 192.168.99.104; </span>
+<span class="token attr-name">        location</span> <span class="token attr-value">/ {  </span>
+<span class="token attr-name">            proxy_pass</span> <span class="token attr-value">  http://tomcat;</span>
+<span class="token attr-name">            index</span> <span class="token attr-value"> index.html index.htm;  </span>
+<span class="token attr-name">        }</span> <span class="token attr-value"> </span>
+    }
+}
+</code></pre></div><p>创建第2个Nginx节点</p> <div class="language-shell extra-class"><pre class="language-shell"><code>docker run -it -d --name n2 -v /home/n2/nginx.conf:/etc/nginx/nginx.conf --net<span class="token operator">=</span>host --privileged nginx
+</code></pre></div></li> <li><p>在Nginx容器安装Keepalived</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#进入n1节点</span>
+docker <span class="token builtin class-name">exec</span> -it n1 <span class="token function">bash</span>
+<span class="token comment">#更新软件包</span>
+<span class="token function">apt-get</span> update
+<span class="token comment">#安装VIM</span>
+<span class="token function">apt-get</span> <span class="token function">install</span> <span class="token function">vim</span>
+<span class="token comment">#安装Keepalived</span>
+<span class="token function">apt-get</span> <span class="token function">install</span> keepalived
+<span class="token comment">#编辑Keepalived配置文件(如下)</span>
+<span class="token function">vim</span> /etc/keepalived/keepalived.conf
+<span class="token comment">#启动Keepalived</span>
+<span class="token function">service</span> keepalived start
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>vrrp_instance VI_1 {
+    state MASTER
+    interface ens33
+    virtual_router_id 51
+    priority 100
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass 123456
+    }
+    virtual_ipaddress {
+        192.168.99.151
+    }
+}
+virtual_server 192.168.99.151 6201 {
+    delay_loop 3
+    lb_algo rr
+    lb_kind NAT
+    persistence_timeout 50
+    protocol TCP
+    real_server 192.168.99.104 6101 {
+        weight 1
+    }
+}
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#进入n1节点</span>
+docker <span class="token builtin class-name">exec</span> -it n2 <span class="token function">bash</span>
+<span class="token comment">#更新软件包</span>
+<span class="token function">apt-get</span> update
+<span class="token comment">#安装VIM</span>
+<span class="token function">apt-get</span> <span class="token function">install</span> <span class="token function">vim</span>
+<span class="token comment">#安装Keepalived</span>
+<span class="token function">apt-get</span> <span class="token function">install</span> keepalived
+<span class="token comment">#编辑Keepalived配置文件(如下)</span>
+<span class="token function">vim</span> /etc/keepalived/keepalived.conf
+<span class="token comment">#启动Keepalived</span>
+<span class="token function">service</span> keepalived start
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code>vrrp_instance VI_1 <span class="token punctuation">{</span>
+    state MASTER
+    interface ens33
+    virtual_router_id <span class="token number">51</span>
+    priority <span class="token number">100</span>
+    advert_int <span class="token number">1</span>
+    authentication <span class="token punctuation">{</span>
+        auth_type PASS
+        auth_pass <span class="token number">123456</span>
+    <span class="token punctuation">}</span>
+    virtual_ipaddress <span class="token punctuation">{</span>
+        <span class="token number">192.168</span>.99.151
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+virtual_server <span class="token number">192.168</span>.99.151 <span class="token number">6201</span> <span class="token punctuation">{</span>
+    delay_loop <span class="token number">3</span>
+    lb_algo rr
+    lb_kind NAT
+    persistence_timeout <span class="token number">50</span>
+    protocol TCP
+    real_server <span class="token number">192.168</span>.99.104 <span class="token number">6102</span> <span class="token punctuation">{</span>
+        weight <span class="token number">1</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ol> <h2 id="打包部署后端项目-2"><a href="#打包部署后端项目-2" class="header-anchor">#</a> 打包部署后端项目</h2> <ol><li><p>在前端项目路径下执行打包指令</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">npm</span> run build
+</code></pre></div></li> <li><p>build目录的文件拷贝到宿主机的/home/fn1/renren-vue、/home/fn2/renren-vue、/home/fn3/renren-vue的目录下面</p></li> <li><p>创建3节点的Nginx，部署前端项目</p> <p>宿主机/home/fn1/nginx.conf的配置文件</p> <div class="language- extra-class"><pre class="language-text"><code>user  nginx;
+worker_processes  1;
+error_log  /var/log/nginx/error.log warn;
+pid        /var/run/nginx.pid;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] &quot;$request&quot; '
+                      '$status $body_bytes_sent &quot;$http_referer&quot; '
+                      '&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  65;
+
+    #gzip  on;
+	
+	proxy_redirect          off;
+	proxy_set_header        Host $host;
+	proxy_set_header        X-Real-IP $remote_addr;
+	proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+	client_max_body_size    10m;
+	client_body_buffer_size   128k;
+	proxy_connect_timeout   5s;
+	proxy_send_timeout      5s;
+	proxy_read_timeout      5s;
+	proxy_buffer_size        4k;
+	proxy_buffers           4 32k;
+	proxy_busy_buffers_size  64k;
+	proxy_temp_file_write_size 64k;
+	
+	server {
+		listen 6501;
+		server_name  192.168.99.104;
+		location  /  {
+			root  /home/fn1/renren-vue;
+			index  index.html;
+		}
+	}
+}
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#启动第fn1节点</span>
+docker run -it -d --name fn1 -v /home/fn1/nginx.conf:/etc/nginx/nginx.conf -v /home/fn1/renren-vue:/home/fn1/renren-vue --privileged --net<span class="token operator">=</span>host nginx
+</code></pre></div><p>宿主机/home/fn2/nginx.conf的配置文件</p> <div class="language-shell extra-class"><pre class="language-shell"><code>user  nginx<span class="token punctuation">;</span>
+worker_processes  <span class="token number">1</span><span class="token punctuation">;</span>
+error_log  /var/log/nginx/error.log warn<span class="token punctuation">;</span>
+pid        /var/run/nginx.pid<span class="token punctuation">;</span>
+
+events <span class="token punctuation">{</span>
+    worker_connections  <span class="token number">1024</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+http <span class="token punctuation">{</span>
+    include       /etc/nginx/mime.types<span class="token punctuation">;</span>
+    default_type  application/octet-stream<span class="token punctuation">;</span>
+
+    log_format  main  <span class="token string">'<span class="token variable">$remote_addr</span> - <span class="token variable">$remote_user</span> [<span class="token variable">$time_local</span>] &quot;<span class="token variable">$request</span>&quot; '</span>
+                      <span class="token string">'<span class="token variable">$status</span> <span class="token variable">$body_bytes_sent</span> &quot;<span class="token variable">$http_referer</span>&quot; '</span>
+                      <span class="token string">'&quot;<span class="token variable">$http_user_agent</span>&quot; &quot;<span class="token variable">$http_x_forwarded_for</span>&quot;'</span><span class="token punctuation">;</span>
+
+    access_log  /var/log/nginx/access.log  main<span class="token punctuation">;</span>
+
+    sendfile        on<span class="token punctuation">;</span>
+    <span class="token comment">#tcp_nopush     on;</span>
+
+    keepalive_timeout  <span class="token number">65</span><span class="token punctuation">;</span>
+
+    <span class="token comment">#gzip  on;</span>
+	
+	proxy_redirect          off<span class="token punctuation">;</span>
+	proxy_set_header        Host <span class="token variable">$host</span><span class="token punctuation">;</span>
+	proxy_set_header        X-Real-IP <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+	proxy_set_header        X-Forwarded-For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+	client_max_body_size    10m<span class="token punctuation">;</span>
+	client_body_buffer_size   128k<span class="token punctuation">;</span>
+	proxy_connect_timeout   5s<span class="token punctuation">;</span>
+	proxy_send_timeout      5s<span class="token punctuation">;</span>
+	proxy_read_timeout      5s<span class="token punctuation">;</span>
+	proxy_buffer_size        4k<span class="token punctuation">;</span>
+	proxy_buffers           <span class="token number">4</span> 32k<span class="token punctuation">;</span>
+	proxy_busy_buffers_size  64k<span class="token punctuation">;</span>
+	proxy_temp_file_write_size 64k<span class="token punctuation">;</span>
+	
+	server <span class="token punctuation">{</span>
+		listen <span class="token number">6502</span><span class="token punctuation">;</span>
+		server_name  <span class="token number">192.168</span>.99.104<span class="token punctuation">;</span>
+		location  /  <span class="token punctuation">{</span>
+			root  /home/fn2/renren-vue<span class="token punctuation">;</span>
+			index  index.html<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#启动第fn2节点</span>
+docker run -it -d --name fn2 -v /home/fn2/nginx.conf:/etc/nginx/nginx.conf -v /home/fn2/renren-vue:/home/fn2/renren-vue --privileged --net<span class="token operator">=</span>host nginx
+</code></pre></div><p>宿主机/home/fn3/nginx.conf的配置文件</p> <div class="language-shell extra-class"><pre class="language-shell"><code>user  nginx<span class="token punctuation">;</span>
+worker_processes  <span class="token number">1</span><span class="token punctuation">;</span>
+error_log  /var/log/nginx/error.log warn<span class="token punctuation">;</span>
+pid        /var/run/nginx.pid<span class="token punctuation">;</span>
+
+events <span class="token punctuation">{</span>
+    worker_connections  <span class="token number">1024</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+http <span class="token punctuation">{</span>
+    include       /etc/nginx/mime.types<span class="token punctuation">;</span>
+    default_type  application/octet-stream<span class="token punctuation">;</span>
+
+    log_format  main  <span class="token string">'<span class="token variable">$remote_addr</span> - <span class="token variable">$remote_user</span> [<span class="token variable">$time_local</span>] &quot;<span class="token variable">$request</span>&quot; '</span>
+                      <span class="token string">'<span class="token variable">$status</span> <span class="token variable">$body_bytes_sent</span> &quot;<span class="token variable">$http_referer</span>&quot; '</span>
+                      <span class="token string">'&quot;<span class="token variable">$http_user_agent</span>&quot; &quot;<span class="token variable">$http_x_forwarded_for</span>&quot;'</span><span class="token punctuation">;</span>
+
+    access_log  /var/log/nginx/access.log  main<span class="token punctuation">;</span>
+
+    sendfile        on<span class="token punctuation">;</span>
+    <span class="token comment">#tcp_nopush     on;</span>
+
+    keepalive_timeout  <span class="token number">65</span><span class="token punctuation">;</span>
+
+    <span class="token comment">#gzip  on;</span>
+	
+	proxy_redirect          off<span class="token punctuation">;</span>
+	proxy_set_header        Host <span class="token variable">$host</span><span class="token punctuation">;</span>
+	proxy_set_header        X-Real-IP <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+	proxy_set_header        X-Forwarded-For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+	client_max_body_size    10m<span class="token punctuation">;</span>
+	client_body_buffer_size   128k<span class="token punctuation">;</span>
+	proxy_connect_timeout   5s<span class="token punctuation">;</span>
+	proxy_send_timeout      5s<span class="token punctuation">;</span>
+	proxy_read_timeout      5s<span class="token punctuation">;</span>
+	proxy_buffer_size        4k<span class="token punctuation">;</span>
+	proxy_buffers           <span class="token number">4</span> 32k<span class="token punctuation">;</span>
+	proxy_busy_buffers_size  64k<span class="token punctuation">;</span>
+	proxy_temp_file_write_size 64k<span class="token punctuation">;</span>
+	
+	server <span class="token punctuation">{</span>
+		listen <span class="token number">6503</span><span class="token punctuation">;</span>
+		server_name  <span class="token number">192.168</span>.99.104<span class="token punctuation">;</span>
+		location  /  <span class="token punctuation">{</span>
+			root  /home/fn3/renren-vue<span class="token punctuation">;</span>
+			index  index.html<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>启动fn3节点</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#启动第fn3节点</span>
+docker run -it -d --name fn3 -v /home/fn3/nginx.conf:/etc/nginx/nginx.conf -v /home/fn3/renren-vue:/home/fn3/renren-vue --privileged --net<span class="token operator">=</span>host nginx
+</code></pre></div></li> <li><p>配置负载均衡</p> <p>宿主机/home/ff1/nginx.conf配置文件</p> <div class="language-shell extra-class"><pre class="language-shell"><code>user  nginx<span class="token punctuation">;</span>
+worker_processes  <span class="token number">1</span><span class="token punctuation">;</span>
+error_log  /var/log/nginx/error.log warn<span class="token punctuation">;</span>
+pid        /var/run/nginx.pid<span class="token punctuation">;</span>
+
+events <span class="token punctuation">{</span>
+    worker_connections  <span class="token number">1024</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+http <span class="token punctuation">{</span>
+    include       /etc/nginx/mime.types<span class="token punctuation">;</span>
+    default_type  application/octet-stream<span class="token punctuation">;</span>
+
+    log_format  main  <span class="token string">'<span class="token variable">$remote_addr</span> - <span class="token variable">$remote_user</span> [<span class="token variable">$time_local</span>] &quot;<span class="token variable">$request</span>&quot; '</span>
+                      <span class="token string">'<span class="token variable">$status</span> <span class="token variable">$body_bytes_sent</span> &quot;<span class="token variable">$http_referer</span>&quot; '</span>
+                      <span class="token string">'&quot;<span class="token variable">$http_user_agent</span>&quot; &quot;<span class="token variable">$http_x_forwarded_for</span>&quot;'</span><span class="token punctuation">;</span>
+
+    access_log  /var/log/nginx/access.log  main<span class="token punctuation">;</span>
+
+    sendfile        on<span class="token punctuation">;</span>
+    <span class="token comment">#tcp_nopush     on;</span>
+
+    keepalive_timeout  <span class="token number">65</span><span class="token punctuation">;</span>
+
+    <span class="token comment">#gzip  on;</span>
+	
+	proxy_redirect          off<span class="token punctuation">;</span>
+	proxy_set_header        Host <span class="token variable">$host</span><span class="token punctuation">;</span>
+	proxy_set_header        X-Real-IP <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+	proxy_set_header        X-Forwarded-For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+	client_max_body_size    10m<span class="token punctuation">;</span>
+	client_body_buffer_size   128k<span class="token punctuation">;</span>
+	proxy_connect_timeout   5s<span class="token punctuation">;</span>
+	proxy_send_timeout      5s<span class="token punctuation">;</span>
+	proxy_read_timeout      5s<span class="token punctuation">;</span>
+	proxy_buffer_size        4k<span class="token punctuation">;</span>
+	proxy_buffers           <span class="token number">4</span> 32k<span class="token punctuation">;</span>
+	proxy_busy_buffers_size  64k<span class="token punctuation">;</span>
+	proxy_temp_file_write_size 64k<span class="token punctuation">;</span>
+	
+	upstream fn <span class="token punctuation">{</span>
+		server <span class="token number">192.168</span>.99.104:6501<span class="token punctuation">;</span>
+		server <span class="token number">192.168</span>.99.104:6502<span class="token punctuation">;</span>
+		server <span class="token number">192.168</span>.99.104:6503<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	server <span class="token punctuation">{</span>
+        listen       <span class="token number">6601</span><span class="token punctuation">;</span>
+        server_name  <span class="token number">192.168</span>.99.104<span class="token punctuation">;</span> 
+        location / <span class="token punctuation">{</span>  
+            proxy_pass   http://fn<span class="token punctuation">;</span>
+            index  index.html index.htm<span class="token punctuation">;</span>  
+        <span class="token punctuation">}</span>  
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#启动ff1节点</span>
+docker run -it -d --name ff1 -v /home/ff1/nginx.conf:/etc/nginx/nginx.conf --net<span class="token operator">=</span>host --privileged nginx
+</code></pre></div><p>宿主机/home/ff2/nginx.conf配置文件</p> <div class="language-shell extra-class"><pre class="language-shell"><code>user  nginx<span class="token punctuation">;</span>
+worker_processes  <span class="token number">1</span><span class="token punctuation">;</span>
+error_log  /var/log/nginx/error.log warn<span class="token punctuation">;</span>
+pid        /var/run/nginx.pid<span class="token punctuation">;</span>
+
+events <span class="token punctuation">{</span>
+    worker_connections  <span class="token number">1024</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+http <span class="token punctuation">{</span>
+    include       /etc/nginx/mime.types<span class="token punctuation">;</span>
+    default_type  application/octet-stream<span class="token punctuation">;</span>
+
+    log_format  main  <span class="token string">'<span class="token variable">$remote_addr</span> - <span class="token variable">$remote_user</span> [<span class="token variable">$time_local</span>] &quot;<span class="token variable">$request</span>&quot; '</span>
+                      <span class="token string">'<span class="token variable">$status</span> <span class="token variable">$body_bytes_sent</span> &quot;<span class="token variable">$http_referer</span>&quot; '</span>
+                      <span class="token string">'&quot;<span class="token variable">$http_user_agent</span>&quot; &quot;<span class="token variable">$http_x_forwarded_for</span>&quot;'</span><span class="token punctuation">;</span>
+
+    access_log  /var/log/nginx/access.log  main<span class="token punctuation">;</span>
+
+    sendfile        on<span class="token punctuation">;</span>
+    <span class="token comment">#tcp_nopush     on;</span>
+
+    keepalive_timeout  <span class="token number">65</span><span class="token punctuation">;</span>
+
+    <span class="token comment">#gzip  on;</span>
+	
+	proxy_redirect          off<span class="token punctuation">;</span>
+	proxy_set_header        Host <span class="token variable">$host</span><span class="token punctuation">;</span>
+	proxy_set_header        X-Real-IP <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+	proxy_set_header        X-Forwarded-For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+	client_max_body_size    10m<span class="token punctuation">;</span>
+	client_body_buffer_size   128k<span class="token punctuation">;</span>
+	proxy_connect_timeout   5s<span class="token punctuation">;</span>
+	proxy_send_timeout      5s<span class="token punctuation">;</span>
+	proxy_read_timeout      5s<span class="token punctuation">;</span>
+	proxy_buffer_size        4k<span class="token punctuation">;</span>
+	proxy_buffers           <span class="token number">4</span> 32k<span class="token punctuation">;</span>
+	proxy_busy_buffers_size  64k<span class="token punctuation">;</span>
+	proxy_temp_file_write_size 64k<span class="token punctuation">;</span>
+	
+	upstream fn <span class="token punctuation">{</span>
+		server <span class="token number">192.168</span>.99.104:6501<span class="token punctuation">;</span>
+		server <span class="token number">192.168</span>.99.104:6502<span class="token punctuation">;</span>
+		server <span class="token number">192.168</span>.99.104:6503<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	server <span class="token punctuation">{</span>
+        listen       <span class="token number">6602</span><span class="token punctuation">;</span>
+        server_name  <span class="token number">192.168</span>.99.104<span class="token punctuation">;</span> 
+        location / <span class="token punctuation">{</span>  
+            proxy_pass   http://fn<span class="token punctuation">;</span>
+            index  index.html index.htm<span class="token punctuation">;</span>  
+        <span class="token punctuation">}</span>  
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#启动ff2节点</span>
+docker run -it -d --name ff2 -v /home/ff2/nginx.conf:/etc/nginx/nginx.conf --net<span class="token operator">=</span>host --privileged nginx
+</code></pre></div></li> <li><p>配置双机热备</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#进入ff1节点</span>
+docker <span class="token builtin class-name">exec</span> -it ff1 <span class="token function">bash</span>
+<span class="token comment">#更新软件包</span>
+<span class="token function">apt-get</span> update
+<span class="token comment">#安装VIM</span>
+<span class="token function">apt-get</span> <span class="token function">install</span> <span class="token function">vim</span>
+<span class="token comment">#安装Keepalived</span>
+<span class="token function">apt-get</span> <span class="token function">install</span> keepalived
+<span class="token comment">#编辑Keepalived配置文件(如下)</span>
+<span class="token function">vim</span> /etc/keepalived/keepalived.conf
+<span class="token comment">#启动Keepalived</span>
+<span class="token function">service</span> keepalived start
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code>vrrp_instance VI_1 <span class="token punctuation">{</span>
+    state MASTER
+    interface ens33
+    virtual_router_id <span class="token number">52</span>
+    priority <span class="token number">100</span>
+    advert_int <span class="token number">1</span>
+    authentication <span class="token punctuation">{</span>
+        auth_type PASS
+        auth_pass <span class="token number">123456</span>
+    <span class="token punctuation">}</span>
+    virtual_ipaddress <span class="token punctuation">{</span>
+        <span class="token number">192.168</span>.99.152
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+virtual_server <span class="token number">192.168</span>.99.151 <span class="token number">6701</span> <span class="token punctuation">{</span>
+    delay_loop <span class="token number">3</span>
+    lb_algo rr
+    lb_kind NAT
+    persistence_timeout <span class="token number">50</span>
+    protocol TCP
+    real_server <span class="token number">192.168</span>.99.104 <span class="token number">6601</span> <span class="token punctuation">{</span>
+        weight <span class="token number">1</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#进入ff1节点</span>
+docker <span class="token builtin class-name">exec</span> -it ff2 <span class="token function">bash</span>
+<span class="token comment">#更新软件包</span>
+<span class="token function">apt-get</span> update
+<span class="token comment">#安装VIM</span>
+<span class="token function">apt-get</span> <span class="token function">install</span> <span class="token function">vim</span>
+<span class="token comment">#安装Keepalived</span>
+<span class="token function">apt-get</span> <span class="token function">install</span> keepalived
+<span class="token comment">#编辑Keepalived配置文件(如下)</span>
+<span class="token function">vim</span> /etc/keepalived/keepalived.conf
+<span class="token comment">#启动Keepalived</span>
+<span class="token function">service</span> keepalived start
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code>vrrp_instance VI_1 <span class="token punctuation">{</span>
+    state MASTER
+    interface ens33
+    virtual_router_id <span class="token number">52</span>
+    priority <span class="token number">100</span>
+    advert_int <span class="token number">1</span>
+    authentication <span class="token punctuation">{</span>
+        auth_type PASS
+        auth_pass <span class="token number">123456</span>
+    <span class="token punctuation">}</span>
+    virtual_ipaddress <span class="token punctuation">{</span>
+        <span class="token number">192.168</span>.99.152
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+virtual_server <span class="token number">192.168</span>.99.151 <span class="token number">6701</span> <span class="token punctuation">{</span>
+    delay_loop <span class="token number">3</span>
+    lb_algo rr
+    lb_kind NAT
+    persistence_timeout <span class="token number">50</span>
+    protocol TCP
+    real_server <span class="token number">192.168</span>.99.104 <span class="token number">6602</span> <span class="token punctuation">{</span>
+        weight <span class="token number">1</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ol></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/orangbus/vuepress-blog/edit/master/docs/Docker/课程脚本.md" target="_blank" rel="noopener noreferrer">帮助我们改善此页面！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">7/28/2021, 4:12:19 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Docker/traefik.html" class="prev">
+        traefik入门
+      </a></span> <!----></p></div> </main></div><div class="global-ui"><!----><div class="reading-progress top" data-v-21b39eda><div class="progress" data-v-21b39eda></div></div></div></div>
+    <script src="/assets/js/app.d0e64cfc.js" defer></script><script src="/assets/js/3.c394ea60.js" defer></script><script src="/assets/js/56.f81e5032.js" defer></script>
+  </body>
+</html>

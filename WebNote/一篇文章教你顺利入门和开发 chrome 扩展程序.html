@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>一篇文章教你顺利入门和开发 chrome 扩展程序 | OrangBus</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="shortcut icon" href="/orangbus.ico" type="image/jpg">
+    <script><script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?75a195c58b50e00357efe9066f49f8b0";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+			</script>
+			</script>
+    <meta name="description" content="分享生活高效技能,保持勇敢，坚持有趣，生命不息，折腾不止！">
+    <meta property="article:modified_time" content="2021-07-23T03:17:20.000Z">
+    <meta property="og:site_name" content="OrangBus">
+    <meta property="og:title" content="一篇文章教你顺利入门和开发 chrome 扩展程序">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/WebNote/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E6%95%99%E4%BD%A0%E9%A1%BA%E5%88%A9%E5%85%A5%E9%97%A8%E5%92%8C%E5%BC%80%E5%8F%91%20chrome%20%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F.html">
+    <meta name="twitter:title" content="一篇文章教你顺利入门和开发 chrome 扩展程序">
+    <meta name="twitter:url" content="/WebNote/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E6%95%99%E4%BD%A0%E9%A1%BA%E5%88%A9%E5%85%A5%E9%97%A8%E5%92%8C%E5%BC%80%E5%8F%91%20chrome%20%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords" content="html,css,jquery,thinkphp,laravel,docker,linux,manjaro">
+    <meta name="author" content="OrangBus">
+    <meta name="baidu-site-verification" content="codeva-WJuxvfEOwn">
+    <link rel="preload" href="/assets/css/0.styles.8405cd42.css" as="style"><link rel="preload" href="/assets/js/app.d0e64cfc.js" as="script"><link rel="preload" href="/assets/js/3.c394ea60.js" as="script"><link rel="preload" href="/assets/js/159.77ec9b6e.js" as="script"><link rel="prefetch" href="/assets/js/10.80fa7f8c.js"><link rel="prefetch" href="/assets/js/100.50385f03.js"><link rel="prefetch" href="/assets/js/101.698b7727.js"><link rel="prefetch" href="/assets/js/102.ecbe0a4e.js"><link rel="prefetch" href="/assets/js/103.8138b32a.js"><link rel="prefetch" href="/assets/js/104.2d449ea0.js"><link rel="prefetch" href="/assets/js/105.30de147f.js"><link rel="prefetch" href="/assets/js/106.6d3fa8aa.js"><link rel="prefetch" href="/assets/js/107.aa63ed8b.js"><link rel="prefetch" href="/assets/js/108.ac55ea8b.js"><link rel="prefetch" href="/assets/js/109.1b2aadb0.js"><link rel="prefetch" href="/assets/js/11.432af780.js"><link rel="prefetch" href="/assets/js/110.df2cdeb1.js"><link rel="prefetch" href="/assets/js/111.5b511c8c.js"><link rel="prefetch" href="/assets/js/112.dacad57b.js"><link rel="prefetch" href="/assets/js/113.fb7dbfba.js"><link rel="prefetch" href="/assets/js/114.d09c5acb.js"><link rel="prefetch" href="/assets/js/115.a988bd2b.js"><link rel="prefetch" href="/assets/js/116.c0500263.js"><link rel="prefetch" href="/assets/js/117.2b359e04.js"><link rel="prefetch" href="/assets/js/118.7cfe289b.js"><link rel="prefetch" href="/assets/js/119.c506cf19.js"><link rel="prefetch" href="/assets/js/12.2b504033.js"><link rel="prefetch" href="/assets/js/120.6c0e4bb0.js"><link rel="prefetch" href="/assets/js/121.b3a9641d.js"><link rel="prefetch" href="/assets/js/122.436a18d1.js"><link rel="prefetch" href="/assets/js/123.38fd585b.js"><link rel="prefetch" href="/assets/js/124.aa03bc2d.js"><link rel="prefetch" href="/assets/js/125.3c51e174.js"><link rel="prefetch" href="/assets/js/126.f5951135.js"><link rel="prefetch" href="/assets/js/127.a126ff64.js"><link rel="prefetch" href="/assets/js/128.4970fada.js"><link rel="prefetch" href="/assets/js/129.ee81b464.js"><link rel="prefetch" href="/assets/js/13.4fc2b842.js"><link rel="prefetch" href="/assets/js/130.7eee2659.js"><link rel="prefetch" href="/assets/js/131.694743d6.js"><link rel="prefetch" href="/assets/js/132.b5589c5e.js"><link rel="prefetch" href="/assets/js/133.46a6c763.js"><link rel="prefetch" href="/assets/js/134.a8daaf00.js"><link rel="prefetch" href="/assets/js/135.1f10789c.js"><link rel="prefetch" href="/assets/js/136.8b617784.js"><link rel="prefetch" href="/assets/js/137.2106ed27.js"><link rel="prefetch" href="/assets/js/138.9a586b6f.js"><link rel="prefetch" href="/assets/js/139.d5357924.js"><link rel="prefetch" href="/assets/js/14.63b1bbd4.js"><link rel="prefetch" href="/assets/js/140.d1e4e0fe.js"><link rel="prefetch" href="/assets/js/141.47694c88.js"><link rel="prefetch" href="/assets/js/142.137392e8.js"><link rel="prefetch" href="/assets/js/143.6c18d0c6.js"><link rel="prefetch" href="/assets/js/144.68583712.js"><link rel="prefetch" href="/assets/js/145.acfcf4c7.js"><link rel="prefetch" href="/assets/js/146.5b672040.js"><link rel="prefetch" href="/assets/js/147.d533514f.js"><link rel="prefetch" href="/assets/js/148.cd738bb1.js"><link rel="prefetch" href="/assets/js/149.2d52bc40.js"><link rel="prefetch" href="/assets/js/15.06ade03e.js"><link rel="prefetch" href="/assets/js/150.1242c970.js"><link rel="prefetch" href="/assets/js/151.303a1e7c.js"><link rel="prefetch" href="/assets/js/152.3f80ddeb.js"><link rel="prefetch" href="/assets/js/153.fdc80245.js"><link rel="prefetch" href="/assets/js/154.9f82de99.js"><link rel="prefetch" href="/assets/js/155.35f89cfe.js"><link rel="prefetch" href="/assets/js/156.9404fe56.js"><link rel="prefetch" href="/assets/js/157.0edb926c.js"><link rel="prefetch" href="/assets/js/158.f4c7cd1f.js"><link rel="prefetch" href="/assets/js/16.492a3e04.js"><link rel="prefetch" href="/assets/js/160.ff2c8cf8.js"><link rel="prefetch" href="/assets/js/161.d07c5cf0.js"><link rel="prefetch" href="/assets/js/162.7eb28561.js"><link rel="prefetch" href="/assets/js/163.0516a709.js"><link rel="prefetch" href="/assets/js/164.e3e59ee3.js"><link rel="prefetch" href="/assets/js/165.6c91e5f3.js"><link rel="prefetch" href="/assets/js/166.99c34b8e.js"><link rel="prefetch" href="/assets/js/167.c5b47579.js"><link rel="prefetch" href="/assets/js/168.feeee617.js"><link rel="prefetch" href="/assets/js/169.57dd3536.js"><link rel="prefetch" href="/assets/js/17.f631d003.js"><link rel="prefetch" href="/assets/js/170.ec9d18e4.js"><link rel="prefetch" href="/assets/js/171.3dfd6d59.js"><link rel="prefetch" href="/assets/js/172.83c2c4c2.js"><link rel="prefetch" href="/assets/js/173.c6e726a4.js"><link rel="prefetch" href="/assets/js/18.4a9f58e4.js"><link rel="prefetch" href="/assets/js/19.a6716a12.js"><link rel="prefetch" href="/assets/js/2.8fb35049.js"><link rel="prefetch" href="/assets/js/20.aff82c49.js"><link rel="prefetch" href="/assets/js/21.a1fd826f.js"><link rel="prefetch" href="/assets/js/22.2b673c42.js"><link rel="prefetch" href="/assets/js/23.10ff2169.js"><link rel="prefetch" href="/assets/js/24.0236205d.js"><link rel="prefetch" href="/assets/js/25.25d1cc6f.js"><link rel="prefetch" href="/assets/js/26.248c5b7c.js"><link rel="prefetch" href="/assets/js/27.a9bd0d43.js"><link rel="prefetch" href="/assets/js/28.8f67d698.js"><link rel="prefetch" href="/assets/js/29.201bbf76.js"><link rel="prefetch" href="/assets/js/30.85fdb80d.js"><link rel="prefetch" href="/assets/js/31.0b0d0e1c.js"><link rel="prefetch" href="/assets/js/32.2c9effe5.js"><link rel="prefetch" href="/assets/js/33.92fc3612.js"><link rel="prefetch" href="/assets/js/34.e35c5be2.js"><link rel="prefetch" href="/assets/js/35.48afad48.js"><link rel="prefetch" href="/assets/js/36.fff7ba86.js"><link rel="prefetch" href="/assets/js/37.cf287dfb.js"><link rel="prefetch" href="/assets/js/38.1e2f16a3.js"><link rel="prefetch" href="/assets/js/39.6ca432b1.js"><link rel="prefetch" href="/assets/js/4.3a7e9b70.js"><link rel="prefetch" href="/assets/js/40.48a0118c.js"><link rel="prefetch" href="/assets/js/41.41393a13.js"><link rel="prefetch" href="/assets/js/42.d44d5e84.js"><link rel="prefetch" href="/assets/js/43.56348b87.js"><link rel="prefetch" href="/assets/js/44.f31a3a55.js"><link rel="prefetch" href="/assets/js/45.0c5141f5.js"><link rel="prefetch" href="/assets/js/46.ed76944d.js"><link rel="prefetch" href="/assets/js/47.e316f07f.js"><link rel="prefetch" href="/assets/js/48.66ff2948.js"><link rel="prefetch" href="/assets/js/49.a0858143.js"><link rel="prefetch" href="/assets/js/5.bfe2b380.js"><link rel="prefetch" href="/assets/js/50.a1c7399a.js"><link rel="prefetch" href="/assets/js/51.66c3e70a.js"><link rel="prefetch" href="/assets/js/52.a09ae200.js"><link rel="prefetch" href="/assets/js/53.dbbe022c.js"><link rel="prefetch" href="/assets/js/54.cc828a97.js"><link rel="prefetch" href="/assets/js/55.82eed5b7.js"><link rel="prefetch" href="/assets/js/56.f81e5032.js"><link rel="prefetch" href="/assets/js/57.42d78c52.js"><link rel="prefetch" href="/assets/js/58.ae5df450.js"><link rel="prefetch" href="/assets/js/59.663d39a3.js"><link rel="prefetch" href="/assets/js/6.52eb9a12.js"><link rel="prefetch" href="/assets/js/60.03c21d0e.js"><link rel="prefetch" href="/assets/js/61.5a18d425.js"><link rel="prefetch" href="/assets/js/62.e37aef49.js"><link rel="prefetch" href="/assets/js/63.cca674e9.js"><link rel="prefetch" href="/assets/js/64.f4cb43fc.js"><link rel="prefetch" href="/assets/js/65.387bbaf1.js"><link rel="prefetch" href="/assets/js/66.e9b6b510.js"><link rel="prefetch" href="/assets/js/67.2ae441cf.js"><link rel="prefetch" href="/assets/js/68.036e032c.js"><link rel="prefetch" href="/assets/js/69.a56b1a95.js"><link rel="prefetch" href="/assets/js/7.37f298a4.js"><link rel="prefetch" href="/assets/js/70.e36df831.js"><link rel="prefetch" href="/assets/js/71.f0065042.js"><link rel="prefetch" href="/assets/js/72.97b56a60.js"><link rel="prefetch" href="/assets/js/73.d1b511c7.js"><link rel="prefetch" href="/assets/js/74.afe4f0be.js"><link rel="prefetch" href="/assets/js/75.659a316f.js"><link rel="prefetch" href="/assets/js/76.a516ec07.js"><link rel="prefetch" href="/assets/js/77.d877ea5f.js"><link rel="prefetch" href="/assets/js/78.c2d33578.js"><link rel="prefetch" href="/assets/js/79.97e2f44e.js"><link rel="prefetch" href="/assets/js/8.50950320.js"><link rel="prefetch" href="/assets/js/80.49545cb0.js"><link rel="prefetch" href="/assets/js/81.eed16f63.js"><link rel="prefetch" href="/assets/js/82.95639ac6.js"><link rel="prefetch" href="/assets/js/83.6f591354.js"><link rel="prefetch" href="/assets/js/84.24400f8f.js"><link rel="prefetch" href="/assets/js/85.c60528d5.js"><link rel="prefetch" href="/assets/js/86.27ee9337.js"><link rel="prefetch" href="/assets/js/87.dbbb0fa7.js"><link rel="prefetch" href="/assets/js/88.02cc8de0.js"><link rel="prefetch" href="/assets/js/89.266636d0.js"><link rel="prefetch" href="/assets/js/9.ee5dcd77.js"><link rel="prefetch" href="/assets/js/90.1a5e2984.js"><link rel="prefetch" href="/assets/js/91.eb6662cf.js"><link rel="prefetch" href="/assets/js/92.eccbaa55.js"><link rel="prefetch" href="/assets/js/93.f3b4d026.js"><link rel="prefetch" href="/assets/js/94.d75a7bc8.js"><link rel="prefetch" href="/assets/js/95.9da1a8e4.js"><link rel="prefetch" href="/assets/js/96.c02c276b.js"><link rel="prefetch" href="/assets/js/97.a84a59b7.js"><link rel="prefetch" href="/assets/js/98.d81fed7a.js"><link rel="prefetch" href="/assets/js/99.1c8c4256.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8405cd42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/orangbus.png" alt="OrangBus" class="logo"> <span class="site-name can-hide">OrangBus</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link router-link-active">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Window" class="dropdown-title"><span class="title">Window</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Window/" class="nav-link">
+  高效工具
+</a></li><li class="dropdown-item"><!----> <a href="https://pc.qq.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  软件中心
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jetbrains
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php版本安装
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  php扩展
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><span class="title">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Linux/Config.html" class="nav-link">
+  配置文件
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Tool.html" class="nav-link">
+  生产工具
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/App.html" class="nav-link">
+  应用
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/SedAwk.html" class="nav-link">
+  SedAwk
+</a></li><li class="dropdown-item"><!----> <a href="/Linux/Question.html" class="nav-link">
+  问题解答
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/orangbus/tool" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro入门到生产
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><h4>
+          开发环境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.bt.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  宝塔Linux面板
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://laragon.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  laragon-window
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Linux发行版
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  centos
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.deepin.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Deepin
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.ubuntu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Ubuntu
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Manjaro
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          Laradock实战
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://yeasy.gitbooks.io/docker_practice/install/mirror.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker入门到实战
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://laradock.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Laradock官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-docker.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Docker在线学习调试
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  play with Kubernetes
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Code" class="dropdown-title"><span class="title">Code</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Html
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/RequireJs.html" class="nav-link">
+  RequireJs
+</a></li><li class="dropdown-subitem"><a href="/Code/Layui.html" class="nav-link">
+  Layui笔记
+</a></li><li class="dropdown-subitem"><a href="/Code/Javascript.html" class="nav-link">
+  Javascript手册
+</a></li><li class="dropdown-subitem"><a href="/Code/Css.html" class="nav-link">
+  Css样式收藏
+</a></li><li class="dropdown-subitem"><a href="/Code/Menu.html" class="nav-link">
+  在线手册
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/Code/VueNote.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><h4>
+          Php
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Code/Php.html" class="nav-link">
+  Php使用技巧
+</a></li><li class="dropdown-subitem"><a href="/Code/Thinkphp.html" class="nav-link">
+  ThinkPhp
+</a></li><li class="dropdown-subitem"><a href="/Code/LaraCode.html" class="nav-link">
+  LaraCode
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Python/Python.html" class="nav-link">
+  Python入门
+</a></li><li class="dropdown-subitem"><a href="/Python/Scrapy.html" class="nav-link">
+  Scrapy
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/Docker/" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/Mysql/" class="nav-link">
+  Mysql
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/Golang/" class="nav-link">
+  Golang
+</a></div><div class="nav-item"><a href="/MyNote/" class="nav-link">
+  MyNote
+</a></div><div class="nav-item"><a href="/WebNote/" class="nav-link router-link-active">
+  WebNote
+</a></div><div class="nav-item"><a href="/OrangBus/" class="nav-link">
+  OrangBus
+</a></div> <a href="https://github.com/orangbus/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>WebNote</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/WebNote/BeautifulSoup修改文档树.html" class="sidebar-link">BeautifulSoup修改文档树</a></li><li><a href="/WebNote/Docker Compose 配置文件详解 .html" class="sidebar-link">Docker Compose 配置文件详解</a></li><li><a href="/WebNote/Docker Dockerfile.html" class="sidebar-link">Dockerfile</a></li><li><a href="/WebNote/Docker的镜像制作与整套项目一键打包部署.html" class="sidebar-link">Docker的镜像制作与整套项目一键打包部署</a></li><li><a href="/WebNote/Filebeat模块与配置.html" class="sidebar-link">Filebeat模块与配置</a></li><li><a href="/WebNote/Git webhook 实现自动部署教程.html" class="sidebar-link">Git webhook 实现自动部署教程</a></li><li><a href="/WebNote/Go语言搬砖 操作MeiliSearch.html" class="sidebar-link">/WebNote/Go语言搬砖 操作MeiliSearch.html</a></li><li><a href="/WebNote/Linux命令之Crontab——定时任务.html" class="sidebar-link">Linux命令之Crontab——定时任务</a></li><li><a href="/WebNote/Linux环境下MySQL8.0安装.html" class="sidebar-link">Linux环境下MySQL8.0安装</a></li><li><a href="/WebNote/MySQL性能优化详解.html" class="sidebar-link">MySQL性能优化详解【精华篇】</a></li><li><a href="/WebNote/" aria-current="page" class="sidebar-link">十个催泪虐心的小故事</a></li><li><a href="/WebNote/Redis 几种数据类型及应用场景.html" class="sidebar-link">Redis 几种数据类型及应用场景</a></li><li><a href="/WebNote/SH Key 突然失效问题解答及处理办法.html" class="sidebar-link">SSH Key 突然失效问题解答及处理办法</a></li><li><a href="/WebNote/UserAgent.html" class="sidebar-link">UserAgent</a></li><li><a href="/WebNote/Vue-cli -axios 跨域.html" class="sidebar-link">Vue-cli -axios 跨域</a></li><li><a href="/WebNote/Vue-cli 引入各种静态资源.html" class="sidebar-link">Vue-cli 引入各种静态资源</a></li><li><a href="/WebNote/Vuetify.html" class="sidebar-link">Vuetify – 色彩，主题与基础样式</a></li><li><a href="/WebNote/docker-compose 搭建 minio 分布式对象存储 最新版(使用教程).html" class="sidebar-link">docker-compose 搭建 minio 分布式对象存储</a></li><li><a href="/WebNote/docker安装Syncthing，并配置数据同步备份.html" class="sidebar-link">docker安装Syncthing备份数据</a></li><li><a href="/WebNote/mysql order by 原理及优化详解.html" class="sidebar-link">mysql order by 原理及优化详解</a></li><li><a href="/WebNote/nginx 黑名单和白名单.html" class="sidebar-link">nginx 黑名单和白名单</a></li><li><a href="/WebNote/php 生成随机数 生成随机字符串的 5 种方法.html" class="sidebar-link">php 生成随机数 生成随机字符串的 5 种方法</a></li><li><a href="/WebNote/php中call_user_func 与 call_user_func_array的使用 .html" class="sidebar-link">php-calluserfunc使用</a></li><li><a href="/WebNote/x-ui面板+宝塔+伪装网站+CDN节点.html" class="sidebar-link">/WebNote/x-ui面板+宝塔+伪装网站+CDN节点.html</a></li><li><a href="/WebNote/一篇文章教你顺利入门和开发 chrome 扩展程序.html" class="active sidebar-link">一篇文章教你顺利入门和开发 chrome 扩展程序</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/WebNote/一篇文章教你顺利入门和开发 chrome 扩展程序.html#（一）manifest-json" class="sidebar-link">（一）manifest.json</a></li><li class="sidebar-sub-header"><a href="/WebNote/一篇文章教你顺利入门和开发 chrome 扩展程序.html#（二）background-script" class="sidebar-link">（二）background script</a></li><li class="sidebar-sub-header"><a href="/WebNote/一篇文章教你顺利入门和开发 chrome 扩展程序.html#三-content-script" class="sidebar-link">(三) content script</a></li><li class="sidebar-sub-header"><a href="/WebNote/一篇文章教你顺利入门和开发 chrome 扩展程序.html#popup" class="sidebar-link">popup</a></li><li class="sidebar-sub-header"><a href="/WebNote/一篇文章教你顺利入门和开发 chrome 扩展程序.html#（一）content-script-与-background-的通信" class="sidebar-link">（一）content script 与 background 的通信</a></li><li class="sidebar-sub-header"><a href="/WebNote/一篇文章教你顺利入门和开发 chrome 扩展程序.html#（二）popup-与-background-的通信" class="sidebar-link">（二）popup 与 background 的通信</a></li><li class="sidebar-sub-header"><a href="/WebNote/一篇文章教你顺利入门和开发 chrome 扩展程序.html#（三）popup-与-content-script-的通信" class="sidebar-link">（三）popup 与 content script 的通信</a></li><li class="sidebar-sub-header"><a href="/WebNote/一篇文章教你顺利入门和开发 chrome 扩展程序.html#（四）插件-iframe-网站与插入网页的通信" class="sidebar-link">（四）插件 iframe 网站与插入网页的通信</a></li></ul></li><li><a href="/WebNote/使用Certbot自动配置LetsEncrypt证书.html" class="sidebar-link">使用Certbot自动配置LetsEncrypt证书</a></li><li><a href="/WebNote/关于 Laravel项目多进程队列配置的使用.html" class="sidebar-link">/WebNote/关于 Laravel项目多进程队列配置的使用.html</a></li><li><a href="/WebNote/切换国内源及讯飞输入法安装.html" class="sidebar-link">切换国内源及讯飞输入法安装</a></li><li><a href="/WebNote/刻意练习 Elasticsearch 10000 个小时，鬼知道经历了什么？.html" class="sidebar-link">/WebNote/刻意练习 Elasticsearch 10000 个小时，鬼知道经历了什么？.html</a></li><li><a href="/WebNote/向 GitHub 提交代码时触发 Jenkins 自动构建.html" class="sidebar-link">向 GitHub 提交代码时触发 Jenkins 自动构建</a></li><li><a href="/WebNote/如何在局域网用一台服务器配置多站点？.html" class="sidebar-link">如何在局域网用一台服务器配置多站点？</a></li><li><a href="/WebNote/如何快速清理 docker 资源.html" class="sidebar-link">如何快速清理 docker 资源</a></li><li><a href="/WebNote/如何解决Docker 搭建pxc集群后，节点宕机，启动闪退.html" class="sidebar-link">pxc宕机重启场景还原及正确的启动方式</a></li><li><a href="/WebNote/打包压缩命令.html" class="sidebar-link">linux常用打包压缩格式</a></li><li><a href="/WebNote/课程脚本.html" class="sidebar-link">《Docker环境下的前后端分离部署与运维》课程脚本</a></li><li><a href="/WebNote/面试，看这一篇就够了.html" class="sidebar-link">mysql优化建议</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h1> <p>关于 chrome extension 的开发经验总结或说明文档等资料很多，很多人在写，然而，我也是一员。但是，也许这篇文章，可能给你一些不一样的感受。<br> <strong>这里介绍的是 80% 你要开发扩展会碰到的问题</strong></p> <p><strong>前面部分</strong>大多数是一些基础介绍，和别人的资料大同小异，但是用的是通俗的语言或者我自己理解来描述的，不是拷贝官方的描述，不然的话，你干脆看官方文档就好啦，干嘛还来我这里折腾对吧，也许这些通俗的描述，更方便你理解（当然不排除也会有官方的话语）<br> <strong>后面部分</strong>多为一些我在项目中总结的方法，这部分就是在别人的资料可能看不到的地方了，当然，这些方法也许不通用，因为毕竟是基于我项目里的，但是尽量总结一套方法出来。</p> <p>废话不多说，咱们开始吧...</p> <h1 id="目录"><a href="#目录" class="header-anchor">#</a> 目录</h1> <ul><li><a href="#what">WHAT</a></li> <li><a href="#base">最基本组成</a> <ul><li><a href="#manifest">manifest.json</a></li> <li><a href="#background">background script</a></li> <li><a href="#content">content script</a></li> <li><a href="#popup">popup</a></li></ul></li> <li><a href="#communication">基础的通信机制</a> <ul><li><a href="#communication01">content script 与 background 的通信</a></li> <li><a href="#communication02">popup 与 background 的通信</a></li> <li><a href="#communication03">popup 与 content script 的通信</a></li> <li><a href="#communication04">插件 iframe 网站与插入网页的通信</a></li></ul></li> <li><a href="#request">插件内容发送 ajax 请求，我的一套 “土办法”</a></li> <li><a href="#check">检测扩展是否已经安装</a></li> <li><a href="#last">注意项</a></li></ul> <h1 id="what"><a href="#what" class="header-anchor">#</a> WHAT</h1> <p>谷歌扩展（chrome extension），在认识之前，首先要明确一个观念，这种扩展程序，实际上不是一个 exe、app 之类的程序，下载了本地打开运行安装，本质上，它就是一个网页，写的用的都是前端的语言，高档点说是一个程序，通俗来讲， 就是运行在浏览器上的一个网站，网页。</p> <p>我这种说法也许不对，不准确，不专业。但是起码，能把小白开发扩展的心态，调整好点，实际上是一个不难的东西，就是在写页面而已。要知道，心态不好，后面就坚持不下去了。</p> <h1 id="最基本组成"><a href="#最基本组成" class="header-anchor">#</a> 最基本组成</h1> <p>这里讲的是开发一个扩展（插件）最常用最基本的所需的东西，并不像官方说的那种分类。</p> <ul><li>manifest.json</li> <li>background script</li> <li>content script</li> <li>popup</li></ul> <p>严格上来讲主要是 background script 、 content script 和 popup，毕竟他们都是贯穿在 manifest 里的，把 manifest 写出来，只是为了凸显一下它的重要性</p> <h2 id="（一）manifest-json"><a href="#（一）manifest-json" class="header-anchor">#</a> （一）manifest.json</h2> <p>一个插件，必须都含有这个一个文件——manifest.json，位于根目录。顾名思义，这是一个扩展的组成清单，在这个清单里能大约看到该插件的一个 “规则”。</p> <p>罗列和简单介绍一下一些常用的配置项，说之前，先看一个大致的文件，首先感官感受一下先</p> <div class="language- extra-class"><pre class="language-text"><code>{
+	// 必须
+	&quot;manifest_version&quot;: 2,
+	&quot;name&quot;: &quot;插件名称a&quot;,
+	&quot;version&quot;: &quot;1.1.2&quot;,
+
+	// 推荐
+	&quot;default_locale&quot;: &quot;en&quot;,
+	&quot;description&quot;: &quot;插件的描述&quot;,
+	&quot;icons&quot;: {
+		&quot;16&quot;: &quot;img/icon.png&quot;,	// 扩展程序页面上的图标
+		&quot;32&quot;: &quot;img/icon.png&quot;,	// Windows计算机通常需要此大小。提供此选项可防止尺寸失真缩小48x48选项。
+		&quot;48&quot;: &quot;img/icon.png&quot;,	// 显示在扩展程序管理页面上
+		&quot;128&quot;: &quot;img/icon.png&quot;	// 在安装和Chrome Webstore中显示
+	},
+
+	// 可选
+	&quot;background&quot;: {
+		&quot;page&quot;: &quot;background/background.html&quot;,
+		&quot;scripts&quot;: [&quot;background.js&quot;],
+		// 推荐
+		&quot;persistent&quot;: false
+	},
+	&quot;browser_action&quot;: {
+		&quot;default_icon&quot;: &quot;img/icon.png&quot;,	
+		// 特定于工具栏的图标，至少建议使用16x16和32x32尺寸，应为方形，
+		// 不然会变形
+		&quot;default_title&quot;: &quot;悬浮在工具栏插件图标上时的tooltip内容&quot;,
+		&quot;default_popup&quot;: &quot;hello.html&quot;	// 不允许内联JavaScript。
+	},
+	&quot;content_scripts&quot;: [ {
+		&quot;js&quot;: [ &quot;inject.js&quot; ],
+		&quot;matches&quot;: [ &quot;http://*/*&quot;, &quot;https://*/*&quot; ],
+		&quot;run_at&quot;: &quot;document_start&quot;
+	 } ],
+	&quot;permissions&quot;: [
+		&quot;contextMenus&quot;,
+		&quot;tabs&quot;,
+		&quot;http://*/*&quot;,
+		&quot;https://*/*&quot;
+	],
+	&quot;web_accessible_resources&quot;: [ &quot;dist/*&quot;, &quot;dist/**/*&quot; ]
+}
+复制代码
+</code></pre></div><p>上面有我写的一些注释，用于帮助大家更好的去理解。<br>
+那接下来开始说一下其中的配置项</p> <h3 id="icons"><a href="#icons" class="header-anchor">#</a> icons</h3> <p>extension 程序的图标，可以有一个或多个。<br>
+48x48 的图标用在 extensions 的管理界面 (chrome://extensions)；<br>
+128x128 的图标用在安装 extension 程序的时候；<br>
+16x16 的图标当作 extension 的页面图标，也可以显示在信息栏上。<br>
+图标一般为 PNG 格式, 因为最好的透明度的支持，不过 WebKit 支持任何格式，包括 BMP，GIF，ICO 等<br>
+注意: 以上写的图标不是固定的。随浏览器的环境的改变而变。如：安装时弹出的对话框变小。</p> <h3 id="browser-action-与-page-action"><a href="#browser-action-与-page-action" class="header-anchor">#</a> browser_action 与 page_action</h3> <p>这两个配置项都是用来处理扩展在浏览器工具栏上的表现行为。 前者扩展可以适用于任何页面。后者扩展只能作用于某一页面，当打开该页面时触发该 Google Chrome 扩展，关闭页面则 Google Chrome 扩展也随之消失。</p> <p>通俗的举个例子，一些扩展任何页面可用，就都会显示在工具栏上为可用状态，一些扩展只适用于某些页面，如大家很熟悉的 vue tools 调试器，在检测到页面用的是 vue 时，就会在工具栏显示出来并可用（非灰色）</p> <h5 id="default-popup"><a href="#default-popup" class="header-anchor">#</a> default_popup</h5> <p>在用户点击扩展程序图标时，都可以设置弹出一个 popup 页面。而这个页面中自然是可以有运行的 js 脚本的（比如就叫 popup.js）。它会在每次点击插件图标——popup 页面弹出时，重新载入。</p> <p>这个小小的设置，也就是上面我把它分为在基本组成里的<strong>popup</strong> 了</p> <h3 id="permissions"><a href="#permissions" class="header-anchor">#</a> permissions</h3> <p>在 background 里使用一些 chrome api，需要授权才能使用，例如要使用 chrome.tabs.xxx 的 api，就要在 permissions 引入 “tabs”</p> <h3 id="web-accessible-resources"><a href="#web-accessible-resources" class="header-anchor">#</a> web_accessible_resources</h3> <p>允许扩展外的页面访问的扩展内指定的资源。通俗来讲就是，扩展是一个文件夹 A 的，别人的网站是一个文件夹 B，B 要看 A 的东西，需要获得权限，而写在这个属性下的文件，就是授予了别人访问的权限。</p> <h2 id="（二）background-script"><a href="#（二）background-script" class="header-anchor">#</a> （二）background script</h2> <p>background 可以理解为插件运行在浏览器中的一个后台网站 / 脚本，注意它是与当前浏览页面无关的。<br>
+实际上这部分内容的配置情况也会写在 manifest 里，对应的是<code>background</code>配置项。单独拿出来讲，是彰显它的分量很重，也是一个插件常用的配置。从其中几个配置项项去了解一下什么是 background script</p> <h3 id="page"><a href="#page" class="header-anchor">#</a> page</h3> <p>可以理解为这个后台网站的主页，在这个主页中，有引用的脚本，其中一般都会有一个专门来管理插件各种交互以及监听浏览器行为的脚本，一般都起名为 background.js。这个主页，不一定要求有。</p> <h3 id="scripts"><a href="#scripts" class="header-anchor">#</a> scripts</h3> <p>这里的脚本其实跟写在 page 里 html 引入的脚本目的一样，个人的理解是，page 的 html 在没有的情况下，那么脚本就需要通过这个属性引入了；<br>
+如果在存在 page 的情况下，一般在这里引入的脚本是专门为插件服务的脚本，而那些第三方脚本如 jquery 还是在 page 里引用比较好，或许这是一个众人的 “潜规则” 吧</p> <h3 id="persistent"><a href="#persistent" class="header-anchor">#</a> persistent</h3> <p>所谓的后台脚本，在 chrome 扩展中又分为两类，分别运行于后台页面（background page）和事件页面（event page）中。两者区别在于，</p> <p><strong>前者</strong>（后台页面）持续运行，生存周期和浏览器相同，即从打开浏览器到关闭浏览器期间，后台脚本一直在运行，一直占据着内存等系统资源，persistent 设为 true；</p> <p>而<strong>后者</strong>（事件页面）只在需要活动时活动，在完全不活动的状态持续几秒后，chrome 将会终止其运行，从而释放其占据的系统资源，而在再次有事件需要后台脚本来处理时，重新载入它，persistent 设为 false。</p> <p>保持后台脚本持久活动的唯一场合是扩展使用 chrome.webRequest API 来阻止或修改网络请求。webRequest API 与非持久性后台页面不兼容。</p> <h2 id="三-content-script"><a href="#三-content-script" class="header-anchor">#</a> (三) content script</h2> <p>这部分脚本，简单来说是插入到网页中的脚本。它具有独立而富有包容性。</p> <p>所谓<strong>独立</strong>，指它的工作空间，命名空间，域等是独立的，不会说跟插入到的页面的某些函数和变量发生冲突；</p> <p>所谓<strong>包容性</strong>，指插件把自己的一些脚本（content script）插入到符合条件的页面里，作为页面的脚本，因此与插入的页面共享 dom 的，即用 dom 操作是针对插入的网页的，在这些脚本里使用的 window 对象跟插入页面的 window 是一样的。主要用在消息传递上（使用 postMessage 和 onmessage）</p> <p>实际上这部分内容的配置情况也会写在 manifest 里，对应的是<code>content_scripts</code>配置项。单独拿出来讲，是彰显它的分量很重，也是一个插件常用的配置。从其中几个配置项项去了解一下什么是 content script</p> <h3 id="js"><a href="#js" class="header-anchor">#</a> js</h3> <p>要插入到页面里的脚本。例子很常见，例如在一个别人的网页上，你要打开你做的扩展，对别人的网页做一些处理或者获取一些数据等，那怎么跟别人的页面建立起联系呢？就是通过把 js 里的这些脚本嵌入都别人的网页里。</p> <h3 id="matches"><a href="#matches" class="header-anchor">#</a> matches</h3> <p>必需。匹配规则组成的数组，用来匹配页面 url 的，符合条件的页面将会插入 js 的脚本。当然，有可以匹配的自然会有不匹配的——exclude_matches。匹配规则：</p> <p><a href="https://link.juejin.im?target=https%3A%2F%2Fdeveloper.chrome.com%2Fextensions%2Fmatch_patterns" target="_blank" rel="noopener noreferrer">developer.chrome.com/extensions/…<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>上面的官方描述已经很清晰啦，我就不多说了。</p> <h3 id="run-at"><a href="#run-at" class="header-anchor">#</a> run_at</h3> <p>js 配置项里的脚本何时插入到页面里呢，这个配置项来控制插入时机。有三个选择项：</p> <ul><li>document_start</li> <li>document_end</li> <li>document_idle（默认）</li></ul> <h5 id="document-start"><a href="#document-start" class="header-anchor">#</a> document_start</h5> <p>style 样式加载好，dom 渲染完成和脚本执行前</p> <h5 id="document-end"><a href="#document-end" class="header-anchor">#</a> document_end</h5> <p>dom 渲染完成后，即 DOMContentLoaded 后马上执行</p> <h5 id="document-idle"><a href="#document-idle" class="header-anchor">#</a> document_idle</h5> <p>在 DOMContentLoaded 和 window load 之间，具体是什么时刻，要视页面的复杂程度和加载时间，并针对页面加载速度进行了优化。</p> <h2 id="popup"><a href="#popup" class="header-anchor">#</a> popup</h2> <p>其实这部分，早就讲过了，就是在 manifest 里的<code>browser_action</code>与<code>page_action</code>配置项里设置的</p> <h1 id="基础的通信机制"><a href="#基础的通信机制" class="header-anchor">#</a> 基础的通信机制</h1> <p>上面讲述了基本的组成部分，那么这几部分，他们要进行交流合作，把他们组织起来，才能成就一个漂亮的扩展。那么这种交流，分为以下几种说明：</p> <ul><li>content script 与 background 的通信</li> <li>popup 与 background 的通信</li> <li>popup 与 content script 的通信</li> <li>插件 iframe 网站与插入网页的通信</li></ul> <p>最后一点，是额外说的，但是却是很重要的。毕竟很多扩展，也是以 iframe 的形式呈现的。</p> <h2 id="（一）content-script-与-background-的通信"><a href="#（一）content-script-与-background-的通信" class="header-anchor">#</a> （一）content script 与 background 的通信</h2> <h3 id="content-script-向-background-发送消息"><a href="#content-script-向-background-发送消息" class="header-anchor">#</a> content-script 向 background 发送消息</h3> <h4 id="在-content-script-端"><a href="#在-content-script-端" class="header-anchor">#</a> 在 content-script 端</h4> <p>使用</p> <div class="language- extra-class"><pre class="language-text"><code>chrome.runtime.sendMessege(
+    message,
+    function(response) {…}
+)
+复制代码
+</code></pre></div><p>就能向 background 发送消息了，第一个参数 message 为发送的消息（基础数据类型），回调函数里的第一个参数为 background 接收消息后返回的消息（如有）</p> <h4 id="在-background-端"><a href="#在-background-端" class="header-anchor">#</a> 在 background 端</h4> <p>使用</p> <div class="language- extra-class"><pre class="language-text"><code>chrome.runtime.onMessege.addListener(
+    function(request, sender, sendResponse) {…}
+)
+复制代码
+</code></pre></div><p>进行监听发来的消息，<code>request</code>表示发来的消息，<code>sendResponse</code>是一个函数，用于对发来的消息进行回应，如 <code>sendResponse('我已收到你的消息：'+JSON.stringify(request));</code></p> <p>这里需要注意的是，默认情况下<code>sendResponse</code>函数的执行是同步的，如果在这个监听消息的处理函数的同步执行流程里没有发现<code>sendResponse</code>，则默认返回<code>undefined</code>，假设我们是要经过一个异步处理之后才调用<code>sendResponse</code>，已经为时已晚了。因此，我们可能需要异步执行<code>sendResponse</code>，这时我们在这个监听函数里的添加<code>return true</code>就能实现了。</p> <p>还有，由于 background 监听所有页面上的 content script 上发来的消息，如果多个页面同时发送同种消息，background 的 onMessage 只会处理最先收到的那个，其他的不了了之了。</p> <h3 id="background-向-content-script-发送消息"><a href="#background-向-content-script-发送消息" class="header-anchor">#</a> background 向 content-script 发送消息</h3> <p>我们发现，一个插件里只有一个 background 环境，而 content-script 有多个（一个页面一个），那么 background 怎么向特定的 content-script 发送消息？</p> <h4 id="在-background-端-2"><a href="#在-background-端-2" class="header-anchor">#</a> 在 background 端</h4> <p>首先我们需要知道要向哪个 content scripts 发送消息，一般一个页面一份 content scripts，而一个页面对应一个浏览器 tab，每个 tab 都有自己的 tabId，因此首先要获取要发送消息的 tab 对应的 tabId。</p> <div class="language- extra-class"><pre class="language-text"><code>/**
+ * 获取当前选项卡id
+ * @param callback - 获取到id后要执行的回调函数
+ */
+function getCurrentTabId(callback) {
+    chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+        if (callback) {
+            callback(tabs.length ? tabs[0].id: null);
+        }
+    });
+}
+复制代码
+</code></pre></div><p>当知道了 tabId 后，就使用该 api 进行发送消息</p> <div class="language- extra-class"><pre class="language-text"><code>chrome.tabs.sendMessage(tabId, message, function(response) {...});
+复制代码
+</code></pre></div><p>其中 message 为发送的消息，回调函数的 response 为 content scripts 接收到消息后的回传消息</p> <h4 id="在-content-scripts-端"><a href="#在-content-scripts-端" class="header-anchor">#</a> 在 content scripts 端</h4> <p>同样是使用</p> <div class="language- extra-class"><pre class="language-text"><code>chrome.runtime.onMessege.addListener(function(request, sender, sendResponse) {…})
+复制代码
+</code></pre></div><p>进行来自 background 发来消息的监听并回传</p> <h2 id="（二）popup-与-background-的通信"><a href="#（二）popup-与-background-的通信" class="header-anchor">#</a> （二）popup 与 background 的通信</h2> <p>一般地，popup 与 background 的交流，常见于 popup 要获取 background 里的某些 “东西”，当然我们可以使用上述的<code>chrome.runtime.sendMessage</code>和<code>chrome.runtime.onMessage</code>的方式进行 popup 向 background 的交流，但是其实有更方便快捷的方式：</p> <div class="language- extra-class"><pre class="language-text"><code>var bg = chrome.extension.getBackgroundPage();
+bg.someMethod();    //someMethod()是background中的一个方法
+复制代码
+</code></pre></div><h2 id="（三）popup-与-content-script-的通信"><a href="#（三）popup-与-content-script-的通信" class="header-anchor">#</a> （三）popup 与 content script 的通信</h2> <p>这里的通信，实际上跟 background 与 content script 的方式是一样的</p> <h2 id="（四）插件-iframe-网站与插入网页的通信"><a href="#（四）插件-iframe-网站与插入网页的通信" class="header-anchor">#</a> （四）插件 iframe 网站与插入网页的通信</h2> <p>其实这两个的通信，算不上是 chrome extension 开发里的知识，它就是一个基础的 js 知识——ifame 与父窗体的通信。</p> <p>同域的情况下，可以通过 DOM 操作达到通信的目的，如获取 dom 元素，获取值赋值之类的。<br>
+在父窗体里，用<code>window.contentWindow</code>获取到 iframe 的 window 对象<br>
+在 iframe 里，用<code>window.parent</code>获取到父窗体的 window 对象</p> <p>而在跨域下，上述的方法是行不通的，网上也有各种方法解决，但是在插件这块里，最方便的就是使用 js 的<code>message机制</code>了。<br>
+我这里说的<code>message机制</code>，就是使用 window 对象的<code>postMessage()</code>和<code>onmessage</code>。</p> <p>一般插件展现都是在别人的网站上，因此没办法直接在别人的网站上添加<code>postMessage</code>和<code>onmessage</code>的代码。这时候，重任就落在了插件的 content script 身上了（之前说了他们共用 DOM）。由于 content script 是自己编写的，所以可以 “为所欲为” 了</p> <h3 id="iframe-向父窗体发送消息"><a href="#iframe-向父窗体发送消息" class="header-anchor">#</a> iframe 向父窗体发送消息</h3> <h4 id="在-iframe-端"><a href="#在-iframe-端" class="header-anchor">#</a> 在 iframe 端</h4> <p>假设 iframe 类名为 extension-iframe，这里设置类名而不是 id 名的初衷是，我们不能保证设置的名称原本的网站会不会已经存在，设置类名能共存。发送消息使用<br> <code>window.parent.postMessage(message, '*');</code><br>
+其中<code>message</code>为发送的消息</p> <h4 id="在父窗体端"><a href="#在父窗体端" class="header-anchor">#</a> 在父窗体端</h4> <p>由于一个页面，可能有来自页面本身的 postMessage 来的消息，也有可能来自该页面其他 chrome extension 发送来的消息，因此用 onmessage 来监听，要做好区分来源，这里使用以下方法</p> <div class="language- extra-class"><pre class="language-text"><code>window.addEventListener('message', function (event, a, b) {
+    // 如果没消息就退出
+    if (!event.data) {
+        return;
+    }
+    var iframes = document.getElementsByClassName('extension-iframe');
+    var extensionIframe = null; // 存插件iframe节点对象
+    var correctSource = false;  // 是否来源正确
+    // 找出真正的插件生成的iframe
+    for (var i = 0; i &lt; iframes.length; i++) {
+        if (iframes[i].contentWindow &amp;&amp; (event.source === iframes[i].contentWindow)) {
+            correctSource = true;
+            extensionIframe = iframes[i];
+            break;
+        }
+    }
+    // 如果来源不是来自插件的，就退出
+    if (!correctSource) {
+        return;
+    }
+}, false);
+复制代码
+</code></pre></div><p>这里也不能百分百区分好是不是来自自己 extension 的消息，或许真的那么倒霉刚好有一个跟自己 extension 同类名的 iframe 也发了一个消息过来。因此还可以加多一层保障，在 iframe 发送消息的内容上做手脚，例如加个 from，然后在这边判断一下等。当然，这样也不能百分百确定，只能说保障更上一层楼了。<br>
+如果大家有好的点子，请务必告诉鄙人！受教受教！</p> <h3 id="父窗体向-iframe-发送消息"><a href="#父窗体向-iframe-发送消息" class="header-anchor">#</a> 父窗体向 iframe 发送消息</h3> <h4 id="在父窗体端-2"><a href="#在父窗体端-2" class="header-anchor">#</a> 在父窗体端</h4> <p>使用 <code>extensionIframe.contentWindow.postMessage(message, '*');</code><br>
+其中<code>extensionIframe</code>为插件的 iframe 节点对象，<code>message</code>为发送的消息，例如</p> <div class="language- extra-class"><pre class="language-text"><code>{from: 'content-script', other: xxx}
+复制代码
+</code></pre></div><h4 id="在-iframe-端-2"><a href="#在-iframe-端-2" class="header-anchor">#</a> 在 iframe 端</h4> <p>使用</p> <div class="language- extra-class"><pre class="language-text"><code>window.addEventListener('message', function (event, a, b) {
+    let result = event.data;
+    if (result &amp;&amp; (result.from === 'content-script') &amp;&amp; (event.source === window.parent)) {...}
+});
+复制代码
+</code></pre></div><p>在这里，在发送消息里增加了个 from 属性，进而进一步判断是不是来自父窗体自己插件的 content script</p> <h1 id="插件内容发送-ajax-请求，我的一套-土办法"><a href="#插件内容发送-ajax-请求，我的一套-土办法" class="header-anchor">#</a> 插件内容发送 ajax 请求，我的一套 “土办法”</h1> <p>我们知道，在进行 ajax 请求，是有可能遇到跨域的。例如我的项目就是在任何一个页面插入 iframe 网站，然后有些操作就需要发请求了，这样必然存在跨域问题。<br>
+然而，如果开发插件还要开发者想办法解决跨域问题，那 chrome extension 就太逊了，而且，跨不跨域，还不是浏览器自己的主意，是浏览器本身的安全策略。</p> <p>所以，chrome extension 为了保证自己的优越性，允许在自己的程序里面，实现跨域请求，那完全的 chrome extension 程序，无非就是在 background 里了。</p> <p><strong>因此，插件要实现一些 ajax 请求，都得通通搬到 background 里实现</strong>。这个事情，本身不是什么重大发现。接下来要说的是，我利用这个特性，按照某个规则，实现一套方便的请求流程。</p> <p>这里以一个 ifame 网站嵌入到别人页面的这类形式的 chrome extension 为例子。</p> <h3 id="在插件生成的-iframe-网站里"><a href="#在插件生成的-iframe-网站里" class="header-anchor">#</a> 在插件生成的 iframe 网站里</h3> <p>首先在这个插件网站中，有一些按钮操作本身是要触发某些 ajax 请求的，但是由于上述原因，不能直接在插件网站里发请求，而是先向父窗口发送消息，利用<code>postMessage</code>。例如</p> <div class="language- extra-class"><pre class="language-text"><code>window.parent.postMessage({
+    from: 'extension-iframe',
+    type: 'loadTable',
+    data: {
+        pageIndex: 1,
+        pageSize: 10,
+        sortProp: '',
+        sortOrder: 0
+    }
+}, '*');
+复制代码
+</code></pre></div><p>by the way，这里用<code>window.parent.postMessage</code>是为了解决 iframe 跨域通信问题，当然如果是确保同域的情况下，其实可以直接用 DOM 操作告诉父窗口一些消息。</p> <p>言归正传，在 postMessage 第一个参数对象里</p> <table><thead><tr><th>属性名</th> <th>描述</th></tr></thead> <tbody><tr><td>from</td> <td>标记这条消息来自哪里</td></tr> <tr><td>type</td> <td>操作的名称，如发送该 message 的操作目的是为了加载表格</td></tr> <tr><td>data</td> <td>发送请求的 data</td></tr></tbody></table> <h3 id="在插件的-content-script-里"><a href="#在插件的-content-script-里" class="header-anchor">#</a> 在插件的 content script 里</h3> <p>监听发来的消息，这里①标注的代码为前面说过的区分来源，这里重点放在②部分的代码</p> <div class="language- extra-class"><pre class="language-text"><code>window.addEventListener('message', function (event, a, b) {
+    var responseData = event.data;
+    if (!event.data) {
+        return;
+    }
+    // 来自插件内嵌网站的消息
+    if (responseData.from === 'extension-iframe') {
+        // ① 判断是否自己插件的iframe
+        var iframes = document.getElementsByClassName('extension-iframe');
+        var extensionIframe = null;
+        var correctSource = false;
+        for (var i = 0; i &lt; iframes.length; i++) {
+            if (iframes[i].contentWindow &amp;&amp; (event.source === iframes[i].contentWindow)) {
+                correctSource = true;
+                extensionIframe = iframes[i];
+                break;
+            }
+        }
+        if (!correctSource) {
+            return;
+        }
+        // ② 加载表格、提交信息等请求操作
+        // 该数组为iframe传来各个操作的名称，对应发来的消息的type属性
+        var operators = ['loadTable', 'submit', 'getNonMarkedCount', 'getUrl'];
+        // 如果跟操作匹配上了，就转发给background
+        if (operators.indexOf(responseData.type) !== -1) {
+            chrome.runtime.sendMessage({
+                type: responseData.type,
+                data: responseData.data
+            },function (response) {
+                // 返回请求后的数据给iframe网站
+                extensionIframe.contentWindow.postMessage({
+                    from: 'extension-content-script',
+                    type:  responseData.type,
+                    response: response
+                }, '*');
+            });
+        }
+    }
+}, false);
+复制代码
+</code></pre></div><h3 id="在插件的-background-script-里"><a href="#在插件的-background-script-里" class="header-anchor">#</a> 在插件的 background script 里</h3> <p>监听刚转发过来的消息</p> <div class="language- extra-class"><pre class="language-text"><code>// 这是所有请求组成对象
+var httpService = {
+    loadTable: function (config) {
+        return eodHttp.get('/brandimageservice/perspective/mark', config);
+    },
+    submit: function (config) {
+        return eodHttp.post('/brandimageservice/perspective/mark', config);
+    },
+    ...
+};
+
+// 监听刚转发过来的消息
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    // 该数组为iframe传来各个操作的名称，对应发来的消息的type属性
+    var operators = ['loadTable', 'submit', 'getNonMarkedCount', 'getUrl'];
+    if (operators.indexOf(request.type) !== -1) {
+        // 这里的type刚好与请求的属性名一致
+        httpService[request.type](request.data).then(res =&gt; {
+            // 把请求的结果回传给content script
+            sendResponse(res);
+        }).catch(e =&gt; {
+            // 这里做了请求拦截，如果不是canceled的请求报错，则把报错信息也回传给content script
+            (e.status !== -1) &amp;&amp; (sendResponse(e.data));
+        });
+    }
+    // 此处return true是为了把sendResponse作为异步处理。
+    return true;
+});
+复制代码
+</code></pre></div><h3 id="再返回到插件生成的-iframe-网站里"><a href="#再返回到插件生成的-iframe-网站里" class="header-anchor">#</a> 再返回到插件生成的 iframe 网站里</h3> <p>这次绕回到这个 ifame 里，最终的请求的数据还是会流回这里。</p> <div class="language- extra-class"><pre class="language-text"><code>window.addEventListener('message', function (event, a, b) {
+    let result = event.data;
+    if (result &amp;&amp; (result.from === 'extension-content-script') &amp;&amp; (event.source === window.parent)) {
+        // 以下为请求返回内容
+        let res = result.response;
+        // 加载表格数据
+        if (result.type === 'loadTable') {...}
+    }
+});
+复制代码
+</code></pre></div><p>这样，最终在 iframe 里获取到的请求数据还是跟之前我们平常开发调接口的情况是一样的。</p> <h3 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h3> <p>整个流程是 <strong>iframe -&gt; content script -&gt; background -&gt; content script -&gt; iframe</strong><br>
+以 background 为中分线，前半截为发送请求，后半截为获取请求数据。这里巧妙的用法就是 “type” 这个字段由始至终都一直存在，都代表一样的意思。这样的写法的好处是，所有请求操作都可以共用这么一个流程，改一下 type 区分一下操作即可。</p> <h1 id="检测-chrome-extension-是否已经安装"><a href="#检测-chrome-extension-是否已经安装" class="header-anchor">#</a> 检测 chrome extension 是否已经安装</h1> <p>有一些 chrome extension，可能不单单是通过点击浏览器工具栏上的插件图标来激活插件，也有一些需求是通过点击网站上某个按钮来激活插件（如自家的系统），那么这时候第一步需要的是，检测浏览器是否安装了要求的 chrome extension，如果没有，进行提示等等。</p> <p>在国内资料中进行搜索，往往会看到很多条教用<code>navigator</code>对象来查找安装的插件，可能是我太弱鸡了，我发现并不能用来检测到自己添加的 chrome extension。于是我只能另寻他法了，如果有大神知道如何用<code>navigator</code>对象来判断，麻烦指导一下。</p> <h3 id="思路"><a href="#思路" class="header-anchor">#</a> 思路</h3> <p>如果安装了某个插件，那么该插件的 content script 就会插入到页面上（没有 content script 的除外，但是一般没有 content script 的插件往往也没有以上这样的需求），因此判断是否安装了该插件，就变为判断 content script 是否插入到页面上。</p> <h4 id="方法一"><a href="#方法一" class="header-anchor">#</a> 方法一</h4> <p>在 content script 里写这么一个逻辑：往插入页面生成一个 html 元素标记，如<code>&lt;div&gt;&lt;div&gt;</code>。然后在插入页面获取这个元素，如果获取到了，就证明 content script 存在了（不存在也就没有这个元素了），就证明已经安装了。</p> <p><strong>缺点</strong>： 创建的这个元素，一定要够 “特别”，越能确保其独一无二越能证明是来自插件的。什么意思？假设刚好页面也有一个类名跟创建的一样的，那就要做进一步区分这到底是不是来自该插件的了。</p> <h4 id="方法二"><a href="#方法二" class="header-anchor">#</a> 方法二</h4> <p>通过 message 机制，在合适的时机里，页面用<code>postMessage</code>发送消息给 window，content script 监听 window 消息，判断如果是要求检查是否安装的消息，则再用<code>postMessage</code>告知，只要收到这个消息，就证明已经安装了。</p> <p><strong>缺点</strong>：由于发送消息和接受消息再到发送消息，这个过程是异步的。所以要处理好何时发送检测的时机问题。</p> <h3 id="安装的一些注意事项"><a href="#安装的一些注意事项" class="header-anchor">#</a> 安装的一些注意事项</h3> <p>安装手段一般是有两种的，一种在谷歌商店上进行在线安装，一种是下载安装包离线安装。在线安装没什么好说的，那么说一下离线安装。</p> <p>离线安装的关键是，你提供的下载包是什么？</p> <p>开发者在开发扩展的时候，往往是直接安装在本地上的扩展所在文件夹。在 chrome://extensions 上开启开发者模式，点击 “加载已解压的扩展程序”。这时候会发现第一次打开浏览器的时候会老是提示你这个扩展不安全之类的。当然我们提供给用户下载的安装包肯定不能是这个了。</p> <p>一开始我傻不拉几的直接压缩自己的开发的扩展所在文件夹，然后发到服务器上给用户下载，结果呢，用户下载了，然后把压缩包拖动到 chrome://extension 里，发现 chrome 不允许安装，说什么基于安全什么的。也就是我这个扩展可能不安全不给我装。</p> <p>后来才知道，不应该提供这种压缩包，而是在自己发布扩展的开发者信息中心里，把已发布的扩展下载下来提供给用户用才可以。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/12/14/167ac21e1cd609cf?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p> <p>也许... 只有我那么傻吧</p> <h1 id="最后"><a href="#最后" class="header-anchor">#</a> 最后</h1> <p>最后的最后，我说一下小细节的注意项吧，稍微不留神，可能就这样傻傻地写下了 bug 了...</p> <h3 id="扩展之间很容易相互影响"><a href="#扩展之间很容易相互影响" class="header-anchor">#</a> 扩展之间很容易相互影响</h3> <p>怎么理解？在通信部分我讲过，在传递消息的时候，在消息里，我有用 type 字段来标明传递的内容类型。在开发完扩展的时候，发现有些同事的电脑可以正常使用有些却不行，后来调试代码发现，在 postMessage 函数里的 type 参数给别的扩展改造过了，受到了影响。</p> <p>为什么会这样呢？原因是扩展都是通过嵌入自己的脚本到别人的网页里，因此在一个网页里的代码，特别是传递消息机制里，更容易受到牵连。</p> <p>这个问题说明了什么？</p> <ul><li>要安装权威可信的扩展</li> <li>开发一个值得让人信赖的扩展，开发一个尽量考虑全面的扩展，不要给用户添麻烦</li></ul> <h3 id="代码调试"><a href="#代码调试" class="header-anchor">#</a> 代码调试</h3> <p>对于 content script 的调试，平常我们打开 F12 选择到 source 选项的时候，一般都会显示在 &quot;page&quot; 下，其实可以看到，还有个 content script 的选择，里边的就是各个扩展的内容脚本了。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/12/17/167ba449c87b9757?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p> <p>对于 backgroud script 的调试，就在去到 chrome://extensions 页下，找到对应的扩展，然后点击背景视图，就可以看到 backgroud script 进行调试了，而且，还能在控制台调用 chrome api 呢。以及，请求也可以在这里看到。</p> <p><img src="https://user-gold-cdn.xitu.io/2018/12/18/167c01356d69a4e2?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p> <h3 id="信息传递的异步性"><a href="#信息传递的异步性" class="header-anchor">#</a> 信息传递的异步性</h3> <p>在扩展中，会用到很多消息传递，如上述的 postMessage 和 chrome.runtime.sendMessage 等之类的，大家一定要有一个观念，他们的交流并不是同步，不是说我发了一个消息过去，就马上收到然后做接下来的处理。</p> <p>所以我们写逻辑的时候一定要注意，这种异步性，会对你的逻辑处理产生什么效果。特别是也要考虑到 content script 的插入时机是否对这些通信产生一定影响，如 content script 都没有准备好，就发了一些消息，然后就没有声响了。</p> <p>关于 chrome extensions 的基本介绍和开发思路就介绍到这里，后续会有一篇文章专门来阐述一下，我项目中遇到的需求，遇到的问题以及对应的解决方案。</p> <p>感兴趣的可以关注一下，感觉文章写得对你有帮助的话，请点下赞。</p> <p>转载请标注出处谢谢，写文章不易。</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/orangbus/vuepress-blog/edit/master/docs/WebNote/一篇文章教你顺利入门和开发 chrome 扩展程序.md" target="_blank" rel="noopener noreferrer">帮助我们改善此页面！</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">7/23/2021, 11:17:20 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/WebNote/x-ui面板+宝塔+伪装网站+CDN节点.html" class="prev">
+        /WebNote/x-ui面板+宝塔+伪装网站+CDN节点.html
+      </a></span> <span class="next"><a href="/WebNote/使用Certbot自动配置LetsEncrypt证书.html">
+        使用Certbot自动配置LetsEncrypt证书
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><div class="reading-progress top" data-v-21b39eda><div class="progress" data-v-21b39eda></div></div></div></div>
+    <script src="/assets/js/app.d0e64cfc.js" defer></script><script src="/assets/js/3.c394ea60.js" defer></script><script src="/assets/js/159.77ec9b6e.js" defer></script>
+  </body>
+</html>
